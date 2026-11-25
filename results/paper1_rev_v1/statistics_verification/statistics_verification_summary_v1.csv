@@ -1,0 +1,21 @@
+quantity,max_abs_difference,n
+fold-level ROC_AUC (180 fold x disease x model values),4.6514512527962015e-05,180
+fold-level PR_AUC (180 fold x disease x model values),0.0003797131357641259,180
+fold-level Brier (180 fold x disease x model values),3.981634277838708e-08,180
+fold-level calibration_intercept (180 fold x disease x model values),3.082865894177278e-06,180
+fold-level calibration_slope (180 fold x disease x model values),0.0026379621872187897,173
+fold-level sensitivity (180 fold x disease x model values),1.1102230246251565e-16,180
+fold-level specificity (180 fold x disease x model values),1.1102230246251565e-16,180
+fold-level balanced_accuracy (180 fold x disease x model values),5.551115123125783e-17,180
+fold-level F1 (180 fold x disease x model values),8.326672684688674e-17,180
+fold-level MCC (180 fold x disease x model values),9.71445146547012e-17,180
+fold-level within_year_AUC (180 fold x disease x model values),0.00020490403660949896,180
+"Table 5/7 corrected-t mean and CI ends (overall, 6 comparisons, 3-decimal table values)",0.0004746765522013058,18
+Table 5/7 corrected-t within-year mean and CI ends,0.0004720699068838617,6
+"Holm-adjusted p (Table 5/7, 3-decimal)",0.00040736068513558266,6
+pooled quantile-score AUC point estimates (15 values),5.997292822357281e-07,15
+"bootstrap 95% CI ends, independent resampling (Monte Carlo difference expected)",0.009055573108668225,30
+"permutation p (6 values, 3-decimal table)",0.0004851485148514856,6
+permutation Holm p (6 values),0.00045544554455451136,6
+Table 1 household and case counts (24 values),0.0,24
+"forward temporal ROC-AUC (6 values, 3-decimal table)",0.000474402201294466,6

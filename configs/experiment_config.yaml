@@ -1,0 +1,62 @@
+# Pre-registered settings for the SR-SGO study (written in Stage 2, BEFORE any new model results).
+# Changing anything here after Stage 2 must be logged as a deviation in decision_log.json.
+seed: 20261119
+confirmatory_seed: 20261120
+block_km: 80.94049315824638            # median variogram practical range (run 1)
+k_folds: 5
+confirmatory:
+  repeats: 2
+  grid_offsets_rule: "maximin: each confirmatory grid origin is chosen (1 km grid, greedy) to maximise the minimum wrap-around distance to the three development grid origins and to the other confirmatory origin (label-free)"
+  initial_offsets_replaced: "[[0.5, 0.5], [0.25, 0.75]] x block; replaced in Stage 2 before any model evaluation because c2 nearly coincided with development repeat 3 (block ARI 0.77)"
+  balance: rows per fold (greedy, blocks in random order)
+  redraw_rule: "if any fold has < 10 positives or < 10 negatives for any disease, redraw with seed + 1 (logged)"
+development_partition: stage3_folds_v1.csv (3 repeats x 5 folds, runs 1-3)
+
+fitness:
+  formula: "F = mean_b AUC_b - lambda * SD_b AUC_b - mu * complexity"
+  lambda_sd: 0.5
+  mu_complexity: 0.005
+  complexity: "share of the switchable feature groups that are switched on (climate variables, coordinate group, neighbourhood rate types, cross-disease)"
+  inner_cv: {repeats: 2, folds: 5, unit: "outer spatial blocks of the same partition, balanced by rows"}
+  auc_ties: average ranks
+
+search_space:              # 24 decision variables
+  climate_mask: [Altitude, Temperature, Precipitation, Relative_humidity, Wind_speed, SL_temperature, DeMartonne, Temp_x_RH, Precip_x_RH, log_Precip, Wind_x_RH]   # 11 bits
+  coordinates_group: 1 bit (Lat, Lon, LatPlusLon, LatMinusLon)
+  neighbourhood_switches: [kernel_rates, knn_rates, idw_rates, density_terms, cross_disease_rates]            # 5 bits
+  neighbourhood_parameters:
+    bandwidth_1_km: [25, 400]       # log scale
+    bandwidth_2_km: [25, 400]       # log scale
+    k_nearest_locations: [3, 60]    # integer
+    prior_strength: [0.5, 20]       # pseudo-households, log scale
+    idw_power: [1, 3]
+  hyperparameters_extratrees: {min_samples_leaf: [2, 50], min_samples_leaf_is_integer: true, max_features: [0.2, 1.0]}
+  binary_transfer: "S-shaped (sigmoid) transfer, threshold 0.5"
+
+surrogate:
+  primary: "location-level ExtraTrees regressor, 100 trees (one row per training location, weighted by households)"
+  alternative: "row-level ExtraTrees classifier, 100 trees"
+  fidelity_rule: "Stage 3: Spearman rho between surrogate fitness and full-model fitness over 30 random candidates (1 outer fold per disease). Use primary if rho >= 0.7, else alternative."
+final_learner: "ExtraTrees, 300 trees, row level, with the selected hyperparameters; refit on the full outer training set"
+
+budget:
+  stage6_sr_sgo: {population: 12, iterations: 20, evaluations: 240, seeds: 1, outer_folds: "development 3 x 5"}
+  stage5_optimiser_comparison: {population: 10, iterations: 15, evaluations: 150, inner_cv: "1 x 5", seeds: 3, outer_folds: "development repeat 1 (5 folds)", optimisers: [SGO, MSGO, PSO, GA, DE, GWO]}
+  stage8_ablations: "Stage 6 settings on development repeat 1 (5 folds); variants that need no search are evaluated directly"
+  stage_wall_clock_limit_hours: 4
+  benchmark_check: {functions: [Sphere, Rastrigin, Rosenbrock, Ackley], dimensions: [10, 30], evaluations: 15000, seeds: 5}
+
+comparators:
+  a: "simple rank average of the model library (run-3 21 models + LightGBM + SVM)"
+  b: "best single model chosen on inner folds (mean inner-block ROC-AUC)"
+  c: "hindsight-best single model (labelled 'hindsight')"
+  d: "RB-HGWOPSO ensemble (run 3)"
+
+ensemble_component: "rank-scaled weights shrunk to uniform: w = (1 - alpha) w_SGO + alpha / M, alpha in {0, 0.25, 0.5, 0.75, 1} chosen by repeated inner CV; dropped if not better than comparator (a) on inner validation"
+calibration: "Platt scaling on inner out-of-fold predictions (reported; does not change ROC-AUC)"
+threshold_rule: "Youden index on inner out-of-fold predictions"
+
+success_rule: "Confirmatory partition only. Pooled location-cluster bootstrap (B = 1000) 95% CI of the ROC-AUC difference SR-SGO minus comparator is above 0 for BOTH comparator (a) and comparator (b), for at least 2 of 3 diseases."
+secondary_statistics: "corrected resampled t-test (Nadeau & Bengio 2003) with Holm correction across comparators; Friedman test with Nemenyi critical difference"
+go_no_go_gate: "After Stage 6, on development folds: proceed to Stage 9 only if SR-SGO mean ROC-AUC > comparator (a) AND pooled bootstrap ROC-AUC difference > 0, for at least 2 of 3 diseases. Otherwise stop and report."
+reporting: "Every run, variant, ablation and failure is reported. No method is added after seeing confirmatory results."

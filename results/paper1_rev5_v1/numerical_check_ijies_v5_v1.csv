@@ -1,0 +1,95 @@
+document,change,number,found in,context
+manuscript,new or changed,0.035,notebook v6,"e 1,000 village-level label permutations (Holm-adjusted p ≤ 0.035). CBPP and LSD showed no consistent gai"
+manuscript,new or changed,900,notebook v6,he first 100 per scheme come from the original analysis and 900 were added later with the same code and
+manuscript,new or changed,0.0010,notebook v6," observed gain) / (1 + 1,000), so it cannot be smaller than 0.0010. Forward temporal validation trained on"
+manuscript,new or changed,-0.04,notebook v6,", 0.623 (FMD) and 0.573 (LSD) (Supplementary Table S4), 0.01-0.04 below FS5 and the rank average, so the "
+manuscript,new or changed,0.0070,notebook v6,"d 6 of the 1,000 village-level permutations (p = 0.0010 and 0.0070); after Holm correction across the six "
+manuscript,new or changed,0.0080,notebook v6,he LSD gain was unusual under the household-level null (p = 0.0080; Holm p = 0.035) but not under the vill
+manuscript,new or changed,0.1349,notebook v6,"; Holm p = 0.035) but not under the village-level null (p = 0.1349), so it can be explained by clustering "
+manuscript,new or changed,0.500,notebook v6,"0.500 [0.472, 0.527]"
+manuscript,new or changed,-0.029,notebook v6,"+0.000 [-0.029, +0.029]"
+manuscript,new or changed,+0.029,notebook v6,"+0.000 [-0.029, +0.029]"
+manuscript,new or changed,+0.018,notebook v6,+0.018
+manuscript,new or changed,0.1169,notebook v6,0.1169 (0.0010)
+manuscript,new or changed,0.351,notebook v6,0.351
+manuscript,new or changed,0.530,notebook v6,"0.500 [0.470, 0.530]"
+manuscript,new or changed,-0.032,notebook v6,"-0.001 [-0.032, +0.031]"
+manuscript,new or changed,+0.084,notebook v6,+0.084
+manuscript,new or changed,0.526,notebook v6,"0.501 [0.476, 0.526]"
+manuscript,new or changed,0.558,notebook v6,"0.499 [0.446, 0.558]"
+manuscript,new or changed,-0.002,notebook v6,"-0.002 [-0.062, +0.059]"
+manuscript,new or changed,+0.059,notebook v6,"-0.002 [-0.062, +0.059]"
+manuscript,new or changed,0.2597,notebook v6,0.2597 (0.0010)
+manuscript,new or changed,0.439,notebook v6,"0.501 [0.439, 0.569]"
+manuscript,new or changed,0.569,notebook v6,"0.501 [0.439, 0.569]"
+manuscript,new or changed,-0.068,notebook v6,"-0.003 [-0.068, +0.065]"
+manuscript,new or changed,+0.065,notebook v6,"-0.003 [-0.068, +0.065]"
+manuscript,new or changed,0.432,notebook v6,"0.502 [0.432, 0.567]"
+manuscript,new or changed,0.567,notebook v6,"0.502 [0.432, 0.567]"
+manuscript,new or changed,-0.074,notebook v6,"-0.004 [-0.074, +0.071]"
+manuscript,new or changed,+0.071,notebook v6,"-0.004 [-0.074, +0.071]"
+manuscript,removed,97,,"UC 0.10-0.21 higher than spatial validation, mainly because 97% of its test households had training ho"
+manuscript,removed,0.0099,,"he observed gain) / (1 + 100), so it cannot be smaller than 0.0099. Forward temporal validation trained on"
+manuscript,removed,0.010,,"household-level and all 100 village-level permutations (p = 0.010 in both designs, the smallest attainabl"
+manuscript,removed,0.149,,"-level null (p = 0.010) but not the village-level null (p = 0.149), so it can be explained by clustering "
+manuscript,removed,0.504,,"0.504 [0.482, 0.528]"
+manuscript,removed,0.482,,"0.504 [0.482, 0.528]"
+manuscript,removed,-0.020,,"+0.003 [-0.020, +0.038]"
+manuscript,removed,0.018,,0.018
+manuscript,removed,0.198,,0.198 (0.010)
+manuscript,removed,0.529,,"0.499 [0.472, 0.529]"
+manuscript,removed,-0.040,,"-0.001 [-0.040, +0.030]"
+manuscript,removed,0.455,,"0.502 [0.455, 0.560]"
+manuscript,removed,-0.071,,"-0.007 [-0.071, +0.047]"
+manuscript,removed,0.208,,0.208 (0.010)
+manuscript,removed,0.436,,"0.497 [0.436, 0.561]"
+manuscript,removed,0.561,,"0.497 [0.436, 0.561]"
+manuscript,removed,-0.008,,"-0.008 [-0.070, +0.052]"
+manuscript,removed,-0.070,,"-0.008 [-0.070, +0.052]"
+manuscript,removed,+0.052,,"-0.008 [-0.070, +0.052]"
+manuscript,removed,0.434,,"0.499 [0.434, 0.555]"
+manuscript,removed,+0.072,,"-0.004 [-0.070, +0.072]"
+supplement,new or changed,0.0010,notebook v6,"erved gain) / (1 + 1,000); the smallest attainable value is 0.0010. The first 100 permutations per scheme "
+supplement,new or changed,900,notebook v6, analysis (Holm-adjusted FMD p = 0.059 with 100); the other 900 were added with the same code and seed 
+supplement,new or changed,1000,notebook v6,1000
+supplement,new or changed,0.466,notebook v6,"0.500 [0.466, 0.531]"
+supplement,new or changed,0.531,notebook v6,"0.500 [0.466, 0.531]"
+supplement,new or changed,-0.029,notebook v6,"+0.000 [-0.029, +0.029]"
+supplement,new or changed,+0.018,notebook v6,+0.018
+supplement,new or changed,0.1169,notebook v6,0.1169 (0.0010)
+supplement,new or changed,0.231,notebook v6,0.231
+supplement,new or changed,0.3506,notebook v6,0.3506
+supplement,new or changed,-0.032,notebook v6,"-0.001 [-0.032, +0.031]"
+supplement,new or changed,+0.084,notebook v6,+0.084
+supplement,new or changed,0.190,notebook v6,0.190
+supplement,new or changed,0.230,notebook v6,0.230
+supplement,new or changed,0.0350,notebook v6,0.0350
+supplement,new or changed,0.439,notebook v6,"0.501 [0.439, 0.563]"
+supplement,new or changed,0.2597,notebook v6,0.2597 (0.0010)
+supplement,new or changed,0.431,notebook v6,"0.504 [0.431, 0.577]"
+supplement,new or changed,-0.068,notebook v6,"-0.003 [-0.068, +0.065]"
+supplement,new or changed,+0.065,notebook v6,"-0.003 [-0.068, +0.065]"
+supplement,new or changed,+0.071,notebook v6,"-0.004 [-0.074, +0.071]"
+supplement,new or changed,0.1349,notebook v6,0.1349 (0.0010)
+supplement,removed,0.0099,,bserved gain) / (1 + 100); the smallest attainable value is 0.0099. Holm correction across the six tests (
+supplement,removed,-0.020,,"+0.003 [-0.020, +0.038]"
+supplement,removed,0.018,,0.018
+supplement,removed,0.010,,0.198 (0.010)
+supplement,removed,0.233,,0.233
+supplement,removed,0.529,,"0.499 [0.472, 0.529]"
+supplement,removed,-0.040,,"-0.001 [-0.040, +0.030]"
+supplement,removed,0.473,,"0.501 [0.473, 0.533]"
+supplement,removed,0.23,,0.23
+supplement,removed,0.508,,"0.508 [0.450, 0.570]"
+supplement,removed,0.450,,"0.508 [0.450, 0.570]"
+supplement,removed,-0.071,,"-0.007 [-0.071, +0.047]"
+supplement,removed,0.208,,0.208 (0.010)
+supplement,removed,0.436,,"0.497 [0.436, 0.561]"
+supplement,removed,-0.070,,"-0.008 [-0.070, +0.052]"
+supplement,removed,+0.052,,"-0.008 [-0.070, +0.052]"
+supplement,removed,0.186,,0.186
+supplement,removed,0.503,,"0.503 [0.425, 0.569]"
+supplement,removed,0.425,,"0.503 [0.425, 0.569]"
+supplement,removed,+0.072,,"-0.004 [-0.070, +0.072]"
+supplement,removed,0.149,,0.149 (0.010)
+supplement,removed,0.229,,0.229

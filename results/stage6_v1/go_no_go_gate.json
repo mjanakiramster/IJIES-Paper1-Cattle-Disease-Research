@@ -1,0 +1,10 @@
+{
+ "rule": "After Stage 6, on development folds: proceed to Stage 9 only if SR-SGO mean ROC-AUC > comparator (a) AND pooled bootstrap ROC-AUC difference > 0, for at least 2 of 3 diseases. Otherwise stop and report.",
+ "per_disease": {
+  "CBPP": false,
+  "FMD": false,
+  "LSD": false
+ },
+ "diseases_passing": 0,
+ "decision": "STOP (gate not met) - do not open the confirmatory partition"
+}

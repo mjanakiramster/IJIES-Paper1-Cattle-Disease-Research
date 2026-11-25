@@ -1,0 +1,12 @@
+variable,uses_outcome_labels,practical_range_km,beyond_600km_fit_window
+CBPP prevalence (all years),True,647.2866425849119,True
+CBPP prevalence minus survey-year mean,True,64.33315750876602,False
+FMD prevalence (all years),True,80.94050055698597,False
+FMD prevalence minus survey-year mean,True,16.154691620938458,False
+LSD prevalence (all years),True,66.7181801927366,False
+LSD prevalence minus survey-year mean,True,1999.9999999999998,True
+Altitude (standardised),False,363.81978918941206,False
+Temperature (standardised),False,475.01544579277663,False
+Precipitation (standardised),False,1036.0621404197536,True
+Relative_humidity (standardised),False,1999.9999999999998,True
+Wind_speed (standardised),False,597.7278976932436,False

@@ -1,0 +1,4 @@
+Disease,"Rank average, 23 models",Without group-balanced CatBoost (22),Difference [corrected-t 95% CI],Max fold |difference|,Within-year difference [corrected-t 95% CI]
+CBPP,0.703,0.704,"+0.001 [-0.001, +0.002]",0.0043,"+0.001 [-0.002, +0.004]"
+FMD,0.648,0.646,"-0.001 [-0.004, +0.001]",0.0058,"-0.002 [-0.010, +0.007]"
+LSD,0.602,0.604,"+0.001 [-0.001, +0.003]",0.0050,"+0.001 [-0.005, +0.006]"

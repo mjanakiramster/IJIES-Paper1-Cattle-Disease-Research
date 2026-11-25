@@ -1,0 +1,18 @@
+Model (library feature sets),Role (number of library members),Fixed hyperparameters
+ExtraTrees (FS1-FS5),Feature-set comparison and ablation,"300 trees, min_samples_leaf 10, max_features sqrt"
+"GAM (B, E, EL)",Library (3),"Cubic splines (5 knots) + L2 logistic regression, C = 0.5; standardised inputs"
+"Random forest (B, EL)",Library (2),"200 trees, min_samples_leaf 10, max_features sqrt"
+"XGBoost (B, EL)",Library (2),"300 trees, depth 4, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_weight 5"
+"CatBoost (B, E, EL)",Library (3),"300 iterations, depth 5, learning rate 0.05"
+"CatBoost, group-balanced (EL)",Library (1),"As CatBoost; training rows weighted by 1 / size of the household's survey year-region group (a weight, not a predictor)"
+"CatBoost, village-level (EL, ELK)",Library (2),"Location-level regressor of the mean outcome, weighted by households; 300 iterations, depth 4, learning rate 0.05"
+"CatBoost, multi-task (EL)",Library (1),"Joint model of the three diseases (MultiLogloss); 300 iterations, depth 5, learning rate 0.05"
+k-nearest neighbours (E),Library (1),k = 50; standardised inputs
+"Logistic regression (EL, ELK)",Library (2),"L2, C = 0.5; standardised inputs"
+"ExtraTrees (EL, ELK)",Library (2),"200 trees, min_samples_leaf 10, max_features sqrt"
+MLP (EL),Library (1),"Hidden layers (32, 16), alpha 0.01, 400 iterations; standardised inputs"
+GP kriging (G),Library (1),Location-level Gaussian process on empirical logits; Matern-3/2 kernel with automatic relevance determination + white noise
+LightGBM (ELK),Library (1),"300 trees, 15 leaves, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_samples 20, lambda 1"
+SVM-RBF (ELK),Library (1),"C = 1, gamma = scale; standardised inputs; decision-function scores, ranked like all library outputs"
+(a) Rank average,Ensemble,Equal-weight mean of the 23 ECDF ranks; Platt calibration and Youden threshold on inner out-of-fold scores
+(b) Inner-selected single,Comparator,Library model with the best mean inner-fold ROC-AUC in each outer split; Platt calibration and Youden threshold as for (a)

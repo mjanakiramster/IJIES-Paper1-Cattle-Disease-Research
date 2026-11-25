@@ -1,0 +1,161 @@
+optimiser,function,shifted,seed,final_error
+SGO,Sphere,False,0,0.0
+SGO,Sphere,False,1,0.0
+SGO,Sphere,False,2,0.0
+SGO,Sphere,False,3,0.0
+SGO,Sphere,False,4,0.0
+SGO,Sphere,True,0,1464.1902615258773
+SGO,Sphere,True,1,776.1168457716503
+SGO,Sphere,True,2,377.2231401146228
+SGO,Sphere,True,3,4177.3327775150265
+SGO,Sphere,True,4,4106.32502616805
+SGO,Rastrigin,False,0,0.0
+SGO,Rastrigin,False,1,0.0
+SGO,Rastrigin,False,2,0.0
+SGO,Rastrigin,False,3,0.0
+SGO,Rastrigin,False,4,0.0
+SGO,Rastrigin,True,0,106.14147739476053
+SGO,Rastrigin,True,1,100.98070332474529
+SGO,Rastrigin,True,2,138.11096206934505
+SGO,Rastrigin,True,3,123.0052670743911
+SGO,Rastrigin,True,4,143.35763469242337
+SGO,Rosenbrock,False,0,0.0
+SGO,Rosenbrock,False,1,0.0
+SGO,Rosenbrock,False,2,0.0
+SGO,Rosenbrock,False,3,0.0
+SGO,Rosenbrock,False,4,0.0
+SGO,Rosenbrock,True,0,41271.1860406446
+SGO,Rosenbrock,True,1,107086.15832324463
+SGO,Rosenbrock,True,2,117325.680589579
+SGO,Rosenbrock,True,3,390632.7180483085
+SGO,Rosenbrock,True,4,829771.0442184436
+SGO,Ackley,False,0,4.440892098500626e-16
+SGO,Ackley,False,1,4.440892098500626e-16
+SGO,Ackley,False,2,4.440892098500626e-16
+SGO,Ackley,False,3,4.440892098500626e-16
+SGO,Ackley,False,4,4.440892098500626e-16
+SGO,Ackley,True,0,16.349293061645316
+SGO,Ackley,True,1,14.20128231001683
+SGO,Ackley,True,2,13.7707334248319
+SGO,Ackley,True,3,17.333005692431755
+SGO,Ackley,True,4,11.90237169281672
+DE,Sphere,False,0,0.19104157214215936
+DE,Sphere,False,1,2.8476344190653218
+DE,Sphere,False,2,0.3134862848395648
+DE,Sphere,False,3,0.4238832845284565
+DE,Sphere,False,4,12.441934046480771
+DE,Sphere,True,0,1.753558991251962
+DE,Sphere,True,1,0.09699309028930718
+DE,Sphere,True,2,0.04032141826136002
+DE,Sphere,True,3,0.006930170735962021
+DE,Sphere,True,4,0.9482973844063175
+DE,Rastrigin,False,0,191.16459755822228
+DE,Rastrigin,False,1,142.4899903397083
+DE,Rastrigin,False,2,167.8776141611288
+DE,Rastrigin,False,3,177.73562521160648
+DE,Rastrigin,False,4,175.5919282589572
+DE,Rastrigin,True,0,160.65397928031211
+DE,Rastrigin,True,1,193.25493603631867
+DE,Rastrigin,True,2,179.08436300837118
+DE,Rastrigin,True,3,152.86520724994995
+DE,Rastrigin,True,4,93.90729112259007
+DE,Rosenbrock,False,0,32931.62633344258
+DE,Rosenbrock,False,1,29595.489900236484
+DE,Rosenbrock,False,2,321.0002837288492
+DE,Rosenbrock,False,3,153.14648284039987
+DE,Rosenbrock,False,4,673.1911258063302
+DE,Rosenbrock,True,0,2676.179230672782
+DE,Rosenbrock,True,1,3447.5614672809506
+DE,Rosenbrock,True,2,288.5987946503856
+DE,Rosenbrock,True,3,3785.6569949862874
+DE,Rosenbrock,True,4,90478.17288227643
+DE,Ackley,False,0,0.01432939554888124
+DE,Ackley,False,1,0.014507936770535412
+DE,Ackley,False,2,1.1555578917921463
+DE,Ackley,False,3,1.156398078731272
+DE,Ackley,False,4,1.1551946174312673
+DE,Ackley,True,0,1.1558365653396767
+DE,Ackley,True,1,1.155415986308729
+DE,Ackley,True,2,1.9424963072895491
+DE,Ackley,True,3,1.781894454364505
+DE,Ackley,True,4,1.3436138666086532
+SR-SGO centroid,Sphere,False,0,1189.0816512733757
+SR-SGO centroid,Sphere,False,1,1504.4435649767934
+SR-SGO centroid,Sphere,False,2,3192.3449496604226
+SR-SGO centroid,Sphere,False,3,1993.8773309266526
+SR-SGO centroid,Sphere,False,4,3989.937122309821
+SR-SGO centroid,Sphere,True,0,31535.737165533807
+SR-SGO centroid,Sphere,True,1,25526.05798995291
+SR-SGO centroid,Sphere,True,2,26950.484548999128
+SR-SGO centroid,Sphere,True,3,35938.898329975076
+SR-SGO centroid,Sphere,True,4,38846.008723455525
+SR-SGO centroid,Rastrigin,False,0,123.03833192757034
+SR-SGO centroid,Rastrigin,False,1,127.63913377290362
+SR-SGO centroid,Rastrigin,False,2,143.68272245273118
+SR-SGO centroid,Rastrigin,False,3,137.7224233206844
+SR-SGO centroid,Rastrigin,False,4,127.402798698803
+SR-SGO centroid,Rastrigin,True,0,173.38492776901643
+SR-SGO centroid,Rastrigin,True,1,152.9733887762888
+SR-SGO centroid,Rastrigin,True,2,232.58695834367222
+SR-SGO centroid,Rastrigin,True,3,171.94130096310897
+SR-SGO centroid,Rastrigin,True,4,189.04307229868925
+SR-SGO centroid,Rosenbrock,False,0,400669.8092098436
+SR-SGO centroid,Rosenbrock,False,1,272322.3169561847
+SR-SGO centroid,Rosenbrock,False,2,825560.2419809832
+SR-SGO centroid,Rosenbrock,False,3,144576.55785691564
+SR-SGO centroid,Rosenbrock,False,4,1132190.7174983474
+SR-SGO centroid,Rosenbrock,True,0,12265603.39405237
+SR-SGO centroid,Rosenbrock,True,1,38723424.4747588
+SR-SGO centroid,Rosenbrock,True,2,25746993.47801245
+SR-SGO centroid,Rosenbrock,True,3,73363051.59180789
+SR-SGO centroid,Rosenbrock,True,4,41910548.604576804
+SR-SGO centroid,Ackley,False,0,12.426469942001406
+SR-SGO centroid,Ackley,False,1,9.438793403776604
+SR-SGO centroid,Ackley,False,2,10.533491405512898
+SR-SGO centroid,Ackley,False,3,9.553264938634927
+SR-SGO centroid,Ackley,False,4,12.007955971782554
+SR-SGO centroid,Ackley,True,0,19.09681065148639
+SR-SGO centroid,Ackley,True,1,17.413182513943596
+SR-SGO centroid,Ackley,True,2,18.1824495642899
+SR-SGO centroid,Ackley,True,3,18.440505010060317
+SR-SGO centroid,Ackley,True,4,18.91269216639881
+SR-SGO attract,Sphere,False,0,4154.484788645533
+SR-SGO attract,Sphere,False,1,4785.709346480298
+SR-SGO attract,Sphere,False,2,6731.481245035514
+SR-SGO attract,Sphere,False,3,5135.768963979295
+SR-SGO attract,Sphere,False,4,7756.187967824105
+SR-SGO attract,Sphere,True,0,22365.39979172443
+SR-SGO attract,Sphere,True,1,14603.27802444628
+SR-SGO attract,Sphere,True,2,20474.6113279008
+SR-SGO attract,Sphere,True,3,20174.04526111654
+SR-SGO attract,Sphere,True,4,17326.43468748916
+SR-SGO attract,Rastrigin,False,0,164.02040166399524
+SR-SGO attract,Rastrigin,False,1,117.8676464830929
+SR-SGO attract,Rastrigin,False,2,133.21221062914316
+SR-SGO attract,Rastrigin,False,3,121.44581521887167
+SR-SGO attract,Rastrigin,False,4,115.20641067538355
+SR-SGO attract,Rastrigin,True,0,176.78997740884208
+SR-SGO attract,Rastrigin,True,1,141.35889148374247
+SR-SGO attract,Rastrigin,True,2,207.0608034907831
+SR-SGO attract,Rastrigin,True,3,197.42292167616625
+SR-SGO attract,Rastrigin,True,4,191.66089220225626
+SR-SGO attract,Rosenbrock,False,0,1808958.7641767506
+SR-SGO attract,Rosenbrock,False,1,2515801.317742235
+SR-SGO attract,Rosenbrock,False,2,3035503.9275866137
+SR-SGO attract,Rosenbrock,False,3,3947202.029466131
+SR-SGO attract,Rosenbrock,False,4,12300165.118143905
+SR-SGO attract,Rosenbrock,True,0,13930190.261901146
+SR-SGO attract,Rosenbrock,True,1,10129396.625001015
+SR-SGO attract,Rosenbrock,True,2,24513952.23049942
+SR-SGO attract,Rosenbrock,True,3,21527680.20384614
+SR-SGO attract,Rosenbrock,True,4,13879359.20166425
+SR-SGO attract,Ackley,False,0,16.225637540838953
+SR-SGO attract,Ackley,False,1,12.648604474938917
+SR-SGO attract,Ackley,False,2,16.035929419554666
+SR-SGO attract,Ackley,False,3,14.709663297542377
+SR-SGO attract,Ackley,False,4,15.44012776067477
+SR-SGO attract,Ackley,True,0,18.190679839044915
+SR-SGO attract,Ackley,True,1,16.61024847576352
+SR-SGO attract,Ackley,True,2,17.490470295734177
+SR-SGO attract,Ackley,True,3,18.24077029132441
+SR-SGO attract,Ackley,True,4,17.36820729337516

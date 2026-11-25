@@ -1,0 +1,7 @@
+Features,Disease,Test households inside AOA (%),Locations ever outside AOA,Median DI,Median threshold,ROC-AUC inside AOA,ROC-AUC outside AOA,Households outside (positives),Spearman DI vs |error|
+FS1,CBPP,99.5,14,0.131,0.353,0.711,0.643,15 (3),-0.063
+FS1,FMD,99.3,17,0.136,0.350,0.572,0.792,25 (6),-0.076
+FS1,LSD,99.4,14,0.137,0.353,0.571,0.828,20 (7),-0.007
+FS5,CBPP,99.4,10,0.295,0.586,0.711,0.885,19 (5),+0.165
+FS5,FMD,98.6,20,0.311,0.649,0.666,0.916,47 (3),+0.001
+FS5,LSD,98.8,13,0.317,0.663,0.605,0.167,39 (4),+0.094

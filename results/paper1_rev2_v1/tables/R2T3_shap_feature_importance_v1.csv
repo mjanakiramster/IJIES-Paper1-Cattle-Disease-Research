@@ -1,0 +1,118 @@
+disease,feature,label,group,mean_abs_SHAP,impurity_importance
+CBPP,Altitude,Altitude,Environmental,0.008536918,0.03253154935241165
+CBPP,Temperature,Temperature,Environmental,0.005638741,0.02822693795667005
+CBPP,Precipitation,Precipitation,Environmental,0.008037363,0.03666009680010644
+CBPP,Relative_humidity,Relative humidity,Environmental,0.003191611,0.019370519477525078
+CBPP,Wind_speed,Wind speed,Environmental,0.0042803306,0.021040766267682583
+CBPP,SL_temperature,Sea-level temperature,Climate indices,0.004278205,0.018636218452081695
+CBPP,DeMartonne,De Martonne index,Climate indices,0.0077615026,0.03446877434723843
+CBPP,Temp_x_RH,Temperature x RH,Climate indices,0.003891295,0.021560494690445936
+CBPP,Precip_x_RH,log precipitation x RH,Climate indices,0.004819557,0.024453647205147623
+CBPP,log_Precip,log precipitation,Climate indices,0.006871244,0.033709425720141004
+CBPP,Wind_x_RH,Wind x RH,Climate indices,0.002932108,0.018032975068771207
+CBPP,Lat,Lat,Coordinates,0.00427844,0.026085037510405112
+CBPP,Lon,Lon,Coordinates,0.0019567886,0.014300103623783946
+CBPP,LatPlusLon,Lat + Lon,Coordinates,0.002044367,0.016774827669674357
+CBPP,LatMinusLon,Lat - Lon,Coordinates,0.0033383635,0.021749978497883137
+CBPP,kern50_0,CBPP kernel rate 50 km,Own-disease rates,0.012609093,0.054988038047888786
+CBPP,kern50_1,FMD kernel rate 50 km,Cross-disease rates,0.0040414976,0.018579186081364336
+CBPP,kern50_2,LSD kernel rate 50 km,Cross-disease rates,0.0021135584,0.015485810484052684
+CBPP,dens50,household density 50 km,Sampling density,0.0028287943,0.017548329103965206
+CBPP,kern150_0,CBPP kernel rate 150 km,Own-disease rates,0.006451612,0.0329913302270882
+CBPP,kern150_1,FMD kernel rate 150 km,Cross-disease rates,0.0037410113,0.02252197342360411
+CBPP,kern150_2,LSD kernel rate 150 km,Cross-disease rates,0.0018295975,0.01623501062156508
+CBPP,dens150,household density 150 km,Sampling density,0.0015792664,0.014690704543040315
+CBPP,kern400_0,CBPP kernel rate 400 km,Own-disease rates,0.0030264882,0.0221204708220263
+CBPP,kern400_1,FMD kernel rate 400 km,Cross-disease rates,0.0038478957,0.023423177155276042
+CBPP,kern400_2,LSD kernel rate 400 km,Cross-disease rates,0.0016095146,0.017530660755685074
+CBPP,dens400,household density 400 km,Sampling density,0.002258755,0.0158301338033086
+CBPP,knn5_0,"CBPP rate, 5 nearest",Own-disease rates,0.015167115,0.06466183726782962
+CBPP,knn5_1,"FMD rate, 5 nearest",Cross-disease rates,0.0024286536,0.016035149101930178
+CBPP,knn5_2,"LSD rate, 5 nearest",Cross-disease rates,0.0023746574,0.014757636042934886
+CBPP,knndist5,distance to 5th nearest,Sampling density,0.0069585806,0.024843965110183174
+CBPP,knn15_0,"CBPP rate, 15 nearest",Own-disease rates,0.01394685,0.06421774458120197
+CBPP,knn15_1,"FMD rate, 15 nearest",Cross-disease rates,0.0030857658,0.01835361504568534
+CBPP,knn15_2,"LSD rate, 15 nearest",Cross-disease rates,0.0015434595,0.014906531649905666
+CBPP,knndist15,distance to 15th nearest,Sampling density,0.0043488573,0.021210644111981702
+CBPP,knn40_0,"CBPP rate, 40 nearest",Own-disease rates,0.013814017,0.06351827566678406
+CBPP,knn40_1,"FMD rate, 40 nearest",Cross-disease rates,0.005251152,0.023463885565487185
+CBPP,knn40_2,"LSD rate, 40 nearest",Cross-disease rates,0.0019916433,0.015959798458273597
+CBPP,knndist40,distance to 40th nearest,Sampling density,0.0032140121,0.018524739688969692
+FMD,Altitude,Altitude,Environmental,0.002346277,0.022697336524156196
+FMD,Temperature,Temperature,Environmental,0.0018197848,0.020790927900655325
+FMD,Precipitation,Precipitation,Environmental,0.0013945046,0.01797509829538898
+FMD,Relative_humidity,Relative humidity,Environmental,0.0027276878,0.020561657002058233
+FMD,Wind_speed,Wind speed,Environmental,0.002507251,0.023426341021793
+FMD,SL_temperature,Sea-level temperature,Climate indices,0.003899472,0.029834807706172035
+FMD,DeMartonne,De Martonne index,Climate indices,0.0014663287,0.019072724068916726
+FMD,Temp_x_RH,Temperature x RH,Climate indices,0.0027771182,0.022547405042821773
+FMD,Precip_x_RH,log precipitation x RH,Climate indices,0.0020409618,0.020124788149153548
+FMD,log_Precip,log precipitation,Climate indices,0.0014954931,0.018025516875814256
+FMD,Wind_x_RH,Wind x RH,Climate indices,0.00318409,0.031148261548441525
+FMD,Lat,Lat,Coordinates,0.009026327,0.04138275751582169
+FMD,Lon,Lon,Coordinates,0.003596212,0.018768864680152094
+FMD,LatPlusLon,Lat + Lon,Coordinates,0.008679257,0.035913379763719784
+FMD,LatMinusLon,Lat - Lon,Coordinates,0.0024252168,0.02049527960341022
+FMD,kern50_0,CBPP kernel rate 50 km,Cross-disease rates,0.0036333464,0.022678125872319925
+FMD,kern50_1,FMD kernel rate 50 km,Own-disease rates,0.00809026,0.04123248045504336
+FMD,kern50_2,LSD kernel rate 50 km,Cross-disease rates,0.0030656666,0.02415359464875915
+FMD,dens50,household density 50 km,Sampling density,0.003225368,0.020068474206582865
+FMD,kern150_0,CBPP kernel rate 150 km,Cross-disease rates,0.0032577089,0.025025459035432695
+FMD,kern150_1,FMD kernel rate 150 km,Own-disease rates,0.00539732,0.039331466439034776
+FMD,kern150_2,LSD kernel rate 150 km,Cross-disease rates,0.0028164035,0.02407838534466527
+FMD,dens150,household density 150 km,Sampling density,0.0025405416,0.022064263650325922
+FMD,kern400_0,CBPP kernel rate 400 km,Cross-disease rates,0.009811467,0.03963769838285429
+FMD,kern400_1,FMD kernel rate 400 km,Own-disease rates,0.0037225646,0.03246670344481151
+FMD,kern400_2,LSD kernel rate 400 km,Cross-disease rates,0.0037904494,0.027975077714803766
+FMD,dens400,household density 400 km,Sampling density,0.0022629476,0.02508846946324459
+FMD,knn5_0,"CBPP rate, 5 nearest",Cross-disease rates,0.0038508011,0.020163524748168533
+FMD,knn5_1,"FMD rate, 5 nearest",Own-disease rates,0.008607439,0.03963333171861615
+FMD,knn5_2,"LSD rate, 5 nearest",Cross-disease rates,0.0036856513,0.020773945055682676
+FMD,knndist5,distance to 5th nearest,Sampling density,0.0028158217,0.019195344095114558
+FMD,knn15_0,"CBPP rate, 15 nearest",Cross-disease rates,0.0034872328,0.022530082037254276
+FMD,knn15_1,"FMD rate, 15 nearest",Own-disease rates,0.004748156,0.03232442748603483
+FMD,knn15_2,"LSD rate, 15 nearest",Cross-disease rates,0.0013997235,0.018275660959011765
+FMD,knndist15,distance to 15th nearest,Sampling density,0.0036922619,0.021660060512710636
+FMD,knn40_0,"CBPP rate, 40 nearest",Cross-disease rates,0.0035547703,0.023071766124035192
+FMD,knn40_1,"FMD rate, 40 nearest",Own-disease rates,0.004212768,0.03091404040760507
+FMD,knn40_2,"LSD rate, 40 nearest",Cross-disease rates,0.004640846,0.024820882604810256
+FMD,knndist40,distance to 40th nearest,Sampling density,0.002029315,0.02007158989460257
+LSD,Altitude,Altitude,Environmental,0.00702614,0.027063016435097308
+LSD,Temperature,Temperature,Environmental,0.0052201455,0.024307104668214903
+LSD,Precipitation,Precipitation,Environmental,0.0040280134,0.027373191035709222
+LSD,Relative_humidity,Relative humidity,Environmental,0.0020043314,0.01942381014239935
+LSD,Wind_speed,Wind speed,Environmental,0.002508838,0.02159119643393987
+LSD,SL_temperature,Sea-level temperature,Climate indices,0.0056753783,0.028481960028069225
+LSD,DeMartonne,De Martonne index,Climate indices,0.003418206,0.025605308691646945
+LSD,Temp_x_RH,Temperature x RH,Climate indices,0.004506055,0.025777725815863482
+LSD,Precip_x_RH,log precipitation x RH,Climate indices,0.001893926,0.02039399063692731
+LSD,log_Precip,log precipitation,Climate indices,0.0025027206,0.02227736475650725
+LSD,Wind_x_RH,Wind x RH,Climate indices,0.0028210483,0.022091065645712123
+LSD,Lat,Lat,Coordinates,0.0032787034,0.0217218788698365
+LSD,Lon,Lon,Coordinates,0.0050536483,0.024442001913925905
+LSD,LatPlusLon,Lat + Lon,Coordinates,0.0061801556,0.028974067580208696
+LSD,LatMinusLon,Lat - Lon,Coordinates,0.0019899707,0.017339955629601812
+LSD,kern50_0,CBPP kernel rate 50 km,Cross-disease rates,0.0025516085,0.023950662179235128
+LSD,kern50_1,FMD kernel rate 50 km,Cross-disease rates,0.008031892,0.03787193864904364
+LSD,kern50_2,LSD kernel rate 50 km,Own-disease rates,0.0059335832,0.03789396965865323
+LSD,dens50,household density 50 km,Sampling density,0.0036964468,0.017861462060532907
+LSD,kern150_0,CBPP kernel rate 150 km,Cross-disease rates,0.0020752721,0.021332716407900344
+LSD,kern150_1,FMD kernel rate 150 km,Cross-disease rates,0.003025889,0.02483426564829597
+LSD,kern150_2,LSD kernel rate 150 km,Own-disease rates,0.00848193,0.043557546053802604
+LSD,dens150,household density 150 km,Sampling density,0.0023569518,0.0179145558713285
+LSD,kern400_0,CBPP kernel rate 400 km,Cross-disease rates,0.002445044,0.01852785340515844
+LSD,kern400_1,FMD kernel rate 400 km,Cross-disease rates,0.0028739404,0.02220861472826415
+LSD,kern400_2,LSD kernel rate 400 km,Own-disease rates,0.009576252,0.04978681632945546
+LSD,dens400,household density 400 km,Sampling density,0.0013551901,0.01709623884854449
+LSD,knn5_0,"CBPP rate, 5 nearest",Cross-disease rates,0.0026234013,0.022183190482022615
+LSD,knn5_1,"FMD rate, 5 nearest",Cross-disease rates,0.009535756,0.03437948105067788
+LSD,knn5_2,"LSD rate, 5 nearest",Own-disease rates,0.0035960914,0.02513666032085816
+LSD,knndist5,distance to 5th nearest,Sampling density,0.0031610597,0.01951013454560998
+LSD,knn15_0,"CBPP rate, 15 nearest",Cross-disease rates,0.0025694182,0.020810655384715725
+LSD,knn15_1,"FMD rate, 15 nearest",Cross-disease rates,0.005607126,0.027032487610381694
+LSD,knn15_2,"LSD rate, 15 nearest",Own-disease rates,0.006037284,0.028228444249259677
+LSD,knndist15,distance to 15th nearest,Sampling density,0.004319107,0.022674761917574855
+LSD,knn40_0,"CBPP rate, 40 nearest",Cross-disease rates,0.0025926833,0.019448626435026477
+LSD,knn40_1,"FMD rate, 40 nearest",Cross-disease rates,0.0048362794,0.03115633162127422
+LSD,knn40_2,"LSD rate, 40 nearest",Own-disease rates,0.007873015,0.03943937247451217
+LSD,knndist40,distance to 40th nearest,Sampling density,0.0024408547,0.020299575784211786

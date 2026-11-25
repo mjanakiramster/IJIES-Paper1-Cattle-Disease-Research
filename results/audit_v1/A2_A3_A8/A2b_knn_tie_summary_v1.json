@@ -1,0 +1,19 @@
+{
+ "coordinate_precision_degrees": 0.1,
+ "locations_with_at_least_one_exact_distance_tie": 0.9264069264069265,
+ "max_abs_numpy_vs_math_distance_km": 9.094947017729282e-13,
+ "summary": [
+  {
+   "code": "new",
+   "cases": 64,
+   "explained_by_exact_ties": 64,
+   "max_value_difference": 0.20586971321740719
+  },
+  {
+   "code": "old run-3",
+   "cases": 50,
+   "explained_by_exact_ties": 50,
+   "max_value_difference": 0.13937637886828455
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+variable,role
+Altitude,eligible predictor (environment)
+Temperature,eligible predictor (environment)
+Precipitation,eligible predictor (environment)
+Relative_humidity,eligible predictor (environment)
+Wind_speed,eligible predictor (environment)
+Longitude,eligible predictor (location)
+Latitude,eligible predictor (location)
+Weight,EXCLUDED (leakage / sampling design)
+Year_region,EXCLUDED (leakage / sampling design)
+Year,EXCLUDED (leakage / sampling design)
+Region,EXCLUDED (leakage / sampling design)
+ID,identifier only
+cbpp,target
+fmd,target
+lsd,target

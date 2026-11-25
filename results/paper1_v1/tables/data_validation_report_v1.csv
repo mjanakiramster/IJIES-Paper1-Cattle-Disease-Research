@@ -1,0 +1,9 @@
+,0
+missing cells (predictors + outcomes),0
+duplicate rows (predictors + outcomes),0
+locations with >1 coordinate pair,0
+coordinate pairs shared by >1 location,0
+locations in >1 81-km block (repeat 1),0
+locations surveyed in >1 year,13
+latitude range,"(3.5, 14.2)"
+longitude range,"(33.9, 46.4)"

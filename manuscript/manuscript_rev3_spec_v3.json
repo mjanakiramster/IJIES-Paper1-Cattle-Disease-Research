@@ -1,0 +1,1888 @@
+{
+ "title": "Spatial Generalisation and Survey-Campaign Confounding in Machine-Learning Models for Retrospective Mapping of Cattle Disease Occurrence in Ethiopia",
+ "running_head": "Spatial generalisation and survey-campaign confounding in cattle disease mapping",
+ "blocks": [
+  {
+   "type": "title",
+   "text": "Spatial Generalisation and Survey-Campaign Confounding in Machine-Learning Models for Retrospective Mapping of Cattle Disease Occurrence in Ethiopia"
+  },
+  {
+   "type": "center",
+   "text": "Sudhirvarma Sagiraju^{1*}, [Co-author name(s) to be confirmed by the authors]^{2}",
+   "size": 21
+  },
+  {
+   "type": "center",
+   "text": "^{1}Department of Computer Science and Engineering, Raghu Engineering College, Visakhapatnam, Andhra Pradesh, India",
+   "size": 18
+  },
+  {
+   "type": "center",
+   "text": "^{2}[Affiliation(s) to be completed]",
+   "size": 18
+  },
+  {
+   "type": "center",
+   "text": "* Corresponding author's Email: [to be completed]",
+   "size": 18
+  },
+  {
+   "type": "para",
+   "text": "**Abstract:** Machine-learning models are often used to map livestock disease, but their accuracy is usually checked with random cross-validation. We studied household-reported contagious bovine pleuropneumonia (CBPP), foot-and-mouth disease (FMD) and lumpy skin disease (LSD) in 3,340 Ethiopian households at 462 locations, collected in five survey campaigns between 2012 and 2019. Under 81 km spatial block cross-validation, we compared nested feature sets, from five environmental variables (FS1) to 39 features (FS5) that add climate indices, coordinates, neighbourhood and cross-disease rates and sampling density, using ExtraTrees and a 23-model rank-average ensemble. Neighbourhood rates were built from training labels only, and a leakage audit and label-permutation controls tested this design. Random cross-validation overstated ensemble ROC-AUC by 0.10-0.21, because 97% of its test households shared a location with training households. Under spatial validation, FS5 raised FMD ROC-AUC from 0.563 to 0.663 (95% CI of the gain +0.025 to +0.175). The ablation showed that this gain came mainly from climate indices (+0.040) and coordinates (+0.035), while neighbourhood and cross-disease rates added little once location was known (+0.008) and partly encoded the survey campaign. The leakage audit showed that these rates are safe, not that they are needed. FS5 gave no consistent gain for CBPP or LSD. Survey year explained 12.5-18.7% of outcome variance and could be predicted from the features (macro ROC-AUC 0.79-0.87); within single years ROC-AUC fell to 0.53-0.61, and models trained on 2012-2015 failed on 2018-2019 (ROC-AUC 0.35-0.44). Such models suit retrospective mapping within the surveyed period, not forecasting."
+  },
+  {
+   "type": "para",
+   "text": "**Keywords:** Spatial cross-validation, Survey-campaign confounding, Data leakage, Feature ablation, Explainable machine learning, Area of applicability, Cattle disease mapping."
+  },
+  {
+   "type": "h1",
+   "text": "1. Introduction"
+  },
+  {
+   "type": "para",
+   "text": "Contagious bovine pleuropneumonia (CBPP), foot-and-mouth disease (FMD) and lumpy skin disease (LSD) are among the most important cattle diseases in Ethiopia. Livestock keepers rank them among their main health problems [1], district outbreak records show that FMD is widespread [2], and clinical LSD is common in many areas [3]. Control programmes need to know where these diseases are reported, but surveillance data are sparse and come from separate projects at different times."
+  },
+  {
+   "type": "para",
+   "text": "Machine-learning models can fill gaps between surveyed locations. Some studies report high accuracy for predicting livestock disease occurrence from climate and location data [4]. Such results are usually based on random splits of the data. When nearby observations are similar, random splits put near-copies of the test data into the training set, and accuracy is overstated [5, 6]. Spatial block cross-validation reduces this problem by holding out whole areas [5, 7]."
+  },
+  {
+   "type": "para",
+   "text": "Spatial validation does not remove every source of optimism. First, engineered neighbourhood features, such as disease rates in nearby locations, are useful predictors [8], but they are built from outcome labels and can leak test information if they are constructed carelessly [9, 10]. A feature that passes a leakage check is safe to use, but this does not show that it is needed. Second, survey data are often collected in campaigns. Each campaign covers different places in a different year, and reported prevalence may change from one campaign to the next. A model can then score well by learning which campaign an area belonged to, rather than which households within an area are at higher risk. This is a form of dataset shift and sampling bias [11, 12], and it is rarely measured in livestock disease mapping."
+  },
+  {
+   "type": "para",
+   "text": "It is also important to separate two tasks. Retrospective mapping estimates where disease was reported during the period that the surveys cover, including places between surveyed locations. Forecasting predicts where disease will be reported in a later period. A model can do the first reasonably well and still fail at the second, because the later period may have different areas, prevalence levels and reporting conditions."
+  },
+  {
+   "type": "para",
+   "text": "We use a public ILRI dataset of household-reported CBPP, FMD and LSD in Ethiopia [13]. A recent preprint analysed the same surveys with generalised additive mixed models and kriging, and modelled survey year and location jointly through a year-location factor [14]. We address the machine-learning side of this question. The study makes four contributions:"
+  },
+  {
+   "type": "bullet",
+   "text": "**Spatial generalisation.** We compare random and spatial block cross-validation, run with the same code, for four models and three diseases, and we describe the distance between test and training data, the area of applicability and the sensitivity to proximity and block size."
+  },
+  {
+   "type": "bullet",
+   "text": "**A leakage-safe framework for outcome-derived neighbourhood features.** We construct neighbourhood and cross-disease rates from training labels only, with the block of the query location excluded, and test the construction with an independent reimplementation, label-flipping checks and permutation controls that rebuild the whole pipeline. A feature ablation (FS1 to FS5) then shows what each feature group adds, and SHAP explanations show how the models use the features."
+  },
+  {
+   "type": "bullet",
+   "text": "**Survey-campaign confounding.** We measure how much of the pooled spatial accuracy comes from differences between survey campaigns, using within-year discrimination, survey-year identification from the features, and models trained on one campaign at a time."
+  },
+  {
+   "type": "bullet",
+   "text": "**Retrospective mapping versus temporal generalisation.** We test directly whether models trained on earlier campaigns transfer to later ones."
+  },
+  {
+   "type": "para",
+   "text": "Section 2 reviews related work. Section 3 describes the data, features, models, validation and statistics. Section 4 presents and discusses the results, Section 5 lists the limitations and Section 6 concludes."
+  },
+  {
+   "type": "h1",
+   "text": "2. Related work"
+  },
+  {
+   "type": "h2",
+   "text": "2.1 Spatial validation"
+  },
+  {
+   "type": "para",
+   "text": "Roberts et al. showed that ignoring spatial, temporal or hierarchical structure during cross-validation underestimates prediction error, and recommended blocking [5]. Valavi et al. provided tools to build spatial blocks whose size follows the range of spatial autocorrelation [7]. Ploton et al. found that maps of forest biomass with good random-validation scores had almost no predictive power under spatial validation [6]."
+  },
+  {
+   "type": "para",
+   "text": "Not all authors agree that spatial cross-validation is the right target. Wadoux et al. argued that map accuracy should be estimated by design-based inference from probability samples, and that spatial cross-validation can be pessimistic [15]. De Bruin et al. proposed weighting schemes for clustered samples [16]. Milà et al. and Linnenbrink et al. matched the distances between test and training points to those between prediction and training points [17, 18]. Meyer and Pebesma proposed the area of applicability to flag predictions in unfamiliar predictor conditions [19]. Our task is to predict areas without survey data, so we use spatial blocks, and we report distances, the area of applicability, proximity buffers and block-size sensitivity because the right block size is not known in advance."
+  },
+  {
+   "type": "h2",
+   "text": "2.2 Machine learning in livestock disease prediction"
+  },
+  {
+   "type": "para",
+   "text": "Studies of CBPP, FMD and LSD in Ethiopia have mostly used questionnaires, outbreak reports and regression models to describe risk factors [1, 2, 3]. Tesfaye et al. analysed space-time patterns of reported LSD outbreaks [20]. Afshari Safavi compared machine-learning methods for predicting LSD occurrence from meteorological and geospatial features and reported high accuracy with randomly split data [4]. Gizaw et al. mapped CBPP, FMD and LSD risk from the household surveys used here [14]. To our knowledge, no study has evaluated machine-learning models on these data with spatial block validation and an explicit survey-campaign analysis."
+  },
+  {
+   "type": "h2",
+   "text": "2.3 Feature engineering, leakage and explainability"
+  },
+  {
+   "type": "para",
+   "text": "Distances to observations, and summaries of nearby outcomes, are common predictors in spatial random forests [8]. Such features are a form of target encoding, so they must be built from training labels only. Kaufman et al. defined leakage as information about the target that would not be available at prediction time [9]. Kapoor and Narayanan found leakage in hundreds of machine-learning studies across many fields [10]. Model selection can also leak optimism: choosing a model or setting by a noisy cross-validation score over-fits the selection itself [21]."
+  },
+  {
+   "type": "para",
+   "text": "SHAP values attribute a prediction to the input features using Shapley values from game theory [22], and exact values can be computed efficiently for tree ensembles [23]. Partial dependence plots show how the average prediction changes with one feature [24]. Both describe what a fitted model uses. When features are correlated, as coordinates and neighbourhood rates are, a model can rely on one feature that another could replace, so explanations should be read together with an ablation that refits the model without each group."
+  },
+  {
+   "type": "h2",
+   "text": "2.4 Survey-campaign confounding"
+  },
+  {
+   "type": "para",
+   "text": "When data are pooled from surveys run at different times and places, the training and test populations can differ in their predictors, in their prevalence, or in both. Moreno-Torres et al. describe these as covariate shift, prior-probability shift and concept shift [11]. Phillips et al. showed that biased sampling distorts species distribution models unless the background sample shares the same bias [12]. Yates et al. found that predictive models often transfer poorly to new places and times [25]. For the Ethiopian surveys, Gizaw et al. included a year-location factor because survey year and location could not be separated [14]. We measure how much this confounding affects machine-learning accuracy."
+  },
+  {
+   "type": "h1",
+   "text": "3. Materials and methods"
+  },
+  {
+   "type": "h2",
+   "text": "3.1 Dataset description"
+  },
+  {
+   "type": "para",
+   "text": "The data come from household questionnaire surveys conducted by five livestock projects in 2012, 2014, 2015, 2018 and 2019, published by ILRI under a CC BY 4.0 licence [13, 14]. Each household reported whether CBPP, FMD and LSD occurred in its cattle (binary outcomes). The outcomes are household-reported occurrence, not laboratory-confirmed infection. The data contain 3,340 households at 462 locations, and 449 locations were surveyed in a single year. Overall reported prevalence was 22.4% for CBPP, 18.3% for FMD and 22.4% for LSD (Table 1). The campaigns covered different parts of the country, and reported prevalence changed strongly between them (Figure 1)."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 1.** Dataset characteristics and household-reported prevalence by survey year",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Survey year",
+    "Households",
+    "Locations",
+    "CBPP, n (%)",
+    "FMD, n (%)",
+    "LSD, n (%)"
+   ],
+   "rows": [
+    [
+     "2012",
+     "224",
+     "73",
+     "86 (38.4)",
+     "22 (9.8)",
+     "45 (20.1)"
+    ],
+    [
+     "2014",
+     "684",
+     "112",
+     "297 (43.4)",
+     "132 (19.3)",
+     "108 (15.8)"
+    ],
+    [
+     "2015",
+     "656",
+     "106",
+     "225 (34.3)",
+     "223 (34.0)",
+     "228 (34.8)"
+    ],
+    [
+     "2018",
+     "1341",
+     "161",
+     "138 (10.3)",
+     "62 (4.6)",
+     "100 (7.5)"
+    ],
+    [
+     "2019",
+     "435",
+     "24",
+     "2 (0.5)",
+     "172 (39.5)",
+     "266 (61.1)"
+    ],
+    [
+     "All",
+     "3340",
+     "462",
+     "748 (22.4)",
+     "611 (18.3)",
+     "747 (22.4)"
+    ]
+   ],
+   "widths": [
+    1400,
+    1400,
+    1400,
+    1800,
+    1800,
+    1800
+   ],
+   "note": "Locations add up to more than 462 because 13 locations were surveyed in more than one year.",
+   "size": 16
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/Fig2_survey_years_v2.png",
+   "aspect": 0.45415676959619955,
+   "alt": "(a) Survey locations coloured by survey year (locations surveyed in several years shown wi",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 1.** (a) Survey locations coloured by survey year (locations surveyed in several years shown with their most frequent year). (b) Household-reported prevalence by survey year."
+  },
+  {
+   "type": "h2",
+   "text": "3.2 Data preprocessing"
+  },
+  {
+   "type": "para",
+   "text": "The data come as three files, one per disease, with the same households. We checked that household IDs, environmental variables, coordinates and the year-region code were identical in all three files and merged them into one record per household with three outcomes. Survey year and region were read from the year-region code. Locations are unique coordinate pairs, recorded to 0.1 degree. Coordinates were converted to kilometres with an equirectangular projection centred on the mean latitude, for blocks and distances."
+  },
+  {
+   "type": "para",
+   "text": "There were no missing values and no duplicate households, so no imputation was needed. Tree models used raw values, and linear, distance-based and kernel models standardised their inputs inside each training set. The files also contain a variable named Weight that closely follows the share of households at the same location with the same outcome (Spearman correlation 0.84-0.86). On its own it separates cases from non-cases with ROC-AUC of 0.85-0.93, so it was never used. Survey year, region, the year-region code and all identifiers were also excluded as predictors. Ten 2012 households are labelled Afar but have coordinates south of 8 degrees N; region is not a predictor, and the records were kept as published."
+  },
+  {
+   "type": "h2",
+   "text": "3.3 Feature engineering"
+  },
+  {
+   "type": "para",
+   "text": "Five nested feature sets were built (Table 2). FS1 contains the five environmental variables. FS2 adds six climate indices, FS3 adds four coordinate terms, FS4 adds 18 neighbourhood and cross-disease rates, and FS5 adds six sampling-density terms, giving 39 features. The rates are computed for all three diseases, so the FMD model also sees nearby CBPP and LSD rates (cross-disease rates). Each set adds one group to the previous set, so the difference between consecutive sets estimates what that group adds, given the groups before it."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 2.** Nested feature sets used in the ablation",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Feature set",
+    "Added group",
+    "Variables",
+    "Added",
+    "Total",
+    "Uses outcome labels?"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "Environmental",
+     "Altitude, temperature, precipitation, relative humidity, wind speed",
+     "5",
+     "5",
+     "No"
+    ],
+    [
+     "FS2",
+     "+ Climate indices",
+     "Sea-level temperature, De Martonne index, temperature x RH, log precipitation x RH, log precipitation, wind x RH",
+     "6",
+     "11",
+     "No"
+    ],
+    [
+     "FS3",
+     "+ Coordinates",
+     "Latitude, longitude, latitude + longitude, latitude - longitude",
+     "4",
+     "15",
+     "No"
+    ],
+    [
+     "FS4",
+     "+ Neighbourhood and cross-disease rates",
+     "Gaussian-kernel rates at 50, 150 and 400 km (9) and rates over the 5, 15 and 40 nearest training locations (9), for CBPP, FMD and LSD",
+     "18",
+     "33",
+     "Yes (training rows only; own 81 km block excluded)"
+    ],
+    [
+     "FS5",
+     "+ Sampling density",
+     "Log kernel density of training households at 50, 150 and 400 km (3); log distance to the 5th, 15th and 40th nearest training location (3)",
+     "6",
+     "39",
+     "No (household counts and distances only)"
+    ]
+   ],
+   "widths": [
+    700,
+    1900,
+    4300,
+    650,
+    650,
+    2200
+   ],
+   "note": null,
+   "size": 14
+  },
+  {
+   "type": "para",
+   "text": "Neighbourhood rates use only the training households of the current split. For a query location x, the kernel rate for disease d at bandwidth b is given by Eq. (1)."
+  },
+  {
+   "type": "equation",
+   "text": "r_{b,d}(x) = [ Σ_{j} K_{b}(x, j) · pos_{d}(j) + c · p_{0,d}(x) ] / [ Σ_{j} K_{b}(x, j) · n(j) + c ],   K_{b}(x, j) = exp( −dist(x, j)^{2} / (2b^{2}) )",
+   "number": 1
+  },
+  {
+   "type": "para",
+   "text": "Here j runs over training locations outside the 81 km block that contains x, n(j) and pos_{d}(j) are the numbers of households and positive households at j, c = 1 is a prior weight, and p_{0,d}(x) is the training rate outside the block of x. Bandwidths were 50, 150 and 400 km. The k-nearest-location rates replace the kernel sum with the k nearest training locations outside the block (k = 5, 15 and 40)."
+  },
+  {
+   "type": "para",
+   "text": "We call this construction leakage-safe because it follows three rules, each of which was tested (Section 4.3). (i) Rates are fitted on the training rows of the split only. (ii) The whole block of the query location is excluded, for training rows and test rows alike, so a household never uses its own label or the labels of its village, and training features are built under the same conditions as test features. (iii) Neighbours are ordered by distance rounded to 10^{-6} km and then by location ID, because coarse coordinates create many exact ties; the result therefore does not depend on the order of the input rows."
+  },
+  {
+   "type": "h2",
+   "text": "3.4 Machine-learning models"
+  },
+  {
+   "type": "para",
+   "text": "The feature-set comparison and the ablation used ExtraTrees [26] with 300 trees, a minimum leaf size of 10 and the square root of the number of features at each split. The ensemble was the equal-weight rank average of 23 models (Table 3): generalised additive models, random forests [27], XGBoost [28], CatBoost [29], LightGBM [30], logistic regression, k-nearest neighbours, a multilayer perceptron, a support vector machine and a location-level Gaussian-process (kriging) model, fitted with scikit-learn [31] and the respective libraries. All hyperparameters were fixed in advance, and the values in Table 3 were read from the model objects in the code."
+  },
+  {
+   "type": "para",
+   "text": "For each library model, the test scores were converted to their empirical-distribution ranks within that model's inner out-of-fold scores, and the 23 ranks were averaged ((a) rank average). Because only ranks are averaged, models with different output scales, such as the support vector machine decision function, can be combined. As a comparator, (b) is the single library model with the best inner out-of-fold ROC-AUC in each split. One library member, a group-balanced CatBoost model, weights each training household by the inverse size of its survey year-region group. The year-region code is therefore used as a training weight, although never as a predictor; the weights use training rows only and do not change when labels are permuted. Removing this model changed the mean rank-average ROC-AUC by at most 0.001 (largest change in a single fold 0.006; Supplementary Table S21)."
+  },
+  {
+   "type": "para",
+   "text": "Two corrections were made after the leakage audit (Section 4.3): the k-nearest tie rule, and the exclusion of the own block from the fallback prior of training rows in the library code. All results in this paper use the corrected code, except the confirmatory test, which is reported as observed."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 3.** Models and fixed hyperparameters (read from the fitted objects)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Model (library feature sets)",
+    "Role (number of library members)",
+    "Fixed hyperparameters"
+   ],
+   "rows": [
+    [
+     "ExtraTrees (FS1-FS5)",
+     "Feature-set comparison and ablation",
+     "300 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "GAM (B, E, EL)",
+     "Library (3)",
+     "Cubic splines (5 knots) + L2 logistic regression, C = 0.5; standardised inputs"
+    ],
+    [
+     "Random forest (B, EL)",
+     "Library (2)",
+     "200 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "XGBoost (B, EL)",
+     "Library (2)",
+     "300 trees, depth 4, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_weight 5"
+    ],
+    [
+     "CatBoost (B, E, EL)",
+     "Library (3)",
+     "300 iterations, depth 5, learning rate 0.05"
+    ],
+    [
+     "CatBoost, group-balanced (EL)",
+     "Library (1)",
+     "As CatBoost; training rows weighted by 1 / size of the household's survey year-region group (a weight, not a predictor)"
+    ],
+    [
+     "CatBoost, village-level (EL, ELK)",
+     "Library (2)",
+     "Location-level regressor of the mean outcome, weighted by households; 300 iterations, depth 4, learning rate 0.05"
+    ],
+    [
+     "CatBoost, multi-task (EL)",
+     "Library (1)",
+     "Joint model of the three diseases (MultiLogloss); 300 iterations, depth 5, learning rate 0.05"
+    ],
+    [
+     "k-nearest neighbours (E)",
+     "Library (1)",
+     "k = 50; standardised inputs"
+    ],
+    [
+     "Logistic regression (EL, ELK)",
+     "Library (2)",
+     "L2, C = 0.5; standardised inputs"
+    ],
+    [
+     "ExtraTrees (EL, ELK)",
+     "Library (2)",
+     "200 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "MLP (EL)",
+     "Library (1)",
+     "Hidden layers (32, 16), alpha 0.01, 400 iterations; standardised inputs"
+    ],
+    [
+     "GP kriging (G)",
+     "Library (1)",
+     "Location-level Gaussian process on empirical logits; Matern-3/2 kernel with automatic relevance determination + white noise"
+    ],
+    [
+     "LightGBM (ELK)",
+     "Library (1)",
+     "300 trees, 15 leaves, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_samples 20, lambda 1"
+    ],
+    [
+     "SVM-RBF (ELK)",
+     "Library (1)",
+     "C = 1, gamma = scale; standardised inputs; decision-function scores, ranked like all library outputs"
+    ],
+    [
+     "(a) Rank average",
+     "Ensemble",
+     "Equal-weight mean of the 23 ECDF ranks; Platt calibration and Youden threshold on inner out-of-fold scores"
+    ],
+    [
+     "(b) Inner-selected single",
+     "Comparator",
+     "Library model with the best mean inner-fold ROC-AUC in each outer split; Platt calibration and Youden threshold as for (a)"
+    ]
+   ],
+   "widths": [
+    3000,
+    2000,
+    4700
+   ],
+   "note": "Library feature sets: B = 5 environmental variables; E = environmental, climate and coordinate terms (14); EL = E plus kernel rates and densities (26); ELK = EL plus k-nearest rates and distance (36); G = location-level inputs for kriging. The number of library members is given in brackets (23 in total).",
+   "size": 14
+  },
+  {
+   "type": "h2",
+   "text": "3.5 Spatial validation"
+  },
+  {
+   "type": "para",
+   "text": "Households were assigned to square blocks of 81 km. Blocks were allocated to five folds with balanced household counts (630-712 test households per fold), and the procedure was repeated three times with different grid origins, giving 15 development splits. No location or block appeared in both the training and test sets of any split. Within each training set, five inner block-grouped folds were used for calibration, thresholds and ensemble ranking. Random 5-fold cross-validation, at household level and with the same corrected code, was run as a reference."
+  },
+  {
+   "type": "para",
+   "text": "The block size was set in an earlier analysis as the median of the practical ranges of three outcome variograms (647, 81 and 67 km for CBPP, FMD and LSD). These variograms used all labels, so the evaluation design, though not any model, depended on outcome data. Variograms of the five environmental variables, which use no labels, had practical ranges of 364 km to beyond 600 km (Supplementary Table S12). We therefore report 120 km and 160 km blocks as a sensitivity analysis, together with proximity buffers that remove training locations within 25, 50 or 100 km of any test location, and size-matched random removal as a control."
+  },
+  {
+   "type": "para",
+   "text": "To describe how new the test data were, we computed for every test household the distance to the nearest training location. We also computed the area of applicability (AOA) of the FS1 and FS5 ExtraTrees models [19]. The dissimilarity index (DI) of a test household is its distance to the nearest training household in standardised predictor space, with each predictor weighted by its importance in the fitted model, divided by the mean distance between training households. A household lies outside the AOA when its DI exceeds the upper whisker (third quartile plus 1.5 times the interquartile range) of the DI values of training households computed across inner folds. No gridded predictor surfaces were available, so the AOA was computed at surveyed locations only. The DI measures how unusual the predictor values are; it is not a measure of disease risk."
+  },
+  {
+   "type": "para",
+   "text": "A separate confirmatory partition (2 × 5 folds, with different grid origins) was generated and sealed before any model was evaluated. It was first reserved for a pre-registered study of population-based optimisation for feature and model selection. That method did not pass its pre-registered go/no-go criterion on the development folds for any disease, so it was never tested on the partition. The partition was then assigned, once and before opening, to two hypotheses about FS5, written after the development results were known. It was opened once with the code in use at that time. The optimisation study is outside the scope of this paper and is reported in full in Supplementary Section S2; none of its results are used here."
+  },
+  {
+   "type": "h2",
+   "text": "3.6 Statistical evaluation"
+  },
+  {
+   "type": "para",
+   "text": "The primary metric was ROC-AUC. We also report PR-AUC with its no-skill level (the prevalence) [32], the Brier score, calibration intercept and slope [33], and sensitivity, specificity, balanced accuracy, F1 and the Matthews correlation coefficient [34]. Probabilities came from Platt (logistic) calibration fitted on inner out-of-fold scores; if the inner association was negative, the output was set to the training prevalence. Thresholds were chosen by the Youden index on the same inner data. Calibration was assessed in two ways: within each test fold (fold-level medians) and on the pooled out-of-fold predictions with location-cluster bootstrap intervals. The Brier skill score compares the Brier score with that of a constant forecast equal to the prevalence, p(1 - p); values at or below zero mean no skill."
+  },
+  {
+   "type": "para",
+   "text": "Survey-campaign confounding was measured in three ways. First, the within-year ROC-AUC of Eq. (2), where AUC_{t} is the ROC-AUC among households from survey year t, and P_{t} and N_{t} are the numbers of positive and negative households in that year. Only pairs from the same year are compared, so differences in prevalence between campaigns cannot raise the score."
+  },
+  {
+   "type": "equation",
+   "text": "AUC_{within} = Σ_{t} P_{t} · N_{t} · AUC_{t} / Σ_{t} P_{t} · N_{t}",
+   "number": 2
+  },
+  {
+   "type": "para",
+   "text": "Second, survey-year identification: under the same spatial splits, an ExtraTrees classifier predicted the survey year of each test household from FS1, from the 18 neighbourhood rates alone, or from FS5, and was scored by the macro one-versus-rest ROC-AUC. A high score means that the features carry information about the campaign. Third, campaign-specific models: in every development split and for each survey year, FS1 and FS5 ExtraTrees were fitted on that year's training households only and tested on that year's test households, and compared with the pooled models on the same households, using test sets with at least five positive and five negative households."
+  },
+  {
+   "type": "para",
+   "text": "Paired differences were tested over the 15 development folds with the corrected resampled t-test [35]. Its variance correction uses the ratio of test to training households, which was 668/2672 = 1/4 for the 81 km design; for the proximity-buffer and block-size conditions, the mean test and training sizes of each condition were used. As a second method, a location-cluster bootstrap (1,000 resamples) was applied to the pooled out-of-fold predictions of each repeat, with scores expressed as quantiles of the training out-of-fold distribution. Holm correction [36] was applied across the diseases (and across the 12 ablation steps). Negative controls rebuilt the whole pipeline, including the neighbourhood features, on permuted labels: 100 household-level permutations and 100 village-level permutations that move whole villages between locations of similar size. Forward temporal validation trained on 2012-2015 households (n = 1,564) and tested on 2018-2019 households (n = 1,776)."
+  },
+  {
+   "type": "para",
+   "text": "For explainability, exact SHAP values [22, 23] of the FS5 ExtraTrees model were computed for the test households of the five folds of development repeat 1, and summarised as the mean absolute SHAP value per feature and per feature group. Partial dependence [24] was computed on the training data of each fold, and grouped permutation importance (the drop in test ROC-AUC when a feature group is permuted) on all 15 folds. Analyses used Python 3.13, scikit-learn 1.9.1, XGBoost 3.4.1, LightGBM 4.7.0, CatBoost 1.2.10 and SHAP with fixed seeds; an executable notebook reproduces every table and figure. The workflow is summarised in Figure 2."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/Fig1_workflow_v7.png",
+   "aspect": 0.6432584269662921,
+   "alt": "Study workflow. Steps in blue boxes are repeated inside the training data of each split.",
+   "width_px": 560
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 2.** Study workflow. Steps in blue boxes are repeated inside the training data of each split."
+  },
+  {
+   "type": "h1",
+   "text": "4. Results and discussion"
+  },
+  {
+   "type": "h2",
+   "text": "4.1 Spatial generalisation"
+  },
+  {
+   "type": "para",
+   "text": "Random 5-fold cross-validation gave ROC-AUC of 0.79-0.83 for every model and disease (Table 4, Figure 3). Spatial block validation, run with the same code, gave 0.56-0.70. For the rank average, random splits overstated ROC-AUC by 0.103 (CBPP), 0.185 (FMD) and 0.210 (LSD); across all four models the overstatement was 0.10-0.26. The reason is clear from the distances: under random splits, 96.7% of test households had training households at the same location, whereas under 81 km blocks the median distance to the nearest training location was 35 km (interquartile range 22.2 to 55.6 km; Supplementary Table S22 and Figure S9). Random splits also raised within-year ROC-AUC, from 0.49-0.59 to 0.67-0.74, because households from the same village appear in both training and test sets."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 4.** Discrimination under random and spatial cross-validation (n = 3,340 households). (a) rank average of 23 models; (b) inner-selected single model.",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "Random CV ROC-AUC (5 folds)",
+    "Spatial ROC-AUC, fold mean (SD)",
+    "Spatial ROC-AUC, pooled [95% CI]",
+    "Spatial within-year AUC, pooled [95% CI]",
+    "Spatial PR-AUC (no-skill)",
+    "MCC"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "0.790",
+     "0.694 (0.055)",
+     "0.711 [0.673, 0.743]",
+     "0.583 [0.547, 0.618]",
+     "0.401 (0.225)",
+     "0.26"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.805",
+     "0.697 (0.065)",
+     "0.712 [0.671, 0.747]",
+     "0.580 [0.542, 0.618]",
+     "0.409 (0.225)",
+     "0.29"
+    ],
+    [
+     "CBPP",
+     "(a)",
+     "0.805",
+     "0.703 (0.066)",
+     "0.725 [0.685, 0.761]",
+     "0.591 [0.552, 0.631]",
+     "0.419 (0.225)",
+     "0.30"
+    ],
+    [
+     "CBPP",
+     "(b)",
+     "0.791",
+     "0.688 (0.055)",
+     "0.710 [0.671, 0.746]",
+     "0.578 [0.542, 0.614]",
+     "0.397 (0.225)",
+     "0.25"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "0.821",
+     "0.563 (0.101)",
+     "0.572 [0.518, 0.625]",
+     "0.546 [0.510, 0.580]",
+     "0.243 (0.183)",
+     "0.01"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "0.833",
+     "0.663 (0.084)",
+     "0.665 [0.615, 0.714]",
+     "0.611 [0.562, 0.663]",
+     "0.329 (0.183)",
+     "0.19"
+    ],
+    [
+     "FMD",
+     "(a)",
+     "0.832",
+     "0.648 (0.107)",
+     "0.646 [0.585, 0.708]",
+     "0.607 [0.555, 0.661]",
+     "0.316 (0.183)",
+     "0.16"
+    ],
+    [
+     "FMD",
+     "(b)",
+     "0.817",
+     "0.614 (0.108)",
+     "0.615 [0.557, 0.671]",
+     "0.560 [0.509, 0.610]",
+     "0.293 (0.183)",
+     "0.12"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "0.808",
+     "0.577 (0.070)",
+     "0.572 [0.528, 0.607]",
+     "0.554 [0.512, 0.594]",
+     "0.270 (0.224)",
+     "0.06"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "0.817",
+     "0.609 (0.090)",
+     "0.600 [0.554, 0.641]",
+     "0.505 [0.440, 0.562]",
+     "0.302 (0.224)",
+     "0.10"
+    ],
+    [
+     "LSD",
+     "(a)",
+     "0.813",
+     "0.602 (0.087)",
+     "0.600 [0.546, 0.641]",
+     "0.531 [0.470, 0.589]",
+     "0.300 (0.224)",
+     "0.14"
+    ],
+    [
+     "LSD",
+     "(b)",
+     "0.806",
+     "0.582 (0.083)",
+     "0.578 [0.534, 0.618]",
+     "0.534 [0.494, 0.572]",
+     "0.294 (0.224)",
+     "0.10"
+    ]
+   ],
+   "widths": [
+    800,
+    650,
+    1100,
+    1350,
+    1650,
+    1700,
+    1350,
+    650
+   ],
+   "note": "Spatial results: 15 development splits (3 repeats × 5 folds, 81 km blocks). Pooled: out-of-fold predictions of each repeat pooled and averaged over repeats; 95% CI from 1,000 location-cluster bootstrap resamples. MCC at the Youden threshold chosen on inner out-of-fold data. Threshold metrics with confidence intervals are in Supplementary Table S19.",
+   "size": 14
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig3_random_vs_spatial_cv_v1.png",
+   "aspect": 0.42771639042357273,
+   "alt": "Mean ROC-AUC under random 5-fold cross-validation and spatial block cross-validation (81 k",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 3.** Mean ROC-AUC under random 5-fold cross-validation and spatial block cross-validation (81 km blocks), with the same corrected code. The dotted line marks chance level."
+  },
+  {
+   "type": "para",
+   "text": "Under spatial validation, CBPP was the most predictable disease (ROC-AUC about 0.70) and LSD the least (about 0.60). PR-AUC was above its no-skill level for every model, but only slightly for FS1 on FMD (0.243 against a prevalence of 0.183). Choosing one model by inner-fold ROC-AUC (b) was never better than the rank average, which agrees with the selection-bias argument of Cawley and Talbot [21]. Among the 23 library models, the best fold-mean ROC-AUC was 0.703 for CBPP (GAM [B]), 0.668 for FMD (LightGBM [ELK]) and 0.609 for LSD (ExtraTrees [ELK]) (Supplementary Table S4)."
+  },
+  {
+   "type": "para",
+   "text": "Calibration differed between the two views (Table 5). Within single test folds, the median calibration slope was 1.17-1.84 for FMD and 1.01-1.76 for LSD, so the probabilities within a fold were too close to the average risk. On the pooled predictions, the slopes were lower (-0.35 to 0.97 for FMD and 0.11 to 0.70 for LSD), which suggests that the overall level of the predictions did not follow the differences in prevalence between folds. For CBPP both views gave slopes close to 1. The Brier skill score was +0.10 to +0.11 for CBPP, 0.00 to +0.05 for FMD and -0.02 to +0.01 for LSD. The LSD probabilities were therefore no better than predicting the prevalence, and for FMD and LSD the predicted probabilities should be used for ranking, not as absolute risks (calibration plots in Supplementary Figures S2 and S7)."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 5.** Calibration within folds and on pooled predictions (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "Slope: fold median (IQR)",
+    "Slope: pooled [95% CI]",
+    "Intercept: pooled [95% CI]",
+    "Brier: pooled [95% CI]",
+    "Reference Brier p(1 - p)",
+    "Brier skill score [95% CI]"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "1.12 (0.95 to 1.26)",
+     "1.03 [0.81, 1.24]",
+     "-0.03 [-0.18, +0.12]",
+     "0.157 [0.143, 0.174]",
+     "0.174",
+     "+0.097 [-0.001, +0.177]"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.98 (0.89 to 1.29)",
+     "0.97 [0.78, 1.16]",
+     "+0.02 [-0.12, +0.16]",
+     "0.156 [0.140, 0.172]",
+     "0.174",
+     "+0.103 [+0.010, +0.195]"
+    ],
+    [
+     "CBPP",
+     "(a)",
+     "0.94 (0.87 to 1.14)",
+     "0.96 [0.75, 1.18]",
+     "+0.00 [-0.15, +0.15]",
+     "0.154 [0.139, 0.170]",
+     "0.174",
+     "+0.114 [+0.022, +0.200]"
+    ],
+    [
+     "CBPP",
+     "(b)",
+     "0.79 (0.75 to 0.93)",
+     "0.83 [0.66, 1.00]",
+     "-0.05 [-0.20, +0.09]",
+     "0.157 [0.142, 0.174]",
+     "0.174",
+     "+0.097 [-0.001, +0.183]"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "1.70 (0.31 to 2.84)",
+     "-0.35 [-1.33, 0.77]",
+     "+0.01 [-0.20, +0.23]",
+     "0.150 [0.131, 0.174]",
+     "0.15",
+     "-0.003 [-0.164, +0.124]"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "1.17 (1.05 to 1.67)",
+     "0.97 [0.63, 1.31]",
+     "-0.01 [-0.20, +0.20]",
+     "0.142 [0.123, 0.164]",
+     "0.15",
+     "+0.050 [-0.097, +0.177]"
+    ],
+    [
+     "FMD",
+     "(a)",
+     "1.84 (1.16 to 2.43)",
+     "0.70 [0.17, 1.41]",
+     "+0.01 [-0.20, +0.23]",
+     "0.146 [0.126, 0.170]",
+     "0.15",
+     "+0.023 [-0.137, +0.157]"
+    ],
+    [
+     "FMD",
+     "(b)",
+     "1.54 (0.26 to 1.74)",
+     "0.59 [0.12, 1.04]",
+     "+0.02 [-0.19, +0.24]",
+     "0.147 [0.128, 0.171]",
+     "0.15",
+     "+0.017 [-0.144, +0.144]"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "1.31 (0.16 to 1.90)",
+     "0.22 [-0.47, 0.88]",
+     "+0.01 [-0.22, +0.21]",
+     "0.175 [0.155, 0.196]",
+     "0.174",
+     "-0.007 [-0.128, +0.108]"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "1.24 (0.29 to 4.35)",
+     "0.11 [-0.34, 0.56]",
+     "-0.00 [-0.22, +0.21]",
+     "0.176 [0.157, 0.198]",
+     "0.174",
+     "-0.013 [-0.139, +0.097]"
+    ],
+    [
+     "LSD",
+     "(a)",
+     "1.76 (0.70 to 2.49)",
+     "0.70 [0.13, 1.25]",
+     "-0.01 [-0.22, +0.19]",
+     "0.172 [0.153, 0.193]",
+     "0.174",
+     "+0.010 [-0.110, +0.120]"
+    ],
+    [
+     "LSD",
+     "(b)",
+     "1.01 (0.42 to 1.40)",
+     "0.24 [-0.05, 0.53]",
+     "-0.03 [-0.26, +0.18]",
+     "0.178 [0.158, 0.198]",
+     "0.174",
+     "-0.024 [-0.139, +0.091]"
+    ]
+   ],
+   "widths": [
+    750,
+    650,
+    1550,
+    1450,
+    1500,
+    1450,
+    1000,
+    1550
+   ],
+   "note": "Fold median: median over the 15 test folds. Pooled: out-of-fold probabilities of each repeat pooled; 95% CI from 1,000 location-cluster bootstrap resamples. Slopes above 1 mean the probabilities are too close to the average risk; slopes below 1 mean they are too extreme. Brier skill score = 1 - Brier / p(1 - p); its interval is derived from the Brier interval with the reference held fixed.",
+   "size": 14
+  },
+  {
+   "type": "h2",
+   "text": "4.2 Feature ablation"
+  },
+  {
+   "type": "para",
+   "text": "The full engineered set improved FMD prediction (Tables 6 and 7). The fold-mean gain of FS5 over FS1 was +0.100 [+0.025, +0.175] (Holm p = 0.039), FS5 was better in 14/15 folds, and the pooled bootstrap estimate was +0.093 [+0.057, +0.126]. For CBPP, FS5 gave no gain (+0.003 [-0.034, +0.041]). For LSD, the gain was small and uncertain (+0.031 [-0.039, +0.102]). The locked confirmatory partition showed the same pattern: the FMD gain was +0.068 (95% CI +0.030 to +0.104, better in 9/10 folds), while the LSD gain was +0.008 (95% CI -0.028 to +0.044). The registered primary hypothesis required a gain for both FMD and LSD, so as registered it was not confirmed; only its FMD part met the criterion (Supplementary Table S7)."
+  },
+  {
+   "type": "para",
+   "text": "The ablation shows where the FMD gain comes from (Figure 4). Adding the climate indices raised the fold-mean ROC-AUC by +0.040 (95% CI -0.015 to +0.095) and adding the coordinates by +0.035 (95% CI -0.017 to +0.087). These corrected t-intervals include zero, but the pooled bootstrap intervals of both steps excluded it (+0.040, 95% CI +0.019 to +0.062 for climate and +0.039, 95% CI +0.017 to +0.063 for coordinates). Adding the 18 neighbourhood and cross-disease rates after the coordinates changed it by only +0.008 (95% CI -0.051 to +0.067), and the sampling-density terms by +0.017 (95% CI -0.012 to +0.045). No single step was significant after Holm correction across the 12 steps, which is expected when a gain of 0.10 is split into four parts. For CBPP no step changed ROC-AUC by more than 0.010. For LSD, adding the rates lowered the within-year ROC-AUC from 0.540 to 0.497 (difference -0.043, 95% CI -0.092 to +0.007), which suggests that for LSD the rates carry between-campaign rather than within-campaign information (Section 4.6). Full results are in Supplementary Tables S15 and S16."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 6.** Feature ablation: ROC-AUC of ExtraTrees with nested feature sets, and the change from the previous set (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Set",
+    "Added group (total features)",
+    "CBPP: pooled ROC-AUC [95% CI]",
+    "CBPP: change [95% CI]",
+    "FMD: pooled ROC-AUC [95% CI]",
+    "FMD: change [95% CI]",
+    "LSD: pooled ROC-AUC [95% CI]",
+    "LSD: change [95% CI]"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "Environmental (5)",
+     "0.711 [0.673, 0.743]",
+     "-",
+     "0.572 [0.518, 0.625]",
+     "-",
+     "0.572 [0.528, 0.607]",
+     "-"
+    ],
+    [
+     "FS2",
+     "+ Climate indices (11)",
+     "0.704 [0.666, 0.738]",
+     "-0.007 [-0.036, +0.023]",
+     "0.612 [0.562, 0.662]",
+     "+0.040 [-0.015, +0.095]",
+     "0.582 [0.532, 0.623]",
+     "+0.012 [-0.023, +0.047]"
+    ],
+    [
+     "FS3",
+     "+ Coordinates (15)",
+     "0.715 [0.676, 0.751]",
+     "+0.010 [-0.007, +0.026]",
+     "0.651 [0.600, 0.704]",
+     "+0.035 [-0.017, +0.087]",
+     "0.597 [0.542, 0.640]",
+     "+0.011 [-0.022, +0.044]"
+    ],
+    [
+     "FS4",
+     "+ Neighbourhood and cross-disease rates (33)",
+     "0.716 [0.674, 0.753]",
+     "+0.003 [-0.031, +0.037]",
+     "0.657 [0.605, 0.708]",
+     "+0.008 [-0.051, +0.067]",
+     "0.590 [0.546, 0.630]",
+     "+0.000 [-0.059, +0.060]"
+    ],
+    [
+     "FS5",
+     "+ Sampling density (39)",
+     "0.712 [0.671, 0.747]",
+     "-0.003 [-0.021, +0.016]",
+     "0.665 [0.615, 0.714]",
+     "+0.017 [-0.012, +0.045]",
+     "0.600 [0.554, 0.641]",
+     "+0.008 [-0.039, +0.056]"
+    ]
+   ],
+   "widths": [
+    550,
+    1850,
+    1300,
+    1300,
+    1300,
+    1300,
+    1300,
+    1300
+   ],
+   "note": "Pooled ROC-AUC: location-cluster bootstrap 95% CI. Change: fold-mean difference from the previous set with corrected resampled t 95% CI. Holm-corrected p-values for the 12 steps were all above 0.05 (Supplementary Table S16).",
+   "size": 13
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig1_ablation_v3.png",
+   "aspect": 0.3599476439790576,
+   "alt": "(a) Overall (filled) and within-year (open) ROC-AUC of ExtraTrees with the nested feature ",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 4.** (a) Overall (filled) and within-year (open) ROC-AUC of ExtraTrees with the nested feature sets FS1 to FS5. (b) Change in ROC-AUC when each feature group is added, with corrected resampled t 95% intervals."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 7.** Paired ROC-AUC differences between models (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Comparison",
+    "Disease",
+    "Overall: fold mean [corrected-t 95% CI]",
+    "Folds > 0",
+    "Holm p",
+    "Overall: pooled [bootstrap 95% CI]",
+    "Within-year: fold mean [corrected-t 95% CI]",
+    "Within-year: pooled [bootstrap 95% CI]"
+   ],
+   "rows": [
+    [
+     "FS5 minus FS1",
+     "CBPP",
+     "+0.003 [-0.034, +0.041]",
+     "8/15",
+     "0.858",
+     "+0.001 [-0.022, +0.022]",
+     "-0.013 [-0.074, +0.047]",
+     "-0.004 [-0.028, +0.021]"
+    ],
+    [
+     "FS5 minus FS1",
+     "FMD",
+     "+0.100 [+0.025, +0.175]",
+     "14/15",
+     "0.039",
+     "+0.093 [+0.057, +0.126]",
+     "+0.060 [-0.046, +0.165]",
+     "+0.066 [+0.011, +0.117]"
+    ],
+    [
+     "FS5 minus FS1",
+     "LSD",
+     "+0.031 [-0.039, +0.102]",
+     "9/15",
+     "0.711",
+     "+0.028 [-0.007, +0.066]",
+     "-0.049 [-0.161, +0.063]",
+     "-0.049 [-0.115, +0.007]"
+    ],
+    [
+     "(a) minus FS5",
+     "CBPP",
+     "+0.005 [-0.023, +0.033]",
+     "8/15",
+     "1.000",
+     "+0.013 [+0.003, +0.024]",
+     "+0.011 [-0.025, +0.047]",
+     "+0.012 [-0.001, +0.026]"
+    ],
+    [
+     "(a) minus FS5",
+     "FMD",
+     "-0.015 [-0.061, +0.031]",
+     "4/15",
+     "1.000",
+     "-0.019 [-0.037, -0.002]",
+     "-0.004 [-0.057, +0.049]",
+     "-0.004 [-0.025, +0.015]"
+    ],
+    [
+     "(a) minus FS5",
+     "LSD",
+     "-0.006 [-0.058, +0.046]",
+     "7/15",
+     "1.000",
+     "+0.000 [-0.023, +0.023]",
+     "+0.023 [-0.033, +0.080]",
+     "+0.026 [+0.007, +0.046]"
+    ]
+   ],
+   "widths": [
+    1400,
+    700,
+    1700,
+    750,
+    700,
+    1650,
+    1700,
+    1650
+   ],
+   "note": "Holm correction across the three diseases within each comparison. Within-year differences use Eq. (2). Fold-by-fold values are shown in Supplementary Figure S5.",
+   "size": 15
+  },
+  {
+   "type": "para",
+   "text": "We therefore state the FMD result as follows. The engineered set improves FMD; the ablation shows that the gain comes mainly from climate indices and coordinates, while neighbourhood and cross-disease rates add little once location is known and partly encode the survey campaign. The leakage audit (Section 4.3) shows that these rates are safe, not that they are needed. The order of the groups matters: the rates were added after the coordinates, and both describe location, so the ablation measures what the rates add beyond coordinates, not what they could provide alone. For FMD, the single FS5 ExtraTrees model was slightly better than the rank average (pooled difference of the rank average minus FS5: -0.019, 95% CI -0.037 to -0.002); for CBPP the rank average was best, and for LSD the two were similar (Table 7)."
+  },
+  {
+   "type": "h2",
+   "text": "4.3 Leakage audit and negative controls"
+  },
+  {
+   "type": "para",
+   "text": "The audit traced all 74 features that any library model could receive, all ablation sets and the downstream explainability, applicability and campaign analyses. The main results are as follows:"
+  },
+  {
+   "type": "bullet",
+   "text": "An independent loop-based implementation reproduced every kernel, density and distance feature (maximum absolute difference 1.8 × 10^{-14}). After the tie rule was introduced it also reproduced the k-nearest-location rates: 1,352,700 values with 0 mismatches. In the original audit, 1,001 of 570,915 k-nearest values (0.18%) had differed, all because of exactly equidistant neighbours."
+  },
+  {
+   "type": "bullet",
+   "text": "Flipping every outer-test label left all features, inner out-of-fold predictions, calibrated probabilities and Youden thresholds bit-identical, for FS1 to FS5 and for the library. It also left the SHAP values, the dissimilarity index and the survey-year predictions exactly unchanged. Flipping a training household never changed the features of its own 81 km block. All 75 inner splits were block-grouped and contained no outer-test household."
+  },
+  {
+   "type": "bullet",
+   "text": "The old-code prior issue changed the mean rank-average ROC-AUC by at most 0.0027 (largest change in a single fold 0.0089; Supplementary Table S3)."
+  },
+  {
+   "type": "bullet",
+   "text": "All reported statistics were recomputed from the saved predictions with independent code. Fold metrics, corrected t-intervals, Holm and permutation p-values, Table 1 counts and temporal AUCs agreed to within 0.0005 (table rounding), and bootstrap intervals to within 0.009 (Monte Carlo error)."
+  },
+  {
+   "type": "para",
+   "text": "Under permuted labels, ROC-AUC stayed close to 0.5 and the FS5 gain stayed close to zero (Table 8; Supplementary Figure S6). The observed FMD gain on development repeat 1 (0.084) was larger than every one of the 100 household-level and 100 village-level permutations (p = 0.010 in both designs, the smallest value possible with 100 permutations). After Holm correction across the six tests, p = 0.059; this value is set by the number of permutations rather than by the size of the gain. The LSD gain exceeded the household-level null but not the village-level null, which keeps villages intact. CBPP did not differ from either null. No outcome information from test folds reached the models; the remaining design dependence is the block size, which was derived from labels (Section 3.5) and is examined in Section 4.5."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 8.** Negative controls: full pipeline rebuilt on permuted labels (100 permutations per scheme, development repeat 1)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Null scheme",
+    "Disease",
+    "Null FS5 ROC-AUC [2.5-97.5%]",
+    "Null FS5 - FS1 [2.5-97.5%]",
+    "Observed FS5 - FS1",
+    "Permutation p (resolution)",
+    "Holm p"
+   ],
+   "rows": [
+    [
+     "household",
+     "CBPP",
+     "0.504 [0.482, 0.528]",
+     "+0.003 [-0.020, +0.038]",
+     "0.018",
+     "0.198 (0.010)",
+     "0.446"
+    ],
+    [
+     "household",
+     "FMD",
+     "0.499 [0.472, 0.529]",
+     "-0.001 [-0.040, +0.030]",
+     "0.084",
+     "0.010 (0.010)",
+     "0.059"
+    ],
+    [
+     "household",
+     "LSD",
+     "0.501 [0.476, 0.527]",
+     "-0.001 [-0.028, +0.023]",
+     "0.039",
+     "0.010 (0.010)",
+     "0.059"
+    ],
+    [
+     "village",
+     "CBPP",
+     "0.502 [0.455, 0.560]",
+     "-0.007 [-0.071, +0.047]",
+     "0.018",
+     "0.208 (0.010)",
+     "0.446"
+    ],
+    [
+     "village",
+     "FMD",
+     "0.497 [0.436, 0.561]",
+     "-0.008 [-0.070, +0.052]",
+     "0.084",
+     "0.010 (0.010)",
+     "0.059"
+    ],
+    [
+     "village",
+     "LSD",
+     "0.499 [0.434, 0.555]",
+     "-0.004 [-0.070, +0.072]",
+     "0.039",
+     "0.149 (0.010)",
+     "0.446"
+    ]
+   ],
+   "widths": [
+    1100,
+    800,
+    1900,
+    1900,
+    1200,
+    1500,
+    900
+   ],
+   "note": null,
+   "size": 15
+  },
+  {
+   "type": "h2",
+   "text": "4.4 Model explainability"
+  },
+  {
+   "type": "para",
+   "text": "SHAP values show what the FS5 model uses (Figure 5). For CBPP, the top four features were own-disease k-nearest and kernel rates, followed by altitude and precipitation. For FMD, the most important features were the 400 km CBPP kernel rate, latitude and latitude plus longitude, followed by FMD rates at short range. For LSD, LSD and FMD rates at several ranges ranked highest. Summed over groups, own-disease or cross-disease rates had the largest mean absolute SHAP value for all three diseases (FMD: own-disease 0.026, cross-disease 0.027, coordinates 0.021, climate indices 0.009; Supplementary Table S17). The group ranking agreed with grouped permutation importance (Spearman correlation 0.83-0.94 over the six groups)."
+  },
+  {
+   "type": "para",
+   "text": "These explanations need care. The FS5 model relies heavily on the rates, but the ablation shows that removing them after the coordinates costs little for FMD. Rates and coordinates both describe location, so the fitted model can use either; SHAP shares the credit between correlated features, and it shows reliance, not necessity. The broad 400 km rates in particular describe regional prevalence, which differs between survey campaigns. Partial dependence (Supplementary Figure S8) supports this reading: for LSD, the predicted probability fell as the regional 400 km LSD rate rose, a pattern that is hard to explain as a local disease process and easier to explain as a contrast between campaigns. Feature importance in this study therefore describes the models, not risk factors, and the cross-disease rates should not be read as evidence of a biological link between diseases."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig2_shap_top_features_v1.png",
+   "aspect": 0.47066549912434325,
+   "alt": "Ten features with the largest mean absolute SHAP value for the FS5 ExtraTrees model (test ",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 5.** Ten features with the largest mean absolute SHAP value for the FS5 ExtraTrees model (test households of the five folds of development repeat 1), coloured by feature group."
+  },
+  {
+   "type": "h2",
+   "text": "4.5 Spatial applicability"
+  },
+  {
+   "type": "para",
+   "text": "Almost all test households were inside the area of applicability: 98.6-99.5% across the two feature sets and three diseases (Figure 6; Supplementary Table S18). Households outside the AOA were few (15-47 per repeat) and came from 10-20 locations. Their ROC-AUC values rest on very few positive households and are not interpretable. The DI was almost unrelated to the size of the prediction error, measured as the absolute difference between the outcome and the model score (Spearman correlation -0.08 to +0.17). The lower accuracy under spatial validation is therefore not explained by extrapolation to unusual predictor values: test households had predictor values similar to those of training households, but reported prevalence differed. This result applies to surveyed locations only; areas without surveys may lie outside the AOA."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig4_area_of_applicability_FS5_v1.png",
+   "aspect": 0.40924912978617606,
+   "alt": "Dissimilarity index of the FS5 ExtraTrees model divided by the AOA threshold, at surveyed ",
+   "width_px": 600
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 6.** Dissimilarity index of the FS5 ExtraTrees model divided by the AOA threshold, at surveyed locations (mean over development repeats). Orange rings mark locations outside the area of applicability in at least one repeat. Values describe how unusual the predictors are, not disease risk."
+  },
+  {
+   "type": "para",
+   "text": "Removing training locations close to the test area did not remove the FMD gain (Table 9, Figure 7). The gain was +0.121 [+0.067, +0.176] with a 25 km buffer and +0.166 [+0.056, +0.275] with a 50 km buffer, against +0.089 [+0.006, +0.173] after removing the same number of distant households. With a 100 km buffer, which moved the median distance to the nearest training location to 125 km, the gain fell to +0.063 [-0.119, +0.246] and its interval included zero, while absolute ROC-AUC fell from 0.663 to 0.560."
+  },
+  {
+   "type": "para",
+   "text": "Larger blocks lowered absolute performance (FMD FS5 ROC-AUC 0.626 with 120 km and 0.627 with 160 km blocks; CBPP 0.665 and LSD 0.591 with 160 km), but the FMD gain stayed similar (+0.122 [-0.026, +0.271] and +0.101 [+0.010, +0.191]). Because the 81 km block size came from outcome variograms and the label-free ranges are longer, the 81 km results should be read as an upper estimate of accuracy in new areas; the relative FMD gain does not depend on this choice. The gain becomes uncertain when the nearest survey is about 100 km away. For LSD the small gain was uncertain in every condition, and CBPP showed no gain under any condition."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 9.** Spatial sensitivity of the FS5 gain (development, ExtraTrees, mean of 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Condition",
+    "Training households",
+    "Median distance to nearest training location (km)",
+    "CBPP: FS5 - FS1 [95% CI]",
+    "FMD: FS1 / FS5 ROC-AUC",
+    "FMD: FS5 - FS1 [95% CI] (folds > 0)",
+    "LSD: FS5 - FS1 [95% CI]"
+   ],
+   "rows": [
+    [
+     "81 km blocks (main)",
+     "2672",
+     "38",
+     "+0.003 [-0.034, +0.041]",
+     "0.563 / 0.663",
+     "+0.100 [+0.025, +0.175] (14/15)",
+     "+0.031 [-0.039, +0.102]"
+    ],
+    [
+     "Buffer 25 km",
+     "2400",
+     "56",
+     "+0.006 [-0.049, +0.060]",
+     "0.504 / 0.625",
+     "+0.121 [+0.067, +0.176] (15/15)",
+     "+0.041 [-0.031, +0.114]"
+    ],
+    [
+     "Size-matched 25 km",
+     "2391",
+     "38",
+     "+0.005 [-0.036, +0.045]",
+     "0.576 / 0.657",
+     "+0.081 [+0.014, +0.147] (14/15)",
+     "+0.015 [-0.062, +0.091]"
+    ],
+    [
+     "Buffer 50 km",
+     "2062",
+     "72",
+     "-0.005 [-0.064, +0.055]",
+     "0.459 / 0.625",
+     "+0.166 [+0.056, +0.275] (15/15)",
+     "+0.036 [-0.069, +0.142]"
+    ],
+    [
+     "Size-matched 50 km",
+     "2058",
+     "38",
+     "+0.000 [-0.041, +0.041]",
+     "0.582 / 0.672",
+     "+0.089 [+0.006, +0.173] (15/15)",
+     "+0.001 [-0.067, +0.068]"
+    ],
+    [
+     "Buffer 100 km",
+     "1107",
+     "126",
+     "+0.014 [-0.112, +0.141]",
+     "0.497 / 0.560",
+     "+0.063 [-0.119, +0.246] (12/15)",
+     "-0.014 [-0.170, +0.142]"
+    ],
+    [
+     "Size-matched 100 km",
+     "1625",
+     "38",
+     "+0.003 [-0.035, +0.041]",
+     "0.576 / 0.664",
+     "+0.088 [-0.019, +0.195] (13/15)",
+     "+0.010 [-0.073, +0.092]"
+    ],
+    [
+     "120 km blocks",
+     "2672",
+     "49",
+     "+0.004 [-0.030, +0.038]",
+     "0.504 / 0.626",
+     "+0.122 [-0.026, +0.271] (12/15)",
+     "+0.029 [-0.058, +0.115]"
+    ],
+    [
+     "160 km blocks",
+     "2672",
+     "61",
+     "+0.012 [-0.028, +0.051]",
+     "0.526 / 0.627",
+     "+0.101 [+0.010, +0.191] (15/15)",
+     "+0.033 [-0.052, +0.119]"
+    ]
+   ],
+   "widths": [
+    1650,
+    1000,
+    1350,
+    1600,
+    1250,
+    1900,
+    1600
+   ],
+   "note": "Buffer: training locations within the given distance of any test location removed. Size-matched: the same number of households removed from distant locations. 95% CI: corrected resampled t with the test/training ratio of each condition. Full results are in Supplementary Tables S5 and S6.",
+   "size": 15
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/Fig4_spatial_sensitivity_v2.png",
+   "aspect": 0.42591732466326054,
+   "alt": "FS5 minus FS1 ROC-AUC under proximity removal (blue), size-matched random removal (grey) a",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 7.** FS5 minus FS1 ROC-AUC under proximity removal (blue), size-matched random removal (grey) and larger blocks (green). Bars: mean of 15 development folds; whiskers: corrected resampled t 95% intervals."
+  },
+  {
+   "type": "h2",
+   "text": "4.6 Survey-campaign confounding"
+  },
+  {
+   "type": "para",
+   "text": "Reported prevalence changed sharply between survey campaigns (Table 1, Figure 1). CBPP was reported by 43.4% of households in 2014 but 0.5% in 2019, and LSD rose from 7.5% in 2018 to 61.1% in 2019. The campaigns also covered different areas: between 65% and 100% of a campaign's locations had a location of another campaign within 81 km (Supplementary Table S13). In a one-way analysis, survey year explained 14.8%, 12.5% and 18.7% of the household-level outcome variance for CBPP, FMD and LSD."
+  },
+  {
+   "type": "para",
+   "text": "The features identified the survey campaign (Table 10). Under spatial validation, the survey year of a test household was predicted with a macro ROC-AUC of 0.788 from the five environmental variables, 0.825 from the 18 neighbourhood rates alone and 0.868 from FS5 (chance level 0.5). The rates identified the year at least as well as the environmental variables (difference +0.038, 95% CI -0.062 to +0.138). Location therefore carries information about the campaign, and the campaign carries information about the outcome."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 10.** Identification of the survey year from the features (development, 15 splits, ExtraTrees)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Features",
+    "Macro ROC-AUC [corrected-t 95% CI]",
+    "Accuracy (5 classes)",
+    "AUC 2012",
+    "AUC 2014",
+    "AUC 2015",
+    "AUC 2018",
+    "AUC 2019"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "0.788 [0.694, 0.881]",
+     "0.58",
+     "0.826",
+     "0.779",
+     "0.797",
+     "0.855",
+     "0.649"
+    ],
+    [
+     "Neighbourhood rates only",
+     "0.825 [0.748, 0.903]",
+     "0.586",
+     "0.829",
+     "0.906",
+     "0.757",
+     "0.857",
+     "0.778"
+    ],
+    [
+     "FS5",
+     "0.868 [0.791, 0.946]",
+     "0.63",
+     "0.889",
+     "0.935",
+     "0.817",
+     "0.887",
+     "0.813"
+    ]
+   ],
+   "widths": [
+    2200,
+    2000,
+    1100,
+    850,
+    850,
+    850,
+    850,
+    850
+   ],
+   "note": "One-versus-rest ROC-AUC for each survey year, averaged over folds; macro: mean over the years present in each test fold. Neighbourhood rates only: the 18 kernel and k-nearest rates for the three diseases.",
+   "size": 14
+  },
+  {
+   "type": "para",
+   "text": "Within-year ROC-AUC was much lower than overall ROC-AUC (Table 4, Figure 8). For the best overall model of each disease (the rank average for CBPP and LSD, FS5 for FMD), it was 0.591 for CBPP, 0.611 for FMD and 0.531 for LSD, against overall pooled values of 0.725, 0.665 and 0.600. A large part of the overall discrimination therefore comes from separating campaigns with high and low reported prevalence. Part of the drop may also arise because each campaign covers a smaller area with less environmental contrast; the two explanations cannot be fully separated with these data."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/Fig3_overall_vs_within_year_AUC_v1.png",
+   "aspect": 0.45305164319248825,
+   "alt": "Overall (filled) and within-survey-year (open) pooled ROC-AUC with 95% location-cluster bo",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 8.** Overall (filled) and within-survey-year (open) pooled ROC-AUC with 95% location-cluster bootstrap intervals. (a) rank average; (b) inner-selected single model. The dotted line marks chance level."
+  },
+  {
+   "type": "para",
+   "text": "The FMD feature gain persisted within years: +0.066 [+0.011, +0.117] by bootstrap, positive in 11/15 folds. The corrected t-interval included zero (+0.060 [-0.046, +0.165]), so this evidence is supportive rather than conclusive. For LSD, the overall gain of FS5 reversed within years (-0.049 [-0.115, +0.007]), which suggests that it mainly reflected campaign differences. Year-specific ROC-AUC varied widely; for FMD with FS5 it ranged from 0.42 to 0.73 (Supplementary Table S2)."
+  },
+  {
+   "type": "para",
+   "text": "Models trained on a single campaign ranked households within that campaign about as well as the pooled models (Table 11, Figure 9). None of the six differences was clearly different from zero. With FS5, the campaign-specific models tended to do better for LSD (+0.078, 95% CI -0.013 to +0.169; 12/15 folds) and CBPP (+0.045, 95% CI -0.004 to +0.094; 13/15 folds), and equally well for FMD. Pooling campaigns therefore did not improve the ranking of households within a campaign, and for LSD the pooled neighbourhood rates, dominated by other campaigns' prevalence, may have made it worse. Within a campaign, location still explained 28-30% of the remaining outcome variance, so there is real spatial structure within campaigns that the models only partly capture."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 11.** Within-campaign ROC-AUC of models trained on all campaigns (pooled) and on one campaign at a time (development, 15 splits, ExtraTrees)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Features",
+    "Fold x year units",
+    "Pooled-campaign model, within-campaign AUC",
+    "Campaign-specific model, within-campaign AUC",
+    "Campaign-specific minus pooled [corrected-t 95% CI]",
+    "Folds favouring campaign-specific"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "58",
+     "0.576",
+     "0.570",
+     "-0.006 [-0.059, +0.047]",
+     "8/15"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "58",
+     "0.563",
+     "0.608",
+     "+0.045 [-0.004, +0.094]",
+     "13/15"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "62",
+     "0.526",
+     "0.554",
+     "+0.028 [-0.100, +0.157]",
+     "10/15"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "62",
+     "0.587",
+     "0.586",
+     "-0.001 [-0.084, +0.083]",
+     "8/15"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "68",
+     "0.537",
+     "0.581",
+     "+0.044 [-0.099, +0.188]",
+     "13/15"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "68",
+     "0.488",
+     "0.566",
+     "+0.078 [-0.013, +0.169]",
+     "12/15"
+    ]
+   ],
+   "widths": [
+    800,
+    800,
+    1000,
+    1500,
+    1600,
+    2300,
+    1300
+   ],
+   "note": "Fold-level ROC-AUC within each survey year, weighted by positive × negative pairs and averaged over the 15 folds; only year-fold test sets with at least five positive and five negative households. 95% CI: corrected resampled t.",
+   "size": 15
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v3.png",
+   "aspect": 0.4952859836580767,
+   "alt": "Difference in within-campaign ROC-AUC between campaign-specific and pooled models, with co",
+   "width_px": 520
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 9.** Difference in within-campaign ROC-AUC between campaign-specific and pooled models, with corrected resampled t 95% intervals; the numbers on the right give the pooled and campaign-specific values."
+  },
+  {
+   "type": "para",
+   "text": "These findings are consistent with the choice of Gizaw et al. to model survey year and location jointly [14], and with the view of Moreno-Torres et al. that a change between the training and test populations is a separate source of error [11]. Studies of pooled survey data should report within-campaign discrimination next to the overall score."
+  },
+  {
+   "type": "h2",
+   "text": "4.7 Temporal generalisation"
+  },
+  {
+   "type": "para",
+   "text": "Models trained on the 2012-2015 campaigns and tested on 2018-2019 ranked households worse than chance (Table 12, Figure 10). ROC-AUC was below 0.5 for all three diseases and both feature sets (0.35-0.44), and the 95% interval lay entirely below 0.5 in 3 of the 6 cases. Prevalence also shifted: CBPP fell from 38.9% in training to 7.9% in testing, FMD from 24.1% to 13.2%, and LSD from 24.4% to 20.6%."
+  },
+  {
+   "type": "para",
+   "text": "The later campaigns surveyed different areas, and the diseases were reported at different levels. Areas that were high-risk in the early surveys were not the areas reporting disease later. This is the difference between retrospective mapping and forecasting described in Section 1: the spatial results describe how well reported occurrence can be interpolated within the surveyed period, not how well future outbreaks can be predicted. Transferability across time is a known weak point of predictive spatial models [25]. The models in this study should not be used to forecast where outbreaks will occur."
+  },
+  {
+   "type": "caption",
+   "text": "**Table 12.** Forward temporal validation (train 2012-2015, n = 1,564; test 2018-2019, n = 1,776)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Features",
+    "Train prevalence (%)",
+    "Test prevalence (%)",
+    "ROC-AUC [95% CI]",
+    "PR-AUC (no-skill)"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "38.9",
+     "7.9",
+     "0.383 [0.306, 0.456]",
+     "0.058 (0.079)"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "38.9",
+     "7.9",
+     "0.437 [0.354, 0.525]",
+     "0.068 (0.079)"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "24.1",
+     "13.2",
+     "0.420 [0.307, 0.542]",
+     "0.110 (0.132)"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "24.1",
+     "13.2",
+     "0.416 [0.287, 0.573]",
+     "0.112 (0.132)"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "24.4",
+     "20.6",
+     "0.352 [0.239, 0.494]",
+     "0.178 (0.206)"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "24.4",
+     "20.6",
+     "0.353 [0.249, 0.491]",
+     "0.164 (0.206)"
+    ]
+   ],
+   "widths": [
+    1100,
+    1000,
+    1500,
+    1500,
+    2400,
+    2100
+   ],
+   "note": "95% CI from 1,000 location-cluster bootstrap resamples of the test set.",
+   "size": 15
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig8_forward_temporal_v1.png",
+   "aspect": 0.35850773430391264,
+   "alt": "(a) Prevalence in the 2012-2015 training campaigns and the 2018-2019 test campaigns. (b) F",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure 10.** (a) Prevalence in the 2012-2015 training campaigns and the 2018-2019 test campaigns. (b) Forward temporal ROC-AUC with 95% location-cluster bootstrap intervals; the dotted line marks chance level."
+  },
+  {
+   "type": "h2",
+   "text": "4.8 Comparison with previous studies"
+  },
+  {
+   "type": "para",
+   "text": "High accuracy for livestock disease occurrence has been reported with random splits [4]. Our random-split scores were also high (0.79-0.83), but spatial validation lowered them by 0.10-0.26, and within-year analysis lowered them further. This agrees with findings in ecological mapping [5, 6]."
+  },
+  {
+   "type": "para",
+   "text": "Gizaw et al. checked their kriged maps of the same data by 10-fold cross-validation and reported correlations above 0.99 between observed and predicted values [14]. Because the kriging was applied to model-fitted values, this check measures how well the map interpolates a fitted risk surface. Our question is different: how well household-level occurrence can be ranked in areas without survey data. The two analyses agree that survey year and location are entangled, and we show how much this inflates the apparent discrimination of machine-learning models."
+  },
+  {
+   "type": "h1",
+   "text": "5. Limitations"
+  },
+  {
+   "type": "bullet",
+   "text": "Outcomes are household-reported occurrence over a recall period. They can include recall bias, misclassification and under-reporting, and they are not laboratory confirmed."
+  },
+  {
+   "type": "bullet",
+   "text": "The surveys used purposive and stratified cluster sampling within project areas [14]. They are not a probability sample of Ethiopia, so the results describe the surveyed areas only. The area of applicability was computed at surveyed locations only, because no gridded predictor surfaces were available."
+  },
+  {
+   "type": "bullet",
+   "text": "Survey year and region could not be separated from location. Within-year ROC-AUC removes between-year differences in prevalence, but campaigns also differed in area, questionnaire and season. Some years have very few cases (two CBPP cases in 2019)."
+  },
+  {
+   "type": "bullet",
+   "text": "Survey years are pooled in the neighbourhood features: on average 31% of the 150 km kernel weight comes from later surveys. This is acceptable for retrospective mapping but not for prospective use."
+  },
+  {
+   "type": "bullet",
+   "text": "The ablation added feature groups in one fixed order, so each step measures what a group adds given the groups before it; other orders were not tested. SHAP and permutation importance were computed on one development repeat and share credit between correlated features."
+  },
+  {
+   "type": "bullet",
+   "text": "The 81 km block size was derived from outcome variograms that used all labels, and label-free variograms suggest longer ranges. Block-size sensitivity was explored after the confirmatory partition had been opened, so it is exploratory. Coordinates are given to 0.1 degree, so proximity analyses below about 11 km are not meaningful."
+  },
+  {
+   "type": "bullet",
+   "text": "The confirmatory hypotheses were written after the development results were known, and the confirmatory test used the code before the two corrections; on the development splits the corrections changed mean ensemble ROC-AUC by at most 0.0027. The ablation, explainability, applicability and campaign-identification analyses were added after the confirmatory partition had been opened and used the development splits only. The permutation tests used 100 permutations per scheme, which limits p-values to 0.010 or above."
+  },
+  {
+   "type": "bullet",
+   "text": "The study shows association, not causation. Feature importance does not identify risk factors."
+  },
+  {
+   "type": "h1",
+   "text": "6. Conclusion"
+  },
+  {
+   "type": "para",
+   "text": "We evaluated machine-learning models for retrospective mapping of household-reported CBPP, FMD and LSD in Ethiopia with spatial block validation, a leakage audit and several sensitivity analyses. Random cross-validation, run with the same code, overstated ROC-AUC by 0.10-0.21 for the ensemble, because almost every random test household had training households at the same location."
+  },
+  {
+   "type": "para",
+   "text": "The engineered feature set improved FMD prediction by about 0.10 ROC-AUC. The gain passed the negative controls, appeared in the same direction on a locked confirmatory partition, and persisted under proximity removal and larger blocks. The ablation shows that the gain comes mainly from climate indices and coordinates, while neighbourhood and cross-disease rates add little once location is known and partly encode the survey campaign. The leakage audit shows that these rates are safe, not that they are needed. The same features gave no consistent benefit for CBPP or LSD, and the LSD probabilities had no skill beyond the prevalence."
+  },
+  {
+   "type": "para",
+   "text": "Survey campaigns confound pooled spatial accuracy. Survey year explained 12.5-18.7% of outcome variance and could be predicted from the features, discrimination within a single survey year was modest (about 0.53-0.61), training on all campaigns did not improve within-campaign ranking, and the models did not transfer forward in time. Test households were inside the area of applicability, so the loss of accuracy is more likely to reflect differences in reported prevalence than unusual predictor values."
+  },
+  {
+   "type": "para",
+   "text": "Within a single campaign, the maps can help rank surveyed areas for follow-up surveillance, but they should not be used to compare risk across campaigns or years, or to forecast. Studies that pool campaign-based surveys should report within-campaign discrimination next to overall scores, test outcome-derived features for leakage and with an ablation, and use probability-based or repeated surveys if the aim is forecasting."
+  },
+  {
+   "type": "h1",
+   "text": "Declarations"
+  },
+  {
+   "type": "h2",
+   "text": "Conflicts of interest"
+  },
+  {
+   "type": "para",
+   "text": "The authors declare no conflict of interest."
+  },
+  {
+   "type": "h2",
+   "text": "Author contributions"
+  },
+  {
+   "type": "para",
+   "text": "[To be completed by the authors, for example: conceptualisation, methodology, software, validation, formal analysis, writing - original draft, writing - review and editing.]"
+  },
+  {
+   "type": "h2",
+   "text": "Funding"
+  },
+  {
+   "type": "para",
+   "text": "[To be completed by the authors, or state that the research received no external funding.]"
+  },
+  {
+   "type": "h2",
+   "text": "Data and code availability"
+  },
+  {
+   "type": "para",
+   "text": "The survey data are publicly available from ILRI MELDATA (hdl:20.500.11766.1/FK2/8YFO3D, CC BY 4.0). The analysis code, frozen configuration, fold assignments, out-of-fold predictions, executable notebook, leakage audit and all result tables are available from the authors [repository link to be added]."
+  },
+  {
+   "type": "h2",
+   "text": "Declaration of AI use"
+  },
+  {
+   "type": "para",
+   "text": "[Draft for the authors to review against the current IJIES policy] An AI assistant (Claude, Anthropic) was used under the authors' direction to help write and debug analysis code, run experiments, check results and references, and draft and edit text. The authors designed the study, verified all code, results and references, revised the text and take full responsibility for the content. No data or citations were generated by the AI assistant."
+  },
+  {
+   "type": "h1",
+   "text": "References"
+  },
+  {
+   "type": "reference",
+   "text": "[1] S. Gizaw, H. Desta, B. Alemu, A. Tegegne, and B. Wieland, “Importance of livestock diseases identified using participatory epidemiology in the highlands of Ethiopia”, Tropical Animal Health and Production, Vol. 52, No. 4, pp. 1745-1757, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[2] W. T. Jemberu, M. C. M. Mourits, M. Sahle, B. Siraw, J. C. M. Vernooij, and H. Hogeveen, “Epidemiology of foot and mouth disease in Ethiopia: a retrospective analysis of district level outbreaks, 2007-2012”, Transboundary and Emerging Diseases, Vol. 63, No. 6, pp. e246-e259, 2016."
+  },
+  {
+   "type": "reference",
+   "text": "[3] G. Gari, A. Waret-Szkuta, V. Grosbois, P. Jacquiet, and F. Roger, “Risk factors associated with observed clinical lumpy skin disease in Ethiopia”, Epidemiology and Infection, Vol. 138, No. 11, pp. 1657-1666, 2010."
+  },
+  {
+   "type": "reference",
+   "text": "[4] E. Afshari Safavi, “Assessing machine learning techniques in forecasting lumpy skin disease occurrence based on meteorological and geospatial features”, Tropical Animal Health and Production, Vol. 54, No. 1, Art. 55, 2022."
+  },
+  {
+   "type": "reference",
+   "text": "[5] D. R. Roberts et al., “Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure”, Ecography, Vol. 40, No. 8, pp. 913-929, 2017."
+  },
+  {
+   "type": "reference",
+   "text": "[6] P. Ploton et al., “Spatial validation reveals poor predictive performance of large-scale ecological mapping models”, Nature Communications, Vol. 11, Art. 4540, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[7] R. Valavi, J. Elith, J. J. Lahoz-Monfort, and G. Guillera-Arroita, “blockCV: An R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models”, Methods in Ecology and Evolution, Vol. 10, No. 2, pp. 225-232, 2019."
+  },
+  {
+   "type": "reference",
+   "text": "[8] T. Hengl, M. Nussbaum, M. N. Wright, G. B. M. Heuvelink, and B. Graeler, “Random forest as a generic framework for predictive modeling of spatial and spatio-temporal variables”, PeerJ, Vol. 6, Art. e5518, 2018."
+  },
+  {
+   "type": "reference",
+   "text": "[9] S. Kaufman, S. Rosset, and C. Perlich, “Leakage in data mining: formulation, detection, and avoidance”, In: Proc. of 17th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 556-563, 2011."
+  },
+  {
+   "type": "reference",
+   "text": "[10] S. Kapoor and A. Narayanan, “Leakage and the reproducibility crisis in machine-learning-based science”, Patterns, Vol. 4, No. 9, Art. 100804, 2023."
+  },
+  {
+   "type": "reference",
+   "text": "[11] J. G. Moreno-Torres, T. Raeder, R. Alaiz-Rodriguez, N. V. Chawla, and F. Herrera, “A unifying view on dataset shift in classification”, Pattern Recognition, Vol. 45, No. 1, pp. 521-530, 2012."
+  },
+  {
+   "type": "reference",
+   "text": "[12] S. J. Phillips et al., “Sample selection bias and presence-only distribution models: implications for background and pseudo-absence data”, Ecological Applications, Vol. 19, No. 1, pp. 181-197, 2009."
+  },
+  {
+   "type": "reference",
+   "text": "[13] S. Gizaw, M. Dione, B. Wieland, and H. Desta, “[dataset title to be inserted from the MELDATA landing page]”, MELDATA, V1, 2026, hdl:20.500.11766.1/FK2/8YFO3D (CC BY 4.0)."
+  },
+  {
+   "type": "reference",
+   "text": "[14] S. Gizaw, H. Desta, B. Wieland, and T. Knight-Jones, “Geostatistical mapping of transboundary cattle disease risks in Ethiopia”, bioRxiv preprint, 2026."
+  },
+  {
+   "type": "reference",
+   "text": "[15] A. M. J.-C. Wadoux, G. B. M. Heuvelink, S. de Bruin, and D. J. Brus, “Spatial cross-validation is not the right way to evaluate map accuracy”, Ecological Modelling, Vol. 457, Art. 109692, 2021."
+  },
+  {
+   "type": "reference",
+   "text": "[16] S. de Bruin, D. J. Brus, G. B. M. Heuvelink, T. van Ebbenhorst Tengbergen, and A. M. J.-C. Wadoux, “Dealing with clustered samples for assessing map accuracy by cross-validation”, Ecological Informatics, Vol. 69, Art. 101665, 2022."
+  },
+  {
+   "type": "reference",
+   "text": "[17] C. Mila, J. Mateu, E. Pebesma, and H. Meyer, “Nearest neighbour distance matching Leave-One-Out Cross-Validation for map validation”, Methods in Ecology and Evolution, Vol. 13, No. 6, pp. 1304-1316, 2022."
+  },
+  {
+   "type": "reference",
+   "text": "[18] J. Linnenbrink, C. Mila, M. Ludwig, and H. Meyer, “kNNDM CV: k-fold nearest-neighbour distance matching cross-validation for map accuracy estimation”, Geoscientific Model Development, Vol. 17, pp. 5897-5912, 2024."
+  },
+  {
+   "type": "reference",
+   "text": "[19] H. Meyer and E. Pebesma, “Predicting into unknown space? Estimating the area of applicability of spatial prediction models”, Methods in Ecology and Evolution, Vol. 12, No. 9, pp. 1620-1633, 2021."
+  },
+  {
+   "type": "reference",
+   "text": "[20] S. Tesfaye, F. Regassa, et al., “Spatiotemporal analysis and forecasting of lumpy skin disease outbreaks in Ethiopia based on retrospective outbreak reports”, Frontiers in Veterinary Science, Vol. 11, Art. 1277007, 2024."
+  },
+  {
+   "type": "reference",
+   "text": "[21] G. C. Cawley and N. L. C. Talbot, “On over-fitting in model selection and subsequent selection bias in performance evaluation”, Journal of Machine Learning Research, Vol. 11, pp. 2079-2107, 2010."
+  },
+  {
+   "type": "reference",
+   "text": "[22] S. M. Lundberg and S.-I. Lee, “A unified approach to interpreting model predictions”, In: Advances in Neural Information Processing Systems 30 (NIPS 2017), Long Beach, CA, USA, pp. 4765-4774, 2017."
+  },
+  {
+   "type": "reference",
+   "text": "[23] S. M. Lundberg, G. Erion, H. Chen, A. DeGrave, J. M. Prutkin, B. Nair, R. Katz, J. Himmelfarb, N. Bansal, and S.-I. Lee, “From local explanations to global understanding with explainable AI for trees”, Nature Machine Intelligence, Vol. 2, No. 1, pp. 56-67, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[24] J. H. Friedman, “Greedy function approximation: A gradient boosting machine”, The Annals of Statistics, Vol. 29, No. 5, pp. 1189-1232, 2001."
+  },
+  {
+   "type": "reference",
+   "text": "[25] K. L. Yates et al., “Outstanding challenges in the transferability of ecological models”, Trends in Ecology and Evolution, Vol. 33, No. 10, pp. 790-802, 2018."
+  },
+  {
+   "type": "reference",
+   "text": "[26] P. Geurts, D. Ernst, and L. Wehenkel, “Extremely randomized trees”, Machine Learning, Vol. 63, No. 1, pp. 3-42, 2006."
+  },
+  {
+   "type": "reference",
+   "text": "[27] L. Breiman, “Random forests”, Machine Learning, Vol. 45, No. 1, pp. 5-32, 2001."
+  },
+  {
+   "type": "reference",
+   "text": "[28] T. Chen and C. Guestrin, “XGBoost: A scalable tree boosting system”, In: Proc. of 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 785-794, 2016."
+  },
+  {
+   "type": "reference",
+   "text": "[29] L. Prokhorenkova, G. Gusev, A. Vorobev, A. V. Dorogush, and A. Gulin, “CatBoost: unbiased boosting with categorical features”, In: Advances in Neural Information Processing Systems 31, pp. 6638-6648, 2018."
+  },
+  {
+   "type": "reference",
+   "text": "[30] G. Ke et al., “LightGBM: A highly efficient gradient boosting decision tree”, In: Advances in Neural Information Processing Systems 30, pp. 3146-3154, 2017."
+  },
+  {
+   "type": "reference",
+   "text": "[31] F. Pedregosa et al., “Scikit-learn: Machine learning in Python”, Journal of Machine Learning Research, Vol. 12, pp. 2825-2830, 2011."
+  },
+  {
+   "type": "reference",
+   "text": "[32] T. Saito and M. Rehmsmeier, “The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets”, PLoS ONE, Vol. 10, No. 3, Art. e0118432, 2015."
+  },
+  {
+   "type": "reference",
+   "text": "[33] B. Van Calster, D. J. McLernon, M. van Smeden, L. Wynants, and E. W. Steyerberg, “Calibration: the Achilles heel of predictive analytics”, BMC Medicine, Vol. 17, Art. 230, 2019."
+  },
+  {
+   "type": "reference",
+   "text": "[34] D. Chicco and G. Jurman, “The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation”, BMC Genomics, Vol. 21, Art. 6, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[35] C. Nadeau and Y. Bengio, “Inference for the generalization error”, Machine Learning, Vol. 52, No. 3, pp. 239-281, 2003."
+  },
+  {
+   "type": "reference",
+   "text": "[36] S. Holm, “A simple sequentially rejective multiple test procedure”, Scandinavian Journal of Statistics, Vol. 6, No. 2, pp. 65-70, 1979."
+  }
+ ]
+}

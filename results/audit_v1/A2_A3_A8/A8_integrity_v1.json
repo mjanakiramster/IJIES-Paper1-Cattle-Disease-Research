@@ -1,0 +1,18 @@
+{
+ "household_ids_unique": true,
+ "locations": 462,
+ "location_ids_consistent_with_Location_id": true,
+ "each_location_one_coordinate_pair": true,
+ "coordinate_pairs_shared_by_two_locations": 0,
+ "each_location_in_one_block_per_partition": {
+  "block_r1": true,
+  "block_r2": true,
+  "block_r3": true
+ },
+ "households_sharing_a_location_get_identical_rate_features": true,
+ "locations_surveyed_in_more_than_one_year": 13,
+ "note_multi_year_locations": "features are per location (pooled over years); the 13 multi-year locations get one value for all their households",
+ "old_code_rows_match_new_code_rows_by_ID": true,
+ "row_order_max_abs_diff_new": 0.0,
+ "row_order_max_abs_diff_old": 0.0
+}

@@ -1,0 +1,17 @@
+path,content,files,available
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/stage1_v1/,"Stage 1 audit (report, tables, figures, master dataset, script)",10,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/stage1_v1/stage1_audit_v1.py,Stage 1 audit script,1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v1/cattle_v5_pipeline_v1.ipynb,"Run 1 notebook (LAE, 81 km blocks, variogram, LORO, SHAP)",1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v1/results_v1/stage3_folds_v1.csv,"Development folds: blocks r1-r3, spatial folds, random, location, temporal",1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v1/results_v1/stage3_variogram_v1.csv,Variogram ranges (block size 80.94 km),1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v1/results_v1/,"Run 1 results (23 tables, 10 figures)",33,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v2/cattle_v5_pipeline_v2.py,"Run 2 pipeline (16 models, SA-HGWOPSO)",1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v2/results_v1/,"Run 2 results (14 tables, 6 figures)",20,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v3/cattle_v5_pipeline_v3.py,"Run 3 pipeline (21 models, RB-HGWOPSO)",1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v3/cache/library_predictions_v1.npz,Run 3 library predictions: test + inner OOF for 26 splits x 21 models x 3 diseases,1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_run_v3/results_v1/,"Run 3 results (14 tables, 8 figures)",22,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/v5_imbalance_check_v1/,"Class-balancing check (script, 2 tables, 1 figure, README)",8,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/master_prompt_v5.md,Research prompt v5,1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/master_prompt_v6_sgo.md,Research prompt v6 (SGO),1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/implementation_prompt_v7_1.md,Implementation prompt v7.1 (this work),1,yes
+/Users/sudhirvarmasagiraju/SSVARMA/claude/cattle/data files (cbpp/fmd/lsd.xlsx),"Raw ILRI datasets, copies in each run folder",3,yes

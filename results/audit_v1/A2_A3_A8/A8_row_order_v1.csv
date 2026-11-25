@@ -1,0 +1,31 @@
+code,split,max_abs_diff_after_ID_match,bit_identical_share
+new,dev r1 f0,0.0,1.0
+new,dev r1 f1,0.0,1.0
+new,dev r1 f2,0.0,1.0
+new,dev r1 f3,0.0,1.0
+new,dev r1 f4,0.0,1.0
+new,dev r2 f0,0.0,1.0
+new,dev r2 f1,0.0,1.0
+new,dev r2 f2,0.0,1.0
+new,dev r2 f3,0.0,1.0
+new,dev r2 f4,0.0,1.0
+new,dev r3 f0,0.0,1.0
+new,dev r3 f1,0.0,1.0
+new,dev r3 f2,0.0,1.0
+new,dev r3 f3,0.0,1.0
+new,dev r3 f4,0.0,1.0
+old run-3,dev r1 f0,0.0,1.0
+old run-3,dev r1 f1,0.0,1.0
+old run-3,dev r1 f2,0.0,1.0
+old run-3,dev r1 f3,0.0,1.0
+old run-3,dev r1 f4,0.0,1.0
+old run-3,dev r2 f0,0.0,1.0
+old run-3,dev r2 f1,0.0,1.0
+old run-3,dev r2 f2,0.0,1.0
+old run-3,dev r2 f3,0.0,1.0
+old run-3,dev r2 f4,0.0,1.0
+old run-3,dev r3 f0,0.0,1.0
+old run-3,dev r3 f1,0.0,1.0
+old run-3,dev r3 f2,0.0,1.0
+old run-3,dev r3 f3,0.0,1.0
+old run-3,dev r3 f4,0.0,1.0

@@ -1,0 +1,6 @@
+{
+ "LightGBM [ELK]": "n_estimators=300, num_leaves=15, learning_rate=0.05, min_child_samples=20, subsample=0.8, colsample_bytree=0.8, reg_lambda=1.0",
+ "SVM-RBF [ELK]": "StandardScaler + SVC(C=1, gamma=\"scale\"); ROC-AUC from decision function; probabilities by Platt scaling fitted on inner OOF decision values",
+ "feature_set": "ELK = run-3 E (climate + coordinates) + kernel rates 50/150/400 km + density + k-nearest rates (k = 5/15/40), from run-3 code",
+ "inner_folds": "identical to run 3 (cached fold arrays)"
+}

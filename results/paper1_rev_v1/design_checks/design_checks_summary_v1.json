@@ -1,0 +1,72 @@
+{
+ "D1": {
+  "locations_shared_between_train_and_test": 0,
+  "blocks_shared": 0,
+  "all_blocks_within_block_size": true,
+  "min_test_to_train_km": 10.8,
+  "median_test_to_train_km_range": [
+   24.8,
+   45.8
+  ],
+  "fold_households_range": [
+   630,
+   712
+  ],
+  "block_km": 80.94049315824638
+ },
+ "D2": {
+  "inner_splits_checked": 75,
+  "shared_blocks_or_outer_test_rows": 0
+ },
+ "D3": [
+  {
+   "disease": "CBPP",
+   "max_diff_test_scores": 0.0,
+   "max_diff_inner_oof": 0.0,
+   "max_diff_calibrated": 0.0,
+   "threshold_diff": 0.0
+  },
+  {
+   "disease": "FMD",
+   "max_diff_test_scores": 0.0,
+   "max_diff_inner_oof": 0.0,
+   "max_diff_calibrated": 0.0,
+   "threshold_diff": 0.0
+  },
+  {
+   "disease": "LSD",
+   "max_diff_test_scores": 0.0,
+   "max_diff_inner_oof": 0.0,
+   "max_diff_calibrated": 0.0,
+   "threshold_diff": 0.0
+  }
+ ],
+ "D4": {
+  "block_km_used": 80.94049315824638,
+  "rule": "median of the three outcome practical ranges (run 1); equals the FMD range",
+  "label_free_median_range_km": 597.7278976932436
+ },
+ "D5": [
+  {
+   "disease": "CBPP",
+   "eta2_survey_year": 0.148,
+   "eta2_location": 0.385,
+   "eta2_region": 0.084,
+   "eta2_location_within_year": 0.278
+  },
+  {
+   "disease": "FMD",
+   "eta2_survey_year": 0.125,
+   "eta2_location": 0.385,
+   "eta2_region": 0.04,
+   "eta2_location_within_year": 0.297
+  },
+  {
+   "disease": "LSD",
+   "eta2_survey_year": 0.187,
+   "eta2_location": 0.425,
+   "eta2_region": 0.023,
+   "eta2_location_within_year": 0.293
+  }
+ ]
+}

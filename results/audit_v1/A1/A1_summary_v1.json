@@ -1,0 +1,25 @@
+{
+ "new_pipeline_FS5_plus_idw_features": 42,
+ "old_pipeline_ELK_features": 36,
+ "rows_in_table": 74,
+ "label_free_checks_passed": 21,
+ "label_free_checks_total": 21,
+ "excluded_variables_found_in_feature_lists": [],
+ "survey_years_households": {
+  "2012": 224,
+  "2014": 684,
+  "2015": 656,
+  "2018": 1341,
+  "2019": 435
+ },
+ "risk_counts": {
+  "Medium": 39,
+  "Low": 25,
+  "Design": 6,
+  "High": 4
+ },
+ "status_counts": {
+  "Unresolved": 43,
+  "Passed": 31
+ }
+}

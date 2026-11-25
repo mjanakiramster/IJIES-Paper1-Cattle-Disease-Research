@@ -1,0 +1,43 @@
+# Frozen experimental configuration for Paper 1 (IJIES), 2026-11-21.
+# Everything below is fixed BEFORE the corrected reruns. Changes require a new versioned file.
+paper: "Spatial generalisation and survey-campaign confounding in machine-learning models for retrospective mapping of cattle disease occurrence in Ethiopia"
+scenario: "Retrospective spatial mapping of household-reported disease occurrence (Scenario A). Not forecasting."
+data:
+  source: "Gizaw S, Dione M, Wieland B, Desta H (2026) ILRI MELDATA, hdl:20.500.11766.1/FK2/8YFO3D, CC BY 4.0"
+  files_md5_audited: true
+  households: 3340
+  locations: 462
+  survey_years: [2012, 2014, 2015, 2018, 2019]
+  outcomes: [CBPP, FMD, LSD]          # household-reported occurrence (binary)
+  never_predictors: [Weight_CBPP, Weight_FMD, Weight_LSD, Year, Region, Year_region, ID, Location_id, fold and block columns]
+feature_sets:
+  FS1: "5 environmental variables: Altitude, Temperature, Precipitation, Relative_humidity, Wind_speed"
+  FS5: "FS1 + 6 climate indices + 4 coordinate terms + kernel rates (50/150/400 km) + kNN rates (k = 5/15/40) for all three diseases (own + cross-disease) + 3 kernel densities + 3 kNN distances = 39 features"
+  neighbourhood_rule: "rates from training households only; every query location excludes all training locations in its own 81 km block; prior pseudo-count 1 towards the training rate outside the own block"
+  knn_tie_rule: "candidates ordered by (distance rounded to 1e-6 km, location ID)  [correction 1]"
+library_23:
+  models: "21 run-3 models (feature sets B, E, EL, ELK, G) + LightGBM [ELK] + SVM-RBF [ELK]; hyperparameters fixed in advance (data/reference/run3_cattle_v5_pipeline_v3.py; Stage 4)"
+  prior_correction: "fallback prior excludes the query location's own block  [correction 2]"
+  ensemble: "(a) equal-weight mean of ECDF ranks; ECDF from inner out-of-fold scores of the training set"
+  calibration: "Platt (logistic) on inner out-of-fold ensemble scores"
+  threshold: "Youden index on inner out-of-fold calibrated scores"
+  inner_folds: "5 spatial inner folds per outer training set (cached assignment, seeds from run 3)"
+single_learner_for_feature_tests: "ExtraTrees, 300 trees, min_samples_leaf 10, max_features sqrt, random_state 20261119"
+validation:
+  development: "spatial block CV, 81 km blocks, 3 repeats x 5 folds (configs/stage3_folds_v1.csv)"
+  confirmatory: "2 x 5 folds, opened once on 2026-11-20 with the pre-correction code; reported as originally observed, never reused"
+metrics:
+  primary: ROC-AUC
+  secondary: [PR-AUC (with prevalence no-skill line), within-survey-year ROC-AUC (pair-weighted and macro), Brier, calibration intercept and slope, sensitivity, specificity, balanced accuracy, precision, F1, MCC]
+inference:
+  fold_level: "Nadeau-Bengio corrected resampled t (k = 15, n_test/n_train = 1/4) for paired differences"
+  pooled: "location-cluster bootstrap (B = 1000, seed 20261122) on per-repeat pooled out-of-fold predictions"
+  multiplicity: "Holm across the three diseases within each family of comparisons"
+sensitivity:
+  negative_controls: "100 household-level + 100 village-level label permutations, full pipeline rebuilt, development repeat 1"
+  proximity: "remove training locations within 25 / 50 / 100 km of any test location; size-matched random removal"
+  block_size: "120 and 160 km blocks (label-free partitions, seed 20261121)"
+  temporal: "forward validation, train 2012-2015 -> test 2018-2019"
+  importance: "grouped permutation importance (10 repeats) on held-out development folds, FS5 ExtraTrees"
+seeds: {models: 20261119, bootstrap: 20261122, permutations: 20261121, partitions: 20261118}
+not_rerun_with_corrections: "Stages 5-6 swarm optimisation runs (315 + 45 runs); reported as run, with the correction documented (affects 0.18% of kNN values)"

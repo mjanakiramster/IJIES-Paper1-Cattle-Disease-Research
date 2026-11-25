@@ -1,0 +1,26 @@
+disease,selected_model,folds_selected
+CBPP,CatBoost-village [EL],1
+CBPP,ExtraTrees [ELK],2
+CBPP,ExtraTrees [EL],4
+CBPP,GAM [B],2
+CBPP,GAM [EL],1
+CBPP,GAM [E],4
+CBPP,RF [EL],1
+FMD,CatBoost-multitask [EL],1
+FMD,CatBoost-village [ELK],3
+FMD,CatBoost-village [EL],1
+FMD,ExtraTrees [ELK],5
+FMD,ExtraTrees [EL],2
+FMD,GAM [E],1
+FMD,LR [ELK],2
+LSD,CatBoost [EL],1
+LSD,CatBoost-multitask [EL],1
+LSD,CatBoost-village [ELK],3
+LSD,CatBoost-village [EL],1
+LSD,ExtraTrees [EL],3
+LSD,GP-kriging [E],1
+LSD,LightGBM [ELK],1
+LSD,RF [B],1
+LSD,RF [EL],1
+LSD,SVM-RBF [ELK],1
+LSD,XGB [EL],1

@@ -1,0 +1,16 @@
+Model,Role,Fixed hyperparameters
+"ExtraTrees (FS1, FS5)",Feature-set comparison,"300 trees, min_samples_leaf 10, max_features sqrt"
+"GAM (B, EL, E)",23-model library,"Cubic splines (5 knots) + logistic regression, C = 0.5"
+"Random forest (B, EL)",23-model library,"200 trees, min_samples_leaf 10, max_features sqrt"
+"XGBoost (B, EL)",23-model library,"300 trees, depth 4, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_weight 5"
+"CatBoost (B, E, EL) and variants",23-model library,"300 iterations, depth 5, learning rate 0.05; group-balanced, village-level and multi-task variants"
+k-nearest neighbours (E),23-model library,"k = 50, standardised inputs"
+"Logistic regression (EL, ELK)",23-model library,"L2, C = 0.5, standardised inputs"
+"ExtraTrees (EL, ELK)",23-model library,"200 trees, min_samples_leaf 10, max_features sqrt"
+MLP (EL),23-model library,"Hidden layers (32, 16), alpha 0.01, 400 iterations"
+GP kriging (G),23-model library,Location-level Gaussian process on empirical logits
+LightGBM (ELK),23-model library,"300 trees, 15 leaves, learning rate 0.05, subsample 0.8, colsample 0.8"
+SVM-RBF (ELK),23-model library,"C = 1, gamma = scale, standardised inputs; Platt scaling on inner OOF"
+(a) Rank average,Final ensemble,Equal-weight mean of ECDF ranks of the 23 models; Platt calibration and Youden threshold on inner OOF
+(b) Inner-selected single,Comparator,Library model with the best mean inner-fold ROC-AUC in each outer split
+"SGO, MSGO, PSO, GA, DE, GWO, random search",Optimisation study (Stages 5-6),"30 agents, 150 fitness evaluations per run, 45 runs per optimiser; fitness = mean - 0.5 SD inner AUC - complexity"

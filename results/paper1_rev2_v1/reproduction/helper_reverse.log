@@ -1,0 +1,168 @@
+   2.1 min  E12 r1 f4
+   4.1 min  E12 r1 f3
+   6.1 min  E12 r1 f2
+   8.1 min  E12 r1 f1
+  10.1 min  E12 r1 f0
+  10.7 min  E10-E14 r3 f4
+  11.4 min  E10-E14 r3 f3
+  12.0 min  E10-E14 r3 f2
+  12.7 min  E10-E14 r3 f1
+  13.3 min  E10-E14 r3 f0
+  13.9 min  E10-E14 r2 f4
+  14.5 min  E10-E14 r2 f3
+  15.2 min  E10-E14 r2 f2
+  15.8 min  E10-E14 r2 f1
+  16.4 min  E10-E14 r2 f0
+  17.0 min  E10-E14 r1 f4
+  17.7 min  E10-E14 r1 f3
+  18.3 min  E10-E14 r1 f2
+  19.0 min  E10-E14 r1 f1
+  19.6 min  E10-E14 r1 f0
+Saving to: /home/claude/fresh/proj/_paper1_scratch_v1
+{'python': '3.13.18', 'numpy': '2.5.3', 'pandas': '3.0.5', 'scipy': '1.18.1', 'scikit-learn': '1.9.1', 'xgboost': '3.4.1', 'catboost': '1.2.10'}
+Full run
+3340 households, 462 locations; folds loaded from run 1
+26 splits: {'spatial': 15, 'loro': 6, 'random': 5}
+Feature sets: B = 5  E = 14  EL = 26  ELK = 36
+  21.7 min  E9 4
+  23.7 min  E9 3
+  25.7 min  E9 2
+  27.8 min  E9 1
+  29.9 min  E9 0
+  29.9 min  E7
+  30.0 min  E6 blocks160 r3 f4
+  30.0 min  E6 blocks160 r3 f3
+  30.1 min  E6 blocks160 r3 f2
+  30.1 min  E6 blocks160 r3 f1
+  30.2 min  E6 blocks160 r3 f0
+  30.2 min  E6 blocks160 r2 f4
+  30.3 min  E6 blocks160 r2 f3
+  30.3 min  E6 blocks160 r2 f2
+  30.3 min  E6 blocks160 r2 f1
+  30.4 min  E6 blocks160 r2 f0
+  30.4 min  E6 blocks160 r1 f4
+  30.5 min  E6 blocks160 r1 f3
+  30.5 min  E6 blocks160 r1 f2
+  30.5 min  E6 blocks160 r1 f1
+  30.6 min  E6 blocks160 r1 f0
+  30.6 min  E6 blocks120 r3 f4
+  30.7 min  E6 blocks120 r3 f3
+  30.7 min  E6 blocks120 r3 f2
+  30.8 min  E6 blocks120 r3 f1
+  30.8 min  E6 blocks120 r3 f0
+  30.8 min  E6 blocks120 r2 f4
+  30.9 min  E6 blocks120 r2 f3
+  30.9 min  E6 blocks120 r2 f2
+  31.0 min  E6 blocks120 r2 f1
+  31.0 min  E6 blocks120 r2 f0
+  31.1 min  E6 blocks120 r1 f4
+  31.1 min  E6 blocks120 r1 f3
+  31.2 min  E6 blocks120 r1 f2
+  31.2 min  E6 blocks120 r1 f1
+  31.2 min  E6 blocks120 r1 f0
+  31.3 min  E6 matched_100 r3 f4
+  31.3 min  E6 matched_100 r3 f3
+  31.3 min  E6 matched_100 r3 f2
+  31.4 min  E6 matched_100 r3 f1
+  31.4 min  E6 matched_100 r3 f0
+  31.4 min  E6 matched_100 r2 f4
+  31.5 min  E6 matched_100 r2 f3
+  31.5 min  E6 matched_100 r2 f2
+  31.5 min  E6 matched_100 r2 f1
+  31.6 min  E6 matched_100 r2 f0
+  31.6 min  E6 matched_100 r1 f4
+  31.6 min  E6 matched_100 r1 f3
+  31.7 min  E6 matched_100 r1 f2
+  31.7 min  E6 matched_100 r1 f1
+  31.7 min  E6 matched_100 r1 f0
+  31.7 min  E6 buffer_100 r3 f4
+  31.8 min  E6 buffer_100 r3 f3
+  31.8 min  E6 buffer_100 r3 f2
+  31.8 min  E6 buffer_100 r3 f1
+  31.9 min  E6 buffer_100 r3 f0
+  31.9 min  E6 buffer_100 r2 f4
+  31.9 min  E6 buffer_100 r2 f3
+  31.9 min  E6 buffer_100 r2 f2
+  32.0 min  E6 buffer_100 r2 f1
+  32.0 min  E6 buffer_100 r2 f0
+  32.0 min  E6 buffer_100 r1 f4
+  32.1 min  E6 buffer_100 r1 f3
+  32.1 min  E6 buffer_100 r1 f2
+  32.1 min  E6 buffer_100 r1 f1
+  32.1 min  E6 buffer_100 r1 f0
+  32.2 min  E6 matched_50 r3 f4
+  32.2 min  E6 matched_50 r3 f3
+  32.2 min  E6 matched_50 r3 f2
+  32.3 min  E6 matched_50 r3 f1
+  32.3 min  E6 matched_50 r3 f0
+  32.4 min  E6 matched_50 r2 f4
+  32.4 min  E6 matched_50 r2 f3
+  32.4 min  E6 matched_50 r2 f2
+  32.5 min  E6 matched_50 r2 f1
+  32.5 min  E6 matched_50 r2 f0
+  32.6 min  E6 matched_50 r1 f4
+  32.6 min  E6 matched_50 r1 f3
+  32.6 min  E6 matched_50 r1 f2
+  32.7 min  E6 matched_50 r1 f1
+  32.7 min  E6 matched_50 r1 f0
+  32.7 min  E6 buffer_50 r3 f4
+  32.8 min  E6 buffer_50 r3 f3
+  32.8 min  E6 buffer_50 r3 f2
+  32.9 min  E6 buffer_50 r3 f1
+  32.9 min  E6 buffer_50 r3 f0
+  32.9 min  E6 buffer_50 r2 f4
+  33.0 min  E6 buffer_50 r2 f3
+  33.0 min  E6 buffer_50 r2 f2
+  33.1 min  E6 buffer_50 r2 f1
+  33.1 min  E6 buffer_50 r2 f0
+  33.1 min  E6 buffer_50 r1 f4
+  33.2 min  E6 buffer_50 r1 f3
+  33.2 min  E6 buffer_50 r1 f2
+  33.2 min  E6 buffer_50 r1 f1
+  33.3 min  E6 buffer_50 r1 f0
+  33.3 min  E6 matched_25 r3 f4
+  33.4 min  E6 matched_25 r3 f3
+  33.4 min  E6 matched_25 r3 f2
+  33.4 min  E6 matched_25 r3 f1
+  33.5 min  E6 matched_25 r3 f0
+  33.5 min  E6 matched_25 r2 f4
+  33.6 min  E6 matched_25 r2 f3
+  33.6 min  E6 matched_25 r2 f2
+  33.7 min  E6 matched_25 r2 f1
+  33.7 min  E6 matched_25 r2 f0
+  33.7 min  E6 matched_25 r1 f4
+  33.8 min  E6 matched_25 r1 f3
+  33.8 min  E6 matched_25 r1 f2
+  33.9 min  E6 matched_25 r1 f1
+  33.9 min  E6 matched_25 r1 f0
+  34.0 min  E6 buffer_25 r3 f4
+  34.0 min  E6 buffer_25 r3 f3
+  34.0 min  E6 buffer_25 r3 f2
+  34.1 min  E6 buffer_25 r3 f1
+  34.1 min  E6 buffer_25 r3 f0
+  34.1 min  E6 buffer_25 r2 f4
+  34.2 min  E6 buffer_25 r2 f3
+  34.2 min  E6 buffer_25 r2 f2
+  34.3 min  E6 buffer_25 r2 f1
+  34.3 min  E6 buffer_25 r2 f0
+  34.4 min  E6 buffer_25 r1 f4
+  34.4 min  E6 buffer_25 r1 f3
+  34.4 min  E6 buffer_25 r1 f2
+  34.4 min  E6 buffer_25 r1 f1
+  34.4 min  E6 buffer_25 r1 f0
+  34.4 min  E6 base81 r3 f4
+  34.4 min  E6 base81 r3 f3
+  34.4 min  E6 base81 r3 f2
+  34.4 min  E6 base81 r3 f1
+  34.4 min  E6 base81 r3 f0
+  34.4 min  E6 base81 r2 f4
+  34.4 min  E6 base81 r2 f3
+  34.4 min  E6 base81 r2 f2
+  34.4 min  E6 base81 r2 f1
+  34.4 min  E6 base81 r2 f0
+  34.4 min  E6 base81 r1 f4
+  34.4 min  E6 base81 r1 f3
+  34.4 min  E6 base81 r1 f2
+  34.4 min  E6 base81 r1 f1
+  34.4 min  E6 base81 r1 f0
+  34.4 min  helper done

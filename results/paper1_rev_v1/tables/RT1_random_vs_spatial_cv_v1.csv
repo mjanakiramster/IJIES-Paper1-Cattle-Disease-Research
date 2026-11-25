@@ -1,0 +1,13 @@
+Disease,Model,"Random CV ROC-AUC, mean (SD) of 5 folds","Spatial CV ROC-AUC, mean (SD) of 15 folds",Random minus spatial,Random CV within-year AUC,Spatial CV within-year AUC
+CBPP,FS1,0.790 (0.017),0.694 (0.055),+0.096,0.666,0.576
+CBPP,FS5,0.805 (0.019),0.697 (0.065),+0.108,0.688,0.563
+CBPP,(a) Rank average,0.805 (0.013),0.703 (0.066),+0.103,0.687,0.574
+CBPP,(b) Inner-selected single,0.791 (0.023),0.688 (0.055),+0.103,0.667,0.554
+FMD,FS1,0.821 (0.009),0.563 (0.101),+0.258,0.729,0.527
+FMD,FS5,0.833 (0.005),0.663 (0.084),+0.171,0.741,0.586
+FMD,(a) Rank average,0.832 (0.005),0.648 (0.107),+0.185,0.743,0.582
+FMD,(b) Inner-selected single,0.817 (0.031),0.614 (0.108),+0.203,0.715,0.546
+LSD,FS1,0.808 (0.027),0.577 (0.070),+0.230,0.680,0.537
+LSD,FS5,0.817 (0.030),0.609 (0.090),+0.208,0.705,0.488
+LSD,(a) Rank average,0.813 (0.030),0.602 (0.087),+0.210,0.692,0.511
+LSD,(b) Inner-selected single,0.806 (0.032),0.582 (0.083),+0.224,0.689,0.514

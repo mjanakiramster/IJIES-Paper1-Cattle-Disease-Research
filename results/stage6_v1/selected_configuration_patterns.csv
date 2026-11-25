@@ -1,0 +1,4 @@
+disease,kernel_rates,knn_rates,idw_rates,density_terms,cross_disease_rates,min_samples_leaf,max_features,prior,n_bandwidths,n_k
+CBPP,0.667,0.467,0.4,0.133,0.467,31.933,0.46,2.427,3.0,2.933
+FMD,0.733,0.933,0.133,0.933,0.733,16.2,0.482,4.399,3.0,3.0
+LSD,0.4,0.733,0.4,0.667,0.333,18.867,0.663,3.694,2.933,2.933

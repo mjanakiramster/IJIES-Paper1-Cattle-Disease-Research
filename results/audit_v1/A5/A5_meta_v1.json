@@ -1,0 +1,31 @@
+{
+ "step0_cache_reproduction_max_abs_diff": 1.165507965694701e-07,
+ "affected_models": [
+  "LR [EL]",
+  "GAM [EL]",
+  "RF [EL]",
+  "ExtraTrees [EL]",
+  "XGB [EL]",
+  "CatBoost [EL]",
+  "MLP [EL]",
+  "CatBoost-groupbalanced [EL]",
+  "CatBoost-village [EL]",
+  "CatBoost-multitask [EL]",
+  "LR [ELK]",
+  "ExtraTrees [ELK]",
+  "CatBoost-village [ELK]",
+  "LightGBM [ELK]",
+  "SVM-RBF [ELK]"
+ ],
+ "unaffected_models": [
+  "GAM [B]",
+  "RF [B]",
+  "XGB [B]",
+  "CatBoost [B]",
+  "CatBoost [E]",
+  "kNN [E]",
+  "GAM [E]",
+  "GP-kriging [E]"
+ ],
+ "minutes": 34.043873234589896
+}

@@ -1,0 +1,4 @@
+disease,ROC_AUC_of_Weight_alone,"discrimination_max(AUC,1-AUC)",share_rows_Weight_equals_same_outcome_share_at_location,spearman_Weight_vs_same_outcome_share,groups_YearRegion_x_outcome,groups_with_a_single_Weight_value,Weight_is_a_function_of_YearRegion_and_outcome
+CBPP,0.10835711073149801,0.891642889268502,0.45778443113772455,0.8414015755992076,29,4,False
+FMD,0.07208745972068208,0.9279125402793179,0.5266467065868263,0.8554333178271473,29,4,False
+LSD,0.15487454381092952,0.8451254561890704,0.45718562874251495,0.8420113243986888,30,2,False

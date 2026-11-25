@@ -1,0 +1,16 @@
+Pipeline step,Implementation and code evidence,Fitted on,Audit result
+Imputation,Not used: 0 missing cells (Stage 1); no imputer anywhere in the code (grep: Imputer/fillna = 0 hits),n/a,Pass
+Scaling,"StandardScaler inside make_pipeline for LR, GAM, kNN, MLP (run3 L231-L241) and SVM (stage 4 L55, stage 9 L49); GP scaler fitted on training locations (run3 L251)",training rows of each fit call,Pass
+Neighbourhood / cross-disease features,Built from Y[fit_idx] with own-block exclusion (features.py L41-L72; run3 L162-L198),training rows only,"Pass (A2, A3: test-label flips change 0 features)"
+Fallback prior (old run-3 code),"p0 over all training rows incl. the query's own block (run3 L167, L185)",training rows only (no test labels),Deviation from stated rule; consequence measured in A5
+Feature selection,"Feature sets fixed in advance (B, E, EL, ELK, FS1-FS5); SGO/optimiser search used inner spatial folds of the outer training set only (stage5_worker.py)",inner folds of training set,Pass
+Hyperparameter tuning,"None: hyperparameters fixed in advance, identical in every split (run3 L213; stage 4 CONFIG)",n/a,Pass
+Probability calibration,"SVM Platt scaling fitted on inner out-of-fold decision values (stage 4 L92, L112)",inner OOF of training set,Pass
+Threshold selection,"Youden index on inner out-of-fold predictions (experiment_config.yaml L57; stage 4 L94, L130)",inner OOF of training set,Pass
+"Model selection, (b) best single",argmax of mean inner-fold AUC (stage 4 L118),inner OOF of training set,Pass
+"Ensemble construction, (a) rank average","Equal-weight mean of each model's ECDF rank; ECDF from training OOF scores (stage 4 L98-L103, L119; stage 9 ecdf_rank_average)",training OOF scores; no weights fitted,Pass
+"Ensemble weighting (RB-HGWOPSO, run 3)","Weights optimised on inner OOF with bagged training locations (run3 L395, L452, L483)",inner OOF of training set,Pass
+Group-balanced weights,"Year_region used only as training sample weights for one CatBoost model (run3 L261, L274)",training rows only,Pass (design variable not a feature)
+Prediction,Test rows receive features built from training rows; models applied once,n/a,Pass (A3: predictions bit-identical after test-label flips)
+Identical outer folds across models,"All comparisons use the same development folds (stage3_folds_v1.csv); Stage 9 used the sealed confirmatory partition once, hash-checked",n/a,Pass
+Confirmatory partition,Opened once (2026-11-20T14:19:31Z) for pre-registered H1/H2; the audit uses development folds only,n/a,Pass

@@ -1,0 +1,405 @@
+{
+ "written_in": "Stage 2, before any new model was fitted",
+ "config": {
+  "seed": 20261119,
+  "confirmatory_seed": 20261120,
+  "block_km": 80.94049315824638,
+  "k_folds": 5,
+  "confirmatory": {
+   "repeats": 2,
+   "grid_offsets_rule": "maximin: each confirmatory grid origin is chosen (1 km grid, greedy) to maximise the minimum wrap-around distance to the three development grid origins and to the other confirmatory origin (label-free)",
+   "initial_offsets_replaced": "[[0.5, 0.5], [0.25, 0.75]] x block; replaced in Stage 2 before any model evaluation because c2 nearly coincided with development repeat 3 (block ARI 0.77)",
+   "balance": "rows per fold (greedy, blocks in random order)",
+   "redraw_rule": "if any fold has < 10 positives or < 10 negatives for any disease, redraw with seed + 1 (logged)"
+  },
+  "development_partition": "stage3_folds_v1.csv (3 repeats x 5 folds, runs 1-3)",
+  "fitness": {
+   "formula": "F = mean_b AUC_b - lambda * SD_b AUC_b - mu * complexity",
+   "lambda_sd": 0.5,
+   "mu_complexity": 0.005,
+   "complexity": "share of the switchable feature groups that are switched on (climate variables, coordinate group, neighbourhood rate types, cross-disease)",
+   "inner_cv": {
+    "repeats": 2,
+    "folds": 5,
+    "unit": "outer spatial blocks of the same partition, balanced by rows"
+   },
+   "auc_ties": "average ranks"
+  },
+  "search_space": {
+   "climate_mask": [
+    "Altitude",
+    "Temperature",
+    "Precipitation",
+    "Relative_humidity",
+    "Wind_speed",
+    "SL_temperature",
+    "DeMartonne",
+    "Temp_x_RH",
+    "Precip_x_RH",
+    "log_Precip",
+    "Wind_x_RH"
+   ],
+   "coordinates_group": "1 bit (Lat, Lon, LatPlusLon, LatMinusLon)",
+   "neighbourhood_switches": [
+    "kernel_rates",
+    "knn_rates",
+    "idw_rates",
+    "density_terms",
+    "cross_disease_rates"
+   ],
+   "neighbourhood_parameters": {
+    "bandwidth_1_km": [
+     25,
+     400
+    ],
+    "bandwidth_2_km": [
+     25,
+     400
+    ],
+    "k_nearest_locations": [
+     3,
+     60
+    ],
+    "prior_strength": [
+     0.5,
+     20
+    ],
+    "idw_power": [
+     1,
+     3
+    ]
+   },
+   "hyperparameters_extratrees": {
+    "min_samples_leaf": [
+     2,
+     50
+    ],
+    "min_samples_leaf_is_integer": true,
+    "max_features": [
+     0.2,
+     1.0
+    ]
+   },
+   "binary_transfer": "S-shaped (sigmoid) transfer, threshold 0.5"
+  },
+  "surrogate": {
+   "primary": "location-level ExtraTrees regressor, 100 trees (one row per training location, weighted by households)",
+   "alternative": "row-level ExtraTrees classifier, 100 trees",
+   "fidelity_rule": "Stage 3: Spearman rho between surrogate fitness and full-model fitness over 30 random candidates (1 outer fold per disease). Use primary if rho >= 0.7, else alternative."
+  },
+  "final_learner": "ExtraTrees, 300 trees, row level, with the selected hyperparameters; refit on the full outer training set",
+  "budget": {
+   "stage6_sr_sgo": {
+    "population": 12,
+    "iterations": 20,
+    "evaluations": 240,
+    "seeds": 1,
+    "outer_folds": "development 3 x 5"
+   },
+   "stage5_optimiser_comparison": {
+    "population": 10,
+    "iterations": 15,
+    "evaluations": 150,
+    "inner_cv": "1 x 5",
+    "seeds": 3,
+    "outer_folds": "development repeat 1 (5 folds)",
+    "optimisers": [
+     "SGO",
+     "MSGO",
+     "PSO",
+     "GA",
+     "DE",
+     "GWO"
+    ]
+   },
+   "stage8_ablations": "Stage 6 settings on development repeat 1 (5 folds); variants that need no search are evaluated directly",
+   "stage_wall_clock_limit_hours": 4,
+   "benchmark_check": {
+    "functions": [
+     "Sphere",
+     "Rastrigin",
+     "Rosenbrock",
+     "Ackley"
+    ],
+    "dimensions": [
+     10,
+     30
+    ],
+    "evaluations": 15000,
+    "seeds": 5
+   }
+  },
+  "comparators": {
+   "a": "simple rank average of the model library (run-3 21 models + LightGBM + SVM)",
+   "b": "best single model chosen on inner folds (mean inner-block ROC-AUC)",
+   "c": "hindsight-best single model (labelled 'hindsight')",
+   "d": "RB-HGWOPSO ensemble (run 3)"
+  },
+  "ensemble_component": "rank-scaled weights shrunk to uniform: w = (1 - alpha) w_SGO + alpha / M, alpha in {0, 0.25, 0.5, 0.75, 1} chosen by repeated inner CV; dropped if not better than comparator (a) on inner validation",
+  "calibration": "Platt scaling on inner out-of-fold predictions (reported; does not change ROC-AUC)",
+  "threshold_rule": "Youden index on inner out-of-fold predictions",
+  "success_rule": "Confirmatory partition only. Pooled location-cluster bootstrap (B = 1000) 95% CI of the ROC-AUC difference SR-SGO minus comparator is above 0 for BOTH comparator (a) and comparator (b), for at least 2 of 3 diseases.",
+  "secondary_statistics": "corrected resampled t-test (Nadeau & Bengio 2003) with Holm correction across comparators; Friedman test with Nemenyi critical difference",
+  "go_no_go_gate": "After Stage 6, on development folds: proceed to Stage 9 only if SR-SGO mean ROC-AUC > comparator (a) AND pooled bootstrap ROC-AUC difference > 0, for at least 2 of 3 diseases. Otherwise stop and report.",
+  "reporting": "Every run, variant, ablation and failure is reported. No method is added after seeing confirmatory results."
+ },
+ "development_partition": {
+  "file": "data/raw/stage3_folds_v1.csv",
+  "sha256": "41173291d9947041dcdd2d3efa750e52fb84dcddac87cbc8423864a8e2c56d95",
+  "replay_check": {
+   "1": {
+    "offset_km": [
+     0.0,
+     0.0
+    ],
+    "blocks_match": true,
+    "folds_match": true
+   },
+   "2": {
+    "offset_km": [
+     57.016480383314445,
+     23.522286955254142
+    ],
+    "blocks_match": true,
+    "folds_match": true
+   },
+   "3": {
+    "offset_km": [
+     17.761665176243426,
+     66.08456507385831
+    ],
+    "blocks_match": true,
+    "folds_match": true
+   }
+  }
+ },
+ "confirmatory_partition": {
+  "file": "results/stage2_v1/confirmatory_folds.csv",
+  "sha256": "fb0eb56d2e5ef0acefe71c370e16d43b5e3ca06237dd747bb1fab6bdedc228b0",
+  "seed_used": 20261120,
+  "redraw_attempts": [
+   {
+    "seed": 20261120,
+    "passes_redraw_rule": true
+   }
+  ],
+  "offsets_km": [
+   [
+    21.0,
+    30.0
+   ],
+   [
+    53.0,
+    59.0
+   ]
+  ],
+  "offset_distances": [
+   {
+    "confirmatory": "c1",
+    "offset_km": [
+     21.0,
+     30.0
+    ],
+    "distance_km_to_r1": 36.61966684720111,
+    "distance_km_to_r2": 36.594366034838544,
+    "distance_km_to_r3": 36.22958251208907
+   },
+   {
+    "confirmatory": "c2",
+    "offset_km": [
+     53.0,
+     59.0
+    ],
+    "distance_km_to_r1": 35.52543311422212,
+    "distance_km_to_r2": 35.70434479940614,
+    "distance_km_to_r3": 35.94344590376538
+   }
+  ],
+  "status": "OPENED once at 2026-11-20T14:19:31+00:00 for the confirmatory_preregistration hypotheses only"
+ },
+ "loro_regions_eligible": {
+  "Afar": [
+   "CBPP",
+   "FMD",
+   "LSD"
+  ],
+  "Amhara": [
+   "CBPP",
+   "FMD",
+   "LSD"
+  ],
+  "Gambela": [
+   "CBPP",
+   "LSD"
+  ],
+  "Oromia": [
+   "CBPP",
+   "FMD",
+   "LSD"
+  ],
+  "SNNP": [
+   "CBPP",
+   "FMD",
+   "LSD"
+  ],
+  "Somali": [
+   "LSD"
+  ]
+ },
+ "excluded_variables": [
+  "Weight",
+  "Year_region",
+  "Year",
+  "Region"
+ ],
+ "deviations": [
+  {
+   "stage": 2,
+   "what": "confirmatory grid origins changed from fixed fractions to the maximin rule",
+   "why": "c2 nearly coincided with development repeat 3 (block ARI 0.77)",
+   "when": "before any model evaluation; no labels used except the pre-registered class-count check"
+  },
+  {
+   "stage": 5,
+   "time_utc": "2026-11-19T09:45:03",
+   "what": "search surrogate = row-level ExtraTrees-100 for all diseases (pre-registered rule selected location-level)",
+   "why": "location-level fidelity for CBPP was rho = 0.62 (< 0.7) and it misranked the best candidates; row-level rho = 0.96-0.98",
+   "basis": "inner-CV diagnostics on training data only (Stage 3); no test results used",
+   "approved_by_user": "option B, 2026-11-19T09:45:03"
+  },
+  {
+   "stage": 6,
+   "time_utc": "2026-11-20T04:42:50+00:00",
+   "what": "design revision item 1 (shift-invariant improving phase) dropped; logged selection rule superseded",
+   "why": "On shifted benchmark functions both shift-invariant candidates were clearly WORSE than the original SGO (mean ranks: DE 1.25, SGO 1.75, attract 3.25, centroid 3.75; e.g. shifted Sphere median error SGO 1.5e3 vs 2.0e4 / 3.2e4). The purpose of modification 1 was to remove centre bias without losing performance; it failed, so it is dropped and SR-SGO uses the original SGO improving and acquiring phases.",
+   "basis": "benchmark functions only; decided before any Stage 6 run on cattle data finished (0 runs completed; the started process was stopped)"
+  }
+ ],
+ "clarifications": [
+  {
+   "stage": 3,
+   "time_utc": "2026-11-19T09:10:06",
+   "item": "surrogate fidelity rule",
+   "text": "rho is computed per disease (30 candidates each, outer folds r1/f0, r1/f1, r1/f2 for CBPP, FMD, LSD); the location-level surrogate is used if the MEDIAN of the three per-disease Spearman rho values (vs the full ExtraTrees-300 fitness) is >= 0.7, otherwise the row-level surrogate."
+  }
+ ],
+ "stage3_decisions": {
+  "surrogate": "location-level ExtraTrees 100",
+  "median_rho_location_level": 0.7815350389321468,
+  "median_rho_row_level": 0.9657397107897663,
+  "rule": "median per-disease rho >= 0.7 -> location-level, else row-level"
+ },
+ "additions": [
+  {
+   "stage": 5,
+   "time_utc": "2026-11-19T09:45:03",
+   "what": "random search with the same evaluation budget added as a null baseline in the optimiser comparison",
+   "why": "needed to show whether any metaheuristic beats random sampling of the same number of candidates",
+   "when": "before any Stage 5 run"
+  }
+ ],
+ "assumptions": [
+  {
+   "stage": 5,
+   "item": "original SGO acquiring phase",
+   "text": "implemented as the MSGO acquiring phase without the self-awareness branch (MSGO modifies only the acquiring phase; Naik, Satapathy & Abraham 2020; equations as given in Meesala, Parida & Naik 2024, Algorithm 2). To be checked against Satapathy & Naik 2016 before the manuscript."
+  }
+ ],
+ "design_revisions": [
+  {
+   "stage": 6,
+   "time_utc": "2026-11-20T04:38:38",
+   "approved_by_user": "continue (option C recommended in Stage 5 report)",
+   "basis": "Stage 5 development-fold evidence and benchmark functions only; confirmatory partition still sealed; gate and success rule unchanged; if the gate fails, stop",
+   "changes": {
+    "1_shift_invariant_improving_phase": {
+     "candidates": {
+      "centroid": "X_new = m + c (X - m) + R (gbest - X), m = population mean (reduces to original SGO when m = 0)",
+      "attract": "X_new = X + R (gbest - X)"
+     },
+     "acquiring_phase": "unchanged from SGO (already translation-invariant)",
+     "c": 0.2,
+     "selection_rule": "benchmark functions only (Sphere, Rastrigin, Rosenbrock, Ackley; D = 30; shifted; 30 agents; 15,000 evaluations; 5 seeds): the candidate with the better mean rank of median final error across the 4 shifted functions, compared against SGO and DE; ties -> centroid"
+    },
+    "2_anchor": "agent 0 of the initial population encodes the fixed FS5 configuration (all climate features, coordinates, kernel 50/150/400 km, k = 5/15/40, density, cross-disease, prior 1, min_samples_leaf 10, max_features ~ sqrt)",
+    "3_reduced_search_space": "15 variables: switches for kernel, knn, idw, density, cross-disease (5 bits); 3 bandwidths [25, 400] km (log); 3 k values [3, 60]; prior [0.5, 20] (log); idw power [1, 3]; min_samples_leaf [2, 50]; max_features [0.1, 1.0]. All 11 climate variables and the coordinate group are always on. complexity = share of the 5 switches on.",
+    "4_selection_by_stability": "final model = average of the predicted probabilities of ExtraTrees-300 models for the top-5 distinct configurations by inner fitness (single best also saved, for the ablation)"
+   },
+   "unchanged": "fitness (lambda 0.5, mu 0.005, 2 x 5 inner spatial CV, average-rank AUC), row-level ExtraTrees-100 surrogate, 240 evaluations with 12 agents, development folds 3 x 5, gate, confirmatory success rule"
+  }
+ ],
+ "stage6_decisions": {
+  "time_utc": "2026-11-20T04:42:50+00:00",
+  "improving_phase_variant": "original",
+  "superseded": {
+   "time_utc": "2026-11-20T04:40:46+00:00",
+   "improving_phase_variant": "attract",
+   "mean_rank_on_shifted_functions": {
+    "DE": 1.25,
+    "SGO": 1.75,
+    "SR-SGO attract": 3.25,
+    "SR-SGO centroid": 3.75
+   },
+   "basis": "benchmark functions only"
+  },
+  "why": "On shifted benchmark functions both shift-invariant candidates were clearly WORSE than the original SGO (mean ranks: DE 1.25, SGO 1.75, attract 3.25, centroid 3.75; e.g. shifted Sphere median error SGO 1.5e3 vs 2.0e4 / 3.2e4). The purpose of modification 1 was to remove centre bias without losing performance; it failed, so it is dropped and SR-SGO uses the original SGO improving and acquiring phases.",
+  "basis": "benchmark functions only; decided before any Stage 6 run on cattle data finished (0 runs completed; the started process was stopped)"
+ },
+ "stage6_gate": {
+  "rule": "After Stage 6, on development folds: proceed to Stage 9 only if SR-SGO mean ROC-AUC > comparator (a) AND pooled bootstrap ROC-AUC difference > 0, for at least 2 of 3 diseases. Otherwise stop and report.",
+  "per_disease": {
+   "CBPP": false,
+   "FMD": false,
+   "LSD": false
+  },
+  "diseases_passing": 0,
+  "decision": "STOP (gate not met) - do not open the confirmatory partition"
+ },
+ "confirmatory_preregistration": {
+  "time_utc": "2026-11-20T14:18:35+00:00",
+  "approved_by_user": "option 2, 2026-11-20T14:18:35+00:00",
+  "context": "The confirmatory partition was reserved for SR-SGO. SR-SGO failed the pre-registered Stage 6 gate, so it is NOT evaluated on this partition. The partition is re-allocated, once, to the hypotheses below, which are registered before it is opened.",
+  "models": {
+   "FS1": "ExtraTrees-300 (min_samples_leaf 10, max_features sqrt) on the 5 original environmental variables",
+   "FS5": "same learner on 11 climate variables + 4 coordinate terms + kernel disease rates (50/150/400 km) + k-nearest-location rates (k = 5/15/40) + density terms + cross-disease rates; training rows only, own block excluded (common/features.py, Stage 3 definition)",
+   "(a)": "simple rank average of the 23-model library (run-3 21 models + LightGBM + SVM), ECDF-scaled by inner OOF predictions (Stage 4 definition), refitted on the confirmatory folds with 1 x 5 inner spatial folds"
+  },
+  "partition": "results/stage2_v1/confirmatory_folds.csv, 2 repeats x 5 folds (blocks cblock_c1/c2)",
+  "H1_primary": "FS5 has higher ROC-AUC than FS1 for FMD and for LSD. Test per disease: pooled location-cluster bootstrap (B = 1000) 95% CI of ROC-AUC(FS5) - ROC-AUC(FS1), averaged over the 2 repeats. H1 is CONFIRMED only if the CI lower bound is > 0 for BOTH FMD and LSD (intersection-union, no multiplicity adjustment). Development estimates: +0.102 (FMD), +0.035 (LSD).",
+  "H1_CBPP": "reported as exploratory; no gain was seen on development folds (+0.003), so no directional hypothesis",
+  "H2_secondary": "FS5 vs (a): two-sided estimate with 95% CI for each disease; no directional claim (development: -0.005, +0.018, +0.009)",
+  "secondary_statistics": "mean of fold ROC-AUC, corrected resampled t-test, PR-AUC",
+  "not_allowed": "no other model, feature set or setting is evaluated on this partition; no re-running with changes after opening"
+ },
+ "confirmatory_results": {
+  "opened_at_utc": "2026-11-20T14:19:31+00:00",
+  "H1_per_disease_CI_above_0": {
+   "FMD": true,
+   "LSD": false
+  },
+  "H1_confirmed": false,
+  "H1_CBPP_exploratory": {
+   "H1 FS5 - FS1: pooled": 0.011496965158117045,
+   "H1 FS5 - FS1: CI_lo": -0.008295001454008383,
+   "H1 FS5 - FS1: CI_hi": 0.03253076709026211
+  },
+  "H2_FS5_minus_a": {
+   "CBPP": {
+    "pooled": -0.010950239733940714,
+    "CI_lo": -0.02171666435040521,
+    "CI_hi": 0.00020076519573871372
+   },
+   "FMD": {
+    "pooled": 0.003380973828413847,
+    "CI_lo": -0.008822602708983409,
+    "CI_hi": 0.016019758031566196
+   },
+   "LSD": {
+    "pooled": -0.023499061163022028,
+    "CI_lo": -0.04367456946205853,
+    "CI_hi": -0.00548218459404392
+   }
+  },
+  "runtime_min": 20.5
+ }
+}

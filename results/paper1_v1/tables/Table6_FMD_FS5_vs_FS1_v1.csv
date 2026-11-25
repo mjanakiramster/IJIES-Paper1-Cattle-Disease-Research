@@ -1,0 +1,2 @@
+Comparison,Disease,Overall: fold mean [corrected-t 95% CI],Overall: folds > 0,Overall: pooled [bootstrap 95% CI],Within-year: fold mean [corrected-t 95% CI],Within-year: folds > 0,Within-year: pooled [bootstrap 95% CI],Overall: Holm p,Within-year: Holm p
+FS5 minus FS1,FMD,"+0.100 [+0.025, +0.175]",14/15,"+0.093 [+0.057, +0.126]","+0.060 [-0.046, +0.165]",11/15,"+0.066 [+0.011, +0.117]",0.039,0.732

@@ -1,0 +1,4245 @@
+{
+ "title": "Supplementary Material",
+ "running_head": "Supplementary Material: spatial generalisation and survey-campaign confounding",
+ "blocks": [
+  {
+   "type": "title",
+   "text": "Supplementary Material"
+  },
+  {
+   "type": "center",
+   "text": "Spatial Generalisation and Survey-Campaign Confounding in Machine-Learning Models for Retrospective Mapping of Cattle Disease Occurrence in Ethiopia",
+   "size": 22
+  },
+  {
+   "type": "center",
+   "text": "Sudhirvarma Sagiraju and [co-authors to be confirmed]",
+   "size": 20
+  },
+  {
+   "type": "para",
+   "text": "This file gives method details, the pre-registration history, full result tables and additional figures. All values were produced by the executed notebook IJIES_Paper1_Experiments_22sections_executed_v6 (22 sections plus an appendix) with the frozen configuration configs/ijies_paper1_config_v1.yaml. Development results use the corrected code (deterministic k-nearest-location ties and the own-block prior correction). Results labelled \"as observed\" (the confirmatory test and the optimisation study) were produced earlier with the pre-correction code and are shown unchanged."
+  },
+  {
+   "type": "h1",
+   "text": "S1. Method details"
+  },
+  {
+   "type": "h2",
+   "text": "S1.1 Neighbourhood features"
+  },
+  {
+   "type": "para",
+   "text": "For each split, rates are fitted on the training households only. For a query location in 81 km block g, all training locations in block g are removed before the rate is computed. This applies to training rows and to test rows in the same way. The prior p_{0,d} is the training rate of disease d outside block g, and the prior weight is c = 1 household."
+  },
+  {
+   "type": "para",
+   "text": "The k-nearest-location rate sums positives and households over the k nearest training locations outside the block, adds the prior, and divides. Because coordinates are recorded to 0.1 degree, 93% of locations have at least one exact distance tie. Neighbours are therefore sorted by distance rounded to 10^{-6} km and then by location ID, so the result does not depend on the order of the input rows."
+  },
+  {
+   "type": "para",
+   "text": "The density terms are log kernel densities of training households (50, 150 and 400 km) and log distances to the k-th nearest training location (k = 5, 15, 40). They use household counts only, not outcomes."
+  },
+  {
+   "type": "h2",
+   "text": "S1.2 Ensemble, calibration and thresholds"
+  },
+  {
+   "type": "para",
+   "text": "Each of the 23 library models produces a test score and an inner out-of-fold (OOF) score for the training households, using five inner spatial folds. The test score is converted to its empirical cumulative distribution value within the model's OOF scores, and the 23 values are averaged with equal weight. Comparator (b) is the single model with the highest inner OOF ROC-AUC."
+  },
+  {
+   "type": "para",
+   "text": "All library outputs are ranked before averaging, so outputs on different scales can be combined. The support vector machine contributes its decision-function values (no probability step inside the library), and the village-level CatBoost model is a location-level regressor of the mean outcome (depth 4), whose predictions are assigned to the households of each location. The group-balanced CatBoost model weights each training household in proportion to 1 / n_{g}, where n_{g} is the number of training households in its survey year-region group, and rescales the weights to a mean of 1 (in the audited split: 15 groups, weights 0.43 to 88.9). The year-region code is used only for these weights and never as a predictor; the weights use training rows only and do not depend on outcomes."
+  },
+  {
+   "type": "para",
+   "text": "Platt calibration is a logistic regression of the inner OOF labels on the inner OOF score, applied to the test score. When the fitted slope is negative, the calibrated probability is set to the training prevalence (the \"Platt fallback\" count in Table S1). The classification threshold maximises the Youden index on the calibrated inner OOF probabilities."
+  },
+  {
+   "type": "h2",
+   "text": "S1.3 Statistical inference"
+  },
+  {
+   "type": "para",
+   "text": "For paired differences over the 15 development folds, the corrected resampled t statistic uses the variance inflation (1/k + n_{test}/n_{train}) with k = 15 and 14 degrees of freedom [S1]. For the 81 km design, n_{test}/n_{train} = 668/2672. For the proximity-buffer and block-size conditions (Tables S5 and S6), the mean numbers of test and training households of each condition were used, because removing training locations or enlarging blocks changes this ratio. The location-cluster bootstrap resamples the 462 locations with replacement (1,000 resamples, seed 20261122). Within each repeat, out-of-fold test scores from the five folds are pooled after conversion to quantiles of the corresponding training OOF distribution, so that scores from different folds are on a common scale. Holm correction is applied across the three diseases."
+  },
+  {
+   "type": "h2",
+   "text": "S1.4 Negative controls"
+  },
+  {
+   "type": "para",
+   "text": "Household-level permutation shuffles the three outcome vectors jointly across all households. Village-level permutation shuffles the outcome vectors of whole locations between locations in the same household-count bin, so that the within-village clustering of outcomes is kept. In both schemes, the neighbourhood features, the ExtraTrees models and the evaluation are rebuilt from the permuted labels on development repeat 1. The permutation p-value is (1 + number of null gains at least as large as the observed gain) / (1 + number of permutations)."
+  },
+  {
+   "type": "h2",
+   "text": "S1.5 Feature ablation and explainability"
+  },
+  {
+   "type": "para",
+   "text": "The ablation fitted ExtraTrees (300 trees, minimum leaf size 10, square-root feature sampling) with the nested sets FS1 to FS5 on the same 15 development splits as the main analysis; FS1 and FS5 are the same runs as in the main tables. Each step was tested with the corrected resampled t-test and the location-cluster bootstrap, and Holm correction was applied across the 12 steps (four steps × three diseases)."
+  },
+  {
+   "type": "para",
+   "text": "SHAP values were computed with the exact TreeExplainer algorithm [S2] for the FS5 ExtraTrees model fitted in each fold of development repeat 1, on the probability scale of the positive class, for the test households of that fold [S3]. Partial dependence [S4] was computed on the training households of each fold (20 grid points between the 5th and 95th percentiles), so no test labels were used. Grouped permutation importance is the drop in test ROC-AUC when all features of a group are permuted together (15 folds)."
+  },
+  {
+   "type": "h2",
+   "text": "S1.6 Area of applicability"
+  },
+  {
+   "type": "para",
+   "text": "For each fold, the predictors were standardised with the training means and standard deviations and multiplied by the impurity importances of the fitted ExtraTrees model. The dissimilarity index (DI) of a household is its Euclidean distance to the nearest training household in this space, divided by the mean distance between training households [S5]. Training DIs were computed across the five inner spatial folds (distance from each inner validation household to the inner fitting households). The AOA threshold is the upper whisker of the training DIs (Q3 + 1.5 IQR, capped at the maximum). Test households with DI above the threshold are outside the AOA. Only surveyed locations were evaluated."
+  },
+  {
+   "type": "h2",
+   "text": "S1.7 Survey-year identification"
+  },
+  {
+   "type": "para",
+   "text": "An ExtraTrees classifier (300 trees, minimum leaf size 10) predicted the survey year of each test household from FS1, from the 18 neighbourhood rates alone, or from FS5, under the same spatial splits and with the same leakage-safe feature construction. For each survey year present in a test fold, the one-versus-rest ROC-AUC was computed; the macro ROC-AUC is their mean. Intervals use the corrected resampled t-test over the 15 folds."
+  },
+  {
+   "type": "h1",
+   "text": "S2. Pre-registration history and the optimisation study"
+  },
+  {
+   "type": "para",
+   "text": "This section reports a completed study that is outside the scope of the revised paper. It is given so that every pre-registered analysis is visible; none of its results are used in the paper."
+  },
+  {
+   "type": "para",
+   "text": "The project was pre-registered in Stage 2, before any new model was fitted (configs/experiment_config.yaml and configs/decision_log.json). The registered aim was to test whether a spatially robust variant of social group optimisation (SR-SGO) [S6] [S7], used to choose feature groups, bandwidths and ensemble weights, would beat the rank average (a) and the inner-selected model (b) on the sealed confirmatory partition. A go/no-go gate on the development folds was also registered: proceed to the confirmatory test only if SR-SGO had a higher mean ROC-AUC than (a) and a positive pooled bootstrap difference for at least two of the three diseases."
+  },
+  {
+   "type": "para",
+   "text": "Before SR-SGO, seven optimisers were compared on development repeat 1: SGO, modified SGO (MSGO), particle swarm optimisation [S8], a genetic algorithm [S9], differential evolution [S10], the grey wolf optimiser [S11] and random search. Each searched a 24-variable space with 10 agents and 150 evaluations of an inner spatial cross-validation fitness (mean minus 0.5 SD of ROC-AUC), giving 315 runs (Table S14). The optimisers differed in the inner fitness they reached (Friedman p < 0.001; mean ranks, lower is better: PSO 3.11, DE 3.29, GWO 3.33, SGO 3.57, MSGO 3.72, random search 5.22, GA 5.76) but not in outer ROC-AUC (Friedman p = 0.73). Among the best configurations, the Spearman correlation between inner fitness and outer ROC-AUC was -0.02, so the search target did not track real spatial performance."
+  },
+  {
+   "type": "para",
+   "text": "SR-SGO then failed the registered gate for all three diseases (0 of 3) and was not evaluated on the confirmatory partition. On 2026-11-20, before the partition was opened, it was re-allocated once to two new hypotheses: H1, FS5 has a higher ROC-AUC than FS1 for both FMD and LSD (confirmed only if both bootstrap intervals were above 0); and H2, a two-sided comparison of FS5 with (a). These hypotheses were written after the development results were known, and the registration recorded the development estimates. The partition was then opened once (Table S7). The optimisation study and the confirmatory test both used the code before the two corrections described in the paper."
+  },
+  {
+   "type": "h1",
+   "text": "S3. Supplementary tables"
+  },
+  {
+   "type": "caption",
+   "text": "**Table S1.** Full development performance (15 spatial splits, Youden threshold chosen on inner out-of-fold data)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "ROC-AUC fold mean (SD)",
+    "PR-AUC (no-skill)",
+    "Brier",
+    "Cal. intercept",
+    "Cal. slope",
+    "Platt fallback",
+    "Sens.",
+    "Spec.",
+    "Bal. acc.",
+    "F1",
+    "MCC"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "0.694 (0.055)",
+     "0.401 (0.225)",
+     "0.157",
+     "0.06",
+     "1.12",
+     "0/15",
+     "0.60",
+     "0.70",
+     "0.65",
+     "0.45",
+     "0.26"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.697 (0.065)",
+     "0.409 (0.225)",
+     "0.156",
+     "0.04",
+     "0.98",
+     "0/15",
+     "0.60",
+     "0.72",
+     "0.66",
+     "0.46",
+     "0.29"
+    ],
+    [
+     "CBPP",
+     "(a) Rank average",
+     "0.703 (0.066)",
+     "0.419 (0.225)",
+     "0.155",
+     "0.07",
+     "0.94",
+     "0/15",
+     "0.65",
+     "0.69",
+     "0.67",
+     "0.47",
+     "0.30"
+    ],
+    [
+     "CBPP",
+     "(b) Inner-selected single",
+     "0.688 (0.055)",
+     "0.397 (0.225)",
+     "0.158",
+     "-0.02",
+     "0.79",
+     "0/15",
+     "0.63",
+     "0.66",
+     "0.64",
+     "0.45",
+     "0.25"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "0.563 (0.101)",
+     "0.243 (0.183)",
+     "0.151",
+     "0.01",
+     "1.70",
+     "3/15",
+     "0.42",
+     "0.59",
+     "0.50",
+     "0.19",
+     "0.01"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "0.663 (0.084)",
+     "0.329 (0.183)",
+     "0.142",
+     "0.02",
+     "1.17",
+     "0/15",
+     "0.66",
+     "0.58",
+     "0.62",
+     "0.37",
+     "0.19"
+    ],
+    [
+     "FMD",
+     "(a) Rank average",
+     "0.648 (0.107)",
+     "0.316 (0.183)",
+     "0.147",
+     "-0.01",
+     "1.84",
+     "0/15",
+     "0.56",
+     "0.62",
+     "0.59",
+     "0.34",
+     "0.16"
+    ],
+    [
+     "FMD",
+     "(b) Inner-selected single",
+     "0.614 (0.108)",
+     "0.293 (0.183)",
+     "0.147",
+     "-0.08",
+     "1.54",
+     "0/15",
+     "0.57",
+     "0.58",
+     "0.57",
+     "0.32",
+     "0.12"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "0.577 (0.070)",
+     "0.270 (0.224)",
+     "0.175",
+     "-0.14",
+     "1.31",
+     "4/15",
+     "0.49",
+     "0.57",
+     "0.53",
+     "0.25",
+     "0.06"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "0.609 (0.090)",
+     "0.302 (0.224)",
+     "0.177",
+     "-0.12",
+     "1.24",
+     "0/15",
+     "0.54",
+     "0.57",
+     "0.56",
+     "0.33",
+     "0.10"
+    ],
+    [
+     "LSD",
+     "(a) Rank average",
+     "0.602 (0.087)",
+     "0.300 (0.224)",
+     "0.172",
+     "-0.18",
+     "1.76",
+     "0/15",
+     "0.63",
+     "0.52",
+     "0.58",
+     "0.37",
+     "0.14"
+    ],
+    [
+     "LSD",
+     "(b) Inner-selected single",
+     "0.582 (0.083)",
+     "0.294 (0.224)",
+     "0.178",
+     "-0.14",
+     "1.01",
+     "0/15",
+     "0.56",
+     "0.55",
+     "0.55",
+     "0.35",
+     "0.10"
+    ]
+   ],
+   "widths": [
+    700,
+    1500,
+    1150,
+    1050,
+    600,
+    750,
+    650,
+    750,
+    550,
+    550,
+    650,
+    500,
+    550
+   ],
+   "note": "Calibration intercept and slope are medians over folds. Slopes above 1 mean the predicted probabilities are too close to the average risk.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S2.** Year-specific ROC-AUC (pooled out-of-fold predictions, mean over the three development repeats)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "2012",
+    "2014",
+    "2015",
+    "2018",
+    "2019"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "0.506",
+     "0.658",
+     "0.604",
+     "0.525",
+     "0.571"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.486",
+     "0.661",
+     "0.603",
+     "0.517",
+     "0.395"
+    ],
+    [
+     "CBPP",
+     "(a) Rank average",
+     "0.515",
+     "0.664",
+     "0.624",
+     "0.528",
+     "0.506"
+    ],
+    [
+     "CBPP",
+     "(b) Inner-selected single",
+     "0.506",
+     "0.662",
+     "0.590",
+     "0.517",
+     "0.521"
+    ],
+    [
+     "CBPP",
+     "Households (positives)",
+     "224 (86)",
+     "684 (297)",
+     "656 (225)",
+     "1341 (138)",
+     "435 (2)"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "0.447",
+     "0.497",
+     "0.582",
+     "0.574",
+     "0.506"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "0.416",
+     "0.502",
+     "0.726",
+     "0.677",
+     "0.445"
+    ],
+    [
+     "FMD",
+     "(a) Rank average",
+     "0.395",
+     "0.519",
+     "0.718",
+     "0.698",
+     "0.373"
+    ],
+    [
+     "FMD",
+     "(b) Inner-selected single",
+     "0.454",
+     "0.505",
+     "0.702",
+     "0.564",
+     "0.346"
+    ],
+    [
+     "FMD",
+     "Households (positives)",
+     "224 (22)",
+     "684 (132)",
+     "656 (223)",
+     "1341 (62)",
+     "435 (172)"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "0.517",
+     "0.586",
+     "0.492",
+     "0.554",
+     "0.650"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "0.456",
+     "0.554",
+     "0.553",
+     "0.403",
+     "0.623"
+    ],
+    [
+     "LSD",
+     "(a) Rank average",
+     "0.487",
+     "0.567",
+     "0.562",
+     "0.455",
+     "0.632"
+    ],
+    [
+     "LSD",
+     "(b) Inner-selected single",
+     "0.488",
+     "0.560",
+     "0.558",
+     "0.485",
+     "0.587"
+    ],
+    [
+     "LSD",
+     "Households (positives)",
+     "224 (45)",
+     "684 (108)",
+     "656 (228)",
+     "1341 (100)",
+     "435 (266)"
+    ]
+   ],
+   "widths": [
+    800,
+    2400,
+    1300,
+    1300,
+    1300,
+    1300,
+    1300
+   ],
+   "note": "Estimates from years with very few positive households (for example, 2 CBPP cases in 2019) are unstable.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S3.** Effect of the two code corrections on the rank-average ensemble (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Version",
+    "Rank-average ROC-AUC (original)",
+    "Rank-average ROC-AUC (version)",
+    "Difference [corrected-t 95% CI]",
+    "Max fold |difference|"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "corrected prior",
+     "0.702",
+     "0.7027",
+     "+0.0007 [-0.0029, +0.0043]",
+     "0.0086"
+    ],
+    [
+     "CBPP",
+     "corrected prior + deterministic ties",
+     "0.702",
+     "0.7026",
+     "+0.0006 [-0.0029, +0.0041]",
+     "0.0089"
+    ],
+    [
+     "FMD",
+     "corrected prior",
+     "0.6475",
+     "0.6479",
+     "+0.0004 [-0.0039, +0.0048]",
+     "0.0072"
+    ],
+    [
+     "FMD",
+     "corrected prior + deterministic ties",
+     "0.6475",
+     "0.6477",
+     "+0.0002 [-0.0036, +0.0040]",
+     "0.0056"
+    ],
+    [
+     "LSD",
+     "corrected prior",
+     "0.6041",
+     "0.6013",
+     "-0.0027 [-0.0067, +0.0012]",
+     "0.008"
+    ],
+    [
+     "LSD",
+     "corrected prior + deterministic ties",
+     "0.6041",
+     "0.6025",
+     "-0.0016 [-0.0059, +0.0027]",
+     "0.0075"
+    ]
+   ],
+   "widths": [
+    800,
+    2700,
+    1400,
+    1400,
+    2200,
+    1200
+   ],
+   "note": null,
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S4.** Spatial ROC-AUC of the 23 library models (development, 15 splits, corrected code)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Model [feature set]",
+    "CBPP ROC-AUC mean (SD)",
+    "FMD ROC-AUC mean (SD)",
+    "LSD ROC-AUC mean (SD)"
+   ],
+   "rows": [
+    [
+     "GAM [B]",
+     "0.703 (0.046)",
+     "0.547 (0.070)",
+     "0.565 (0.055)"
+    ],
+    [
+     "RF [B]",
+     "0.678 (0.068)",
+     "0.571 (0.098)",
+     "0.583 (0.068)"
+    ],
+    [
+     "XGB [B]",
+     "0.662 (0.081)",
+     "0.551 (0.108)",
+     "0.564 (0.063)"
+    ],
+    [
+     "CatBoost [B]",
+     "0.664 (0.081)",
+     "0.555 (0.112)",
+     "0.574 (0.083)"
+    ],
+    [
+     "CatBoost [E]",
+     "0.677 (0.078)",
+     "0.616 (0.115)",
+     "0.594 (0.098)"
+    ],
+    [
+     "kNN [E]",
+     "0.678 (0.061)",
+     "0.609 (0.094)",
+     "0.560 (0.086)"
+    ],
+    [
+     "LR [EL]",
+     "0.674 (0.049)",
+     "0.652 (0.088)",
+     "0.558 (0.059)"
+    ],
+    [
+     "GAM [EL]",
+     "0.694 (0.062)",
+     "0.624 (0.117)",
+     "0.574 (0.076)"
+    ],
+    [
+     "RF [EL]",
+     "0.698 (0.070)",
+     "0.634 (0.101)",
+     "0.587 (0.091)"
+    ],
+    [
+     "ExtraTrees [EL]",
+     "0.698 (0.065)",
+     "0.655 (0.097)",
+     "0.597 (0.094)"
+    ],
+    [
+     "XGB [EL]",
+     "0.681 (0.072)",
+     "0.651 (0.095)",
+     "0.575 (0.087)"
+    ],
+    [
+     "CatBoost [EL]",
+     "0.680 (0.068)",
+     "0.649 (0.094)",
+     "0.560 (0.092)"
+    ],
+    [
+     "MLP [EL]",
+     "0.639 (0.064)",
+     "0.632 (0.081)",
+     "0.570 (0.091)"
+    ],
+    [
+     "CatBoost-groupbalanced [EL]",
+     "0.681 (0.057)",
+     "0.661 (0.103)",
+     "0.567 (0.086)"
+    ],
+    [
+     "CatBoost-village [EL]",
+     "0.698 (0.060)",
+     "0.660 (0.091)",
+     "0.569 (0.083)"
+    ],
+    [
+     "CatBoost-multitask [EL]",
+     "0.682 (0.070)",
+     "0.649 (0.096)",
+     "0.564 (0.093)"
+    ],
+    [
+     "GAM [E]",
+     "0.691 (0.053)",
+     "0.603 (0.112)",
+     "0.553 (0.079)"
+    ],
+    [
+     "GP-kriging [E]",
+     "0.685 (0.063)",
+     "0.623 (0.104)",
+     "0.573 (0.091)"
+    ],
+    [
+     "LR [ELK]",
+     "0.668 (0.052)",
+     "0.631 (0.085)",
+     "0.584 (0.058)"
+    ],
+    [
+     "ExtraTrees [ELK]",
+     "0.699 (0.066)",
+     "0.665 (0.080)",
+     "0.609 (0.083)"
+    ],
+    [
+     "CatBoost-village [ELK]",
+     "0.694 (0.072)",
+     "0.648 (0.091)",
+     "0.573 (0.091)"
+    ],
+    [
+     "LightGBM [ELK]",
+     "0.667 (0.089)",
+     "0.668 (0.084)",
+     "0.587 (0.083)"
+    ],
+    [
+     "SVM-RBF [ELK]",
+     "0.669 (0.081)",
+     "0.575 (0.077)",
+     "0.521 (0.087)"
+    ]
+   ],
+   "widths": [
+    3400,
+    2100,
+    2100,
+    2100
+   ],
+   "note": "Feature-set codes: B = 5 environmental variables; E = environmental, climate and coordinate terms; EL = E plus kernel rates and densities; ELK = EL plus k-nearest rates and distance. GP-kriging uses location-level inputs.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S5.** Proximity removal and size-matched random removal (development, ExtraTrees, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Condition",
+    "Disease",
+    "Removed households",
+    "Min test positives",
+    "Median nearest training location (km)",
+    "FS1 ROC-AUC",
+    "FS5 ROC-AUC",
+    "FS5 - FS1 [95% CI]",
+    "Folds > 0",
+    "FS1 PR-AUC",
+    "FS5 PR-AUC",
+    "No-skill PR-AUC"
+   ],
+   "rows": [
+    [
+     "81 km blocks",
+     "CBPP",
+     "0",
+     "78",
+     "38",
+     "0.694",
+     "0.697",
+     "+0.003 [-0.034, +0.041]",
+     "8/15",
+     "0.401",
+     "0.409",
+     "0.225"
+    ],
+    [
+     "Buffer 25 km",
+     "CBPP",
+     "272",
+     "78",
+     "56",
+     "0.683",
+     "0.689",
+     "+0.006 [-0.049, +0.060]",
+     "10/15",
+     "0.388",
+     "0.389",
+     "0.225"
+    ],
+    [
+     "Size-matched 25 km",
+     "CBPP",
+     "281",
+     "78",
+     "38",
+     "0.692",
+     "0.697",
+     "+0.005 [-0.036, +0.045]",
+     "10/15",
+     "0.398",
+     "0.408",
+     "0.225"
+    ],
+    [
+     "Buffer 50 km",
+     "CBPP",
+     "610",
+     "78",
+     "72",
+     "0.672",
+     "0.667",
+     "-0.005 [-0.064, +0.055]",
+     "8/15",
+     "0.373",
+     "0.377",
+     "0.225"
+    ],
+    [
+     "Size-matched 50 km",
+     "CBPP",
+     "614",
+     "78",
+     "38",
+     "0.694",
+     "0.694",
+     "+0.000 [-0.041, +0.041]",
+     "8/15",
+     "0.404",
+     "0.405",
+     "0.225"
+    ],
+    [
+     "Buffer 100 km",
+     "CBPP",
+     "1565",
+     "78",
+     "126",
+     "0.620",
+     "0.634",
+     "+0.014 [-0.112, +0.141]",
+     "11/15",
+     "0.327",
+     "0.351",
+     "0.225"
+    ],
+    [
+     "Size-matched 100 km",
+     "CBPP",
+     "1047",
+     "78",
+     "38",
+     "0.694",
+     "0.697",
+     "+0.003 [-0.035, +0.041]",
+     "6/15",
+     "0.397",
+     "0.413",
+     "0.225"
+    ],
+    [
+     "81 km blocks",
+     "FMD",
+     "0",
+     "79",
+     "38",
+     "0.563",
+     "0.663",
+     "+0.100 [+0.025, +0.175]",
+     "14/15",
+     "0.243",
+     "0.329",
+     "0.183"
+    ],
+    [
+     "Buffer 25 km",
+     "FMD",
+     "272",
+     "79",
+     "56",
+     "0.504",
+     "0.625",
+     "+0.121 [+0.067, +0.176]",
+     "15/15",
+     "0.196",
+     "0.295",
+     "0.183"
+    ],
+    [
+     "Size-matched 25 km",
+     "FMD",
+     "281",
+     "79",
+     "38",
+     "0.576",
+     "0.657",
+     "+0.081 [+0.014, +0.147]",
+     "14/15",
+     "0.253",
+     "0.316",
+     "0.183"
+    ],
+    [
+     "Buffer 50 km",
+     "FMD",
+     "610",
+     "79",
+     "72",
+     "0.459",
+     "0.625",
+     "+0.166 [+0.056, +0.275]",
+     "15/15",
+     "0.168",
+     "0.289",
+     "0.183"
+    ],
+    [
+     "Size-matched 50 km",
+     "FMD",
+     "614",
+     "79",
+     "38",
+     "0.582",
+     "0.672",
+     "+0.089 [+0.006, +0.173]",
+     "15/15",
+     "0.253",
+     "0.325",
+     "0.183"
+    ],
+    [
+     "Buffer 100 km",
+     "FMD",
+     "1565",
+     "79",
+     "126",
+     "0.497",
+     "0.560",
+     "+0.063 [-0.119, +0.246]",
+     "12/15",
+     "0.182",
+     "0.235",
+     "0.183"
+    ],
+    [
+     "Size-matched 100 km",
+     "FMD",
+     "1047",
+     "79",
+     "38",
+     "0.576",
+     "0.664",
+     "+0.088 [-0.019, +0.195]",
+     "13/15",
+     "0.249",
+     "0.343",
+     "0.183"
+    ],
+    [
+     "81 km blocks",
+     "LSD",
+     "0",
+     "116",
+     "38",
+     "0.577",
+     "0.609",
+     "+0.031 [-0.039, +0.102]",
+     "9/15",
+     "0.270",
+     "0.302",
+     "0.224"
+    ],
+    [
+     "Buffer 25 km",
+     "LSD",
+     "272",
+     "116",
+     "56",
+     "0.536",
+     "0.577",
+     "+0.041 [-0.031, +0.114]",
+     "11/15",
+     "0.237",
+     "0.264",
+     "0.224"
+    ],
+    [
+     "Size-matched 25 km",
+     "LSD",
+     "281",
+     "116",
+     "38",
+     "0.578",
+     "0.592",
+     "+0.015 [-0.062, +0.091]",
+     "8/15",
+     "0.271",
+     "0.282",
+     "0.224"
+    ],
+    [
+     "Buffer 50 km",
+     "LSD",
+     "610",
+     "116",
+     "72",
+     "0.537",
+     "0.573",
+     "+0.036 [-0.069, +0.142]",
+     "9/15",
+     "0.243",
+     "0.265",
+     "0.224"
+    ],
+    [
+     "Size-matched 50 km",
+     "LSD",
+     "614",
+     "116",
+     "38",
+     "0.589",
+     "0.589",
+     "+0.001 [-0.067, +0.068]",
+     "6/15",
+     "0.290",
+     "0.290",
+     "0.224"
+    ],
+    [
+     "Buffer 100 km",
+     "LSD",
+     "1565",
+     "116",
+     "126",
+     "0.554",
+     "0.539",
+     "-0.014 [-0.170, +0.142]",
+     "8/15",
+     "0.258",
+     "0.251",
+     "0.224"
+    ],
+    [
+     "Size-matched 100 km",
+     "LSD",
+     "1047",
+     "116",
+     "38",
+     "0.581",
+     "0.591",
+     "+0.010 [-0.073, +0.092]",
+     "9/15",
+     "0.277",
+     "0.292",
+     "0.224"
+    ]
+   ],
+   "widths": [
+    1000,
+    700,
+    900,
+    800,
+    1000,
+    750,
+    750,
+    1650,
+    650,
+    750,
+    750,
+    750
+   ],
+   "note": "95% CI: corrected resampled t over 15 folds.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S6.** Block-size sensitivity (exploratory; development, ExtraTrees, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Condition",
+    "Disease",
+    "Removed households",
+    "Min test positives",
+    "Median nearest training location (km)",
+    "FS1 ROC-AUC",
+    "FS5 ROC-AUC",
+    "FS5 - FS1 [95% CI]",
+    "Folds > 0",
+    "FS1 PR-AUC",
+    "FS5 PR-AUC",
+    "No-skill PR-AUC"
+   ],
+   "rows": [
+    [
+     "81 km blocks",
+     "CBPP",
+     "0",
+     "78",
+     "38",
+     "0.694",
+     "0.697",
+     "+0.003 [-0.034, +0.041]",
+     "8/15",
+     "0.401",
+     "0.409",
+     "0.225"
+    ],
+    [
+     "120 km blocks",
+     "CBPP",
+     "0",
+     "76",
+     "49",
+     "0.661",
+     "0.665",
+     "+0.004 [-0.030, +0.038]",
+     "9/15",
+     "0.383",
+     "0.390",
+     "0.225"
+    ],
+    [
+     "160 km blocks",
+     "CBPP",
+     "0",
+     "53",
+     "61",
+     "0.654",
+     "0.665",
+     "+0.012 [-0.028, +0.051]",
+     "6/15",
+     "0.345",
+     "0.355",
+     "0.221"
+    ],
+    [
+     "81 km blocks",
+     "FMD",
+     "0",
+     "79",
+     "38",
+     "0.563",
+     "0.663",
+     "+0.100 [+0.025, +0.175]",
+     "14/15",
+     "0.243",
+     "0.329",
+     "0.183"
+    ],
+    [
+     "120 km blocks",
+     "FMD",
+     "0",
+     "42",
+     "49",
+     "0.504",
+     "0.626",
+     "+0.122 [-0.026, +0.271]",
+     "12/15",
+     "0.204",
+     "0.305",
+     "0.182"
+    ],
+    [
+     "160 km blocks",
+     "FMD",
+     "0",
+     "42",
+     "61",
+     "0.526",
+     "0.627",
+     "+0.101 [+0.010, +0.191]",
+     "15/15",
+     "0.206",
+     "0.282",
+     "0.180"
+    ],
+    [
+     "81 km blocks",
+     "LSD",
+     "0",
+     "116",
+     "38",
+     "0.577",
+     "0.609",
+     "+0.031 [-0.039, +0.102]",
+     "9/15",
+     "0.270",
+     "0.302",
+     "0.224"
+    ],
+    [
+     "120 km blocks",
+     "LSD",
+     "0",
+     "98",
+     "49",
+     "0.559",
+     "0.587",
+     "+0.029 [-0.058, +0.115]",
+     "10/15",
+     "0.257",
+     "0.299",
+     "0.223"
+    ],
+    [
+     "160 km blocks",
+     "LSD",
+     "0",
+     "66",
+     "61",
+     "0.558",
+     "0.591",
+     "+0.033 [-0.052, +0.119]",
+     "11/15",
+     "0.257",
+     "0.287",
+     "0.223"
+    ]
+   ],
+   "widths": [
+    1000,
+    700,
+    900,
+    800,
+    1000,
+    750,
+    750,
+    1650,
+    650,
+    750,
+    750,
+    750
+   ],
+   "note": "95% CI: corrected resampled t over 15 folds.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S7.** Confirmatory partition (2 × 5 folds), opened once on 2026-11-20 with the pre-correction code; results as originally observed",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "FS1",
+    "FS5",
+    "(a) Rank average",
+    "H1: FS5 - FS1 pooled [95% CI]",
+    "H1 folds better",
+    "H1 corrected-t p",
+    "H2: FS5 - (a) pooled [95% CI]",
+    "H2 folds better"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "0.684",
+     "0.699",
+     "0.700",
+     "+0.011 [-0.008, +0.033]",
+     "7/10",
+     "0.429",
+     "-0.011 [-0.022, +0.000]",
+     "4/10"
+    ],
+    [
+     "FMD",
+     "0.577",
+     "0.649",
+     "0.637",
+     "+0.068 [+0.030, +0.104]",
+     "9/10",
+     "0.069",
+     "+0.003 [-0.009, +0.016]",
+     "7/10"
+    ],
+    [
+     "LSD",
+     "0.569",
+     "0.588",
+     "0.592",
+     "+0.008 [-0.028, +0.044]",
+     "6/10",
+     "0.509",
+     "-0.023 [-0.044, -0.005]",
+     "5/10"
+    ]
+   ],
+   "widths": [
+    800,
+    750,
+    750,
+    1000,
+    1900,
+    900,
+    900,
+    1900,
+    900
+   ],
+   "note": "ROC-AUC is the mean of the 10 confirmatory folds; pooled differences and intervals are from the location-cluster bootstrap; p is the fold-level corrected resampled t-test. The hypotheses were recorded before the partition was opened but after the development results were known, so this is a held-out check rather than an independent pre-registered confirmation. Per-fold values are provided in the results folder.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S8.** Negative controls in full (development repeat 1; FS1 and FS5 ExtraTrees rebuilt on permuted labels; values are means over the five folds of repeat 1)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Scheme",
+    "Disease",
+    "Permutations",
+    "Null FS1 ROC-AUC mean [2.5-97.5%]",
+    "Null FS5 ROC-AUC mean [2.5-97.5%]",
+    "Null gain mean [2.5-97.5%]",
+    "Observed gain",
+    "Permutation p (resolution)",
+    "Null FS5 PR-AUC",
+    "No-skill PR-AUC",
+    "Holm p (6 tests)"
+   ],
+   "rows": [
+    [
+     "household",
+     "CBPP",
+     "1000",
+     "0.500 [0.466, 0.531]",
+     "0.500 [0.472, 0.527]",
+     "+0.000 [-0.029, +0.029]",
+     "+0.018",
+     "0.1169 (0.0010)",
+     "0.231",
+     "0.224",
+     "0.3506"
+    ],
+    [
+     "household",
+     "FMD",
+     "1000",
+     "0.501 [0.467, 0.533]",
+     "0.500 [0.470, 0.530]",
+     "-0.001 [-0.032, +0.031]",
+     "+0.084",
+     "0.0010 (0.0010)",
+     "0.190",
+     "0.183",
+     "0.0060"
+    ],
+    [
+     "household",
+     "LSD",
+     "1000",
+     "0.501 [0.470, 0.532]",
+     "0.501 [0.476, 0.526]",
+     "+0.000 [-0.031, +0.029]",
+     "+0.039",
+     "0.0080 (0.0010)",
+     "0.230",
+     "0.224",
+     "0.0350"
+    ],
+    [
+     "village",
+     "CBPP",
+     "1000",
+     "0.501 [0.439, 0.563]",
+     "0.499 [0.446, 0.558]",
+     "-0.002 [-0.062, +0.059]",
+     "+0.018",
+     "0.2597 (0.0010)",
+     "0.243",
+     "0.230",
+     "0.3506"
+    ],
+    [
+     "village",
+     "FMD",
+     "1000",
+     "0.504 [0.431, 0.577]",
+     "0.501 [0.439, 0.569]",
+     "-0.003 [-0.068, +0.065]",
+     "+0.084",
+     "0.0070 (0.0010)",
+     "0.189",
+     "0.175",
+     "0.0350"
+    ],
+    [
+     "village",
+     "LSD",
+     "1000",
+     "0.506 [0.434, 0.576]",
+     "0.502 [0.432, 0.567]",
+     "-0.004 [-0.074, +0.071]",
+     "+0.039",
+     "0.1349 (0.0010)",
+     "0.231",
+     "0.214",
+     "0.3506"
+    ]
+   ],
+   "widths": [
+    900,
+    650,
+    800,
+    1300,
+    1300,
+    1300,
+    700,
+    1100,
+    700,
+    700,
+    800
+   ],
+   "note": "Permutation p = (1 + null gains at least as large as the observed gain) / (1 + 1,000); the smallest attainable value is 0.0010. The first 100 permutations per scheme are those of the original analysis (Holm-adjusted FMD p = 0.059 with 100); the other 900 were added with the same code and seed rule. Holm correction across the six tests (three diseases × two schemes).",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S9.** Grouped permutation importance for FS5 ExtraTrees: mean drop in test ROC-AUC when a feature group is permuted (SD over 15 folds)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Feature group",
+    "CBPP",
+    "FMD",
+    "LSD"
+   ],
+   "rows": [
+    [
+     "Environmental (5)",
+     "+0.017 (0.019)",
+     "-0.004 (0.016)",
+     "+0.028 (0.014)"
+    ],
+    [
+     "Climate indices (6)",
+     "+0.007 (0.012)",
+     "+0.000 (0.019)",
+     "+0.027 (0.017)"
+    ],
+    [
+     "Coordinates (4)",
+     "-0.000 (0.008)",
+     "+0.017 (0.023)",
+     "+0.016 (0.023)"
+    ],
+    [
+     "Own-disease rates (6)",
+     "+0.035 (0.035)",
+     "+0.030 (0.030)",
+     "+0.026 (0.051)"
+    ],
+    [
+     "Cross-disease rates (12)",
+     "+0.001 (0.016)",
+     "+0.028 (0.030)",
+     "+0.039 (0.038)"
+    ],
+    [
+     "Sampling density (6)",
+     "-0.004 (0.011)",
+     "+0.016 (0.013)",
+     "+0.004 (0.030)"
+    ]
+   ],
+   "widths": [
+    3200,
+    2000,
+    2000,
+    2000
+   ],
+   "note": "Own-disease rates are the six kernel and k-nearest rates of the modelled disease; cross-disease rates are the twelve rates of the other two diseases.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S10.** Feature dictionary for FS5 (39 features; the first five form FS1)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "No.",
+    "Feature",
+    "Group",
+    "Definition",
+    "Uses outcome labels"
+   ],
+   "rows": [
+    [
+     "1",
+     "Altitude",
+     "Environmental",
+     "Altitude (m)",
+     "No"
+    ],
+    [
+     "2",
+     "Temperature",
+     "Environmental",
+     "Mean temperature",
+     "No"
+    ],
+    [
+     "3",
+     "Precipitation",
+     "Environmental",
+     "Precipitation",
+     "No"
+    ],
+    [
+     "4",
+     "Relative_humidity",
+     "Environmental",
+     "Relative humidity (%)",
+     "No"
+    ],
+    [
+     "5",
+     "Wind_speed",
+     "Environmental",
+     "Wind speed",
+     "No"
+    ],
+    [
+     "6",
+     "SL_temperature",
+     "Climate index",
+     "Temperature + 0.0065 x altitude (sea-level equivalent)",
+     "No"
+    ],
+    [
+     "7",
+     "DeMartonne",
+     "Climate index",
+     "De Martonne aridity index: precipitation / (temperature + 10)",
+     "No"
+    ],
+    [
+     "8",
+     "Temp_x_RH",
+     "Climate index",
+     "Temperature x relative humidity / 100",
+     "No"
+    ],
+    [
+     "9",
+     "Precip_x_RH",
+     "Climate index",
+     "log(1 + precipitation) x relative humidity / 100",
+     "No"
+    ],
+    [
+     "10",
+     "log_Precip",
+     "Climate index",
+     "log(1 + precipitation)",
+     "No"
+    ],
+    [
+     "11",
+     "Wind_x_RH",
+     "Climate index",
+     "Wind speed x relative humidity / 100",
+     "No"
+    ],
+    [
+     "12",
+     "Lat",
+     "Coordinates",
+     "Latitude",
+     "No"
+    ],
+    [
+     "13",
+     "Lon",
+     "Coordinates",
+     "Longitude",
+     "No"
+    ],
+    [
+     "14",
+     "LatPlusLon",
+     "Coordinates",
+     "Latitude + longitude",
+     "No"
+    ],
+    [
+     "15",
+     "LatMinusLon",
+     "Coordinates",
+     "Latitude - longitude",
+     "No"
+    ],
+    [
+     "16",
+     "kern50_0",
+     "Kernel disease rate",
+     "Gaussian-kernel CBPP rate, bandwidth 50 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "17",
+     "kern50_1",
+     "Kernel disease rate",
+     "Gaussian-kernel FMD rate, bandwidth 50 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "18",
+     "kern50_2",
+     "Kernel disease rate",
+     "Gaussian-kernel LSD rate, bandwidth 50 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "19",
+     "dens50",
+     "Sampling density",
+     "log kernel density of training households, bandwidth 50 km",
+     "No"
+    ],
+    [
+     "20",
+     "kern150_0",
+     "Kernel disease rate",
+     "Gaussian-kernel CBPP rate, bandwidth 150 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "21",
+     "kern150_1",
+     "Kernel disease rate",
+     "Gaussian-kernel FMD rate, bandwidth 150 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "22",
+     "kern150_2",
+     "Kernel disease rate",
+     "Gaussian-kernel LSD rate, bandwidth 150 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "23",
+     "dens150",
+     "Sampling density",
+     "log kernel density of training households, bandwidth 150 km",
+     "No"
+    ],
+    [
+     "24",
+     "kern400_0",
+     "Kernel disease rate",
+     "Gaussian-kernel CBPP rate, bandwidth 400 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "25",
+     "kern400_1",
+     "Kernel disease rate",
+     "Gaussian-kernel FMD rate, bandwidth 400 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "26",
+     "kern400_2",
+     "Kernel disease rate",
+     "Gaussian-kernel LSD rate, bandwidth 400 km",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "27",
+     "dens400",
+     "Sampling density",
+     "log kernel density of training households, bandwidth 400 km",
+     "No"
+    ],
+    [
+     "28",
+     "knn5_0",
+     "k-nearest-location rate",
+     "CBPP rate over the 5 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "29",
+     "knn5_1",
+     "k-nearest-location rate",
+     "FMD rate over the 5 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "30",
+     "knn5_2",
+     "k-nearest-location rate",
+     "LSD rate over the 5 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "31",
+     "knndist5",
+     "Sampling density",
+     "log distance to the 5th nearest training location",
+     "No"
+    ],
+    [
+     "32",
+     "knn15_0",
+     "k-nearest-location rate",
+     "CBPP rate over the 15 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "33",
+     "knn15_1",
+     "k-nearest-location rate",
+     "FMD rate over the 15 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "34",
+     "knn15_2",
+     "k-nearest-location rate",
+     "LSD rate over the 15 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "35",
+     "knndist15",
+     "Sampling density",
+     "log distance to the 15th nearest training location",
+     "No"
+    ],
+    [
+     "36",
+     "knn40_0",
+     "k-nearest-location rate",
+     "CBPP rate over the 40 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "37",
+     "knn40_1",
+     "k-nearest-location rate",
+     "FMD rate over the 40 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "38",
+     "knn40_2",
+     "k-nearest-location rate",
+     "LSD rate over the 40 nearest training locations",
+     "Yes, training rows outside the own block"
+    ],
+    [
+     "39",
+     "knndist40",
+     "Sampling density",
+     "log distance to the 40th nearest training location",
+     "No"
+    ]
+   ],
+   "widths": [
+    500,
+    1500,
+    1800,
+    4000,
+    1900
+   ],
+   "note": "Disease rates are computed for all three diseases, so each disease model receives its own rates and the rates of the other two diseases.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S11.** Data validation checks",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Check",
+    "Result"
+   ],
+   "rows": [
+    [
+     "missing cells (predictors + outcomes)",
+     "0"
+    ],
+    [
+     "duplicate rows (predictors + outcomes)",
+     "0"
+    ],
+    [
+     "locations with >1 coordinate pair",
+     "0"
+    ],
+    [
+     "coordinate pairs shared by >1 location",
+     "0"
+    ],
+    [
+     "locations in >1 81-km block (repeat 1)",
+     "0"
+    ],
+    [
+     "locations surveyed in >1 year",
+     "13"
+    ],
+    [
+     "latitude range",
+     "(3.5, 14.2)"
+    ],
+    [
+     "longitude range",
+     "(33.9, 46.4)"
+    ]
+   ],
+   "widths": [
+    5400,
+    4200
+   ],
+   "note": null,
+   "size": 16
+  },
+  {
+   "type": "caption",
+   "text": "**Table S12.** Practical ranges of exponential variograms (location level, 20 km bins up to 600 km)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Variable",
+    "Uses outcome labels",
+    "Practical range (km)",
+    "Range beyond the 600 km fitting window"
+   ],
+   "rows": [
+    [
+     "CBPP prevalence (all years)",
+     "Yes",
+     "647",
+     "Yes"
+    ],
+    [
+     "CBPP prevalence minus survey-year mean",
+     "Yes",
+     "64",
+     "No"
+    ],
+    [
+     "FMD prevalence (all years)",
+     "Yes",
+     "81",
+     "No"
+    ],
+    [
+     "FMD prevalence minus survey-year mean",
+     "Yes",
+     "16",
+     "No"
+    ],
+    [
+     "LSD prevalence (all years)",
+     "Yes",
+     "67",
+     "No"
+    ],
+    [
+     "LSD prevalence minus survey-year mean",
+     "Yes",
+     "2000",
+     "Yes"
+    ],
+    [
+     "Altitude (standardised)",
+     "No",
+     "364",
+     "No"
+    ],
+    [
+     "Temperature (standardised)",
+     "No",
+     "475",
+     "No"
+    ],
+    [
+     "Precipitation (standardised)",
+     "No",
+     "1036",
+     "Yes"
+    ],
+    [
+     "Relative_humidity (standardised)",
+     "No",
+     "2000",
+     "Yes"
+    ],
+    [
+     "Wind_speed (standardised)",
+     "No",
+     "598",
+     "No"
+    ]
+   ],
+   "widths": [
+    4200,
+    1600,
+    1800,
+    2000
+   ],
+   "note": "The 81 km block size is the median of the three outcome ranges (all years), computed in an earlier analysis with all labels. Ranges beyond the fitting window are not well determined.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S13.** Survey campaigns: coverage, overlap with other campaigns and spread of location-level prevalence",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Year",
+    "Households",
+    "Locations",
+    "Regions",
+    "Locations with another campaign within 81 km (%)",
+    "Median distance to nearest other-campaign location (km)",
+    "CBPP location prevalence IQR",
+    "FMD location prevalence IQR",
+    "LSD location prevalence IQR"
+   ],
+   "rows": [
+    [
+     "2012",
+     "224",
+     "73",
+     "Afar",
+     "83.6",
+     "31.3",
+     "0.26 to 0.51",
+     "0.00 to 0.14",
+     "0.04 to 0.27"
+    ],
+    [
+     "2014",
+     "684",
+     "112",
+     "Oromia, SNNP",
+     "74.1",
+     "44.4",
+     "0.20 to 0.60",
+     "0.00 to 0.30",
+     "0.00 to 0.25"
+    ],
+    [
+     "2015",
+     "656",
+     "106",
+     "Afar, Oromia, SNNP, Somali",
+     "74.5",
+     "34.0",
+     "0.16 to 0.56",
+     "0.05 to 0.57",
+     "0.20 to 0.50"
+    ],
+    [
+     "2018",
+     "1341",
+     "161",
+     "Amhara, Benshangul, Gambela, Oromia, SNNP, Tigray",
+     "65.2",
+     "65.9",
+     "0.00 to 0.20",
+     "0.00 to 0.00",
+     "0.00 to 0.10"
+    ],
+    [
+     "2019",
+     "435",
+     "24",
+     "Amhara, Oromia",
+     "100.0",
+     "32.3",
+     "0.00 to 0.00",
+     "0.16 to 0.67",
+     "0.33 to 0.85"
+    ]
+   ],
+   "widths": [
+    600,
+    850,
+    800,
+    1900,
+    1150,
+    1150,
+    1050,
+    1050,
+    1050
+   ],
+   "note": "IQR: interquartile range of location prevalence among locations with at least five households. Share of household-level outcome variance explained (one-way eta squared): survey year CBPP 14.8%, FMD 12.5%, LSD 18.7%; location within year CBPP 27.8%, FMD 29.7%, LSD 29.3%.",
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S14.** Optimisation study (Section S2): swarm and evolutionary optimisation of feature and learner settings, as run before the code corrections (development repeat 1, 15 runs per optimiser and disease). Not used in the paper.",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Optimiser",
+    "Inner fitness mean (SD)",
+    "Outer ROC-AUC mean (SD)",
+    "Outer PR-AUC",
+    "Distinct candidates",
+    "FS5 fixed",
+    "Rank average"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "DE",
+     "0.714 (0.024)",
+     "0.714 (0.046)",
+     "0.428",
+     "150",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "GA",
+     "0.709 (0.023)",
+     "0.713 (0.048)",
+     "0.434",
+     "137",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "GWO",
+     "0.716 (0.023)",
+     "0.708 (0.045)",
+     "0.432",
+     "150",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "MSGO",
+     "0.714 (0.024)",
+     "0.710 (0.046)",
+     "0.428",
+     "147",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "PSO",
+     "0.714 (0.025)",
+     "0.708 (0.047)",
+     "0.428",
+     "147",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "RANDOM",
+     "0.709 (0.023)",
+     "0.709 (0.043)",
+     "0.424",
+     "150",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "CBPP",
+     "SGO",
+     "0.713 (0.024)",
+     "0.714 (0.039)",
+     "0.435",
+     "147",
+     "0.710",
+     "0.715"
+    ],
+    [
+     "FMD",
+     "DE",
+     "0.652 (0.037)",
+     "0.648 (0.107)",
+     "0.325",
+     "150",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "GA",
+     "0.621 (0.045)",
+     "0.644 (0.109)",
+     "0.323",
+     "138",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "GWO",
+     "0.641 (0.054)",
+     "0.649 (0.109)",
+     "0.326",
+     "150",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "MSGO",
+     "0.645 (0.047)",
+     "0.668 (0.091)",
+     "0.325",
+     "147",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "PSO",
+     "0.651 (0.042)",
+     "0.649 (0.114)",
+     "0.329",
+     "148",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "RANDOM",
+     "0.640 (0.040)",
+     "0.658 (0.099)",
+     "0.332",
+     "150",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "FMD",
+     "SGO",
+     "0.648 (0.043)",
+     "0.650 (0.095)",
+     "0.325",
+     "148",
+     "0.674",
+     "0.678"
+    ],
+    [
+     "LSD",
+     "DE",
+     "0.646 (0.015)",
+     "0.598 (0.065)",
+     "0.290",
+     "150",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "GA",
+     "0.623 (0.026)",
+     "0.600 (0.067)",
+     "0.287",
+     "139",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "GWO",
+     "0.651 (0.030)",
+     "0.588 (0.059)",
+     "0.280",
+     "150",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "MSGO",
+     "0.647 (0.021)",
+     "0.607 (0.066)",
+     "0.290",
+     "147",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "PSO",
+     "0.649 (0.022)",
+     "0.584 (0.054)",
+     "0.276",
+     "148",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "RANDOM",
+     "0.633 (0.015)",
+     "0.598 (0.073)",
+     "0.283",
+     "150",
+     "0.646",
+     "0.637"
+    ],
+    [
+     "LSD",
+     "SGO",
+     "0.644 (0.020)",
+     "0.602 (0.078)",
+     "0.293",
+     "147",
+     "0.646",
+     "0.637"
+    ]
+   ],
+   "widths": [
+    800,
+    1000,
+    1500,
+    1500,
+    1000,
+    1100,
+    1000,
+    1100
+   ],
+   "note": "Each run used 10 agents and 150 fitness evaluations; fitness was mean minus 0.5 SD of ROC-AUC over 5 inner spatial folds. FS5 fixed and rank average are reference values on the same outer folds (pre-correction code).",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S15.** Feature ablation: performance of ExtraTrees with the nested feature sets FS1 to FS5 (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Feature set",
+    "Features",
+    "ROC-AUC fold mean (SD)",
+    "ROC-AUC pooled [95% CI]",
+    "PR-AUC fold mean (no-skill)",
+    "Within-year AUC fold mean"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "5",
+     "0.694 (0.055)",
+     "0.711 [0.673, 0.743]",
+     "0.401 (0.224)",
+     "0.576"
+    ],
+    [
+     "CBPP",
+     "FS2",
+     "11",
+     "0.687 (0.061)",
+     "0.704 [0.666, 0.738]",
+     "0.400 (0.224)",
+     "0.579"
+    ],
+    [
+     "CBPP",
+     "FS3",
+     "15",
+     "0.697 (0.064)",
+     "0.715 [0.676, 0.751]",
+     "0.411 (0.224)",
+     "0.576"
+    ],
+    [
+     "CBPP",
+     "FS4",
+     "33",
+     "0.700 (0.067)",
+     "0.716 [0.674, 0.753]",
+     "0.407 (0.224)",
+     "0.567"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "39",
+     "0.697 (0.065)",
+     "0.712 [0.671, 0.747]",
+     "0.409 (0.224)",
+     "0.563"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "5",
+     "0.563 (0.101)",
+     "0.572 [0.518, 0.625]",
+     "0.243 (0.183)",
+     "0.527"
+    ],
+    [
+     "FMD",
+     "FS2",
+     "11",
+     "0.603 (0.095)",
+     "0.612 [0.562, 0.662]",
+     "0.280 (0.183)",
+     "0.548"
+    ],
+    [
+     "FMD",
+     "FS3",
+     "15",
+     "0.638 (0.113)",
+     "0.651 [0.600, 0.704]",
+     "0.316 (0.183)",
+     "0.564"
+    ],
+    [
+     "FMD",
+     "FS4",
+     "33",
+     "0.646 (0.090)",
+     "0.657 [0.605, 0.708]",
+     "0.317 (0.183)",
+     "0.572"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "39",
+     "0.663 (0.084)",
+     "0.665 [0.615, 0.714]",
+     "0.329 (0.183)",
+     "0.586"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "5",
+     "0.577 (0.070)",
+     "0.572 [0.528, 0.607]",
+     "0.270 (0.224)",
+     "0.537"
+    ],
+    [
+     "LSD",
+     "FS2",
+     "11",
+     "0.589 (0.079)",
+     "0.582 [0.532, 0.623]",
+     "0.287 (0.224)",
+     "0.532"
+    ],
+    [
+     "LSD",
+     "FS3",
+     "15",
+     "0.600 (0.087)",
+     "0.597 [0.542, 0.640]",
+     "0.302 (0.224)",
+     "0.54"
+    ],
+    [
+     "LSD",
+     "FS4",
+     "33",
+     "0.600 (0.085)",
+     "0.590 [0.546, 0.630]",
+     "0.296 (0.224)",
+     "0.497"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "39",
+     "0.609 (0.090)",
+     "0.600 [0.554, 0.641]",
+     "0.302 (0.224)",
+     "0.488"
+    ]
+   ],
+   "widths": [
+    700,
+    900,
+    800,
+    1500,
+    1700,
+    1600,
+    1400
+   ],
+   "note": "Pooled ROC-AUC: out-of-fold predictions of each repeat pooled, averaged over repeats; 95% CI from 1,000 location-cluster bootstrap resamples. Within-year AUC follows Eq. (2) of the paper.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S16.** Feature ablation: change in ROC-AUC when each feature group is added (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Step",
+    "Added group",
+    "Disease",
+    "Fold mean [corrected-t 95% CI]",
+    "Folds > 0",
+    "p",
+    "Pooled [bootstrap 95% CI]",
+    "Within-year fold mean [corrected-t 95% CI]",
+    "Holm p (12 tests)"
+   ],
+   "rows": [
+    [
+     "FS2 - FS1",
+     "Climate indices (6)",
+     "CBPP",
+     "-0.007 [-0.036, +0.023]",
+     "6/15",
+     "0.631",
+     "-0.007 [-0.016, +0.002]",
+     "+0.003 [-0.024, +0.029]",
+     "1.0"
+    ],
+    [
+     "FS3 - FS2",
+     "Coordinates (4)",
+     "CBPP",
+     "+0.010 [-0.007, +0.026]",
+     "10/15",
+     "0.235",
+     "+0.010 [-0.005, +0.025]",
+     "-0.003 [-0.046, +0.040]",
+     "1.0"
+    ],
+    [
+     "FS4 - FS3",
+     "Neighbourhood and cross-disease rates (18)",
+     "CBPP",
+     "+0.003 [-0.031, +0.037]",
+     "8/15",
+     "0.858",
+     "+0.001 [-0.010, +0.012]",
+     "-0.009 [-0.050, +0.032]",
+     "1.0"
+    ],
+    [
+     "FS5 - FS4",
+     "Sampling density (6)",
+     "CBPP",
+     "-0.003 [-0.021, +0.016]",
+     "6/15",
+     "0.773",
+     "-0.004 [-0.010, +0.001]",
+     "-0.004 [-0.031, +0.023]",
+     "1.0"
+    ],
+    [
+     "FS2 - FS1",
+     "Climate indices (6)",
+     "FMD",
+     "+0.040 [-0.015, +0.095]",
+     "12/15",
+     "0.144",
+     "+0.040 [+0.019, +0.062]",
+     "+0.021 [-0.017, +0.059]",
+     "1.0"
+    ],
+    [
+     "FS3 - FS2",
+     "Coordinates (4)",
+     "FMD",
+     "+0.035 [-0.017, +0.087]",
+     "12/15",
+     "0.171",
+     "+0.039 [+0.017, +0.063]",
+     "+0.016 [-0.052, +0.085]",
+     "1.0"
+    ],
+    [
+     "FS4 - FS3",
+     "Neighbourhood and cross-disease rates (18)",
+     "FMD",
+     "+0.008 [-0.051, +0.067]",
+     "8/15",
+     "0.776",
+     "+0.006 [-0.009, +0.020]",
+     "+0.008 [-0.084, +0.100]",
+     "1.0"
+    ],
+    [
+     "FS5 - FS4",
+     "Sampling density (6)",
+     "FMD",
+     "+0.017 [-0.012, +0.045]",
+     "13/15",
+     "0.222",
+     "+0.008 [-0.000, +0.017]",
+     "+0.014 [-0.039, +0.068]",
+     "1.0"
+    ],
+    [
+     "FS2 - FS1",
+     "Climate indices (6)",
+     "LSD",
+     "+0.012 [-0.023, +0.047]",
+     "9/15",
+     "0.485",
+     "+0.011 [-0.012, +0.032]",
+     "-0.005 [-0.086, +0.075]",
+     "1.0"
+    ],
+    [
+     "FS3 - FS2",
+     "Coordinates (4)",
+     "LSD",
+     "+0.011 [-0.022, +0.044]",
+     "10/15",
+     "0.477",
+     "+0.015 [+0.001, +0.029]",
+     "+0.009 [-0.033, +0.050]",
+     "1.0"
+    ],
+    [
+     "FS4 - FS3",
+     "Neighbourhood and cross-disease rates (18)",
+     "LSD",
+     "+0.000 [-0.059, +0.060]",
+     "7/15",
+     "0.997",
+     "-0.007 [-0.035, +0.020]",
+     "-0.043 [-0.092, +0.007]",
+     "1.0"
+    ],
+    [
+     "FS5 - FS4",
+     "Sampling density (6)",
+     "LSD",
+     "+0.008 [-0.039, +0.056]",
+     "9/15",
+     "0.715",
+     "+0.010 [-0.004, +0.023]",
+     "-0.009 [-0.056, +0.038]",
+     "1.0"
+    ]
+   ],
+   "widths": [
+    800,
+    1700,
+    650,
+    1350,
+    650,
+    550,
+    1350,
+    1400,
+    750
+   ],
+   "note": "Fold mean: corrected resampled t 95% CI over the 15 folds. Pooled: location-cluster bootstrap. Holm correction across the 12 steps.",
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S17.** Feature-group importance of the FS5 ExtraTrees model: summed mean absolute SHAP value (development repeat 1) and grouped permutation importance (15 folds)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Feature group",
+    "Features",
+    "Summed mean |SHAP|",
+    "Permutation ROC-AUC drop"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "Environmental",
+     "5",
+     "0.0220",
+     "+0.0166"
+    ],
+    [
+     "CBPP",
+     "Climate indices",
+     "6",
+     "0.0218",
+     "+0.0071"
+    ],
+    [
+     "CBPP",
+     "Coordinates",
+     "4",
+     "0.0084",
+     "-0.0005"
+    ],
+    [
+     "CBPP",
+     "Own-disease rates",
+     "6",
+     "0.0587",
+     "+0.0354"
+    ],
+    [
+     "CBPP",
+     "Cross-disease rates",
+     "12",
+     "0.0209",
+     "+0.0008"
+    ],
+    [
+     "CBPP",
+     "Sampling density",
+     "6",
+     "0.0158",
+     "-0.0035"
+    ],
+    [
+     "FMD",
+     "Environmental",
+     "5",
+     "0.0063",
+     "-0.0045"
+    ],
+    [
+     "FMD",
+     "Climate indices",
+     "6",
+     "0.0093",
+     "+0.0000"
+    ],
+    [
+     "FMD",
+     "Coordinates",
+     "4",
+     "0.0206",
+     "+0.0173"
+    ],
+    [
+     "FMD",
+     "Own-disease rates",
+     "6",
+     "0.0262",
+     "+0.0305"
+    ],
+    [
+     "FMD",
+     "Cross-disease rates",
+     "12",
+     "0.0270",
+     "+0.0280"
+    ],
+    [
+     "FMD",
+     "Sampling density",
+     "6",
+     "0.0102",
+     "+0.0162"
+    ],
+    [
+     "LSD",
+     "Environmental",
+     "5",
+     "0.0146",
+     "+0.0276"
+    ],
+    [
+     "LSD",
+     "Climate indices",
+     "6",
+     "0.0139",
+     "+0.0266"
+    ],
+    [
+     "LSD",
+     "Coordinates",
+     "4",
+     "0.0135",
+     "+0.0164"
+    ],
+    [
+     "LSD",
+     "Own-disease rates",
+     "6",
+     "0.0287",
+     "+0.0260"
+    ],
+    [
+     "LSD",
+     "Cross-disease rates",
+     "12",
+     "0.0316",
+     "+0.0387"
+    ],
+    [
+     "LSD",
+     "Sampling density",
+     "6",
+     "0.0123",
+     "+0.0036"
+    ]
+   ],
+   "widths": [
+    900,
+    2400,
+    900,
+    1800,
+    2000
+   ],
+   "note": "SHAP values are on the probability scale. Spearman correlation between the two group rankings: CBPP 0.94, FMD 0.94, LSD 0.83 (six groups). The values for every feature are in the results folder (R2T3_shap_feature_importance_v1.csv).",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S18.** Area of applicability at surveyed test locations (ExtraTrees, development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Features",
+    "Disease",
+    "Test households inside AOA (%)",
+    "Locations ever outside AOA",
+    "Median DI",
+    "Median threshold",
+    "ROC-AUC inside AOA",
+    "ROC-AUC outside AOA",
+    "Households outside (positives)",
+    "Spearman DI vs |error|"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "CBPP",
+     "99.5",
+     "14",
+     "0.131",
+     "0.353",
+     "0.711",
+     "0.643",
+     "15 (3)",
+     "-0.063"
+    ],
+    [
+     "FS1",
+     "FMD",
+     "99.3",
+     "17",
+     "0.136",
+     "0.35",
+     "0.572",
+     "0.792",
+     "25 (6)",
+     "-0.076"
+    ],
+    [
+     "FS1",
+     "LSD",
+     "99.4",
+     "14",
+     "0.137",
+     "0.353",
+     "0.571",
+     "0.828",
+     "20 (7)",
+     "-0.007"
+    ],
+    [
+     "FS5",
+     "CBPP",
+     "99.4",
+     "10",
+     "0.295",
+     "0.586",
+     "0.711",
+     "0.885",
+     "19 (5)",
+     "0.165"
+    ],
+    [
+     "FS5",
+     "FMD",
+     "98.6",
+     "20",
+     "0.311",
+     "0.649",
+     "0.666",
+     "0.916",
+     "47 (3)",
+     "0.001"
+    ],
+    [
+     "FS5",
+     "LSD",
+     "98.8",
+     "13",
+     "0.317",
+     "0.663",
+     "0.605",
+     "0.167",
+     "39 (4)",
+     "0.094"
+    ]
+   ],
+   "widths": [
+    700,
+    700,
+    1000,
+    1000,
+    800,
+    900,
+    900,
+    900,
+    1100,
+    1000
+   ],
+   "note": "DI: dissimilarity index. ROC-AUC outside the AOA rests on 3-7 positive households and is not interpretable. Households outside: mean per repeat. Spearman correlation between DI and the absolute difference between the outcome and the model score (score expressed as a quantile of the training out-of-fold scores).",
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S19.** Probability and threshold metrics with 95% location-cluster bootstrap intervals (pooled development predictions)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "Prevalence",
+    "PR-AUC",
+    "Brier",
+    "Calibration intercept",
+    "Calibration slope",
+    "Sensitivity",
+    "Specificity",
+    "Balanced accuracy",
+    "F1",
+    "MCC"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "0.224",
+     "0.413 [0.358, 0.467]",
+     "0.157 [0.143, 0.174]",
+     "-0.026 [-0.182, 0.124]",
+     "1.029 [0.815, 1.240]",
+     "0.618 [0.551, 0.679]",
+     "0.703 [0.649, 0.748]",
+     "0.660 [0.626, 0.692]",
+     "0.467 [0.416, 0.510]",
+     "0.277 [0.218, 0.331]"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.224",
+     "0.422 [0.371, 0.470]",
+     "0.156 [0.140, 0.172]",
+     "0.016 [-0.124, 0.164]",
+     "0.966 [0.779, 1.156]",
+     "0.620 [0.553, 0.684]",
+     "0.720 [0.672, 0.764]",
+     "0.670 [0.637, 0.700]",
+     "0.480 [0.432, 0.525]",
+     "0.298 [0.241, 0.350]"
+    ],
+    [
+     "CBPP",
+     "(a) Rank average",
+     "0.224",
+     "0.432 [0.380, 0.484]",
+     "0.154 [0.139, 0.170]",
+     "0.001 [-0.147, 0.147]",
+     "0.958 [0.754, 1.176]",
+     "0.665 [0.603, 0.726]",
+     "0.689 [0.636, 0.734]",
+     "0.677 [0.646, 0.706]",
+     "0.485 [0.441, 0.527]",
+     "0.303 [0.248, 0.354]"
+    ],
+    [
+     "CBPP",
+     "(b) Inner-selected single",
+     "0.224",
+     "0.415 [0.365, 0.464]",
+     "0.157 [0.142, 0.174]",
+     "-0.054 [-0.203, 0.093]",
+     "0.829 [0.663, 0.998]",
+     "0.657 [0.588, 0.718]",
+     "0.665 [0.615, 0.715]",
+     "0.661 [0.629, 0.694]",
+     "0.467 [0.419, 0.512]",
+     "0.274 [0.218, 0.332]"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "0.183",
+     "0.244 [0.207, 0.289]",
+     "0.150 [0.131, 0.174]",
+     "0.012 [-0.200, 0.235]",
+     "-0.351 [-1.333, 0.772]",
+     "0.409 [0.356, 0.467]",
+     "0.600 [0.561, 0.634]",
+     "0.504 [0.478, 0.532]",
+     "0.253 [0.219, 0.285]",
+     "0.006 [-0.035, 0.050]"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "0.183",
+     "0.328 [0.282, 0.378]",
+     "0.142 [0.123, 0.164]",
+     "-0.010 [-0.202, 0.203]",
+     "0.969 [0.627, 1.313]",
+     "0.663 [0.581, 0.732]",
+     "0.576 [0.523, 0.622]",
+     "0.620 [0.583, 0.658]",
+     "0.373 [0.330, 0.411]",
+     "0.187 [0.132, 0.240]"
+    ],
+    [
+     "FMD",
+     "(a) Rank average",
+     "0.183",
+     "0.316 [0.271, 0.365]",
+     "0.146 [0.126, 0.170]",
+     "0.013 [-0.196, 0.228]",
+     "0.698 [0.172, 1.414]",
+     "0.574 [0.482, 0.660]",
+     "0.628 [0.585, 0.667]",
+     "0.601 [0.560, 0.643]",
+     "0.358 [0.312, 0.400]",
+     "0.163 [0.100, 0.225]"
+    ],
+    [
+     "FMD",
+     "(b) Inner-selected single",
+     "0.183",
+     "0.284 [0.244, 0.329]",
+     "0.147 [0.128, 0.171]",
+     "0.024 [-0.187, 0.242]",
+     "0.590 [0.120, 1.039]",
+     "0.567 [0.476, 0.653]",
+     "0.579 [0.535, 0.621]",
+     "0.573 [0.530, 0.613]",
+     "0.327 [0.285, 0.367]",
+     "0.113 [0.048, 0.173]"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "0.224",
+     "0.255 [0.215, 0.300]",
+     "0.175 [0.155, 0.196]",
+     "0.009 [-0.216, 0.210]",
+     "0.224 [-0.469, 0.883]",
+     "0.494 [0.426, 0.550]",
+     "0.567 [0.523, 0.611]",
+     "0.530 [0.499, 0.558]",
+     "0.325 [0.277, 0.367]",
+     "0.051 [-0.001, 0.098]"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "0.224",
+     "0.277 [0.234, 0.321]",
+     "0.176 [0.157, 0.198]",
+     "-0.000 [-0.218, 0.206]",
+     "0.112 [-0.338, 0.565]",
+     "0.523 [0.448, 0.596]",
+     "0.572 [0.530, 0.611]",
+     "0.548 [0.511, 0.582]",
+     "0.346 [0.295, 0.388]",
+     "0.080 [0.019, 0.136]"
+    ],
+    [
+     "LSD",
+     "(a) Rank average",
+     "0.224",
+     "0.281 [0.238, 0.325]",
+     "0.172 [0.153, 0.193]",
+     "-0.005 [-0.220, 0.194]",
+     "0.702 [0.132, 1.253]",
+     "0.626 [0.557, 0.691]",
+     "0.515 [0.469, 0.562]",
+     "0.570 [0.536, 0.600]",
+     "0.379 [0.328, 0.420]",
+     "0.118 [0.061, 0.166]"
+    ],
+    [
+     "LSD",
+     "(b) Inner-selected single",
+     "0.224",
+     "0.269 [0.226, 0.317]",
+     "0.178 [0.158, 0.198]",
+     "-0.028 [-0.260, 0.180]",
+     "0.240 [-0.049, 0.530]",
+     "0.556 [0.479, 0.630]",
+     "0.560 [0.521, 0.600]",
+     "0.558 [0.522, 0.590]",
+     "0.359 [0.310, 0.405]",
+     "0.097 [0.037, 0.148]"
+    ]
+   ],
+   "widths": [
+    600,
+    1200,
+    700,
+    1050,
+    1050,
+    1100,
+    1100,
+    1050,
+    1050,
+    1050,
+    1050,
+    1050
+   ],
+   "note": "Pooled out-of-fold predictions of each repeat; estimates averaged over the three repeats; 1,000 location-cluster bootstrap resamples. Fold-level medians are in Table S1 and in the calibration table of the paper.",
+   "size": 12
+  },
+  {
+   "type": "caption",
+   "text": "**Table S20.** Survey-year identification from the features (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Features",
+    "Macro ROC-AUC for survey year [corrected-t 95% CI]",
+    "Accuracy (5 classes)",
+    "AUC 2012",
+    "AUC 2014",
+    "AUC 2015",
+    "AUC 2018",
+    "AUC 2019"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "0.788 [0.694, 0.881]",
+     "0.58",
+     "0.826",
+     "0.779",
+     "0.797",
+     "0.855",
+     "0.649"
+    ],
+    [
+     "Neighbourhood rates only",
+     "0.825 [0.748, 0.903]",
+     "0.586",
+     "0.829",
+     "0.906",
+     "0.757",
+     "0.857",
+     "0.778"
+    ],
+    [
+     "FS5",
+     "0.868 [0.791, 0.946]",
+     "0.63",
+     "0.889",
+     "0.935",
+     "0.817",
+     "0.887",
+     "0.813"
+    ]
+   ],
+   "widths": [
+    2000,
+    2000,
+    1000,
+    800,
+    800,
+    800,
+    800,
+    800
+   ],
+   "note": "Difference in macro ROC-AUC, neighbourhood rates only minus FS1: +0.038 (corrected-t 95% CI -0.062 to +0.138; p = 0.43).",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S21.** Rank-average ensemble with and without the group-balanced CatBoost model (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Rank average, 23 models",
+    "Without group-balanced CatBoost (22)",
+    "Difference [corrected-t 95% CI]",
+    "Max fold |difference|",
+    "Within-year difference [corrected-t 95% CI]"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "0.703",
+     "0.704",
+     "+0.001 [-0.001, +0.002]",
+     "0.0043",
+     "+0.001 [-0.002, +0.004]"
+    ],
+    [
+     "FMD",
+     "0.648",
+     "0.646",
+     "-0.001 [-0.004, +0.001]",
+     "0.0058",
+     "-0.002 [-0.010, +0.007]"
+    ],
+    [
+     "LSD",
+     "0.602",
+     "0.604",
+     "+0.001 [-0.001, +0.003]",
+     "0.005",
+     "+0.001 [-0.005, +0.006]"
+    ]
+   ],
+   "widths": [
+    800,
+    1400,
+    1600,
+    1800,
+    1200,
+    2000
+   ],
+   "note": null,
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S22.** Distance from each test household to the nearest training location",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "scheme",
+    "Same location in training (%)",
+    "Median (km)",
+    "IQR (km)",
+    "95th percentile (km)",
+    "Test households (all folds)"
+   ],
+   "rows": [
+    [
+     "Random 5-fold CV",
+     "96.7",
+     "0.0",
+     "0.0-0.0",
+     "0.0",
+     "3340"
+    ],
+    [
+     "Spatial 81 km",
+     "0.0",
+     "35.1",
+     "22.2-55.6",
+     "92.9",
+     "10020"
+    ],
+    [
+     "Spatial 120 km",
+     "0.0",
+     "49.7",
+     "31.3-70.9",
+     "121.2",
+     "10020"
+    ],
+    [
+     "Spatial 160 km",
+     "0.0",
+     "56.7",
+     "34.8-86.0",
+     "130.7",
+     "10020"
+    ],
+    [
+     "Spatial 81 km + 50 km buffer",
+     "0.0",
+     "71.0",
+     "59.8-89.6",
+     "127.8",
+     "10020"
+    ],
+    [
+     "Spatial 81 km + 100 km buffer",
+     "0.0",
+     "125.4",
+     "111.2-148.3",
+     "190.3",
+     "10020"
+    ]
+   ],
+   "widths": [
+    2600,
+    1300,
+    1000,
+    1300,
+    1300,
+    1400
+   ],
+   "note": "Random CV: household-level 5-fold split; spatial: all 15 development splits (each household appears once per repeat). Buffers remove training locations within the given distance of any test location.",
+   "size": 14
+  },
+  {
+   "type": "caption",
+   "text": "**Table S23.** Ten features with the largest mean absolute SHAP value for the FS5 ExtraTrees model (development repeat 1)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Rank",
+    "Feature",
+    "Group",
+    "Mean |SHAP|",
+    "Impurity importance"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "1",
+     "CBPP rate, 5 nearest",
+     "Own-disease rates",
+     "0.0152",
+     "0.0647"
+    ],
+    [
+     "CBPP",
+     "2",
+     "CBPP rate, 15 nearest",
+     "Own-disease rates",
+     "0.0139",
+     "0.0642"
+    ],
+    [
+     "CBPP",
+     "3",
+     "CBPP rate, 40 nearest",
+     "Own-disease rates",
+     "0.0138",
+     "0.0635"
+    ],
+    [
+     "CBPP",
+     "4",
+     "CBPP kernel rate 50 km",
+     "Own-disease rates",
+     "0.0126",
+     "0.0550"
+    ],
+    [
+     "CBPP",
+     "5",
+     "Altitude",
+     "Environmental",
+     "0.0085",
+     "0.0325"
+    ],
+    [
+     "CBPP",
+     "6",
+     "Precipitation",
+     "Environmental",
+     "0.0080",
+     "0.0367"
+    ],
+    [
+     "CBPP",
+     "7",
+     "De Martonne index",
+     "Climate indices",
+     "0.0078",
+     "0.0345"
+    ],
+    [
+     "CBPP",
+     "8",
+     "distance to 5th nearest",
+     "Sampling density",
+     "0.0070",
+     "0.0248"
+    ],
+    [
+     "CBPP",
+     "9",
+     "log precipitation",
+     "Climate indices",
+     "0.0069",
+     "0.0337"
+    ],
+    [
+     "CBPP",
+     "10",
+     "CBPP kernel rate 150 km",
+     "Own-disease rates",
+     "0.0065",
+     "0.0330"
+    ],
+    [
+     "FMD",
+     "1",
+     "CBPP kernel rate 400 km",
+     "Cross-disease rates",
+     "0.0098",
+     "0.0396"
+    ],
+    [
+     "FMD",
+     "2",
+     "Lat",
+     "Coordinates",
+     "0.0090",
+     "0.0414"
+    ],
+    [
+     "FMD",
+     "3",
+     "Lat + Lon",
+     "Coordinates",
+     "0.0087",
+     "0.0359"
+    ],
+    [
+     "FMD",
+     "4",
+     "FMD rate, 5 nearest",
+     "Own-disease rates",
+     "0.0086",
+     "0.0396"
+    ],
+    [
+     "FMD",
+     "5",
+     "FMD kernel rate 50 km",
+     "Own-disease rates",
+     "0.0081",
+     "0.0412"
+    ],
+    [
+     "FMD",
+     "6",
+     "FMD kernel rate 150 km",
+     "Own-disease rates",
+     "0.0054",
+     "0.0393"
+    ],
+    [
+     "FMD",
+     "7",
+     "FMD rate, 15 nearest",
+     "Own-disease rates",
+     "0.0047",
+     "0.0323"
+    ],
+    [
+     "FMD",
+     "8",
+     "LSD rate, 40 nearest",
+     "Cross-disease rates",
+     "0.0046",
+     "0.0248"
+    ],
+    [
+     "FMD",
+     "9",
+     "FMD rate, 40 nearest",
+     "Own-disease rates",
+     "0.0042",
+     "0.0309"
+    ],
+    [
+     "FMD",
+     "10",
+     "Sea-level temperature",
+     "Climate indices",
+     "0.0039",
+     "0.0298"
+    ],
+    [
+     "LSD",
+     "1",
+     "LSD kernel rate 400 km",
+     "Own-disease rates",
+     "0.0096",
+     "0.0498"
+    ],
+    [
+     "LSD",
+     "2",
+     "FMD rate, 5 nearest",
+     "Cross-disease rates",
+     "0.0095",
+     "0.0344"
+    ],
+    [
+     "LSD",
+     "3",
+     "LSD kernel rate 150 km",
+     "Own-disease rates",
+     "0.0085",
+     "0.0436"
+    ],
+    [
+     "LSD",
+     "4",
+     "FMD kernel rate 50 km",
+     "Cross-disease rates",
+     "0.0080",
+     "0.0379"
+    ],
+    [
+     "LSD",
+     "5",
+     "LSD rate, 40 nearest",
+     "Own-disease rates",
+     "0.0079",
+     "0.0394"
+    ],
+    [
+     "LSD",
+     "6",
+     "Altitude",
+     "Environmental",
+     "0.0070",
+     "0.0271"
+    ],
+    [
+     "LSD",
+     "7",
+     "Lat + Lon",
+     "Coordinates",
+     "0.0062",
+     "0.0290"
+    ],
+    [
+     "LSD",
+     "8",
+     "LSD rate, 15 nearest",
+     "Own-disease rates",
+     "0.0060",
+     "0.0282"
+    ],
+    [
+     "LSD",
+     "9",
+     "LSD kernel rate 50 km",
+     "Own-disease rates",
+     "0.0059",
+     "0.0379"
+    ],
+    [
+     "LSD",
+     "10",
+     "Sea-level temperature",
+     "Climate indices",
+     "0.0057",
+     "0.0285"
+    ]
+   ],
+   "widths": [
+    900,
+    600,
+    2800,
+    2200,
+    1400,
+    1600
+   ],
+   "note": null,
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S24.** Nested feature sets used in the ablation",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Feature set",
+    "Added group",
+    "Variables",
+    "Added",
+    "Total",
+    "Uses outcome labels?"
+   ],
+   "rows": [
+    [
+     "FS1",
+     "Environmental",
+     "Altitude, temperature, precipitation, relative humidity, wind speed",
+     "5",
+     "5",
+     "No"
+    ],
+    [
+     "FS2",
+     "+ Climate indices",
+     "Sea-level temperature, De Martonne index, temperature x RH, log precipitation x RH, log precipitation, wind x RH",
+     "6",
+     "11",
+     "No"
+    ],
+    [
+     "FS3",
+     "+ Coordinates",
+     "Latitude, longitude, latitude + longitude, latitude - longitude",
+     "4",
+     "15",
+     "No"
+    ],
+    [
+     "FS4",
+     "+ Neighbourhood and cross-disease rates",
+     "Gaussian-kernel rates at 50, 150 and 400 km (9) and rates over the 5, 15 and 40 nearest training locations (9), for CBPP, FMD and LSD",
+     "18",
+     "33",
+     "Yes (training rows only; own 81 km block excluded)"
+    ],
+    [
+     "FS5",
+     "+ Sampling density",
+     "Log kernel density of training households at 50, 150 and 400 km (3); log distance to the 5th, 15th and 40th nearest training location (3)",
+     "6",
+     "39",
+     "No (household counts and distances only)"
+    ]
+   ],
+   "widths": [
+    700,
+    1900,
+    4300,
+    650,
+    650,
+    2200
+   ],
+   "note": null,
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S25.** Models and fixed hyperparameters (read from the model objects)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Model (library feature sets)",
+    "Role (number of library members)",
+    "Fixed hyperparameters"
+   ],
+   "rows": [
+    [
+     "ExtraTrees (FS1-FS5)",
+     "Feature-set comparison and ablation",
+     "300 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "GAM (B, E, EL)",
+     "Library (3)",
+     "Cubic splines (5 knots) + L2 logistic regression, C = 0.5; standardised inputs"
+    ],
+    [
+     "Random forest (B, EL)",
+     "Library (2)",
+     "200 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "XGBoost (B, EL)",
+     "Library (2)",
+     "300 trees, depth 4, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_weight 5"
+    ],
+    [
+     "CatBoost (B, E, EL)",
+     "Library (3)",
+     "300 iterations, depth 5, learning rate 0.05"
+    ],
+    [
+     "CatBoost, group-balanced (EL)",
+     "Library (1)",
+     "As CatBoost; training rows weighted by 1 / size of the household's survey year-region group (a weight, not a predictor)"
+    ],
+    [
+     "CatBoost, village-level (EL, ELK)",
+     "Library (2)",
+     "Location-level regressor of the mean outcome, weighted by households; 300 iterations, depth 4, learning rate 0.05"
+    ],
+    [
+     "CatBoost, multi-task (EL)",
+     "Library (1)",
+     "Joint model of the three diseases (MultiLogloss); 300 iterations, depth 5, learning rate 0.05"
+    ],
+    [
+     "k-nearest neighbours (E)",
+     "Library (1)",
+     "k = 50; standardised inputs"
+    ],
+    [
+     "Logistic regression (EL, ELK)",
+     "Library (2)",
+     "L2, C = 0.5; standardised inputs"
+    ],
+    [
+     "ExtraTrees (EL, ELK)",
+     "Library (2)",
+     "200 trees, min_samples_leaf 10, max_features sqrt"
+    ],
+    [
+     "MLP (EL)",
+     "Library (1)",
+     "Hidden layers (32, 16), alpha 0.01, 400 iterations; standardised inputs"
+    ],
+    [
+     "GP kriging (G)",
+     "Library (1)",
+     "Location-level Gaussian process on empirical logits; Matern-3/2 kernel with automatic relevance determination + white noise"
+    ],
+    [
+     "LightGBM (ELK)",
+     "Library (1)",
+     "300 trees, 15 leaves, learning rate 0.05, subsample 0.8, colsample 0.8, min_child_samples 20, lambda 1"
+    ],
+    [
+     "SVM-RBF (ELK)",
+     "Library (1)",
+     "C = 1, gamma = scale; standardised inputs; decision-function scores, ranked like all library outputs"
+    ],
+    [
+     "(a) Rank average",
+     "Ensemble",
+     "Equal-weight mean of the 23 ECDF ranks; Platt calibration and Youden threshold on inner out-of-fold scores"
+    ],
+    [
+     "(b) Inner-selected single",
+     "Comparator",
+     "Library model with the best mean inner-fold ROC-AUC in each outer split; Platt calibration and Youden threshold as for (a)"
+    ]
+   ],
+   "widths": [
+    3000,
+    2000,
+    4700
+   ],
+   "note": "Library feature sets: B = 5 environmental variables; E = environmental, climate and coordinate terms (14); EL = E plus kernel rates and densities (26); ELK = EL plus k-nearest rates and distance (36); G = location-level inputs for kriging. The number of library members is given in brackets (23 in total).",
+   "size": 13
+  },
+  {
+   "type": "caption",
+   "text": "**Table S26.** Calibration within folds and on pooled predictions (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Model",
+    "Slope: fold median (IQR)",
+    "Slope: pooled [95% CI]",
+    "Intercept: pooled [95% CI]",
+    "Brier: pooled [95% CI]",
+    "Reference Brier p(1 - p)",
+    "Brier skill score [95% CI]"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "1.12 (0.95 to 1.26)",
+     "1.03 [0.81, 1.24]",
+     "-0.03 [-0.18, +0.12]",
+     "0.157 [0.143, 0.174]",
+     "0.174",
+     "+0.097 [-0.001, +0.177]"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "0.98 (0.89 to 1.29)",
+     "0.97 [0.78, 1.16]",
+     "+0.02 [-0.12, +0.16]",
+     "0.156 [0.140, 0.172]",
+     "0.174",
+     "+0.103 [+0.010, +0.195]"
+    ],
+    [
+     "CBPP",
+     "(a)",
+     "0.94 (0.87 to 1.14)",
+     "0.96 [0.75, 1.18]",
+     "+0.00 [-0.15, +0.15]",
+     "0.154 [0.139, 0.170]",
+     "0.174",
+     "+0.114 [+0.022, +0.200]"
+    ],
+    [
+     "CBPP",
+     "(b)",
+     "0.79 (0.75 to 0.93)",
+     "0.83 [0.66, 1.00]",
+     "-0.05 [-0.20, +0.09]",
+     "0.157 [0.142, 0.174]",
+     "0.174",
+     "+0.097 [-0.001, +0.183]"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "1.70 (0.31 to 2.84)",
+     "-0.35 [-1.33, 0.77]",
+     "+0.01 [-0.20, +0.23]",
+     "0.150 [0.131, 0.174]",
+     "0.15",
+     "-0.003 [-0.164, +0.124]"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "1.17 (1.05 to 1.67)",
+     "0.97 [0.63, 1.31]",
+     "-0.01 [-0.20, +0.20]",
+     "0.142 [0.123, 0.164]",
+     "0.15",
+     "+0.050 [-0.097, +0.177]"
+    ],
+    [
+     "FMD",
+     "(a)",
+     "1.84 (1.16 to 2.43)",
+     "0.70 [0.17, 1.41]",
+     "+0.01 [-0.20, +0.23]",
+     "0.146 [0.126, 0.170]",
+     "0.15",
+     "+0.023 [-0.137, +0.157]"
+    ],
+    [
+     "FMD",
+     "(b)",
+     "1.54 (0.26 to 1.74)",
+     "0.59 [0.12, 1.04]",
+     "+0.02 [-0.19, +0.24]",
+     "0.147 [0.128, 0.171]",
+     "0.15",
+     "+0.017 [-0.144, +0.144]"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "1.31 (0.16 to 1.90)",
+     "0.22 [-0.47, 0.88]",
+     "+0.01 [-0.22, +0.21]",
+     "0.175 [0.155, 0.196]",
+     "0.174",
+     "-0.007 [-0.128, +0.108]"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "1.24 (0.29 to 4.35)",
+     "0.11 [-0.34, 0.56]",
+     "-0.00 [-0.22, +0.21]",
+     "0.176 [0.157, 0.198]",
+     "0.174",
+     "-0.013 [-0.139, +0.097]"
+    ],
+    [
+     "LSD",
+     "(a)",
+     "1.76 (0.70 to 2.49)",
+     "0.70 [0.13, 1.25]",
+     "-0.01 [-0.22, +0.19]",
+     "0.172 [0.153, 0.193]",
+     "0.174",
+     "+0.010 [-0.110, +0.120]"
+    ],
+    [
+     "LSD",
+     "(b)",
+     "1.01 (0.42 to 1.40)",
+     "0.24 [-0.05, 0.53]",
+     "-0.03 [-0.26, +0.18]",
+     "0.178 [0.158, 0.198]",
+     "0.174",
+     "-0.024 [-0.139, +0.091]"
+    ]
+   ],
+   "widths": [
+    750,
+    650,
+    1550,
+    1450,
+    1500,
+    1450,
+    1000,
+    1550
+   ],
+   "note": "Fold median: median over the 15 test folds. Pooled: out-of-fold probabilities of each repeat pooled; 95% CI from 1,000 location-cluster bootstrap resamples. Slopes above 1 mean the probabilities are too close to the average risk. Brier skill score = 1 - Brier / p(1 - p); its interval is derived from the Brier interval with the reference held fixed.",
+   "size": 12
+  },
+  {
+   "type": "caption",
+   "text": "**Table S27.** Paired ROC-AUC differences between models (development, 15 splits)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Comparison",
+    "Disease",
+    "Overall: fold mean [corrected-t 95% CI]",
+    "Folds > 0",
+    "Holm p",
+    "Overall: pooled [bootstrap 95% CI]",
+    "Within-year: fold mean [corrected-t 95% CI]",
+    "Within-year: pooled [bootstrap 95% CI]"
+   ],
+   "rows": [
+    [
+     "FS5 minus FS1",
+     "CBPP",
+     "+0.003 [-0.034, +0.041]",
+     "8/15",
+     "0.858",
+     "+0.001 [-0.022, +0.022]",
+     "-0.013 [-0.074, +0.047]",
+     "-0.004 [-0.028, +0.021]"
+    ],
+    [
+     "FS5 minus FS1",
+     "FMD",
+     "+0.100 [+0.025, +0.175]",
+     "14/15",
+     "0.039",
+     "+0.093 [+0.057, +0.126]",
+     "+0.060 [-0.046, +0.165]",
+     "+0.066 [+0.011, +0.117]"
+    ],
+    [
+     "FS5 minus FS1",
+     "LSD",
+     "+0.031 [-0.039, +0.102]",
+     "9/15",
+     "0.711",
+     "+0.028 [-0.007, +0.066]",
+     "-0.049 [-0.161, +0.063]",
+     "-0.049 [-0.115, +0.007]"
+    ],
+    [
+     "(a) minus FS5",
+     "CBPP",
+     "+0.005 [-0.023, +0.033]",
+     "8/15",
+     "1.000",
+     "+0.013 [+0.003, +0.024]",
+     "+0.011 [-0.025, +0.047]",
+     "+0.012 [-0.001, +0.026]"
+    ],
+    [
+     "(a) minus FS5",
+     "FMD",
+     "-0.015 [-0.061, +0.031]",
+     "4/15",
+     "1.000",
+     "-0.019 [-0.037, -0.002]",
+     "-0.004 [-0.057, +0.049]",
+     "-0.004 [-0.025, +0.015]"
+    ],
+    [
+     "(a) minus FS5",
+     "LSD",
+     "-0.006 [-0.058, +0.046]",
+     "7/15",
+     "1.000",
+     "+0.000 [-0.023, +0.023]",
+     "+0.023 [-0.033, +0.080]",
+     "+0.026 [+0.007, +0.046]"
+    ]
+   ],
+   "widths": [
+    1400,
+    700,
+    1700,
+    750,
+    700,
+    1650,
+    1700,
+    1650
+   ],
+   "note": "Holm correction across the three diseases within each comparison. Within-year differences use Eq. (2) of the paper. Fold-by-fold values: Figure S5.",
+   "size": 12
+  },
+  {
+   "type": "caption",
+   "text": "**Table S28.** Within-campaign ROC-AUC of models trained on all campaigns (pooled) and on one campaign at a time (development, 15 splits, ExtraTrees)",
+   "keepNext": true
+  },
+  {
+   "type": "table",
+   "header": [
+    "Disease",
+    "Features",
+    "Fold x year units",
+    "Pooled-campaign model, within-campaign AUC",
+    "Campaign-specific model, within-campaign AUC",
+    "Campaign-specific minus pooled [corrected-t 95% CI]",
+    "Folds favouring campaign-specific"
+   ],
+   "rows": [
+    [
+     "CBPP",
+     "FS1",
+     "58",
+     "0.576",
+     "0.570",
+     "-0.006 [-0.059, +0.047]",
+     "8/15"
+    ],
+    [
+     "CBPP",
+     "FS5",
+     "58",
+     "0.563",
+     "0.608",
+     "+0.045 [-0.004, +0.094]",
+     "13/15"
+    ],
+    [
+     "FMD",
+     "FS1",
+     "62",
+     "0.526",
+     "0.554",
+     "+0.028 [-0.100, +0.157]",
+     "10/15"
+    ],
+    [
+     "FMD",
+     "FS5",
+     "62",
+     "0.587",
+     "0.586",
+     "-0.001 [-0.084, +0.083]",
+     "8/15"
+    ],
+    [
+     "LSD",
+     "FS1",
+     "68",
+     "0.537",
+     "0.581",
+     "+0.044 [-0.099, +0.188]",
+     "13/15"
+    ],
+    [
+     "LSD",
+     "FS5",
+     "68",
+     "0.488",
+     "0.566",
+     "+0.078 [-0.013, +0.169]",
+     "12/15"
+    ]
+   ],
+   "widths": [
+    800,
+    800,
+    1000,
+    1500,
+    1600,
+    2300,
+    1300
+   ],
+   "note": "Fold-level ROC-AUC within each survey year, weighted by positive × negative pairs and averaged over the 15 folds; only year-fold test sets with at least five positive and five negative households. 95% CI: corrected resampled t.",
+   "size": 12
+  },
+  {
+   "type": "h1",
+   "text": "S4. Supplementary figures"
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/FigS1_ROC_PR_curves_v1.png",
+   "aspect": 0.6025011165698972,
+   "alt": " ROC and precision-recall curves for pooled out-of-fold predictions (development",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S1.** ROC and precision-recall curves for pooled out-of-fold predictions (development repeat 1)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/FigS2_calibration_v2.png",
+   "aspect": 0.38698010849909587,
+   "alt": " Calibration plots of the Platt-calibrated probabilities by deciles of predicted",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S2.** Calibration plots of the Platt-calibrated probabilities by deciles of predicted probability (pooled development predictions, repeat 1)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/FigS3_confusion_matrices_v1.png",
+   "aspect": 0.3203381869422264,
+   "alt": " Confusion matrices at the Youden threshold chosen on inner out-of-fold data (po",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S3.** Confusion matrices at the Youden threshold chosen on inner out-of-fold data (pooled development predictions)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/FigS4_grouped_importance_v2.png",
+   "aspect": 0.40193067134708205,
+   "alt": " Grouped permutation importance for the FS5 ExtraTrees model (mean drop in ROC-A",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S4.** Grouped permutation importance for the FS5 ExtraTrees model (mean drop in ROC-AUC over 15 development folds)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig4_FS1_vs_FS5_paired_folds_v2.png",
+   "aspect": 0.40855323020928114,
+   "alt": " FS1 against FS5 ROC-AUC in each of the 15 development folds. Points above the d",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S5.** FS1 against FS5 ROC-AUC in each of the 15 development folds. Points above the dashed line favour FS5; intervals are corrected resampled t 95% CIs."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev5_v1/figures/Fig5_permutation_null_1000_v2.png",
+   "aspect": 0.5642305946436678,
+   "alt": " Null distributions of the FS5 minus FS1 ROC-AUC under household-level and villa",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S6.** Null distributions of the FS5 minus FS1 ROC-AUC under household-level and village-level label permutation (1,000 permutations per scheme); the orange line and the text in each panel give the observed value and its permutation p-value (development repeat 1)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig5_calibration_with_bands_v1.png",
+   "aspect": 0.3914762741652021,
+   "alt": " Calibration of the FS5 and rank-average probabilities by deciles of predicted p",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S7.** Calibration of the FS5 and rank-average probabilities by deciles of predicted probability (development repeat 1), with 95% location-cluster bootstrap bands."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig3_partial_dependence_v1.png",
+   "aspect": 0.8678815489749431,
+   "alt": " Partial dependence of the FS5 ExtraTrees model on the three features with the l",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S8.** Partial dependence of the FS5 ExtraTrees model on the three features with the largest mean absolute SHAP value for each disease, computed on the training data of each fold of development repeat 1 (one line per fold)."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig6_train_test_distances_v2.png",
+   "aspect": 0.497447532614861,
+   "alt": " Cumulative distribution of the distance from each test household to the nearest",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S9.** Cumulative distribution of the distance from each test household to the nearest training location under random cross-validation, spatial blocks of 81, 120 and 160 km, and 81 km blocks with 50 km and 100 km buffers."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig3_random_vs_spatial_cv_v1.png",
+   "aspect": 0.42771639042357273,
+   "alt": " Mean ROC-AUC under random 5-fold cross-validation and spatial block cross-valid",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S10.** Mean ROC-AUC under random 5-fold cross-validation and spatial block cross-validation (81 km blocks), with the same corrected code. The dotted line marks chance level."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev2_v1/figures/R2Fig4_area_of_applicability_FS5_v1.png",
+   "aspect": 0.40924912978617606,
+   "alt": " Dissimilarity index of the FS5 ExtraTrees model divided by the area-of-applicab",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S11.** Dissimilarity index of the FS5 ExtraTrees model divided by the area-of-applicability threshold, at surveyed locations (mean over development repeats). Orange rings: locations outside the area of applicability in at least one repeat. Values describe how unusual the predictors are, not disease risk."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/Fig4_spatial_sensitivity_v2.png",
+   "aspect": 0.42591732466326054,
+   "alt": " FS5 minus FS1 ROC-AUC under proximity removal (blue), size-matched random remov",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S12.** FS5 minus FS1 ROC-AUC under proximity removal (blue), size-matched random removal (grey) and larger blocks (green). Bars: mean of 15 development folds; whiskers: corrected resampled t 95% intervals."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_v1/figures/Fig3_overall_vs_within_year_AUC_v1.png",
+   "aspect": 0.45305164319248825,
+   "alt": " Overall (filled) and within-survey-year (open) pooled ROC-AUC with 95% location",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S13.** Overall (filled) and within-survey-year (open) pooled ROC-AUC with 95% location-cluster bootstrap intervals. (a) rank average; (b) inner-selected single model. The dotted line marks chance level."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v3.png",
+   "aspect": 0.4952859836580767,
+   "alt": " Difference in within-campaign ROC-AUC between campaign-specific and pooled mode",
+   "width_px": 520
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S14.** Difference in within-campaign ROC-AUC between campaign-specific and pooled models, with corrected resampled t 95% intervals; numbers on the right give the pooled and campaign-specific values."
+  },
+  {
+   "type": "figure",
+   "path": "/home/claude/cattle_sgo_research/results/paper1_rev_v1/figures/Fig8_forward_temporal_v1.png",
+   "aspect": 0.35850773430391264,
+   "alt": " (a) Prevalence in the 2012-2015 training campaigns and the 2018-2019 test campa",
+   "width_px": 620
+  },
+  {
+   "type": "caption",
+   "text": "**Figure S15.** (a) Prevalence in the 2012-2015 training campaigns and the 2018-2019 test campaigns. (b) Forward temporal ROC-AUC with 95% location-cluster bootstrap intervals; the dotted line marks chance level."
+  },
+  {
+   "type": "h1",
+   "text": "Supplementary references"
+  },
+  {
+   "type": "reference",
+   "text": "[S1] C. Nadeau and Y. Bengio, \"Inference for the generalization error\", Machine Learning, Vol. 52, No. 3, pp. 239-281, 2003."
+  },
+  {
+   "type": "reference",
+   "text": "[S2] S. M. Lundberg, G. Erion, H. Chen, A. DeGrave, J. M. Prutkin, B. Nair, R. Katz, J. Himmelfarb, N. Bansal, and S.-I. Lee, \"From local explanations to global understanding with explainable AI for trees\", Nature Machine Intelligence, Vol. 2, No. 1, pp. 56-67, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[S3] S. M. Lundberg and S.-I. Lee, \"A unified approach to interpreting model predictions\", In: Advances in Neural Information Processing Systems 30 (NIPS 2017), Long Beach, CA, USA, pp. 4765-4774, 2017."
+  },
+  {
+   "type": "reference",
+   "text": "[S4] J. H. Friedman, \"Greedy function approximation: A gradient boosting machine\", The Annals of Statistics, Vol. 29, No. 5, pp. 1189-1232, 2001."
+  },
+  {
+   "type": "reference",
+   "text": "[S5] H. Meyer and E. Pebesma, \"Predicting into unknown space? Estimating the area of applicability of spatial prediction models\", Methods in Ecology and Evolution, Vol. 12, No. 9, pp. 1620-1633, 2021."
+  },
+  {
+   "type": "reference",
+   "text": "[S6] S. Satapathy and A. Naik, \"Social group optimization (SGO): a new population evolutionary optimization technique\", Complex & Intelligent Systems, Vol. 2, No. 3, pp. 173-203, 2016."
+  },
+  {
+   "type": "reference",
+   "text": "[S7] A. Naik, S. C. Satapathy, and A. Abraham, \"Modified Social Group Optimization - a meta-heuristic algorithm to solve short-term hydrothermal scheduling\", Applied Soft Computing, Vol. 95, Art. 106524, 2020."
+  },
+  {
+   "type": "reference",
+   "text": "[S8] J. Kennedy and R. Eberhart, \"Particle swarm optimization\", In: Proc. of ICNN'95 - International Conference on Neural Networks, Vol. 4, pp. 1942-1948, 1995."
+  },
+  {
+   "type": "reference",
+   "text": "[S9] S. Katoch, S. S. Chauhan, and V. Kumar, \"A review on genetic algorithm: past, present, and future\", Multimedia Tools and Applications, Vol. 80, No. 5, pp. 8091-8126, 2021."
+  },
+  {
+   "type": "reference",
+   "text": "[S10] R. Storn and K. Price, \"Differential evolution - a simple and efficient heuristic for global optimization over continuous spaces\", Journal of Global Optimization, Vol. 11, No. 4, pp. 341-359, 1997."
+  },
+  {
+   "type": "reference",
+   "text": "[S11] S. Mirjalili, S. M. Mirjalili, and A. Lewis, \"Grey wolf optimizer\", Advances in Engineering Software, Vol. 69, pp. 46-61, 2014."
+  }
+ ]
+}

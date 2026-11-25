@@ -1,0 +1,6 @@
+Survey year,Households,Locations,Regions,Latitude range,Longitude range,Locations with another campaign within 81 km (%),Median distance to nearest other-campaign location (km),CBPP prevalence (%),CBPP location prevalence IQR (locations with >= 5 households),FMD prevalence (%),FMD location prevalence IQR (locations with >= 5 households),LSD prevalence (%),LSD location prevalence IQR (locations with >= 5 households)
+2012,224,73,Afar,4.0 to 13.3,36.9 to 43.4,83.6,31.3,38.4,0.26 to 0.51,9.8,0.00 to 0.14,20.1,0.04 to 0.27
+2014,684,112,"Oromia, SNNP",4.1 to 7.0,35.0 to 40.0,74.1,44.4,43.4,0.20 to 0.60,19.3,0.00 to 0.30,15.8,0.00 to 0.25
+2015,656,106,"Afar, Oromia, SNNP, Somali",3.5 to 13.3,35.1 to 46.4,74.5,34.0,34.3,0.16 to 0.56,34.0,0.05 to 0.57,34.8,0.20 to 0.50
+2018,1341,161,"Amhara, Benshangul, Gambela, Oromia, SNNP, Tigray",5.9 to 14.2,33.9 to 42.0,65.2,65.9,10.3,0.00 to 0.20,4.6,0.00 to 0.00,7.5,0.00 to 0.10
+2019,435,24,"Amhara, Oromia",7.3 to 12.7,36.4 to 40.0,100.0,32.3,0.5,0.00 to 0.00,39.5,0.16 to 0.67,61.1,0.33 to 0.85

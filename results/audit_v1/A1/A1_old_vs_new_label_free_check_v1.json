@@ -1,0 +1,5 @@
+{
+ "check": "old-pipeline (run-3) label-free features X_E vs new climate_coords, all 3,340 rows",
+ "result": "identical (max abs difference 0.0 for all 14 shared columns)",
+ "implication": "the executed label-permutation pass for the new label-free features applies equally to the old pipeline (same values)"
+}

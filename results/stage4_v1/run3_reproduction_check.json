@@ -1,0 +1,13 @@
+{
+ "cache_check": {
+  "fold_scores_compared": 1617,
+  "max_abs_difference": 1.391982182630258e-05,
+  "within_1e-4": 1617
+ },
+ "exact_refit_spot_check": {
+  "split": "spatial r1 fold 0 (index 5)",
+  "models_refit": 21,
+  "max_abs_prediction_difference_vs_cache": 2.979030355731993e-08,
+  "seconds": 27.3
+ }
+}

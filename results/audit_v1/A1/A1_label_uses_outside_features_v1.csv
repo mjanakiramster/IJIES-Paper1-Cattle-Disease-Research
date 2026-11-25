@@ -1,0 +1,6 @@
+Item,Uses labels,Note
+GP-kriging [E] (old library model),Yes: empirical logit of fit locations (training only),"Model, not a feature; scaler fitted on fit locations (run3 L243-L259). Checked in A10."
+CatBoost-groupbalanced [EL],Training labels,"Year_region used ONLY as training sample weights (run3 L261, L274), never as a feature. Checked in A10."
+CatBoost-village [EL]/[ELK],Training village rates,Trained on fit-location means; predicts household rows. Checked in A10.
+ECDF rank scaling of the 23 models,No (training OOF scores only),run3 L407-L412; Stage 9 ecdf_rank_average. Checked in A10.
+Threshold rule,Training labels,Youden index on inner out-of-fold predictions (experiment_config.yaml L57). Checked in A10.

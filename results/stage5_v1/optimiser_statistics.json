@@ -1,0 +1,34 @@
+{
+ "friedman": {
+  "best_inner_fitness": {
+   "friedman_p": 8.791517985122386e-12,
+   "nemenyi_cd": 1.3427240027519873,
+   "mean_ranks": {
+    "SGO": 3.567,
+    "MSGO": 3.722,
+    "PSO": 3.111,
+    "GA": 5.756,
+    "DE": 3.289,
+    "GWO": 3.333,
+    "RANDOM": 5.222
+   },
+   "blocks": 45
+  },
+  "outer_ROC_AUC": {
+   "friedman_p": 0.7339354918331151,
+   "nemenyi_cd": 1.3427240027519873,
+   "mean_ranks": {
+    "SGO": 3.722,
+    "MSGO": 3.656,
+    "PSO": 4.289,
+    "GA": 4.089,
+    "DE": 4.067,
+    "GWO": 4.267,
+    "RANDOM": 3.911
+   },
+   "blocks": 45
+  }
+ },
+ "n_runs": 315,
+ "design": "development repeat 1, 5 outer folds x 3 diseases x 3 seeds; 10 agents, 150 evaluations; 1 x 5 inner spatial CV; row-level ExtraTrees-100 surrogate; same initial population for all optimisers"
+}

@@ -1,0 +1,17 @@
+{
+  "written_at": "2026-11-21, before Stage 5d was run",
+  "status": "EXPLORATORY. Added after the confirmatory partition was opened (2026-11-20T14:19:31Z). Uses development repeat 1-3 folds only; the confirmatory partition is not used.",
+  "motivation": "User asked to remove the noise before trying pairwise hybrid swarm optimisers. Stage 5 showed inner fitness does not predict outer ROC-AUC (mean within-fold Spearman -0.03).",
+  "data_noise_audit": {
+    "duplicates_predictors_plus_outcomes": 0,
+    "missing_cells": 0,
+    "implausible_values": "none (altitude minimum -76 m is plausible for the Afar depression)",
+    "environmental_values_vary_within_location": "in 380 of 462 locations, but < 1% of each variable's variance, and the within-location deviation carries no outcome information (ROC-AUC 0.48-0.53)",
+    "households_in_mixed_outcome_locations": {"CBPP": 0.594, "FMD": 0.539, "LSD": 0.623},
+    "ceiling_auc_leave_self_out_own_location_prevalence": {"CBPP": 0.788, "FMD": 0.825, "LSD": 0.802},
+    "decision": "No rows are removed. Instance-removal noise filters (ENN, Tomek links, confident learning) are not used: with location-level predictors they would delete minority households in mixed villages, distorting prevalence, and any filtering touching test rows would inflate AUC."
+  },
+  "question": "Which fitness definition (V0-V4) ranks candidate configurations in the same order as their outer test ROC-AUC?",
+  "decision_rule_for_next_step": "A variant is considered usable for the hybrid-optimiser study only if its mean within-fold Spearman (all 40 candidates) is > 0.30 AND > 0 in at least 11 of 15 disease x fold cells AND its top-5 selection does not lose to FS5 on mean outer AUC. If no variant passes, report that the fitness noise cannot be reduced enough for search to help, and do not run the 15 hybrids on the real problem.",
+  "also_tested": "Final-model label smoothing: FS5 features trained on village infection rate (ExtraTrees-300 regressor) vs household labels (ExtraTrees-300 classifier), development 3 x 5 folds."
+}

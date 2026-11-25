@@ -1,0 +1,109 @@
+{
+ "rows": 3340,
+ "unique_ids": 3340,
+ "locations": 462,
+ "missing_cells": 0,
+ "covariates_identical_across_files": true,
+ "prevalence": {
+  "CBPP": 0.224,
+  "FMD": 0.1829,
+  "LSD": 0.2237
+ },
+ "positives": {
+  "CBPP": 748,
+  "FMD": 611,
+  "LSD": 747
+ },
+ "locations_surveyed_in_one_year": 449,
+ "households_per_location": {
+  "count": 462.0,
+  "mean": 7.23,
+  "std": 6.73,
+  "min": 1.0,
+  "25%": 2.0,
+  "50%": 5.0,
+  "75%": 10.0,
+  "max": 61.0
+ },
+ "years": {
+  "2012": 224,
+  "2014": 684,
+  "2015": 656,
+  "2018": 1341,
+  "2019": 435
+ },
+ "regions": {
+  "Oromia": 1444,
+  "SNNP": 649,
+  "Amhara": 529,
+  "Afar": 379,
+  "Tigray": 120,
+  "Benshangul": 90,
+  "Somali": 69,
+  "Gambela": 60
+ },
+ "checks_against_stage1_v1": {
+  "rows": true,
+  "unique_ids": true,
+  "locations": true,
+  "missing_cells": true,
+  "locations_surveyed_in_one_year": true,
+  "prevalence": true
+ },
+ "all_checks_pass": true,
+ "weight_leakage": [
+  {
+   "disease": "CBPP",
+   "ROC_AUC_of_Weight_alone": 0.1084,
+   "discrimination_max(AUC,1-AUC)": 0.8916,
+   "share_rows_Weight_equals_same_outcome_share_at_location": 0.4578,
+   "spearman_Weight_vs_same_outcome_share": 0.8414,
+   "groups_YearRegion_x_outcome": 29,
+   "groups_with_a_single_Weight_value": 4,
+   "Weight_is_a_function_of_YearRegion_and_outcome": false
+  },
+  {
+   "disease": "FMD",
+   "ROC_AUC_of_Weight_alone": 0.0721,
+   "discrimination_max(AUC,1-AUC)": 0.9279,
+   "share_rows_Weight_equals_same_outcome_share_at_location": 0.5266,
+   "spearman_Weight_vs_same_outcome_share": 0.8554,
+   "groups_YearRegion_x_outcome": 29,
+   "groups_with_a_single_Weight_value": 4,
+   "Weight_is_a_function_of_YearRegion_and_outcome": false
+  },
+  {
+   "disease": "LSD",
+   "ROC_AUC_of_Weight_alone": 0.1549,
+   "discrimination_max(AUC,1-AUC)": 0.8451,
+   "share_rows_Weight_equals_same_outcome_share_at_location": 0.4572,
+   "spearman_Weight_vs_same_outcome_share": 0.842,
+   "groups_YearRegion_x_outcome": 30,
+   "groups_with_a_single_Weight_value": 2,
+   "Weight_is_a_function_of_YearRegion_and_outcome": false
+  }
+ ],
+ "cross_disease": [
+  {
+   "pair": "CBPP-FMD",
+   "row_level_phi": -0.009,
+   "location_level_r": 0.0032,
+   "households_with_both": 132,
+   "expected_if_independent": 136.8347
+  },
+  {
+   "pair": "CBPP-LSD",
+   "row_level_phi": -0.0246,
+   "location_level_r": 0.0583,
+   "households_with_both": 153,
+   "expected_if_independent": 167.2922
+  },
+  {
+   "pair": "FMD-LSD",
+   "row_level_phi": 0.1716,
+   "location_level_r": 0.2763,
+   "households_with_both": 229,
+   "expected_if_independent": 136.6518
+  }
+ ]
+}

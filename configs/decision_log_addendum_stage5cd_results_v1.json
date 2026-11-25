@@ -1,0 +1,116 @@
+{
+ "written_at": "2026-11-21, after Stages 5c-A and 5d",
+ "status": "EXPLORATORY (development folds only)",
+ "stage5d_fitness_variants": [
+  {
+   "variant": "V0",
+   "description": "Stage 5 fitness (1x5, mean-0.5SD AUC)",
+   "mean_spearman": 0.1195,
+   "folds_positive": "10/15",
+   "outer_AUC_top5": 0.654,
+   "FS5_outer_AUC": 0.6769,
+   "p_vs_V0": NaN
+  },
+  {
+   "variant": "V1",
+   "description": "3x5 repeats, mean-0.5SD AUC",
+   "mean_spearman": 0.105,
+   "folds_positive": "11/15",
+   "outer_AUC_top5": 0.6576,
+   "FS5_outer_AUC": 0.6769,
+   "p_vs_V0": 0.7197
+  },
+  {
+   "variant": "V2",
+   "description": "3x5, pooled AUC",
+   "mean_spearman": 0.1197,
+   "folds_positive": "10/15",
+   "outer_AUC_top5": 0.6576,
+   "FS5_outer_AUC": 0.6769,
+   "p_vs_V0": 0.7615
+  },
+  {
+   "variant": "V3",
+   "description": "3x5, pooled Brier skill",
+   "mean_spearman": 0.1433,
+   "folds_positive": "11/15",
+   "outer_AUC_top5": 0.657,
+   "FS5_outer_AUC": 0.6769,
+   "p_vs_V0": 0.804
+  },
+  {
+   "variant": "V4",
+   "description": "3x5, village-level targets, mean-0.5SD AUC",
+   "mean_spearman": 0.1247,
+   "folds_positive": "12/15",
+   "outer_AUC_top5": 0.6527,
+   "FS5_outer_AUC": 0.6769,
+   "p_vs_V0": 0.5995
+  }
+ ],
+ "stage5d_rule_passed_by_any_variant": false,
+ "decision": "Per the pre-set rule, the 15 hybrids are NOT run on the real problem. Benchmark check only.",
+ "final_model_label_smoothing": [
+  {
+   "disease": "CBPP",
+   "household_labels (ExtraTrees-300 classifier)": 0.6969,
+   "village infection rate (ExtraTrees-300 regressor)": 0.6776,
+   "difference": -0.0193,
+   "folds_better": "1/15",
+   "p_wilcoxon": 0.0015
+  },
+  {
+   "disease": "FMD",
+   "household_labels (ExtraTrees-300 classifier)": 0.6651,
+   "village infection rate (ExtraTrees-300 regressor)": 0.6614,
+   "difference": -0.0037,
+   "folds_better": "6/15",
+   "p_wilcoxon": 0.5614
+  },
+  {
+   "disease": "LSD",
+   "household_labels (ExtraTrees-300 classifier)": 0.6128,
+   "village infection rate (ExtraTrees-300 regressor)": 0.5784,
+   "difference": -0.0343,
+   "folds_better": "3/15",
+   "p_wilcoxon": 0.0043
+  }
+ ],
+ "stage5c_benchmark_top5_by_shifted_rank": [
+  {
+   "optimiser": "SGO-GA",
+   "kind": "hybrid",
+   "mean_rank_shifted": 3.68,
+   "mean_rank_centre": 5.91,
+   "shifted_problems_beating_both_parents": "6/8"
+  },
+  {
+   "optimiser": "MSGO-GA",
+   "kind": "hybrid",
+   "mean_rank_shifted": 4.42,
+   "mean_rank_centre": 5.91,
+   "shifted_problems_beating_both_parents": "5/8"
+  },
+  {
+   "optimiser": "DE",
+   "kind": "base",
+   "mean_rank_shifted": 5.5,
+   "mean_rank_centre": 18.1,
+   "shifted_problems_beating_both_parents": NaN
+  },
+  {
+   "optimiser": "GA-DE",
+   "kind": "hybrid",
+   "mean_rank_shifted": 6.05,
+   "mean_rank_centre": 18.48,
+   "shifted_problems_beating_both_parents": "1/8"
+  },
+  {
+   "optimiser": "GA",
+   "kind": "base",
+   "mean_rank_shifted": 6.95,
+   "mean_rank_centre": 18.48,
+   "shifted_problems_beating_both_parents": NaN
+  }
+ ]
+}

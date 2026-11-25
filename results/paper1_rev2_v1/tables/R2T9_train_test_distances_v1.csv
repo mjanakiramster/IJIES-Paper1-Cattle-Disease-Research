@@ -1,0 +1,7 @@
+scheme,Same location in training (%),Median (km),IQR (km),95th percentile (km),Test households (all folds)
+Random 5-fold CV,96.7,0.0,0.0-0.0,0.0,3340
+Spatial 81 km,0.0,35.1,22.2-55.6,92.9,10020
+Spatial 120 km,0.0,49.7,31.3-70.9,121.2,10020
+Spatial 160 km,0.0,56.7,34.8-86.0,130.7,10020
+Spatial 81 km + 50 km buffer,0.0,71.0,59.8-89.6,127.8,10020
+Spatial 81 km + 100 km buffer,0.0,125.4,111.2-148.3,190.3,10020

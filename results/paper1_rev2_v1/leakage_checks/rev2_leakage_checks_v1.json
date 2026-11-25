@@ -1,0 +1,73 @@
+{
+ "L1_test_label_flip": [
+  {
+   "set": "FS2",
+   "disease": 0,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS2",
+   "disease": 1,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS2",
+   "disease": 2,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS3",
+   "disease": 0,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS3",
+   "disease": 1,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS3",
+   "disease": 2,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS4",
+   "disease": 0,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS4",
+   "disease": 1,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  },
+  {
+   "set": "FS4",
+   "disease": 2,
+   "max_feature_change": 0.0,
+   "max_prediction_change": 0.0
+  }
+ ],
+ "L2_training_flip_own_block_max_change": 0.0,
+ "L3_groupbalanced_weights": {
+  "uses": "Year_region of training rows only",
+  "n_groups_in_training": 15,
+  "weight_range": [
+   0.42946859903381646,
+   88.9
+  ],
+  "changed_by_label_permutation": false
+ },
+ "L4_downstream_analyses_test_label_flip": {
+  "shap_max_change_60_rows": 0.0,
+  "aoa_DI_max_change": 0.0,
+  "year_identification_max_change": 0.0
+ }
+}

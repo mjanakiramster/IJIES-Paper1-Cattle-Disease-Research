@@ -1,0 +1,60 @@
+test,split,new_fit_features_changed,new_test_features_changed,new_prior_p0_changed (T4),old_fit_features_changed,old_test_features_changed,rows,predictions_changed,household_row,disease_flipped,new_own_row_changed,new_same_block_rows_changed,same_block_rows,new_outside_rows_changed,outside_rows,new_changed_columns_all_for_flipped_disease (T3),new_density_columns_changed,old_own_row_changed,old_own_row_max_change
+T1 flip all test-fold labels,dev r1 f0,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r1 f1,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r1 f2,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r1 f3,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r1 f4,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r2 f0,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r2 f1,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r2 f2,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r2 f3,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r2 f4,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r3 f0,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r3 f1,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r3 f2,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r3 f3,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+T1 flip all test-fold labels,dev r3 f4,0.0,0.0,0.0,0.0,0.0,3340.0,,,,,,,,,,,,
+"T1 predictions, FS5 ExtraTrees-300 (FMD)",dev r1 f0,,,,,,673.0,0.0,,,,,,,,,,,
+"T1 predictions, FS5 ExtraTrees-300 (FMD)",dev r1 f1,,,,,,689.0,0.0,,,,,,,,,,,
+"T1 predictions, FS5 ExtraTrees-300 (FMD)",dev r1 f2,,,,,,698.0,0.0,,,,,,,,,,,
+"T1 predictions, old 23-model library (all models, all diseases)",dev r1 f0,,,,,,46437.0,0.0,,,,,,,,,,,
+T2 flip all labels of one training household,dev r1 f0,,,,,,,,1168.0,all,False,0.0,90.0,3250.0,3250.0,,False,True,9.476888370579806e-06
+T2 flip all labels of one training household,dev r1 f1,,,,,,,,2059.0,all,False,0.0,43.0,3297.0,3297.0,,False,True,6.736002586632539e-06
+T2 flip all labels of one training household,dev r1 f2,,,,,,,,2800.0,all,False,0.0,115.0,3225.0,3225.0,,False,True,1.0814318157276182e-05
+T2 flip all labels of one training household,dev r1 f3,,,,,,,,3216.0,all,False,0.0,32.0,3308.0,3308.0,,False,True,1.4297969688326084e-05
+T2 flip all labels of one training household,dev r1 f4,,,,,,,,3252.0,all,False,0.0,75.0,3265.0,3265.0,,False,True,8.386447500896566e-06
+T2 flip all labels of one training household,dev r2 f0,,,,,,,,2732.0,all,False,0.0,71.0,3269.0,3269.0,,False,True,6.873986087035933e-06
+T2 flip all labels of one training household,dev r2 f1,,,,,,,,3081.0,all,False,0.0,47.0,3293.0,3293.0,,False,True,8.849244274578005e-06
+T2 flip all labels of one training household,dev r2 f2,,,,,,,,3239.0,all,False,0.0,59.0,3281.0,3281.0,,False,True,2.233239537272752e-05
+T2 flip all labels of one training household,dev r2 f3,,,,,,,,2286.0,all,False,0.0,79.0,3261.0,3261.0,,False,True,7.544607491860589e-06
+T2 flip all labels of one training household,dev r2 f4,,,,,,,,1652.0,all,False,0.0,21.0,3319.0,3319.0,,False,True,6.214701414036794e-05
+T2 flip all labels of one training household,dev r3 f0,,,,,,,,40.0,all,False,0.0,86.0,3254.0,3254.0,,False,True,9.473285335354596e-06
+T2 flip all labels of one training household,dev r3 f1,,,,,,,,195.0,all,False,0.0,58.0,3282.0,3282.0,,False,True,3.3147285278922745e-05
+T2 flip all labels of one training household,dev r3 f2,,,,,,,,1106.0,all,False,0.0,86.0,3254.0,3254.0,,False,True,1.0764099543633665e-05
+T2 flip all labels of one training household,dev r3 f3,,,,,,,,1816.0,all,False,0.0,60.0,3280.0,3280.0,,False,True,3.215734034986428e-05
+T2 flip all labels of one training household,dev r3 f4,,,,,,,,2476.0,all,False,0.0,100.0,3240.0,3240.0,,False,True,8.329168748960614e-06
+T2 flip all labels of one training household,dev r1 f0,,,,,,,,1936.0,all,False,0.0,10.0,3330.0,3330.0,,False,True,0.00016835711923129937
+T2 flip all labels of one training household,dev r1 f1,,,,,,,,477.0,all,False,0.0,30.0,3310.0,3310.0,,False,True,1.797831640643066e-05
+T2 flip all labels of one training household,dev r1 f2,,,,,,,,1075.0,all,False,0.0,19.0,3321.0,3321.0,,False,True,2.031960612064454e-05
+T2 flip all labels of one training household,dev r1 f3,,,,,,,,921.0,all,False,0.0,30.0,3310.0,3310.0,,False,True,3.8404345677714447e-05
+T2 flip all labels of one training household,dev r1 f4,,,,,,,,1561.0,all,False,0.0,60.0,3280.0,3280.0,,False,True,9.225092250922905e-06
+T3 flip one disease of one training household,dev r2 f0,,,,,,,,3220.0,FMD,False,0.0,79.0,3261.0,3261.0,True,False,True,1.2373174956711863e-05
+T3 flip one disease of one training household,dev r2 f1,,,,,,,,940.0,CBPP,False,0.0,1.0,3339.0,3339.0,True,False,True,0.00028973083069325223
+T3 flip one disease of one training household,dev r2 f2,,,,,,,,831.0,LSD,False,0.0,52.0,3288.0,3288.0,True,False,True,6.0247789854805944e-06
+T3 flip one disease of one training household,dev r2 f3,,,,,,,,2725.0,FMD,False,0.0,157.0,3183.0,3183.0,True,False,True,1.2322858903290879e-05
+T3 flip one disease of one training household,dev r2 f4,,,,,,,,407.0,CBPP,False,0.0,96.0,3244.0,3244.0,True,False,True,2.030343125834777e-05
+T3 flip one disease of one training household,dev r3 f0,,,,,,,,2037.0,CBPP,False,0.0,57.0,3283.0,3283.0,True,False,True,3.157761778449508e-05
+T3 flip one disease of one training household,dev r3 f1,,,,,,,,48.0,FMD,False,0.0,86.0,3254.0,3254.0,True,False,True,9.245562130177215e-06
+T3 flip one disease of one training household,dev r3 f2,,,,,,,,2548.0,CBPP,False,0.0,64.0,3276.0,3276.0,True,False,True,6.546216286928974e-06
+T3 flip one disease of one training household,dev r3 f3,,,,,,,,2836.0,LSD,False,0.0,100.0,3240.0,3240.0,True,False,True,8.326048041296108e-06
+T3 flip one disease of one training household,dev r3 f4,,,,,,,,1707.0,CBPP,False,0.0,54.0,3286.0,3286.0,True,False,True,1.2924572196704176e-05
+T3 flip one disease of one training household,dev r1 f0,,,,,,,,2815.0,FMD,False,0.0,127.0,3213.0,3213.0,True,False,True,1.3391183244948479e-05
+T3 flip one disease of one training household,dev r1 f1,,,,,,,,985.0,LSD,False,0.0,30.0,3310.0,3310.0,True,False,True,1.6510712665899346e-05
+T3 flip one disease of one training household,dev r1 f2,,,,,,,,2002.0,FMD,False,0.0,61.0,3279.0,3279.0,True,False,True,9.705157320596264e-06
+T3 flip one disease of one training household,dev r1 f3,,,,,,,,62.0,LSD,False,0.0,83.0,3257.0,3257.0,True,False,True,7.90951514670346e-06
+T3 flip one disease of one training household,dev r1 f4,,,,,,,,847.0,FMD,False,0.0,57.0,3283.0,3283.0,True,False,True,4.297304153813575e-05
+T3 flip one disease of one training household,dev r2 f0,,,,,,,,2584.0,CBPP,False,0.0,149.0,3191.0,3191.0,True,False,True,2.0621958261191065e-05
+T3 flip one disease of one training household,dev r2 f1,,,,,,,,724.0,FMD,False,0.0,42.0,3298.0,3298.0,True,False,True,2.3782343987824306e-05
+T3 flip one disease of one training household,dev r2 f2,,,,,,,,163.0,CBPP,False,0.0,47.0,3293.0,3293.0,True,False,True,1.0260830306391133e-05
+T3 flip one disease of one training household,dev r2 f3,,,,,,,,1881.0,LSD,False,0.0,2.0,3338.0,3338.0,True,False,True,2.1746221593982318e-05
+T3 flip one disease of one training household,dev r2 f4,,,,,,,,855.0,LSD,False,0.0,60.0,3280.0,3280.0,True,False,True,5.0250203738694266e-05

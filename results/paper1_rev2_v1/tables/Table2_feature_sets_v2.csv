@@ -1,0 +1,6 @@
+Feature set,Added group,Variables,Added,Total,Uses outcome labels?
+FS1,Environmental,"Altitude, temperature, precipitation, relative humidity, wind speed",5,5,No
+FS2,+ Climate indices,"Sea-level temperature, De Martonne index, temperature x RH, log precipitation x RH, log precipitation, wind x RH",6,11,No
+FS3,+ Coordinates,"Latitude, longitude, latitude + longitude, latitude - longitude",4,15,No
+FS4,+ Neighbourhood and cross-disease rates,"Gaussian-kernel rates at 50, 150 and 400 km (9) and rates over the 5, 15 and 40 nearest training locations (9), for CBPP, FMD and LSD",18,33,Yes (training rows only; own 81 km block excluded)
+FS5,+ Sampling density,"Log kernel density of training households at 50, 150 and 400 km (3); log distance to the 5th, 15th and 40th nearest training location (3)",6,39,No (household counts and distances only)

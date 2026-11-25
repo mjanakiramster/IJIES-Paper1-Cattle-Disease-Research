@@ -1,0 +1,583 @@
+file,type,result,max_abs_diff
+paper1_v1/E2_featuresets/r1_f0.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r1_f1.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r1_f2.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r1_f3.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r1_f4.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r2_f0.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r2_f1.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r2_f2.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r2_f3.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r2_f4.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r3_f0.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r3_f1.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r3_f2.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r3_f3.npz,.npz,identical,0.0
+paper1_v1/E2_featuresets/r3_f4.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_05.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_06.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_07.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_08.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_09.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_10.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_11.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_12.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_13.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_14.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_15.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_16.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_17.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_18.npz,.npz,identical,0.0
+paper1_v1/E3_library23/split_19.npz,.npz,identical,0.0
+paper1_v1/E5_permutations/household_-01.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_000.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_001.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_002.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_003.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_004.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_005.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_006.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_007.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_008.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_009.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_010.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_011.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_012.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_013.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_014.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_015.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_016.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_017.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_018.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_019.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_020.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_021.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_022.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_023.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_024.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_025.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_026.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_027.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_028.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_029.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_030.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_031.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_032.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_033.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_034.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_035.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_036.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_037.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_038.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_039.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_040.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_041.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_042.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_043.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_044.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_045.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_046.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_047.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_048.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_049.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_050.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_051.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_052.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_053.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_054.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_055.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_056.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_057.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_058.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_059.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_060.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_061.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_062.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_063.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_064.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_065.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_066.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_067.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_068.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_069.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_070.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_071.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_072.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_073.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_074.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_075.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_076.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_077.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_078.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_079.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_080.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_081.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_082.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_083.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_084.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_085.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_086.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_087.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_088.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_089.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_090.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_091.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_092.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_093.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_094.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_095.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_096.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_097.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_098.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/household_099.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_000.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_001.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_002.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_003.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_004.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_005.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_006.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_007.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_008.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_009.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_010.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_011.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_012.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_013.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_014.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_015.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_016.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_017.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_018.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_019.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_020.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_021.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_022.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_023.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_024.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_025.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_026.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_027.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_028.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_029.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_030.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_031.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_032.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_033.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_034.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_035.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_036.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_037.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_038.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_039.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_040.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_041.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_042.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_043.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_044.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_045.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_046.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_047.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_048.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_049.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_050.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_051.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_052.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_053.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_054.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_055.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_056.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_057.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_058.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_059.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_060.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_061.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_062.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_063.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_064.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_065.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_066.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_067.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_068.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_069.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_070.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_071.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_072.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_073.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_074.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_075.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_076.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_077.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_078.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_079.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_080.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_081.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_082.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_083.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_084.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_085.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_086.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_087.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_088.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_089.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_090.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_091.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_092.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_093.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_094.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_095.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_096.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_097.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_098.csv,.csv,identical,0.0
+paper1_v1/E5_permutations/village_099.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/base81_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks120_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/blocks160_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_100_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_25_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/buffer_50_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_100_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_25_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r1_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r1_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r1_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r1_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r1_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r2_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r2_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r2_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r2_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r2_f4.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r3_f0.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r3_f1.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r3_f2.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r3_f3.csv,.csv,identical,0.0
+paper1_v1/E6_proximity_blocks/matched_50_r3_f4.csv,.csv,identical,0.0
+paper1_v1/E7_temporal/forward_temporal_predictions_v1.npz,.npz,identical,0.0
+paper1_v1/E8_importance/r1_f0.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r1_f1.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r1_f2.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r1_f3.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r1_f4.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r2_f0.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r2_f1.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r2_f2.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r2_f3.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r2_f4.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r3_f0.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r3_f1.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r3_f2.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r3_f3.csv,.csv,identical,0.0
+paper1_v1/E8_importance/r3_f4.csv,.csv,identical,0.0
+paper1_v1/figures/Fig1_workflow_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig1_workflow_v1.png,.png,exists (not compared),
+paper1_v1/figures/Fig2_survey_years_v2.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig2_survey_years_v2.png,.png,exists (not compared),
+paper1_v1/figures/Fig3_overall_vs_within_year_AUC_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig3_overall_vs_within_year_AUC_v1.png,.png,exists (not compared),
+paper1_v1/figures/Fig4_spatial_sensitivity_v2.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig4_spatial_sensitivity_v2.png,.png,exists (not compared),
+paper1_v1/figures/Fig5_permutation_null_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig5_permutation_null_v1.png,.png,exists (not compared),
+paper1_v1/figures/Fig5_permutation_null_v3.pdf,.pdf,exists (not compared),
+paper1_v1/figures/Fig5_permutation_null_v3.png,.png,exists (not compared),
+paper1_v1/figures/FigS1_ROC_PR_curves_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS1_ROC_PR_curves_v1.png,.png,exists (not compared),
+paper1_v1/figures/FigS2_calibration_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS2_calibration_v1.png,.png,exists (not compared),
+paper1_v1/figures/FigS2_calibration_v2.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS2_calibration_v2.png,.png,exists (not compared),
+paper1_v1/figures/FigS3_confusion_matrices_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS3_confusion_matrices_v1.png,.png,exists (not compared),
+paper1_v1/figures/FigS4_grouped_importance_v1.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS4_grouped_importance_v1.png,.png,exists (not compared),
+paper1_v1/figures/FigS4_grouped_importance_v2.pdf,.pdf,exists (not compared),
+paper1_v1/figures/FigS4_grouped_importance_v2.png,.png,exists (not compared),
+paper1_v1/metrics/bootstrap_pooled_v2.csv,.csv,identical,0.0
+paper1_v1/metrics/bootstrap_v2.pkl,.pkl,identical,0.0
+paper1_v1/metrics/fold_metrics_v2.csv,.csv,identical,0.0
+paper1_v1/predictions/dev_oof_predictions_long_v1.csv,.csv,identical,0.0
+paper1_v1/predictions/dev_predictions_v2.pkl,.pkl,identical,0.0
+paper1_v1/sensitivity/E6_fold_results_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table10_negative_controls_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table11_ensemble_prior_sensitivity_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table12_forward_temporal_validation_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table1_dataset_prevalence_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table2_feature_sets_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table3_models_v2.csv,.csv,identical,0.0
+paper1_v1/tables/Table4_overall_spatial_performance_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table5_within_year_performance_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table6_FMD_FS5_vs_FS1_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table7_disease_specific_comparisons_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table8_block_size_sensitivity_v1.csv,.csv,identical,0.0
+paper1_v1/tables/Table9_proximity_removal_v1.csv,.csv,identical,0.0
+paper1_v1/tables/TableS_confirmatory_as_observed_confirmatory_fold_metrics_v1.csv,.csv,identical,0.0
+paper1_v1/tables/TableS_confirmatory_as_observed_confirmatory_summary_v1.csv,.csv,identical,0.0
+paper1_v1/tables/TableS_grouped_permutation_importance_v1.csv,.csv,identical,0.0
+paper1_v1/tables/TableS_optimisation_stage5_as_run_v1.csv,.csv,identical,0.0
+paper1_v1/tables/TableS_year_specific_AUC_v1.csv,.csv,identical,0.0
+paper1_v1/tables/data_validation_report_v1.csv,.csv,identical,0.0
+paper1_v1/tables/feature_dictionary_v1.csv,.csv,identical,0.0
+paper1_v1/verification/P4_tiebreak_verification_v1.json,.json,identical,0.0
+paper1_rev_v1/E10_campaign_cv/campaign_vs_pooled_fold_level_v1.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r1_f0.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r1_f1.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r1_f2.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r1_f3.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r1_f4.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r2_f0.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r2_f1.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r2_f2.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r2_f3.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r2_f4.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r3_f0.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r3_f1.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r3_f2.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r3_f3.csv,.csv,identical,0.0
+paper1_rev_v1/E10_campaign_cv/r3_f4.csv,.csv,identical,0.0
+paper1_rev_v1/E9_random_cv/random_0.npz,.npz,identical,0.0
+paper1_rev_v1/E9_random_cv/random_1.npz,.npz,identical,0.0
+paper1_rev_v1/E9_random_cv/random_2.npz,.npz,identical,0.0
+paper1_rev_v1/E9_random_cv/random_3.npz,.npz,identical,0.0
+paper1_rev_v1/E9_random_cv/random_4.npz,.npz,identical,0.0
+paper1_rev_v1/E9_random_cv/random_cv_fold_metrics_v1.csv,.csv,identical,0.0
+paper1_rev_v1/design_checks/D1_fold_structure_v1.csv,.csv,identical,0.0
+paper1_rev_v1/design_checks/D4_variogram_ranges_v1.csv,.csv,identical,0.0
+paper1_rev_v1/design_checks/D5_campaign_descriptors_v1.csv,.csv,identical,0.0
+paper1_rev_v1/design_checks/D5_variance_shares_v1.csv,.csv,identical,0.0
+paper1_rev_v1/design_checks/design_checks_summary_v1.json,.json,identical,0.0
+paper1_rev_v1/figures/Fig3_random_vs_spatial_cv_v1.pdf,.pdf,exists (not compared),
+paper1_rev_v1/figures/Fig3_random_vs_spatial_cv_v1.png,.png,exists (not compared),
+paper1_rev_v1/figures/Fig4_FS1_vs_FS5_paired_folds_v2.pdf,.pdf,exists (not compared),
+paper1_rev_v1/figures/Fig4_FS1_vs_FS5_paired_folds_v2.png,.png,exists (not compared),
+paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v2.pdf,.pdf,exists (not compared),
+paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v2.png,.png,exists (not compared),
+paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v3.pdf,.pdf,exists (not compared),
+paper1_rev_v1/figures/Fig6_campaign_specific_vs_pooled_v3.png,.png,exists (not compared),
+paper1_rev_v1/figures/Fig8_forward_temporal_v1.pdf,.pdf,exists (not compared),
+paper1_rev_v1/figures/Fig8_forward_temporal_v1.png,.png,exists (not compared),
+paper1_rev_v1/library23_fold_auc_v1.csv,.csv,identical,0.0
+paper1_rev_v1/statistics_verification/bootstrap_recomputed_v1.csv,.csv,identical,0.0
+paper1_rev_v1/statistics_verification/corrected_t_recomputed_v1.csv,.csv,identical,0.0
+paper1_rev_v1/statistics_verification/fold_metrics_recomputed_v1.csv,.csv,identical,0.0
+paper1_rev_v1/statistics_verification/permutation_recomputed_v1.csv,.csv,identical,0.0
+paper1_rev_v1/statistics_verification/statistics_verification_summary_v1.csv,.csv,identical,0.0
+paper1_rev_v1/tables/IJIES_Paper1_revised_tables_v1.xlsx,.xlsx,exists (not compared),
+paper1_rev_v1/tables/RT1_random_vs_spatial_cv_v1.csv,.csv,identical,0.0
+paper1_rev_v1/tables/RT2_campaign_specific_vs_pooled_v1.csv,.csv,identical,0.0
+paper1_rev_v1/tables/RT3_library_models_spatial_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r1_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r1_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r1_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r1_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r1_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r2_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r2_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r2_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r2_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r2_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r3_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r3_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r3_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r3_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E10b_campaign_predictions/r3_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/ablation_fold_metrics_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/E11_ablation/r1_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r1_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r1_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r1_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r1_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r2_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r2_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r2_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r2_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r2_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r3_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r3_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r3_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r3_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E11_ablation/r3_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E12_shap_pdp/r1_f0.npz,.npz,identical,0.0
+paper1_rev2_v1/E12_shap_pdp/r1_f1.npz,.npz,identical,0.0
+paper1_rev2_v1/E12_shap_pdp/r1_f2.npz,.npz,identical,0.0
+paper1_rev2_v1/E12_shap_pdp/r1_f3.npz,.npz,identical,0.0
+paper1_rev2_v1/E12_shap_pdp/r1_f4.npz,.npz,identical,0.0
+paper1_rev2_v1/E13_aoa/r1_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r1_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r1_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r1_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r1_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r2_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r2_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r2_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r2_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r2_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r3_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r3_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r3_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r3_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E13_aoa/r3_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r1_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r1_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r1_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r1_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r1_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r2_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r2_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r2_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r2_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r2_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r3_f0.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r3_f1.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r3_f2.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r3_f3.csv,.csv,identical,0.0
+paper1_rev2_v1/E14_campaign_identification/r3_f4.csv,.csv,identical,0.0
+paper1_rev2_v1/exports/fold_assignments_v1.csv,.csv,only in fresh run,
+paper1_rev2_v1/exports/predictions_random_ablation_campaign_temporal_v1.csv,.csv,only in fresh run,
+paper1_rev2_v1/figures/Fig1_workflow_v7.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/Fig1_workflow_v7.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v2.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v2.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v3.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig1_ablation_v3.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig2_shap_top_features_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig2_shap_top_features_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig3_partial_dependence_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig3_partial_dependence_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig4_area_of_applicability_FS5_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig4_area_of_applicability_FS5_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig5_calibration_with_bands_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig5_calibration_with_bands_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig6_train_test_distances_v1.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig6_train_test_distances_v1.png,.png,exists (not compared),
+paper1_rev2_v1/figures/R2Fig6_train_test_distances_v2.pdf,.pdf,exists (not compared),
+paper1_rev2_v1/figures/R2Fig6_train_test_distances_v2.png,.png,exists (not compared),
+paper1_rev2_v1/leakage_checks/rev2_leakage_checks_v1.json,.json,identical,0.0
+paper1_rev2_v1/tables/IJIES_Paper1_revision2_tables_v1.xlsx,.xlsx,only in fresh run,
+paper1_rev2_v1/tables/R2T10_hyperparameters_from_code_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T11_calibration_fold_and_pooled_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T1_ablation_performance_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T2_ablation_increments_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T3_shap_feature_importance_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T4_shap_group_importance_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T5_area_of_applicability_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T6_metrics_with_CI_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T7_campaign_identification_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T8_ensemble_without_groupbalanced_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/R2T9_train_test_distances_v1.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/Table2_feature_sets_v2.csv,.csv,identical,0.0
+paper1_rev2_v1/tables/Table3_models_v3.csv,.csv,identical,0.0

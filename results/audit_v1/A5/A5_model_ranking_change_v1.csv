@@ -1,0 +1,4 @@
+disease,kendall_tau_single_model_ranking,best_single_original,best_single_corrected,max_single_model_mean_AUC_change
+CBPP,0.9051383399209486,GAM [B],GAM [B],0.007206822184593009
+FMD,0.8893280632411068,LightGBM [ELK],LightGBM [ELK],0.01276492359870196
+LSD,0.8735177865612648,ExtraTrees [ELK],ExtraTrees [ELK],0.015686868827027634

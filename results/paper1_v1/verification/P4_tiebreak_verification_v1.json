@@ -1,0 +1,10 @@
+{
+ "tie_rule": "(round(distance_km, 6), location ID)",
+ "splits": "15 development outer splits",
+ "new_code_values": 1352700,
+ "new_code_max_abs_diff": 1.7763568394002505e-14,
+ "new_code_mismatches": 0,
+ "old_library_values": 1102200,
+ "old_library_max_abs_diff": 1.4654943925052066e-14,
+ "old_library_mismatches": 0
+}

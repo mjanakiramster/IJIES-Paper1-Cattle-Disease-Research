@@ -1,0 +1,7 @@
+Disease,Features,Fold x year units,"Pooled-campaign model, within-campaign AUC","Campaign-specific model, within-campaign AUC",Campaign-specific minus pooled [corrected-t 95% CI],Folds favouring campaign-specific
+CBPP,FS1,58,0.576,0.570,"-0.006 [-0.059, +0.047]",8/15
+CBPP,FS5,58,0.563,0.608,"+0.045 [-0.004, +0.094]",13/15
+FMD,FS1,62,0.526,0.554,"+0.028 [-0.100, +0.157]",10/15
+FMD,FS5,62,0.587,0.586,"-0.001 [-0.084, +0.083]",8/15
+LSD,FS1,68,0.537,0.581,"+0.044 [-0.099, +0.188]",13/15
+LSD,FS5,68,0.488,0.566,"+0.078 [-0.013, +0.169]",12/15

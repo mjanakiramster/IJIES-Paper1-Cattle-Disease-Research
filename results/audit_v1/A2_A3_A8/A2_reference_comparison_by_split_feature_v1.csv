@@ -1,0 +1,1246 @@
+code,split,config,feature,rows_checked,max_abs_diff,mean_abs_diff,mismatches_gt_1e-10
+new,dev r1 f0,FS5 + IDW,kern50_0,3340,1.4432899320127035e-15,2.324004885739839e-16,0
+new,dev r1 f0,FS5 + IDW,kern50_1,3340,2.55351295663786e-15,2.6270205654866617e-16,0
+new,dev r1 f0,FS5 + IDW,kern50_2,3340,3.164135620181696e-15,3.128392006523994e-16,0
+new,dev r1 f0,FS5 + IDW,dens50,3340,1.4210854715202004e-14,2.046303379051979e-15,0
+new,dev r1 f0,FS5 + IDW,kern150_0,3340,7.216449660063518e-16,1.3722389824577254e-16,0
+new,dev r1 f0,FS5 + IDW,kern150_1,3340,5.273559366969494e-16,1.0508269238129686e-16,0
+new,dev r1 f0,FS5 + IDW,kern150_2,3340,6.106226635438361e-16,1.3675853530131888e-16,0
+new,dev r1 f0,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.978980084761155e-16,0
+new,dev r1 f0,FS5 + IDW,kern400_0,3340,5.273559366969494e-16,1.23188219438947e-16,0
+new,dev r1 f0,FS5 + IDW,kern400_1,3340,4.440892098500626e-16,1.0941015226208691e-16,0
+new,dev r1 f0,FS5 + IDW,kern400_2,3340,5.551115123125783e-16,1.2136831792403001e-16,0
+new,dev r1 f0,FS5 + IDW,dens400,3340,2.6645352591003757e-15,4.986031547717769e-16,0
+new,dev r1 f0,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r1 f0,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r1 f0,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r1 f0,FS5 + IDW,knndist5,3340,1.1102230246251565e-14,2.252755533679524e-15,0
+new,dev r1 f0,FS5 + IDW,knn15_0,3340,0.05314572654043315,7.95594708689119e-05,5
+new,dev r1 f0,FS5 + IDW,knn15_1,3340,0.007627715590891655,1.1418735914508466e-05,5
+new,dev r1 f0,FS5 + IDW,knn15_2,3340,0.004445374341807029,6.654752008693157e-06,5
+new,dev r1 f0,FS5 + IDW,knndist15,3340,8.43769498715119e-15,1.3520787948997864e-15,0
+new,dev r1 f0,FS5 + IDW,knn40_0,3340,0.01982028436816491,2.796379627359226e-05,14
+new,dev r1 f0,FS5 + IDW,knn40_1,3340,0.014803917363207547,4.726530169075359e-05,14
+new,dev r1 f0,FS5 + IDW,knn40_2,3340,0.030145464194180294,2.2150155630731545e-05,14
+new,dev r1 f0,FS5 + IDW,knndist40,3340,5.329070518200751e-15,7.693114276025336e-16,0
+new,dev r1 f0,FS5 + IDW,idw_0,3340,1.6653345369377348e-15,6.419515617686628e-17,0
+new,dev r1 f0,FS5 + IDW,idw_1,3340,1.3600232051658168e-15,5.836149926603648e-17,0
+new,dev r1 f0,FS5 + IDW,idw_2,3340,1.582067810090848e-15,6.327274034053849e-17,0
+new,dev r1 f0,non-default,kern33_0,3340,1.7763568394002505e-15,2.4773928750093686e-16,0
+new,dev r1 f0,non-default,kern33_1,3340,3.635980405647388e-15,3.551072443416044e-16,0
+new,dev r1 f0,non-default,kern33_2,3340,2.6645352591003757e-15,3.48153807845683e-16,0
+new,dev r1 f0,non-default,dens33,3340,1.9539925233402755e-14,3.4101800961963104e-15,0
+new,dev r1 f0,non-default,kern210_0,3340,5.551115123125783e-16,1.337586063201087e-16,0
+new,dev r1 f0,non-default,kern210_1,3340,4.163336342344337e-16,1.102619326514887e-16,0
+new,dev r1 f0,non-default,kern210_2,3340,5.273559366969494e-16,1.3876956802556503e-16,0
+new,dev r1 f0,non-default,dens210,3340,3.552713678800501e-15,6.363505863300598e-16,0
+new,dev r1 f0,non-default,knn9_0,3340,0.01784100120801413,2.1417407200455878e-05,5
+new,dev r1 f0,non-default,knn9_1,3340,0.06578458850079315,7.970171599803444e-05,5
+new,dev r1 f0,non-default,knn9_2,3340,0.020100239666949432,2.5204383255689664e-05,5
+new,dev r1 f0,non-default,knndist9,3340,1.1546319456101628e-14,1.80427861606747e-15,0
+new,dev r1 f0,non-default,idw_0,3340,1.1102230246251565e-15,7.250520875639589e-17,0
+new,dev r1 f0,non-default,idw_1,3340,9.71445146547012e-16,6.137804835240574e-17,0
+new,dev r1 f0,non-default,idw_2,3340,1.0547118733938987e-15,6.612308837531714e-17,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_CBPP_50km,3340,1.4432899320127035e-15,2.318842265574806e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_FMD_50km,3340,2.55351295663786e-15,2.6203621358573136e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_LSD_50km,3340,3.1086244689504383e-15,3.122408768666733e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_CBPP_150km,3340,7.216449660063518e-16,1.3642197817184793e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_FMD_150km,3340,5.273559366969494e-16,1.0637490555741372e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_LSD_150km,3340,6.106226635438361e-16,1.3841223576464527e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_CBPP_400km,3340,5.551115123125783e-16,1.225400353377437e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_FMD_400km,3340,4.440892098500626e-16,1.0908606021148526e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_LSD_400km,3340,5.551115123125783e-16,1.2167578986947262e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_density_50km,3340,1.4210854715202004e-14,2.046303379051979e-15,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.978980084761155e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,4.986031547717769e-16,0
+old run-3,dev r1 f0,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f0,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f0,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f0,reference prior = all_fit,knn15_CBPP,3340,0.05315540102941674,7.95739536368514e-05,5
+old run-3,dev r1 f0,reference prior = all_fit,knn15_FMD,3340,0.007621774550908414,1.1409842142078464e-05,5
+old run-3,dev r1 f0,reference prior = all_fit,knn15_LSD,3340,0.004447625864948707,6.658122552318423e-06,5
+old run-3,dev r1 f0,reference prior = all_fit,knn40_CBPP,3340,0.019820313711789328,2.7963803405393238e-05,14
+old run-3,dev r1 f0,reference prior = all_fit,knn40_FMD,3340,0.014803917363207547,4.7265299303290427e-05,14
+old run-3,dev r1 f0,reference prior = all_fit,knn40_LSD,3340,0.03014542987768082,2.2150149081941914e-05,14
+old run-3,dev r1 f0,reference prior = all_fit,log_dist_15th_location,3340,8.43769498715119e-15,1.3520787948997864e-15,0
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.001584442523989843,0.00010497047023599964,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0013062236352712475,8.748477842487238e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.001500116206131219,9.09248438330382e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_CBPP_150km,3340,0.00011919471164661966,8.443373173967575e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_FMD_150km,3340,5.061999720330779e-05,6.040733713642664e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_LSD_150km,3340,3.7263165993478564e-05,6.29723068949593e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.1317599034388337e-05,2.17762920284763e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_FMD_400km,3340,6.5877609115860825e-06,1.537505680941041e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.019941263066489e-06,1.6231691621645716e-06,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_density_50km,3340,1.4210854715202004e-14,2.046303379051979e-15,0
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.978980084761155e-16,0
+old run-3,dev r1 f0,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,4.986031547717769e-16,0
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn5_CBPP,3340,0.0008868281568371328,0.00010153955481250012,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn5_FMD,3340,0.0005445953317975705,6.865284541146942e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn5_LSD,3340,0.0006675390304050274,6.960534555992392e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn15_CBPP,3340,0.05307478028788615,0.00011220422678187973,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn15_FMD,3340,0.0076712832174354595,3.3567351253409096e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn15_LSD,3340,0.004428863172101394,2.9738865955209156e-05,2667
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn40_CBPP,3340,0.0198108063774855,3.914547141563194e-05,2677
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn40_FMD,3340,0.014803917363207547,5.518383460815196e-05,2677
+old run-3,dev r1 f0,reference prior = exclude_own_block,knn40_LSD,3340,0.030156548423505736,3.055844777053324e-05,2677
+old run-3,dev r1 f0,reference prior = exclude_own_block,log_dist_15th_location,3340,8.43769498715119e-15,1.3520787948997864e-15,0
+new,dev r1 f1,FS5 + IDW,kern50_0,3340,2.1094237467877974e-15,2.474214279897699e-16,0
+new,dev r1 f1,FS5 + IDW,kern50_1,3340,2.55351295663786e-15,2.468498521857841e-16,0
+new,dev r1 f1,FS5 + IDW,kern50_2,3340,3.1086244689504383e-15,2.649436932319943e-16,0
+new,dev r1 f1,FS5 + IDW,dens50,3340,1.3766765505351941e-14,2.1323636469335887e-15,0
+new,dev r1 f1,FS5 + IDW,kern150_0,3340,8.881784197001252e-16,1.3939282196902975e-16,0
+new,dev r1 f1,FS5 + IDW,kern150_1,3340,5.273559366969494e-16,1.0858953456985836e-16,0
+new,dev r1 f1,FS5 + IDW,kern150_2,3340,5.551115123125783e-16,1.4383039004649858e-16,0
+new,dev r1 f1,FS5 + IDW,dens150,3340,3.1086244689504383e-15,8.224957641115231e-16,0
+new,dev r1 f1,FS5 + IDW,kern400_0,3340,4.163336342344337e-16,1.2108577613632601e-16,0
+new,dev r1 f1,FS5 + IDW,kern400_1,3340,3.885780586188048e-16,9.89976563799363e-17,0
+new,dev r1 f1,FS5 + IDW,kern400_2,3340,4.718447854656915e-16,1.3291098095699667e-16,0
+new,dev r1 f1,FS5 + IDW,dens400,3340,1.7763568394002505e-15,5.023260583274062e-16,0
+new,dev r1 f1,FS5 + IDW,knn5_0,3340,0.040000000000000036,3.274384983795046e-05,3
+new,dev r1 f1,FS5 + IDW,knn5_1,3340,0.002550164498529933,7.635223049490818e-07,1
+new,dev r1 f1,FS5 + IDW,knn5_2,3340,0.031911045173888236,9.554205141882706e-06,1
+new,dev r1 f1,FS5 + IDW,knndist5,3340,1.4654943925052066e-14,2.0993187228510894e-15,0
+new,dev r1 f1,FS5 + IDW,knn15_0,3340,0.000403531063897386,3.624530514048377e-07,3
+new,dev r1 f1,FS5 + IDW,knn15_1,3340,0.005328179816471948,4.785790254316121e-06,3
+new,dev r1 f1,FS5 + IDW,knn15_2,3340,0.014826471959972165,1.3317190383208532e-05,3
+new,dev r1 f1,FS5 + IDW,knndist15,3340,7.105427357601002e-15,1.3075369130735077e-15,0
+new,dev r1 f1,FS5 + IDW,knn40_0,3340,0.0,0.0,0
+new,dev r1 f1,FS5 + IDW,knn40_1,3340,0.0,0.0,0
+new,dev r1 f1,FS5 + IDW,knn40_2,3340,0.0,0.0,0
+new,dev r1 f1,FS5 + IDW,knndist40,3340,3.552713678800501e-15,7.1187234417282495e-16,0
+new,dev r1 f1,FS5 + IDW,idw_0,3340,2.7200464103316335e-15,6.888202583172098e-17,0
+new,dev r1 f1,FS5 + IDW,idw_1,3340,2.192690473634684e-15,5.840304952893413e-17,0
+new,dev r1 f1,FS5 + IDW,idw_2,3340,3.3861802251067274e-15,7.018670408670712e-17,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_CBPP_50km,3340,2.0539125955565396e-15,2.476447606528447e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_FMD_50km,3340,2.4980018054066022e-15,2.4562879383487944e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_LSD_50km,3340,3.219646771412954e-15,2.660104962318914e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_CBPP_150km,3340,8.881784197001252e-16,1.389856293926328e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_FMD_150km,3340,5.273559366969494e-16,1.0703555473748632e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_LSD_150km,3340,5.551115123125783e-16,1.4491900693441696e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_CBPP_400km,3340,4.163336342344337e-16,1.1988912856487374e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,1.021970266230552e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_LSD_400km,3340,4.718447854656915e-16,1.3344282432208655e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_density_50km,3340,1.3766765505351941e-14,2.1323636469335887e-15,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_density_150km,3340,3.1086244689504383e-15,8.224957641115231e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,5.023260583274062e-16,0
+old run-3,dev r1 f1,reference prior = all_fit,knn5_CBPP,3340,0.040000000000000036,3.2771008941915244e-05,3
+old run-3,dev r1 f1,reference prior = all_fit,knn5_FMD,3340,0.0025219760520301393,7.55082650308425e-07,1
+old run-3,dev r1 f1,reference prior = all_fit,knn5_LSD,3340,0.031952815671326004,9.566711278840122e-06,1
+old run-3,dev r1 f1,reference prior = all_fit,knn15_CBPP,3340,0.0004051617604976243,3.6391774894996193e-07,3
+old run-3,dev r1 f1,reference prior = all_fit,knn15_FMD,3340,0.005329401080591392,4.786887198135981e-06,3
+old run-3,dev r1 f1,reference prior = all_fit,knn15_LSD,3340,0.01482402332929128,1.3314991014333486e-05,3
+old run-3,dev r1 f1,reference prior = all_fit,knn40_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f1,reference prior = all_fit,knn40_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f1,reference prior = all_fit,knn40_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f1,reference prior = all_fit,log_dist_15th_location,3340,7.105427357601002e-15,1.3075369130735077e-15,0
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.001776633586129478,9.567520899194709e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0005730016532258103,7.638194956702096e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.001005691369022288,0.00010186256720151008,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_CBPP_150km,3340,7.197646189825713e-05,8.504441646736062e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_FMD_150km,3340,2.8842580589993894e-05,6.5433900876717006e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.154034815747389e-05,8.013019141128077e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.2547794523781741e-05,1.9873868829173205e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_FMD_400km,3340,7.2295841460345844e-06,1.5087349231002356e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.673291008704954e-06,1.8036575016299595e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_density_50km,3340,1.3766765505351941e-14,2.1323636469335887e-15,0
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_density_150km,3340,3.1086244689504383e-15,8.224957641115231e-16,0
+old run-3,dev r1 f1,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,5.023260583274062e-16,0
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn5_CBPP,3340,0.04003768139341862,0.0001226352287507723,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn5_FMD,3340,0.002480306174595659,6.214596553492341e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn5_LSD,3340,0.03201456336319057,8.109151577665977e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn15_CBPP,3340,0.00037356701386795366,2.8537993634229798e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn15_FMD,3340,0.005305739088276917,2.4481630495247413e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn15_LSD,3340,0.014871465548732588,3.629812704100567e-05,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn40_CBPP,3340,7.09882903068837e-05,9.980139455902529e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn40_FMD,3340,4.493657459317402e-05,7.4645717497087535e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,knn40_LSD,3340,4.7152758477539414e-05,8.783936938839278e-06,2651
+old run-3,dev r1 f1,reference prior = exclude_own_block,log_dist_15th_location,3340,7.105427357601002e-15,1.3075369130735077e-15,0
+new,dev r1 f2,FS5 + IDW,kern50_0,3340,2.1094237467877974e-15,2.1763975767959438e-16,0
+new,dev r1 f2,FS5 + IDW,kern50_1,3340,2.6645352591003757e-15,2.3777034067521864e-16,0
+new,dev r1 f2,FS5 + IDW,kern50_2,3340,2.886579864025407e-15,2.4198509546789885e-16,0
+new,dev r1 f2,FS5 + IDW,dens50,3340,1.3100631690576847e-14,2.1187102305454216e-15,0
+new,dev r1 f2,FS5 + IDW,kern150_0,3340,6.106226635438361e-16,1.3481606051085383e-16,0
+new,dev r1 f2,FS5 + IDW,kern150_1,3340,5.273559366969494e-16,1.1541208773765217e-16,0
+new,dev r1 f2,FS5 + IDW,kern150_2,3340,5.551115123125783e-16,1.3844963100125315e-16,0
+new,dev r1 f2,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.905851622061295e-16,0
+new,dev r1 f2,FS5 + IDW,kern400_0,3340,5.828670879282072e-16,1.1644045674436896e-16,0
+new,dev r1 f2,FS5 + IDW,kern400_1,3340,4.163336342344337e-16,1.0934367184145067e-16,0
+new,dev r1 f2,FS5 + IDW,kern400_2,3340,4.163336342344337e-16,1.1834345878508125e-16,0
+new,dev r1 f2,FS5 + IDW,dens400,3340,1.7763568394002505e-15,4.869026007397992e-16,0
+new,dev r1 f2,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knndist5,3340,1.4654943925052066e-14,2.045336621294465e-15,0
+new,dev r1 f2,FS5 + IDW,knn15_0,3340,0.002974594729994798,8.905972245493407e-06,10
+new,dev r1 f2,FS5 + IDW,knn15_1,3340,0.006117252025374942,1.8315125824475872e-05,10
+new,dev r1 f2,FS5 + IDW,knn15_2,3340,0.00782344676473061,2.3423493307576675e-05,10
+new,dev r1 f2,FS5 + IDW,knndist15,3340,8.43769498715119e-15,1.1606151834674241e-15,0
+new,dev r1 f2,FS5 + IDW,knn40_0,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knn40_1,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knn40_2,3340,0.0,0.0,0
+new,dev r1 f2,FS5 + IDW,knndist40,3340,4.440892098500626e-15,6.703885616958131e-16,0
+new,dev r1 f2,FS5 + IDW,idw_0,3340,2.7200464103316335e-15,6.156086950915539e-17,0
+new,dev r1 f2,FS5 + IDW,idw_1,3340,2.3592239273284576e-15,5.930053520752333e-17,0
+new,dev r1 f2,FS5 + IDW,idw_2,3340,3.497202527569243e-15,5.775486542773082e-17,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_CBPP_50km,3340,2.220446049250313e-15,2.1772649385339324e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_FMD_50km,3340,2.6645352591003757e-15,2.3610391544387987e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_LSD_50km,3340,2.886579864025407e-15,2.4270339563774194e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_CBPP_150km,3340,6.106226635438361e-16,1.3306679444286284e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_FMD_150km,3340,5.551115123125783e-16,1.1603741919426177e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_LSD_150km,3340,5.551115123125783e-16,1.3819201937128773e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_CBPP_400km,3340,5.828670879282072e-16,1.1659003769080049e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_FMD_400km,3340,4.163336342344337e-16,1.0759025074716992e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_LSD_400km,3340,4.440892098500626e-16,1.1934897514720432e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_density_50km,3340,1.3100631690576847e-14,2.1187102305454216e-15,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.905851622061295e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,4.869026007397992e-16,0
+old run-3,dev r1 f2,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,knn15_CBPP,3340,0.002974630718763943,8.906079996299231e-06,10
+old run-3,dev r1 f2,reference prior = all_fit,knn15_FMD,3340,0.006116632834828772,1.8313271960565188e-05,10
+old run-3,dev r1 f2,reference prior = all_fit,knn15_LSD,3340,0.007823633794788024,2.3424053277808453e-05,10
+old run-3,dev r1 f2,reference prior = all_fit,knn40_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,knn40_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,knn40_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f2,reference prior = all_fit,log_dist_15th_location,3340,8.43769498715119e-15,1.1606151834674241e-15,0
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.002422546579208096,0.00011561818033707979,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.002092754523887047,9.112861430615172e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.002324830414668133,8.891114057614034e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_CBPP_150km,3340,7.860873690329617e-05,9.606845123713635e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_FMD_150km,3340,3.6259387417469924e-05,6.906719177331185e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.498164140006368e-05,6.723004764874968e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.2148046737214813e-05,2.4492656113137167e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_FMD_400km,3340,7.25469799983669e-06,1.6399297536914792e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_LSD_400km,3340,6.793511566488553e-06,1.5816474775683339e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_density_50km,3340,1.3100631690576847e-14,2.1187102305454216e-15,0
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.905851622061295e-16,0
+old run-3,dev r1 f2,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,4.869026007397992e-16,0
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn5_CBPP,3340,0.0005878807397853847,9.701275639332968e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn5_FMD,3340,0.0003053649397550817,6.526104143959877e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn5_LSD,3340,0.0004251706452325088,6.347964297558101e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn15_CBPP,3340,0.0029759982919920352,4.253411902465496e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn15_FMD,3340,0.006093103594074889,3.997002134520246e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn15_LSD,3340,0.007830740936969748,4.431816416996344e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn40_CBPP,3340,5.8788073978521815e-05,1.1607770463166276e-05,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn40_FMD,3340,4.6550242189115354e-05,7.7593827942694e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,knn40_LSD,3340,3.126254744353907e-05,7.672651126064697e-06,2642
+old run-3,dev r1 f2,reference prior = exclude_own_block,log_dist_15th_location,3340,8.43769498715119e-15,1.1606151834674241e-15,0
+new,dev r1 f3,FS5 + IDW,kern50_0,3340,2.1094237467877974e-15,2.272581241621137e-16,0
+new,dev r1 f3,FS5 + IDW,kern50_1,3340,1.3322676295501878e-15,1.9138596437857233e-16,0
+new,dev r1 f3,FS5 + IDW,kern50_2,3340,2.609024107869118e-15,2.795699051502526e-16,0
+new,dev r1 f3,FS5 + IDW,dens50,3340,1.3766765505351941e-14,2.061736510060167e-15,0
+new,dev r1 f3,FS5 + IDW,kern150_0,3340,5.551115123125783e-16,1.4289966415759127e-16,0
+new,dev r1 f3,FS5 + IDW,kern150_1,3340,3.608224830031759e-16,8.760041926711143e-17,0
+new,dev r1 f3,FS5 + IDW,kern150_2,3340,7.771561172376096e-16,1.5088146966022945e-16,0
+new,dev r1 f3,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.847348851901406e-16,0
+new,dev r1 f3,FS5 + IDW,kern400_0,3340,5.551115123125783e-16,1.216425496591545e-16,0
+new,dev r1 f3,FS5 + IDW,kern400_1,3340,3.3306690738754696e-16,8.226952053734319e-17,0
+new,dev r1 f3,FS5 + IDW,kern400_2,3340,5.551115123125783e-16,1.2940413876843517e-16,0
+new,dev r1 f3,FS5 + IDW,dens400,3340,1.7763568394002505e-15,4.813182454063553e-16,0
+new,dev r1 f3,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r1 f3,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r1 f3,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r1 f3,FS5 + IDW,knndist5,3340,1.4654943925052066e-14,2.0813690092793053e-15,0
+new,dev r1 f3,FS5 + IDW,knn15_0,3340,0.05315520221223641,0.00022474534103393567,21
+new,dev r1 f3,FS5 + IDW,knn15_1,3340,0.039526027096703414,7.715582922283299e-05,21
+new,dev r1 f3,FS5 + IDW,knn15_2,3340,0.02942481652159068,9.916399974336838e-05,21
+new,dev r1 f3,FS5 + IDW,knndist15,3340,7.105427357601002e-15,1.1534352980387105e-15,0
+new,dev r1 f3,FS5 + IDW,knn40_0,3340,0.013037015256636808,1.5613191924115937e-05,4
+new,dev r1 f3,FS5 + IDW,knn40_1,3340,0.014613335235409947,1.750100028192808e-05,4
+new,dev r1 f3,FS5 + IDW,knn40_2,3340,0.0245230458084989,2.9368917135926825e-05,4
+new,dev r1 f3,FS5 + IDW,knndist40,3340,4.440892098500626e-15,7.916488489363092e-16,0
+new,dev r1 f3,FS5 + IDW,idw_0,3340,2.942091015256665e-15,7.807294398468074e-17,0
+new,dev r1 f3,FS5 + IDW,idw_1,3340,2.0261570199409107e-15,5.978251825713605e-17,0
+new,dev r1 f3,FS5 + IDW,idw_2,3340,3.3306690738754696e-15,7.81477344578965e-17,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_CBPP_50km,3340,2.1094237467877974e-15,2.2821793523504936e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_FMD_50km,3340,1.3322676295501878e-15,1.9130130571791838e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_LSD_50km,3340,2.609024107869118e-15,2.7841376908512555e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_CBPP_150km,3340,5.551115123125783e-16,1.4308664034063067e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_FMD_150km,3340,3.885780586188048e-16,8.74155205972169e-17,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_LSD_150km,3340,7.216449660063518e-16,1.5137591778871146e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_CBPP_400km,3340,5.273559366969494e-16,1.2246524486452794e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_FMD_400km,3340,3.3306690738754696e-16,8.300911521692132e-17,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_LSD_400km,3340,5.551115123125783e-16,1.2957033982002576e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_density_50km,3340,1.3766765505351941e-14,2.061736510060167e-15,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.847348851901406e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,4.813182454063553e-16,0
+old run-3,dev r1 f3,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f3,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f3,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f3,reference prior = all_fit,knn15_CBPP,3340,0.0531645826292666,0.00022477927379080517,21
+old run-3,dev r1 f3,reference prior = all_fit,knn15_FMD,3340,0.03952497217146578,7.714014796207735e-05,21
+old run-3,dev r1 f3,reference prior = all_fit,knn15_LSD,3340,0.029425758738026386,9.917589082621012e-05,21
+old run-3,dev r1 f3,reference prior = all_fit,knn40_CBPP,3340,0.013036692394226279,1.5612805262546442e-05,4
+old run-3,dev r1 f3,reference prior = all_fit,knn40_FMD,3340,0.01461370829199371,1.750144705627989e-05,4
+old run-3,dev r1 f3,reference prior = all_fit,knn40_LSD,3340,0.024523109960853495,2.9368993965094006e-05,4
+old run-3,dev r1 f3,reference prior = all_fit,log_dist_15th_location,3340,7.105427357601002e-15,1.1534352980387105e-15,0
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0013959725513302962,0.0001167914935073319,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0006210947524379652,7.750333617814718e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0012499094757707496,0.00010412343446900119,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_CBPP_150km,3340,4.800351130174185e-05,8.174051977573482e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_FMD_150km,3340,5.3758316693436337e-05,5.740409739300781e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.125857163999382e-05,7.458022200156432e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.2090001667575123e-05,2.1737241875061033e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_FMD_400km,3340,5.358195083654538e-06,1.4510634375962536e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.152020574804132e-06,1.7224997233920922e-06,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_density_50km,3340,1.3766765505351941e-14,2.061736510060167e-15,0
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.847348851901406e-16,0
+old run-3,dev r1 f3,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,4.813182454063553e-16,0
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn5_CBPP,3340,0.00118412627466985,0.00011276894590928214,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn5_FMD,3340,0.00043040694305057636,6.301313801361531e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn5_LSD,3340,0.0007141271103279778,8.007360632773187e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn15_CBPP,3340,0.05308641248734819,0.0002538365871288062,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn15_FMD,3340,0.03958826768572424,9.646831862305707e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn15_LSD,3340,0.029391838946341897,0.00012319850349405277,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn40_CBPP,3340,0.013043499410048065,2.5753767678963332e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn40_FMD,3340,0.014605843015686307,2.4326985820737617e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,knn40_LSD,3340,0.024521757415376044,3.790459276110345e-05,2690
+old run-3,dev r1 f3,reference prior = exclude_own_block,log_dist_15th_location,3340,7.105427357601002e-15,1.1534352980387105e-15,0
+new,dev r1 f4,FS5 + IDW,kern50_0,3340,2.275957200481571e-15,2.064591013121235e-16,0
+new,dev r1 f4,FS5 + IDW,kern50_1,3340,2.9976021664879227e-15,2.4696385571960954e-16,0
+new,dev r1 f4,FS5 + IDW,kern50_2,3340,2.3869795029440866e-15,2.888060092141136e-16,0
+new,dev r1 f4,FS5 + IDW,dens50,3340,1.4654943925052066e-14,2.20675163849632e-15,0
+new,dev r1 f4,FS5 + IDW,kern150_0,3340,6.661338147750939e-16,1.2142856580523161e-16,0
+new,dev r1 f4,FS5 + IDW,kern150_1,3340,4.996003610813204e-16,1.0492064635599603e-16,0
+new,dev r1 f4,FS5 + IDW,kern150_2,3340,8.604228440844963e-16,1.5334540025006e-16,0
+new,dev r1 f4,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.602700903960054e-16,0
+new,dev r1 f4,FS5 + IDW,kern400_0,3340,3.885780586188048e-16,9.815003101682427e-17,0
+new,dev r1 f4,FS5 + IDW,kern400_1,3340,3.885780586188048e-16,1.0209730599210085e-16,0
+new,dev r1 f4,FS5 + IDW,kern400_2,3340,4.440892098500626e-16,1.2376161306693456e-16,0
+new,dev r1 f4,FS5 + IDW,dens400,3340,2.6645352591003757e-15,4.786590285809058e-16,0
+new,dev r1 f4,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knndist5,3340,1.4654943925052066e-14,2.37614319438038e-15,0
+new,dev r1 f4,FS5 + IDW,knn15_0,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r1 f4,FS5 + IDW,knndist15,3340,6.217248937900877e-15,1.1272420123080332e-15,0
+new,dev r1 f4,FS5 + IDW,knn40_0,3340,0.007035195801964586,2.106346048492391e-06,1
+new,dev r1 f4,FS5 + IDW,knn40_1,3340,0.00164432138665066,4.923117924103772e-07,1
+new,dev r1 f4,FS5 + IDW,knn40_2,3340,0.004604194624685143,1.3785013846362704e-06,1
+new,dev r1 f4,FS5 + IDW,knndist40,3340,3.552713678800501e-15,6.730477785212625e-16,0
+new,dev r1 f4,FS5 + IDW,idw_0,3340,2.3869795029440866e-15,6.790143962733648e-17,0
+new,dev r1 f4,FS5 + IDW,idw_1,3340,2.248201624865942e-15,6.444445775425217e-17,0
+new,dev r1 f4,FS5 + IDW,idw_2,3340,3.2751579226442118e-15,7.706742762255765e-17,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_CBPP_50km,3340,2.220446049250313e-15,2.0687252642795512e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_FMD_50km,3340,2.9976021664879227e-15,2.447998660900714e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_LSD_50km,3340,2.4424906541753444e-15,2.917540003667017e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_CBPP_150km,3340,6.661338147750939e-16,1.1928664975285786e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_FMD_150km,3340,4.996003610813204e-16,1.0636659550483419e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_LSD_150km,3340,8.604228440844963e-16,1.5061139295139473e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_CBPP_400km,3340,3.885780586188048e-16,9.960429021824197e-17,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,1.025875990942931e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_LSD_400km,3340,4.440892098500626e-16,1.2426852627428586e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_density_50km,3340,1.4654943925052066e-14,2.20675163849632e-15,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.602700903960054e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,4.786590285809058e-16,0
+old run-3,dev r1 f4,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn15_CBPP,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r1 f4,reference prior = all_fit,knn40_CBPP,3340,0.007035181710326452,2.1063418294390575e-06,1
+old run-3,dev r1 f4,reference prior = all_fit,knn40_FMD,3340,0.001644280644605256,4.922995941931905e-07,1
+old run-3,dev r1 f4,reference prior = all_fit,knn40_LSD,3340,0.004604173191411098,1.378494967488353e-06,1
+old run-3,dev r1 f4,reference prior = all_fit,log_dist_15th_location,3340,6.217248937900877e-15,1.1272420123080332e-15,0
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0006712396341049254,7.902670625284918e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0005821523762266911,7.177493598868941e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0009703185537042885,9.102540040045139e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_CBPP_150km,3340,6.959753956528592e-05,7.3542159854878695e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_FMD_150km,3340,3.401213309395246e-05,6.629472998997033e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_LSD_150km,3340,5.573503546557612e-05,7.463941246218597e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_CBPP_400km,3340,9.899153493225787e-06,1.7950494816354335e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_FMD_400km,3340,6.58141991347061e-06,1.5855591966310051e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_LSD_400km,3340,8.737679971587697e-06,1.707271345692773e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_density_50km,3340,1.4654943925052066e-14,2.20675163849632e-15,0
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.602700903960054e-16,0
+old run-3,dev r1 f4,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,4.786590285809058e-16,0
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn5_CBPP,3340,0.0005216205923486983,7.285709421885445e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn5_FMD,3340,0.00049818285191916,6.297806869948656e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn5_LSD,3340,0.000500099780158525,6.629583999467743e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn15_CBPP,3340,0.00012330034752205954,2.4323757856328695e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn15_FMD,3340,9.700451591374004e-05,2.0773540880886374e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn15_LSD,3340,0.00011747440610160309,2.3088076123449835e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn40_CBPP,3340,0.0070329340940436386,1.0688881570818376e-05,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn40_FMD,3340,0.0016377822883676951,8.249135482938884e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,knn40_LSD,3340,0.004600754584202338,9.767867787211548e-06,2710
+old run-3,dev r1 f4,reference prior = exclude_own_block,log_dist_15th_location,3340,6.217248937900877e-15,1.1272420123080332e-15,0
+new,dev r2 f0,FS5 + IDW,kern50_0,3340,1.6653345369377348e-15,2.443113908118809e-16,0
+new,dev r2 f0,FS5 + IDW,kern50_1,3340,1.4988010832439613e-15,2.2804809853545525e-16,0
+new,dev r2 f0,FS5 + IDW,kern50_2,3340,1.8318679906315083e-15,2.5836317034557925e-16,0
+new,dev r2 f0,FS5 + IDW,dens50,3340,1.021405182655144e-14,1.9862272172962708e-15,0
+new,dev r2 f0,FS5 + IDW,kern150_0,3340,8.326672684688674e-16,1.364261331981377e-16,0
+new,dev r2 f0,FS5 + IDW,kern150_1,3340,4.996003610813204e-16,1.0746352244533209e-16,0
+new,dev r2 f0,FS5 + IDW,kern150_2,3340,6.106226635438361e-16,1.3701199190499453e-16,0
+new,dev r2 f0,FS5 + IDW,dens150,3340,4.440892098500626e-15,7.654555632056319e-16,0
+new,dev r2 f0,FS5 + IDW,kern400_0,3340,4.996003610813204e-16,1.2692774309973533e-16,0
+new,dev r2 f0,FS5 + IDW,kern400_1,3340,3.608224830031759e-16,1.0773983169360145e-16,0
+new,dev r2 f0,FS5 + IDW,kern400_2,3340,4.996003610813204e-16,1.2390288396078657e-16,0
+new,dev r2 f0,FS5 + IDW,dens400,3340,2.6645352591003757e-15,5.089741003910299e-16,0
+new,dev r2 f0,FS5 + IDW,knn5_0,3340,0.11168569596725625,0.000909347863229081,28
+new,dev r2 f0,FS5 + IDW,knn5_1,3340,0.06493060727538841,0.0005380795746872166,28
+new,dev r2 f0,FS5 + IDW,knn5_2,3340,0.05632478687830961,0.0004615495170662553,28
+new,dev r2 f0,FS5 + IDW,knndist5,3340,1.7319479184152442e-14,2.1627410441380593e-15,0
+new,dev r2 f0,FS5 + IDW,knn15_0,3340,0.0,0.0,0
+new,dev r2 f0,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r2 f0,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r2 f0,FS5 + IDW,knndist15,3340,7.105427357601002e-15,1.1506431203719887e-15,0
+new,dev r2 f0,FS5 + IDW,knn40_0,3340,0.019806423976819587,5.93006705892802e-06,1
+new,dev r2 f0,FS5 + IDW,knn40_1,3340,0.002126650032057198,6.36721566484191e-07,1
+new,dev r2 f0,FS5 + IDW,knn40_2,3340,0.030328284842728565,9.080324803212146e-06,1
+new,dev r2 f0,FS5 + IDW,knndist40,3340,5.329070518200751e-15,7.62397463856365e-16,0
+new,dev r2 f0,FS5 + IDW,idw_0,3340,3.608224830031759e-15,9.379556346515076e-17,0
+new,dev r2 f0,FS5 + IDW,idw_1,3340,1.4432899320127035e-15,7.274620028120224e-17,0
+new,dev r2 f0,FS5 + IDW,idw_2,3340,2.886579864025407e-15,7.621980225944563e-17,0
+new,dev r2 f0,non-default,kern33_0,3340,3.1086244689504383e-15,2.8503064845157604e-16,0
+new,dev r2 f0,non-default,kern33_1,3340,2.1649348980190553e-15,3.2453040587522515e-16,0
+new,dev r2 f0,non-default,kern33_2,3340,3.219646771412954e-15,3.30416000614677e-16,0
+new,dev r2 f0,non-default,dens33,3340,2.5757174171303632e-14,3.493855648820784e-15,0
+new,dev r2 f0,non-default,kern210_0,3340,5.551115123125783e-16,1.3793025271503255e-16,0
+new,dev r2 f0,non-default,kern210_1,3340,3.885780586188048e-16,1.0798497824469759e-16,0
+new,dev r2 f0,non-default,kern210_2,3340,6.938893903907228e-16,1.3793025271503255e-16,0
+new,dev r2 f0,non-default,dens210,3340,2.6645352591003757e-15,6.362176254887873e-16,0
+new,dev r2 f0,non-default,knn9_0,3340,0.03684978777785458,5.7205770473700816e-05,7
+new,dev r2 f0,non-default,knn9_1,3340,0.01997591982380248,3.699754537902764e-05,7
+new,dev r2 f0,non-default,knn9_2,3340,0.02911208151382827,3.488855253170826e-05,7
+new,dev r2 f0,non-default,knndist9,3340,1.0658141036401503e-14,1.6368809169054254e-15,0
+new,dev r2 f0,non-default,idw_0,3340,2.0539125955565396e-15,8.631651614357411e-17,0
+new,dev r2 f0,non-default,idw_1,3340,1.0269562977782698e-15,7.40508785361884e-17,0
+new,dev r2 f0,non-default,idw_2,3340,1.942890293094024e-15,8.034989839147185e-17,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_CBPP_50km,3340,1.7208456881689926e-15,2.444495454360156e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_FMD_50km,3340,1.4432899320127035e-15,2.276866112482457e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_LSD_50km,3340,1.8318679906315083e-15,2.5825098463575563e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_CBPP_150km,3340,8.326672684688674e-16,1.37215588193193e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_FMD_150km,3340,4.996003610813204e-16,1.0722253092052574e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_LSD_150km,3340,5.828670879282072e-16,1.363181025146038e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_CBPP_400km,3340,4.996003610813204e-16,1.284318626166302e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_FMD_400km,3340,3.608224830031759e-16,1.0806392374420311e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_LSD_400km,3340,4.996003610813204e-16,1.234125908585943e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_density_50km,3340,1.021405182655144e-14,1.9862272172962708e-15,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_density_150km,3340,4.440892098500626e-15,7.654555632056319e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,5.089741003910299e-16,0
+old run-3,dev r2 f0,reference prior = all_fit,knn5_CBPP,3340,0.11168821289561881,0.0009093675682927374,28
+old run-3,dev r2 f0,reference prior = all_fit,knn5_FMD,3340,0.06491761155931591,0.0005379778310634099,28
+old run-3,dev r2 f0,reference prior = all_fit,knn5_LSD,3340,0.0563184897495172,0.00046149700749969244,28
+old run-3,dev r2 f0,reference prior = all_fit,knn15_CBPP,3340,0.0,0.0,0
+old run-3,dev r2 f0,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r2 f0,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r2 f0,reference prior = all_fit,knn40_CBPP,3340,0.01980650328099942,5.930090802694438e-06,1
+old run-3,dev r2 f0,reference prior = all_fit,knn40_FMD,3340,0.0021265815373268104,6.367010590798834e-07,1
+old run-3,dev r2 f0,reference prior = all_fit,knn40_LSD,3340,0.030328230517327415,9.08030853812198e-06,1
+old run-3,dev r2 f0,reference prior = all_fit,log_dist_15th_location,3340,7.105427357601002e-15,1.1506431203719887e-15,0
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0030917587977583594,0.00014669106481836566,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0029754961675808045,0.00011959967818070729,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.003302915630036457,0.00012520160073978918,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_CBPP_150km,3340,7.102586175712633e-05,9.950861619239662e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_FMD_150km,3340,6.120678155074888e-05,7.44945902684532e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.794189071768209e-05,7.564952294763329e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.3772133733824798e-05,2.532654681102643e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_FMD_400km,3340,5.655657677072767e-06,1.7687403057114144e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_LSD_400km,3340,7.97548025993633e-06,1.7524084735469521e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_density_50km,3340,1.021405182655144e-14,1.9862272172962708e-15,0
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_density_150km,3340,4.440892098500626e-15,7.654555632056319e-16,0
+old run-3,dev r2 f0,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,5.089741003910299e-16,0
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn5_CBPP,3340,0.11165968770750989,0.00104544007279688,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn5_FMD,3340,0.06506489634147133,0.0006230941881345918,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn5_LSD,3340,0.056389857209165006,0.0005446542098637837,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn15_CBPP,3340,0.00029179974327675495,3.851449901640645e-05,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn15_FMD,3340,0.00015299041084429477,2.6442552948997305e-05,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn15_LSD,3340,0.00015972400102429868,2.567277925784945e-05,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn40_CBPP,3340,0.01978096733509227,1.8497027285398464e-05,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn40_FMD,3340,0.0021486368405166933,9.539414535570568e-06,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,knn40_LSD,3340,0.030345723296496846,1.7787970530437786e-05,2694
+old run-3,dev r2 f0,reference prior = exclude_own_block,log_dist_15th_location,3340,7.105427357601002e-15,1.1506431203719887e-15,0
+new,dev r2 f1,FS5 + IDW,kern50_0,3340,1.915134717478395e-15,2.3080755537014527e-16,0
+new,dev r2 f1,FS5 + IDW,kern50_1,3340,1.8318679906315083e-15,2.7229653163001934e-16,0
+new,dev r2 f1,FS5 + IDW,kern50_2,3340,2.55351295663786e-15,2.9636815706148554e-16,0
+new,dev r2 f1,FS5 + IDW,dens50,3340,1.2878587085651816e-14,2.1824462563172692e-15,0
+new,dev r2 f1,FS5 + IDW,kern150_0,3340,8.326672684688674e-16,1.4022382722698272e-16,0
+new,dev r2 f1,FS5 + IDW,kern150_1,3340,5.551115123125783e-16,1.224444697330791e-16,0
+new,dev r2 f1,FS5 + IDW,kern150_2,3340,6.38378239159465e-16,1.4001192088620472e-16,0
+new,dev r2 f1,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.094790490299204e-16,0
+new,dev r2 f1,FS5 + IDW,kern400_0,3340,5.273559366969494e-16,1.1511915838422375e-16,0
+new,dev r2 f1,FS5 + IDW,kern400_1,3340,4.718447854656915e-16,1.236951326462983e-16,0
+new,dev r2 f1,FS5 + IDW,kern400_2,3340,4.996003610813204e-16,1.4064763990853874e-16,0
+new,dev r2 f1,FS5 + IDW,dens400,3340,2.6645352591003757e-15,5.28386383216811e-16,0
+new,dev r2 f1,FS5 + IDW,knn5_0,3340,0.11162787093231541,0.0009088951503066985,28
+new,dev r2 f1,FS5 + IDW,knn5_1,3340,0.06490139248382004,0.0005378508517183288,28
+new,dev r2 f1,FS5 + IDW,knn5_2,3340,0.05627281966349229,0.0004611161805385305,28
+new,dev r2 f1,FS5 + IDW,knndist5,3340,1.7319479184152442e-14,2.3249532704904777e-15,0
+new,dev r2 f1,FS5 + IDW,knn15_0,3340,0.03708645835725155,0.00019986714084746344,18
+new,dev r2 f1,FS5 + IDW,knn15_1,3340,0.016928358065640636,9.123067221003936e-05,18
+new,dev r2 f1,FS5 + IDW,knn15_2,3340,0.010778331868668611,5.808681845390269e-05,18
+new,dev r2 f1,FS5 + IDW,knndist15,3340,8.881784197001252e-15,1.4000776585991496e-15,0
+new,dev r2 f1,FS5 + IDW,knn40_0,3340,0.021366939603240737,3.198643653179751e-05,5
+new,dev r2 f1,FS5 + IDW,knn40_1,3340,0.0019217126830071984,2.876815393723351e-06,5
+new,dev r2 f1,FS5 + IDW,knn40_2,3340,0.002643491726219249,3.9573229434419895e-06,5
+new,dev r2 f1,FS5 + IDW,knndist40,3340,5.329070518200751e-15,6.616131461718298e-16,0
+new,dev r2 f1,FS5 + IDW,idw_0,3340,4.107825191113079e-15,9.25407455256418e-17,0
+new,dev r2 f1,FS5 + IDW,idw_1,3340,1.5265566588595902e-15,6.937231893391323e-17,0
+new,dev r2 f1,FS5 + IDW,idw_2,3340,1.7486012637846216e-15,7.013684377122995e-17,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_CBPP_50km,3340,1.970645868709653e-15,2.3405678592874136e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_FMD_50km,3340,1.8318679906315083e-15,2.716665257688337e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_LSD_50km,3340,2.55351295663786e-15,2.9342847596147693e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_CBPP_150km,3340,8.326672684688674e-16,1.3946761244224553e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_FMD_150km,3340,5.551115123125783e-16,1.2283919723060677e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_LSD_150km,3340,6.38378239159465e-16,1.4070581027659543e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_CBPP_400km,3340,5.273559366969494e-16,1.146537954397701e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_FMD_400km,3340,4.718447854656915e-16,1.2199988192007429e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_LSD_400km,3340,4.996003610813204e-16,1.396587436515747e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_density_50km,3340,1.2878587085651816e-14,2.1824462563172692e-15,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.094790490299204e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,5.28386383216811e-16,0
+old run-3,dev r2 f1,reference prior = all_fit,knn5_CBPP,3340,0.11163170526717098,0.0009089251693622795,28
+old run-3,dev r2 f1,reference prior = all_fit,knn5_FMD,3340,0.06488870404547148,0.0005377515137756691,28
+old run-3,dev r2 f1,reference prior = all_fit,knn5_LSD,3340,0.056267491530416824,0.00046107175109018903,28
+old run-3,dev r2 f1,reference prior = all_fit,knn15_CBPP,3340,0.037110667287475196,0.0001999976081360939,18
+old run-3,dev r2 f1,reference prior = all_fit,knn15_FMD,3340,0.0169149900752322,9.115862914795798e-05,18
+old run-3,dev r2 f1,reference prior = all_fit,knn15_LSD,3340,0.01077021099321196,5.804305325683092e-05,18
+old run-3,dev r2 f1,reference prior = all_fit,knn40_CBPP,3340,0.021367286146707853,3.1986955309442895e-05,5
+old run-3,dev r2 f1,reference prior = all_fit,knn40_FMD,3340,0.0019222654321603139,2.87764286251544e-06,5
+old run-3,dev r2 f1,reference prior = all_fit,knn40_LSD,3340,0.0026429235128478112,3.956472324622472e-06,5
+old run-3,dev r2 f1,reference prior = all_fit,log_dist_15th_location,3340,8.881784197001252e-15,1.4000776585991496e-15,0
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0023576337979974715,0.00013073673747795192,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0022365570266308643,0.00012087460615653776,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.006650814316034176,0.00015577391983741552,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_CBPP_150km,3340,5.420822619231491e-05,9.74609027248641e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_FMD_150km,3340,5.398498003428287e-05,8.186001322475657e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.739605948805072e-05,8.84360173718913e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.0293446969622533e-05,2.3974068470616196e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_FMD_400km,3340,5.726083237067581e-06,1.9230542495394234e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_LSD_400km,3340,7.77580321911775e-06,2.0083198371105304e-06,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_density_50km,3340,1.2878587085651816e-14,2.1824462563172692e-15,0
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.094790490299204e-16,0
+old run-3,dev r2 f1,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,5.28386383216811e-16,0
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn5_CBPP,3340,0.11158824947214158,0.0010236525534946834,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn5_FMD,3340,0.06503250634675517,0.0006264808986438348,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn5_LSD,3340,0.056327877038605256,0.0005590999679170969,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn15_CBPP,3340,0.03697079346840526,0.00023243860715606283,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn15_FMD,3340,0.01699222735314765,0.00011754803088340092,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn15_LSD,3340,0.010817131606961683,8.566906877409695e-05,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn40_CBPP,3340,0.02137275550664572,4.2970337918584225e-05,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn40_FMD,3340,0.0019309892557510533,1.1738245832243015e-05,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,knn40_LSD,3340,0.0026339556235507877,1.3248656034736113e-05,2628
+old run-3,dev r2 f1,reference prior = exclude_own_block,log_dist_15th_location,3340,8.881784197001252e-15,1.4000776585991496e-15,0
+new,dev r2 f2,FS5 + IDW,kern50_0,3340,2.1649348980190553e-15,2.4765514821856916e-16,0
+new,dev r2 f2,FS5 + IDW,kern50_1,3340,2.0539125955565396e-15,2.251024445851551e-16,0
+new,dev r2 f2,FS5 + IDW,kern50_2,3340,2.9976021664879227e-15,2.6662855639249394e-16,0
+new,dev r2 f2,FS5 + IDW,dens50,3340,1.4210854715202004e-14,2.3697834661014303e-15,0
+new,dev r2 f2,FS5 + IDW,kern150_0,3340,7.771561172376096e-16,1.6077458725615946e-16,0
+new,dev r2 f2,FS5 + IDW,kern150_1,3340,4.440892098500626e-16,9.835154979187787e-17,0
+new,dev r2 f2,FS5 + IDW,kern150_2,3340,8.881784197001252e-16,1.4786907560014996e-16,0
+new,dev r2 f2,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.440488677607636e-16,0
+new,dev r2 f2,FS5 + IDW,kern400_0,3340,6.106226635438361e-16,1.2542362358284049e-16,0
+new,dev r2 f2,FS5 + IDW,kern400_1,3340,3.885780586188048e-16,9.07333090895941e-17,0
+new,dev r2 f2,FS5 + IDW,kern400_2,3340,4.996003610813204e-16,1.3557850783502568e-16,0
+new,dev r2 f2,FS5 + IDW,dens400,3340,1.7763568394002505e-15,4.746702033427316e-16,0
+new,dev r2 f2,FS5 + IDW,knn5_0,3340,0.021709637731512826,6.499891536381086e-06,1
+new,dev r2 f2,FS5 + IDW,knn5_1,3340,0.04399758748379373,1.3172930384369382e-05,1
+new,dev r2 f2,FS5 + IDW,knn5_2,3340,0.020766026537678284,6.217373214873738e-06,1
+new,dev r2 f2,FS5 + IDW,knndist5,3340,1.7319479184152442e-14,2.2130002421390545e-15,0
+new,dev r2 f2,FS5 + IDW,knn15_0,3340,0.03716567294416065,0.00020029404580685378,18
+new,dev r2 f2,FS5 + IDW,knn15_1,3340,0.01678429592174617,9.045428939863206e-05,18
+new,dev r2 f2,FS5 + IDW,knn15_2,3340,0.010771459095632652,5.804977955730171e-05,18
+new,dev r2 f2,FS5 + IDW,knndist15,3340,8.881784197001252e-15,1.3322676295501878e-15,0
+new,dev r2 f2,FS5 + IDW,knn40_0,3340,0.012931751299682603,2.838485476257322e-05,12
+new,dev r2 f2,FS5 + IDW,knn40_1,3340,0.014771461935026722,2.8246307014532348e-05,12
+new,dev r2 f2,FS5 + IDW,knn40_2,3340,0.05654843241516394,8.340677619005057e-05,12
+new,dev r2 f2,FS5 + IDW,knndist40,3340,4.440892098500626e-15,8.514812275089225e-16,0
+new,dev r2 f2,FS5 + IDW,idw_0,3340,1.8318679906315083e-15,8.211162953833213e-17,0
+new,dev r2 f2,FS5 + IDW,idw_1,3340,1.304512053934559e-15,6.304005886831166e-17,0
+new,dev r2 f2,FS5 + IDW,idw_2,3340,2.886579864025407e-15,7.471568274255076e-17,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_CBPP_50km,3340,2.1094237467877974e-15,2.4884556325058676e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_FMD_50km,3340,2.0539125955565396e-15,2.262996115348936e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_LSD_50km,3340,3.0531133177191805e-15,2.673390658880437e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_CBPP_150km,3340,7.216449660063518e-16,1.6112153195135482e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_FMD_150km,3340,4.440892098500626e-16,9.940069393004348e-17,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_LSD_150km,3340,8.326672684688674e-16,1.4724582165668525e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_CBPP_400km,3340,6.106226635438361e-16,1.2676154204814474e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,9.019315567192468e-17,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_LSD_400km,3340,4.718447854656915e-16,1.3498018404929954e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_density_50km,3340,1.4210854715202004e-14,2.3697834661014303e-15,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.440488677607636e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,4.746702033427316e-16,0
+old run-3,dev r2 f2,reference prior = all_fit,knn5_CBPP,3340,0.021707412901061263,6.49922541947942e-06,1
+old run-3,dev r2 f2,reference prior = all_fit,knn5_FMD,3340,0.044010237325846246,1.3176717762229415e-05,1
+old run-3,dev r2 f2,reference prior = all_fit,knn5_LSD,3340,0.02076141306587087,6.215991935889482e-06,1
+old run-3,dev r2 f2,reference prior = all_fit,knn15_CBPP,3340,0.0371881125178789,0.00020041497764126354,18
+old run-3,dev r2 f2,reference prior = all_fit,knn15_FMD,3340,0.0167740759002612,9.03992114385334e-05,18
+old run-3,dev r2 f2,reference prior = all_fit,knn15_LSD,3340,0.010763505446188093,5.8006915578259184e-05,18
+old run-3,dev r2 f2,reference prior = all_fit,knn40_CBPP,3340,0.012931446597470309,2.838437556166168e-05,12
+old run-3,dev r2 f2,reference prior = all_fit,knn40_FMD,3340,0.014771765607839646,2.824681509594004e-05,12
+old run-3,dev r2 f2,reference prior = all_fit,knn40_LSD,3340,0.05654854189769565,8.340706609504439e-05,12
+old run-3,dev r2 f2,reference prior = all_fit,log_dist_15th_location,3340,8.881784197001252e-15,1.3322676295501878e-15,0
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.005162952523400183,0.00019929707817535402,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0038847672117718612,0.0001435467047617782,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0053294425467618756,0.00019133813858212474,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_CBPP_150km,3340,6.923990719154283e-05,1.021808573027644e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_FMD_150km,3340,4.366887509438255e-05,6.79749501569551e-06,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.393839671259283e-05,8.310754922962022e-06,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.5983380800305147e-05,2.4370024208062056e-06,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_FMD_400km,3340,6.8237387479686e-06,1.5995376300018942e-06,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_LSD_400km,3340,7.750042827131542e-06,1.8651307964878832e-06,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_density_50km,3340,1.4210854715202004e-14,2.3697834661014303e-15,0
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.440488677607636e-16,0
+old run-3,dev r2 f2,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,4.746702033427316e-16,0
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn5_CBPP,3340,0.02168827935917783,0.00012660446185177833,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn5_FMD,3340,0.044119025967498116,8.113434824481893e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn5_LSD,3340,0.020721737208327262,9.135203276838904e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn15_CBPP,3340,0.03705846164750673,0.0002346133366654922,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn15_FMD,3340,0.01683312491328548,0.00011155344812145121,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn15_LSD,3340,0.010809459865201376,8.415589221986408e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn40_CBPP,3340,0.012937896127630799,4.033803034950974e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn40_FMD,3340,0.01476533786663245,3.593490705979011e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,knn40_LSD,3340,0.05654007524857413,9.269674873162448e-05,2634
+old run-3,dev r2 f2,reference prior = exclude_own_block,log_dist_15th_location,3340,8.881784197001252e-15,1.3322676295501878e-15,0
+new,dev r2 f3,FS5 + IDW,kern50_0,3340,2.3314683517128287e-15,2.47198095326695e-16,0
+new,dev r2 f3,FS5 + IDW,kern50_1,3340,1.887379141862766e-15,2.5480309188268016e-16,0
+new,dev r2 f3,FS5 + IDW,kern50_2,3340,2.1094237467877974e-15,2.9504737807962656e-16,0
+new,dev r2 f3,FS5 + IDW,dens50,3340,1.3766765505351941e-14,2.2618176460175014e-15,0
+new,dev r2 f3,FS5 + IDW,kern150_0,3340,6.106226635438361e-16,1.2484607492856316e-16,0
+new,dev r2 f3,FS5 + IDW,kern150_1,3340,6.661338147750939e-16,9.250750531532367e-17,0
+new,dev r2 f3,FS5 + IDW,kern150_2,3340,7.771561172376096e-16,1.4020720712182366e-16,0
+new,dev r2 f3,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.905851622061295e-16,0
+new,dev r2 f3,FS5 + IDW,kern400_0,3340,4.163336342344337e-16,1.0611937144059318e-16,0
+new,dev r2 f3,FS5 + IDW,kern400_1,3340,3.3306690738754696e-16,8.792866634400286e-17,0
+new,dev r2 f3,FS5 + IDW,kern400_2,3340,4.163336342344337e-16,1.2157606923851828e-16,0
+new,dev r2 f3,FS5 + IDW,dens400,3340,1.7763568394002505e-15,5.395550938836988e-16,0
+new,dev r2 f3,FS5 + IDW,knn5_0,3340,0.08449362778480397,0.00024898390635941703,12
+new,dev r2 f3,FS5 + IDW,knn5_1,3340,0.0936438369491196,0.00029854962708108444,12
+new,dev r2 f3,FS5 + IDW,knn5_2,3340,0.006294873042124727,1.3463959401872703e-05,12
+new,dev r2 f3,FS5 + IDW,knndist5,3340,1.0658141036401503e-14,2.0626215306598866e-15,0
+new,dev r2 f3,FS5 + IDW,knn15_0,3340,0.012169767629173212,1.0930929008239411e-05,3
+new,dev r2 f3,FS5 + IDW,knn15_1,3340,0.019767755023961983,1.775546858439699e-05,3
+new,dev r2 f3,FS5 + IDW,knn15_2,3340,0.1393758054448069,0.00012518784920192237,3
+new,dev r2 f3,FS5 + IDW,knndist15,3340,5.329070518200751e-15,1.0296487548140374e-15,0
+new,dev r2 f3,FS5 + IDW,knn40_0,3340,0.004598330275297546,1.376745591406451e-05,10
+new,dev r2 f3,FS5 + IDW,knn40_1,3340,0.013517886421560404,4.04727138370072e-05,10
+new,dev r2 f3,FS5 + IDW,knn40_2,3340,0.004147446364210328,1.2417504084462058e-05,10
+new,dev r2 f3,FS5 + IDW,knndist40,3340,4.440892098500626e-15,6.459237669016779e-16,0
+new,dev r2 f3,FS5 + IDW,idw_0,3340,3.941291737419306e-15,8.079033117818691e-17,0
+new,dev r2 f3,FS5 + IDW,idw_1,3340,1.27675647831893e-15,5.615102527988161e-17,0
+new,dev r2 f3,FS5 + IDW,idw_2,3340,2.886579864025407e-15,6.151931924625774e-17,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_CBPP_50km,3340,2.3314683517128287e-15,2.4708487086029894e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_FMD_50km,3340,1.8318679906315083e-15,2.543605815828202e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_LSD_50km,3340,2.1094237467877974e-15,2.949705100932659e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_CBPP_150km,3340,6.106226635438361e-16,1.2309265383428243e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_FMD_150km,3340,6.661338147750939e-16,9.208784766005743e-17,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_LSD_150km,3340,7.771561172376096e-16,1.3865322728945162e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_CBPP_400km,3340,4.163336342344337e-16,1.0675093543663743e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_FMD_400km,3340,3.3306690738754696e-16,8.668215845707342e-17,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_LSD_400km,3340,4.440892098500626e-16,1.221162226561877e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_density_50km,3340,1.3766765505351941e-14,2.2618176460175014e-15,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.905851622061295e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,5.395550938836988e-16,0
+old run-3,dev r2 f3,reference prior = all_fit,knn5_CBPP,3340,0.08449362778480397,0.00024898390635941703,12
+old run-3,dev r2 f3,reference prior = all_fit,knn5_FMD,3340,0.0936438369491196,0.00029854962708108444,12
+old run-3,dev r2 f3,reference prior = all_fit,knn5_LSD,3340,0.006294873042124727,1.3463959401872703e-05,12
+old run-3,dev r2 f3,reference prior = all_fit,knn15_CBPP,3340,0.012169071611710658,1.0930303842853884e-05,3
+old run-3,dev r2 f3,reference prior = all_fit,knn15_FMD,3340,0.019768374972671074,1.7756025424554857e-05,3
+old run-3,dev r2 f3,reference prior = all_fit,knn15_LSD,3340,0.13937637886828455,0.00012518836425295018,3
+old run-3,dev r2 f3,reference prior = all_fit,knn40_CBPP,3340,0.004598393461596517,1.3767645094600351e-05,10
+old run-3,dev r2 f3,reference prior = all_fit,knn40_FMD,3340,0.013517948838980776,4.0472900715511306e-05,10
+old run-3,dev r2 f3,reference prior = all_fit,knn40_LSD,3340,0.004147369726173855,1.241727462926304e-05,10
+old run-3,dev r2 f3,reference prior = all_fit,log_dist_15th_location,3340,5.329070518200751e-15,1.0296487548140374e-15,0
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0011522706702492558,0.0001441539137470397,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.003610839245462405,0.00014140429854813291,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.002178368865642155,0.0001436129075641352,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_CBPP_150km,3340,5.6906282092428206e-05,1.106945711174143e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_FMD_150km,3340,3.621098334488648e-05,7.757755811915596e-06,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_LSD_150km,3340,7.248844530924337e-05,8.95446230712513e-06,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.533874221182341e-05,2.807447953108527e-06,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_FMD_400km,3340,6.183155240702121e-06,1.8166123540912172e-06,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_LSD_400km,3340,7.594535192612106e-06,1.982409659425517e-06,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_density_50km,3340,1.3766765505351941e-14,2.2618176460175014e-15,0
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.905851622061295e-16,0
+old run-3,dev r2 f3,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,5.395550938836988e-16,0
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn5_CBPP,3340,0.08449362778480397,0.0003901189913152249,2717
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn5_FMD,3340,0.0936438369491196,0.00037472259611069474,2717
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn5_LSD,3340,0.006294873042124727,9.707063470276474e-05,2717
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn15_CBPP,3340,0.01219134417051132,5.238678422032241e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn15_FMD,3340,0.019748536613980003,4.324154913390806e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn15_LSD,3340,0.13935802931699995,0.00015284115068926862,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn40_CBPP,3340,0.0045876201976203235,2.7358020647740077e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn40_FMD,3340,0.013507306668808283,4.9068672481177256e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,knn40_LSD,3340,0.0041604365113972475,2.2075119575657306e-05,2705
+old run-3,dev r2 f3,reference prior = exclude_own_block,log_dist_15th_location,3340,5.329070518200751e-15,1.0296487548140374e-15,0
+new,dev r2 f4,FS5 + IDW,kern50_0,3340,1.9984014443252818e-15,2.1733903765187266e-16,0
+new,dev r2 f4,FS5 + IDW,kern50_1,3340,1.6375789613221059e-15,2.455745188039694e-16,0
+new,dev r2 f4,FS5 + IDW,kern50_2,3340,2.3869795029440866e-15,2.986793904351672e-16,0
+new,dev r2 f4,FS5 + IDW,dens50,3340,1.2434497875801753e-14,2.2758237202620124e-15,0
+new,dev r2 f4,FS5 + IDW,kern150_0,3340,6.38378239159465e-16,1.2765071767415441e-16,0
+new,dev r2 f4,FS5 + IDW,kern150_1,3340,4.996003610813204e-16,1.1909759605667355e-16,0
+new,dev r2 f4,FS5 + IDW,kern150_2,3340,8.326672684688674e-16,1.4822225283477998e-16,0
+new,dev r2 f4,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.698432709676235e-16,0
+new,dev r2 f4,FS5 + IDW,kern400_0,3340,4.440892098500626e-16,1.0897802952795137e-16,0
+new,dev r2 f4,FS5 + IDW,kern400_1,3340,4.163336342344337e-16,1.0470666250207315e-16,0
+new,dev r2 f4,FS5 + IDW,kern400_2,3340,5.551115123125783e-16,1.3539568667827602e-16,0
+new,dev r2 f4,FS5 + IDW,dens400,3340,1.7763568394002505e-15,5.297159916295358e-16,0
+new,dev r2 f4,FS5 + IDW,knn5_0,3340,0.11158744956310768,0.0009020542329951817,27
+new,dev r2 f4,FS5 + IDW,knn5_1,3340,0.06495639695647737,0.0005250966221032601,27
+new,dev r2 f4,FS5 + IDW,knn5_2,3340,0.05628175423425702,0.000454972264767946,27
+new,dev r2 f4,FS5 + IDW,knndist5,3340,1.7319479184152442e-14,2.2968985329819855e-15,0
+new,dev r2 f4,FS5 + IDW,knn15_0,3340,0.0,0.0,0
+new,dev r2 f4,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r2 f4,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r2 f4,FS5 + IDW,knndist15,3340,8.881784197001252e-15,1.1275079339905782e-15,0
+new,dev r2 f4,FS5 + IDW,knn40_0,3340,0.021746593616357834,4.217690897232159e-05,16
+new,dev r2 f4,FS5 + IDW,knn40_1,3340,0.004032350771610349,1.1645790990454642e-05,16
+new,dev r2 f4,FS5 + IDW,knn40_2,3340,0.00522941336217142,8.108496334145973e-06,16
+new,dev r2 f4,FS5 + IDW,knndist40,3340,4.440892098500626e-15,7.022991636012068e-16,0
+new,dev r2 f4,FS5 + IDW,idw_0,3340,4.052314039881821e-15,7.159941302522717e-17,0
+new,dev r2 f4,FS5 + IDW,idw_1,3340,1.3322676295501878e-15,5.60097543860296e-17,0
+new,dev r2 f4,FS5 + IDW,idw_2,3340,2.886579864025407e-15,7.191519502324929e-17,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_CBPP_50km,3340,1.9984014443252818e-15,2.1814615150865949e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_FMD_50km,3340,1.6375789613221059e-15,2.4277455046295413e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_LSD_50km,3340,2.3314683517128287e-15,2.9626324264766896e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_CBPP_150km,3340,6.38378239159465e-16,1.270149986518204e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_FMD_150km,3340,4.996003610813204e-16,1.2011557749766593e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_LSD_150km,3340,8.326672684688674e-16,1.4858789514827927e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_CBPP_400km,3340,4.440892098500626e-16,1.0856252689897488e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_FMD_400km,3340,4.163336342344337e-16,1.0274549009330415e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_LSD_400km,3340,5.273559366969494e-16,1.3601894062174073e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_density_50km,3340,1.2434497875801753e-14,2.2758237202620124e-15,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.698432709676235e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,5.297159916295358e-16,0
+old run-3,dev r2 f4,reference prior = all_fit,knn5_CBPP,3340,0.11159203668798551,0.0009020913145435955,27
+old run-3,dev r2 f4,reference prior = all_fit,knn5_FMD,3340,0.06494288066491699,0.0005249873586684906,27
+old run-3,dev r2 f4,reference prior = all_fit,knn5_LSD,3340,0.0562763775746587,0.0004549288007532289,27
+old run-3,dev r2 f4,reference prior = all_fit,knn15_CBPP,3340,0.0,0.0,0
+old run-3,dev r2 f4,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r2 f4,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r2 f4,reference prior = all_fit,knn40_CBPP,3340,0.021746205842319344,4.2176748080563537e-05,16
+old run-3,dev r2 f4,reference prior = all_fit,knn40_FMD,3340,0.004031670510673158,1.1645805944933593e-05,16
+old run-3,dev r2 f4,reference prior = all_fit,knn40_LSD,3340,0.005229561305452185,8.108778097663123e-06,16
+old run-3,dev r2 f4,reference prior = all_fit,log_dist_15th_location,3340,8.881784197001252e-15,1.1275079339905782e-15,0
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.002256681550574069,0.00015114507517667298,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.001671093816953656,9.395746403027417e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.002170317794860155,0.0001225243457376411,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_CBPP_150km,3340,6.650528062268624e-05,9.430359149974386e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_FMD_150km,3340,3.4665922085341805e-05,6.069388898456871e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.501914737441772e-05,8.015830953167305e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.6188167577230184e-05,2.46701216325009e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_FMD_400km,3340,4.980180453556526e-06,1.528146867075936e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_LSD_400km,3340,7.219053225454575e-06,1.9612109553617614e-06,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_density_50km,3340,1.2434497875801753e-14,2.2758237202620124e-15,0
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.698432709676235e-16,0
+old run-3,dev r2 f4,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,5.297159916295358e-16,0
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn5_CBPP,3340,0.11154004927270378,0.001012108696472125,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn5_FMD,3340,0.06509606530260137,0.0005938654211161408,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn5_LSD,3340,0.056337313050106363,0.000544399536426953,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn15_CBPP,3340,0.0002459315744692825,3.603154696295693e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn15_FMD,3340,0.00018780697175654198,2.2652055757367716e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn15_LSD,3340,0.00016508463182832167,2.8861280218843067e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn40_CBPP,3340,0.021754615691779555,5.45326839329232e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn40_FMD,3340,0.004046423669748611,1.9737002936205106e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,knn40_LSD,3340,0.0052263527855510306,1.8402333996144877e-05,2699
+old run-3,dev r2 f4,reference prior = exclude_own_block,log_dist_15th_location,3340,8.881784197001252e-15,1.1275079339905782e-15,0
+new,dev r3 f0,FS5 + IDW,kern50_0,3340,2.0539125955565396e-15,2.1847024355926113e-16,0
+new,dev r3 f0,FS5 + IDW,kern50_1,3340,1.4988010832439613e-15,2.4123667135745494e-16,0
+new,dev r3 f0,FS5 + IDW,kern50_2,3340,1.887379141862766e-15,2.6806619548875256e-16,0
+new,dev r3 f0,FS5 + IDW,dens50,3340,1.4654943925052066e-14,2.1625623780075994e-15,0
+new,dev r3 f0,FS5 + IDW,kern150_0,3340,6.661338147750939e-16,1.2419165828792522e-16,0
+new,dev r3 f0,FS5 + IDW,kern150_1,3340,4.996003610813204e-16,1.0646839364893342e-16,0
+new,dev r3 f0,FS5 + IDW,kern150_2,3340,6.938893903907228e-16,1.491384361316731e-16,0
+new,dev r3 f0,FS5 + IDW,dens150,3340,3.552713678800501e-15,8.452320679691162e-16,0
+new,dev r3 f0,FS5 + IDW,kern400_0,3340,4.440892098500626e-16,1.0829660521642994e-16,0
+new,dev r3 f0,FS5 + IDW,kern400_1,3340,3.608224830031759e-16,9.598941734614659e-17,0
+new,dev r3 f0,FS5 + IDW,kern400_2,3340,4.996003610813204e-16,1.3512976499573106e-16,0
+new,dev r3 f0,FS5 + IDW,dens400,3340,2.6645352591003757e-15,5.23865714613547e-16,0
+new,dev r3 f0,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knndist5,3340,1.7763568394002505e-14,2.341440414808264e-15,0
+new,dev r3 f0,FS5 + IDW,knn15_0,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r3 f0,FS5 + IDW,knndist15,3340,8.43769498715119e-15,1.2970330066129823e-15,0
+new,dev r3 f0,FS5 + IDW,knn40_0,3340,0.02477095966669149,1.1997974374417538e-05,3
+new,dev r3 f0,FS5 + IDW,knn40_1,3340,0.028562727953423184,9.95643656003219e-06,3
+new,dev r3 f0,FS5 + IDW,knn40_2,3340,0.07830868284985176,2.442003684706086e-05,3
+new,dev r3 f0,FS5 + IDW,knndist40,3340,3.552713678800501e-15,7.254343499826173e-16,0
+new,dev r3 f0,FS5 + IDW,idw_0,3340,2.0261570199409107e-15,5.76385246916174e-17,0
+new,dev r3 f0,FS5 + IDW,idw_1,3340,3.885780586188048e-15,6.813412109956331e-17,0
+new,dev r3 f0,FS5 + IDW,idw_2,3340,2.7478019859472624e-15,7.191519502324929e-17,0
+new,dev r3 f0,non-default,kern33_0,3340,1.942890293094024e-15,2.82892887425492e-16,0
+new,dev r3 f0,non-default,kern33_1,3340,2.4424906541753444e-15,3.058722603210363e-16,0
+new,dev r3 f0,non-default,kern33_2,3340,3.774758283725532e-15,3.3893795953498465e-16,0
+new,dev r3 f0,non-default,dens33,3340,1.9539925233402755e-14,3.770499154550523e-15,0
+new,dev r3 f0,non-default,kern210_0,3340,4.718447854656915e-16,1.0849189145204889e-16,0
+new,dev r3 f0,non-default,kern210_1,3340,4.718447854656915e-16,9.196319687136448e-17,0
+new,dev r3 f0,non-default,kern210_2,3340,6.106226635438361e-16,1.3802166329340738e-16,0
+new,dev r3 f0,non-default,dens210,3340,3.552713678800501e-15,5.638869278365615e-16,0
+new,dev r3 f0,non-default,knn9_0,3340,0.013568521031207592,8.124862892938677e-06,2
+new,dev r3 f0,non-default,knn9_1,3340,0.0,0.0,0
+new,dev r3 f0,non-default,knn9_2,3340,0.0,0.0,0
+new,dev r3 f0,non-default,knndist9,3340,1.0658141036401503e-14,1.5827658545075286e-15,0
+new,dev r3 f0,non-default,idw_0,3340,1.27675647831893e-15,6.113705682759938e-17,0
+new,dev r3 f0,non-default,idw_1,3340,2.3869795029440866e-15,6.79346798376546e-17,0
+new,dev r3 f0,non-default,idw_2,3340,1.8596235662471372e-15,7.483202347866419e-17,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_CBPP_50km,3340,2.0539125955565396e-15,2.1950172883569524e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_FMD_50km,3340,1.4988010832439613e-15,2.4052564248361894e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_LSD_50km,3340,1.887379141862766e-15,2.697546942972557e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_CBPP_150km,3340,6.661338147750939e-16,1.2260028321894528e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_FMD_150km,3340,4.996003610813204e-16,1.0529667623521975e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_LSD_150km,3340,6.938893903907228e-16,1.4822433034792486e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_CBPP_400km,3340,4.440892098500626e-16,1.1068159030675494e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_FMD_400km,3340,3.608224830031759e-16,9.489249040564867e-17,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_LSD_400km,3340,5.273559366969494e-16,1.3581949935983203e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_density_50km,3340,1.4654943925052066e-14,2.1625623780075994e-15,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,8.452320679691162e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,5.23865714613547e-16,0
+old run-3,dev r3 f0,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn15_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f0,reference prior = all_fit,knn40_CBPP,3340,0.024772793324120607,1.1998524815781832e-05,3
+old run-3,dev r3 f0,reference prior = all_fit,knn40_FMD,3340,0.02856339751486041,9.956634705880575e-06,3
+old run-3,dev r3 f0,reference prior = all_fit,knn40_LSD,3340,0.07830587223770036,2.441919698728057e-05,3
+old run-3,dev r3 f0,reference prior = all_fit,log_dist_15th_location,3340,8.43769498715119e-15,1.2970330066129823e-15,0
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0019077112023436205,9.984114685817991e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0010020435606243328,9.459686361303058e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0009643686017240388,0.0001062479080911192,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_CBPP_150km,3340,4.478920705842937e-05,8.201738723146786e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_FMD_150km,3340,3.4207281091006014e-05,7.001642050920938e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.880168950881838e-05,8.521626949843168e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_CBPP_400km,3340,9.93559233916641e-06,1.9438380580793294e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_FMD_400km,3340,7.018598132790821e-06,1.6076834175949637e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.18424391893602e-06,1.9283717389122255e-06,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_density_50km,3340,1.4654943925052066e-14,2.1625623780075994e-15,0
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,8.452320679691162e-16,0
+old run-3,dev r3 f0,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,5.23865714613547e-16,0
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn5_CBPP,3340,0.0009074520508357553,7.767601030892578e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn5_FMD,3340,0.0005537063269114018,6.815754804116802e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn5_LSD,3340,0.0006629575577659676,8.12780484478921e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn15_CBPP,3340,0.00028873474344773276,2.697944366993112e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn15_FMD,3340,0.00013842658172785738,2.1370210443049712e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn15_LSD,3340,0.00014098465773623725,2.4993032602158372e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn40_CBPP,3340,0.02478973282608518,2.1390832580664754e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn40_FMD,3340,0.02856958298718526,1.7766710995048456e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,knn40_LSD,3340,0.0782799075349688,3.368901328504975e-05,2639
+old run-3,dev r3 f0,reference prior = exclude_own_block,log_dist_15th_location,3340,8.43769498715119e-15,1.2970330066129823e-15,0
+new,dev r3 f1,FS5 + IDW,kern50_0,3340,1.27675647831893e-15,2.3330264865714903e-16,0
+new,dev r3 f1,FS5 + IDW,kern50_1,3340,1.3600232051658168e-15,2.2545588150892823e-16,0
+new,dev r3 f1,FS5 + IDW,kern50_2,3340,2.3314683517128287e-15,2.8262852387780576e-16,0
+new,dev r3 f1,FS5 + IDW,dens50,3340,1.4210854715202004e-14,2.087046852704269e-15,0
+new,dev r3 f1,FS5 + IDW,kern150_0,3340,7.216449660063518e-16,1.283612271697042e-16,0
+new,dev r3 f1,FS5 + IDW,kern150_1,3340,5.828670879282072e-16,1.0595732541529235e-16,0
+new,dev r3 f1,FS5 + IDW,kern150_2,3340,8.881784197001252e-16,1.4601593387491486e-16,0
+new,dev r3 f1,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.982968909999329e-16,0
+new,dev r3 f1,FS5 + IDW,kern400_0,3340,4.163336342344337e-16,1.0759025074716992e-16,0
+new,dev r3 f1,FS5 + IDW,kern400_1,3340,3.885780586188048e-16,1.005433261597288e-16,0
+new,dev r3 f1,FS5 + IDW,kern400_2,3340,4.996003610813204e-16,1.2605518757888473e-16,0
+new,dev r3 f1,FS5 + IDW,dens400,3340,2.6645352591003757e-15,4.8264785381908e-16,0
+new,dev r3 f1,FS5 + IDW,knn5_0,3340,0.04347826086956519,1.3017443374121315e-05,1
+new,dev r3 f1,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r3 f1,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r3 f1,FS5 + IDW,knndist5,3340,1.7763568394002505e-14,2.3322661167604636e-15,0
+new,dev r3 f1,FS5 + IDW,knn15_0,3340,0.0,0.0,0
+new,dev r3 f1,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r3 f1,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r3 f1,FS5 + IDW,knndist15,3340,6.217248937900877e-15,1.4093849174882226e-15,0
+new,dev r3 f1,FS5 + IDW,knn40_0,3340,0.00719424460431653,2.1539654503941705e-06,1
+new,dev r3 f1,FS5 + IDW,knn40_1,3340,0.003597122302158251,1.0769827251970812e-06,1
+new,dev r3 f1,FS5 + IDW,knn40_2,3340,0.007194244604316585,2.1539654503941874e-06,1
+new,dev r3 f1,FS5 + IDW,knndist40,3340,4.440892098500626e-15,8.169114087780792e-16,0
+new,dev r3 f1,FS5 + IDW,idw_0,3340,2.1094237467877974e-15,6.403726517785521e-17,0
+new,dev r3 f1,FS5 + IDW,idw_1,3340,3.6914915568786455e-15,7.277113043894084e-17,0
+new,dev r3 f1,FS5 + IDW,idw_2,3340,2.7478019859472624e-15,6.962162051129911e-17,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_CBPP_50km,3340,1.3322676295501878e-15,2.3575774981611383e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_FMD_50km,3340,1.3877787807814457e-15,2.2490741803867925e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_LSD_50km,3340,2.3314683517128287e-15,2.827864148768168e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_CBPP_150km,3340,7.216449660063518e-16,1.2874348958836255e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_FMD_150km,3340,5.828670879282072e-16,1.0693791161967685e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_LSD_150km,3340,8.881784197001252e-16,1.4482759635604213e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_CBPP_400km,3340,4.163336342344337e-16,1.0790603274519204e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,1.0065966689584223e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_LSD_400km,3340,5.273559366969494e-16,1.2762578751641583e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_density_50km,3340,1.4210854715202004e-14,2.087046852704269e-15,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.982968909999329e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,4.8264785381908e-16,0
+old run-3,dev r3 f1,reference prior = all_fit,knn5_CBPP,3340,0.04347826086956519,1.3017443374121315e-05,1
+old run-3,dev r3 f1,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f1,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f1,reference prior = all_fit,knn15_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f1,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f1,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f1,reference prior = all_fit,knn40_CBPP,3340,0.0071942446043165575,2.153965450394179e-06,1
+old run-3,dev r3 f1,reference prior = all_fit,knn40_FMD,3340,0.0035971223021582788,1.0769827251970895e-06,1
+old run-3,dev r3 f1,reference prior = all_fit,knn40_LSD,3340,0.007194244604316585,2.1539654503941874e-06,1
+old run-3,dev r3 f1,reference prior = all_fit,log_dist_15th_location,3340,6.217248937900877e-15,1.4093849174882226e-15,0
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0021093274124969197,0.0001425304678929016,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0024560161740666275,0.00014050102056138627,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0013922290793556558,0.00010997786177483927,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_CBPP_150km,3340,5.762379878049284e-05,8.786978389834323e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_FMD_150km,3340,4.216115372829288e-05,7.457491572912681e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_LSD_150km,3340,5.645317201169453e-05,6.891675949523354e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.4499704525938739e-05,2.2037776565184115e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_FMD_400km,3340,9.944801874578468e-06,1.75551649547007e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_LSD_400km,3340,8.790558979065999e-06,1.5966736752908673e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_density_50km,3340,1.4210854715202004e-14,2.087046852704269e-15,0
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.982968909999329e-16,0
+old run-3,dev r3 f1,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,4.8264785381908e-16,0
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn5_CBPP,3340,0.04349703189168075,0.00015376544875291253,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn5_FMD,3340,0.001677773309588071,0.00010556842150517567,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn5_LSD,3340,0.0006499112693516239,7.620775367079413e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn15_CBPP,3340,0.0002594480451090231,3.147867886877357e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn15_FMD,3340,0.00017794565404721796,2.4132301002352826e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn15_LSD,3340,0.00013821336779037963,2.2212695677262924e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn40_CBPP,3340,0.007192785241387084,1.2799651643382716e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn40_FMD,3340,0.0035900307739397397,9.473692816357778e-06,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,knn40_LSD,3340,0.007190979330575387,1.0072542813410866e-05,2704
+old run-3,dev r3 f1,reference prior = exclude_own_block,log_dist_15th_location,3340,6.217248937900877e-15,1.4093849174882226e-15,0
+new,dev r3 f2,FS5 + IDW,kern50_0,3340,2.1649348980190553e-15,2.58160093435667e-16,0
+new,dev r3 f2,FS5 + IDW,kern50_1,3340,2.4980018054066022e-15,2.0285773227546987e-16,0
+new,dev r3 f2,FS5 + IDW,kern50_2,3340,1.942890293094024e-15,2.3198186967529004e-16,0
+new,dev r3 f2,FS5 + IDW,dens50,3340,1.2434497875801753e-14,2.2062524794444765e-15,0
+new,dev r3 f2,FS5 + IDW,kern150_0,3340,9.43689570931383e-16,1.478898507315988e-16,0
+new,dev r3 f2,FS5 + IDW,kern150_1,3340,5.551115123125783e-16,1.0352663503577994e-16,0
+new,dev r3 f2,FS5 + IDW,kern150_2,3340,5.551115123125783e-16,1.2250264010113583e-16,0
+new,dev r3 f2,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.449795936496709e-16,0
+new,dev r3 f2,FS5 + IDW,kern400_0,3340,4.440892098500626e-16,1.393762018638707e-16,0
+new,dev r3 f2,FS5 + IDW,kern400_1,3340,3.885780586188048e-16,1.021388562549985e-16,0
+new,dev r3 f2,FS5 + IDW,kern400_2,3340,4.440892098500626e-16,1.1217739977107028e-16,0
+new,dev r3 f2,FS5 + IDW,dens400,3340,1.7763568394002505e-15,5.419483890266034e-16,0
+new,dev r3 f2,FS5 + IDW,knn5_0,3340,0.07142857142857142,4.27715996578272e-05,2
+new,dev r3 f2,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r3 f2,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r3 f2,FS5 + IDW,knndist5,3340,1.7763568394002505e-14,2.333861646855733e-15,0
+new,dev r3 f2,FS5 + IDW,knn15_0,3340,0.008232729540113906,7.394667251599317e-06,3
+new,dev r3 f2,FS5 + IDW,knn15_1,3340,0.04977881919108096,4.4711514243485894e-05,3
+new,dev r3 f2,FS5 + IDW,knn15_2,3340,0.13274569267876188,0.00011923265809469629,3
+new,dev r3 f2,FS5 + IDW,knndist15,3340,8.43769498715119e-15,1.3417078492805335e-15,0
+new,dev r3 f2,FS5 + IDW,knn40_0,3340,0.0,0.0,0
+new,dev r3 f2,FS5 + IDW,knn40_1,3340,0.0,0.0,0
+new,dev r3 f2,FS5 + IDW,knn40_2,3340,0.0,0.0,0
+new,dev r3 f2,FS5 + IDW,knndist40,3340,3.552713678800501e-15,7.294231752207915e-16,0
+new,dev r3 f2,FS5 + IDW,idw_0,3340,1.970645868709653e-15,6.264948639707377e-17,0
+new,dev r3 f2,FS5 + IDW,idw_1,3340,1.4432899320127035e-15,6.446938791199076e-17,0
+new,dev r3 f2,FS5 + IDW,idw_2,3340,2.525757381022231e-15,6.214257318972247e-17,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_CBPP_50km,3340,2.1649348980190553e-15,2.5880620002372544e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_FMD_50km,3340,2.4980018054066022e-15,2.0021305804203456e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_LSD_50km,3340,1.942890293094024e-15,2.327479526474655e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_CBPP_150km,3340,9.992007221626409e-16,1.4816408246672326e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_FMD_150km,3340,5.551115123125783e-16,1.0316722526171528e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_LSD_150km,3340,5.551115123125783e-16,1.2169240997463168e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_CBPP_400km,3340,4.996003610813204e-16,1.4026537748988037e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,1.0149067215379519e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_LSD_400km,3340,4.440892098500626e-16,1.1191147808852532e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_density_50km,3340,1.2434497875801753e-14,2.2062524794444765e-15,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.449795936496709e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,5.419483890266034e-16,0
+old run-3,dev r3 f2,reference prior = all_fit,knn5_CBPP,3340,0.07142857142857142,4.27715996578272e-05,2
+old run-3,dev r3 f2,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f2,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f2,reference prior = all_fit,knn15_CBPP,3340,0.008243196597953806,7.404068800557311e-06,3
+old run-3,dev r3 f2,reference prior = all_fit,knn15_FMD,3340,0.04978285031825147,4.4715135016393534e-05,3
+old run-3,dev r3 f2,reference prior = all_fit,knn15_LSD,3340,0.13274707636654837,0.00011923390092803746,3
+old run-3,dev r3 f2,reference prior = all_fit,knn40_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f2,reference prior = all_fit,knn40_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f2,reference prior = all_fit,knn40_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f2,reference prior = all_fit,log_dist_15th_location,3340,8.43769498715119e-15,1.3417078492805335e-15,0
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.0010637194207574474,9.927721470236405e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0007501846223431086,7.80554292827622e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0007807420407690557,6.401216226333882e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_CBPP_150km,3340,8.535345999501065e-05,9.592528286594108e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_FMD_150km,3340,6.272682927188633e-05,7.423981229207526e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_LSD_150km,3340,6.553759085244082e-05,6.164752089911065e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.253535038675535e-05,2.4276337107012602e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_FMD_400km,3340,9.608365198338076e-06,1.7814651156074732e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_LSD_400km,3340,6.784116715757849e-06,1.4254386066010302e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_density_50km,3340,1.2434497875801753e-14,2.2062524794444765e-15,0
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.449795936496709e-16,0
+old run-3,dev r3 f2,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,5.419483890266034e-16,0
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn5_CBPP,3340,0.07142857142857142,0.00018348323775048409,2682
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn5_FMD,3340,0.0017005121115595268,0.00010366645491399363,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn5_LSD,3340,0.0006645747932937374,6.398072944883321e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn15_CBPP,3340,0.008290049142570477,4.228980873888703e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn15_FMD,3340,0.04980089441130045,6.974039879662626e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn15_LSD,3340,0.13275327001664072,0.00013827693533182198,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn40_CBPP,3340,5.667795641967066e-05,1.217215240145767e-05,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn40_FMD,3340,5.5535566826719895e-05,9.040272734404668e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,knn40_LSD,3340,3.4235660776371635e-05,7.040454940385798e-06,2680
+old run-3,dev r3 f2,reference prior = exclude_own_block,log_dist_15th_location,3340,8.43769498715119e-15,1.3417078492805335e-15,0
+new,dev r3 f3,FS5 + IDW,kern50_0,3340,2.1094237467877974e-15,2.4161166248010625e-16,0
+new,dev r3 f3,FS5 + IDW,kern50_1,3340,1.9984014443252818e-15,2.750014537446562e-16,0
+new,dev r3 f3,FS5 + IDW,kern50_2,3340,2.4424906541753444e-15,3.1504863588198185e-16,0
+new,dev r3 f3,FS5 + IDW,dens50,3340,1.4210854715202004e-14,2.0380352013467756e-15,0
+new,dev r3 f3,FS5 + IDW,kern150_0,3340,7.771561172376096e-16,1.205934055209889e-16,0
+new,dev r3 f3,FS5 + IDW,kern150_1,3340,5.551115123125783e-16,1.1644045674436896e-16,0
+new,dev r3 f3,FS5 + IDW,kern150_2,3340,8.881784197001252e-16,1.566611112292923e-16,0
+new,dev r3 f3,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.678488583485364e-16,0
+new,dev r3 f3,FS5 + IDW,kern400_0,3340,4.440892098500626e-16,1.0718305817077297e-16,0
+new,dev r3 f3,FS5 + IDW,kern400_1,3340,4.163336342344337e-16,1.0367621598221147e-16,0
+new,dev r3 f3,FS5 + IDW,kern400_2,3340,5.828670879282072e-16,1.2704408383584874e-16,0
+new,dev r3 f3,FS5 + IDW,dens400,3340,1.7763568394002505e-15,4.613741192154842e-16,0
+new,dev r3 f3,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r3 f3,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r3 f3,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r3 f3,FS5 + IDW,knndist5,3340,1.4210854715202004e-14,2.201565609789622e-15,0
+new,dev r3 f3,FS5 + IDW,knn15_0,3340,0.010000000000000009,5.9880239520958136e-06,2
+new,dev r3 f3,FS5 + IDW,knn15_1,3340,0.0,0.0,0
+new,dev r3 f3,FS5 + IDW,knn15_2,3340,0.0,0.0,0
+new,dev r3 f3,FS5 + IDW,knndist15,3340,7.105427357601002e-15,1.2917145729620834e-15,0
+new,dev r3 f3,FS5 + IDW,knn40_0,3340,0.00787922533696142,4.219509342970732e-05,26
+new,dev r3 f3,FS5 + IDW,knn40_1,3340,0.014047234227215183,7.596859519940687e-05,26
+new,dev r3 f3,FS5 + IDW,knn40_2,3340,0.006515017632777759,3.99985249461078e-05,26
+new,dev r3 f3,FS5 + IDW,knndist40,3340,4.440892098500626e-15,7.456443978560333e-16,0
+new,dev r3 f3,FS5 + IDW,idw_0,3340,2.1649348980190553e-15,6.377134349531027e-17,0
+new,dev r3 f3,FS5 + IDW,idw_1,3340,3.7192471324942744e-15,7.833055561464615e-17,0
+new,dev r3 f3,FS5 + IDW,idw_2,3340,2.831068712794149e-15,7.69427768338647e-17,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_CBPP_50km,3340,2.1094237467877974e-15,2.4174877834766847e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_FMD_50km,3340,1.9984014443252818e-15,2.7514064712536335e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_LSD_50km,3340,2.3869795029440866e-15,3.1471259813079716e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_CBPP_150km,3340,7.771561172376096e-16,1.2002832194558087e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_FMD_150km,3340,5.551115123125783e-16,1.1647369695468708e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_LSD_150km,3340,9.43689570931383e-16,1.5513206155465884e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_CBPP_400km,3340,4.440892098500626e-16,1.0703347722434144e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_FMD_400km,3340,3.885780586188048e-16,1.0397537787507454e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_LSD_400km,3340,5.828670879282072e-16,1.263294193140092e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_density_50km,3340,1.4210854715202004e-14,2.0380352013467756e-15,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.678488583485364e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,nbr_density_400km,3340,1.7763568394002505e-15,4.613741192154842e-16,0
+old run-3,dev r3 f3,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f3,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f3,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f3,reference prior = all_fit,knn15_CBPP,3340,0.010000000000000009,5.9880239520958136e-06,2
+old run-3,dev r3 f3,reference prior = all_fit,knn15_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f3,reference prior = all_fit,knn15_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f3,reference prior = all_fit,knn40_CBPP,3340,0.00787922533696142,4.2198661279431534e-05,26
+old run-3,dev r3 f3,reference prior = all_fit,knn40_FMD,3340,0.014047309699511873,7.597108106412484e-05,26
+old run-3,dev r3 f3,reference prior = all_fit,knn40_LSD,3340,0.006515000372858848,3.999825046060449e-05,26
+old run-3,dev r3 f3,reference prior = all_fit,log_dist_15th_location,3340,7.105427357601002e-15,1.2917145729620834e-15,0
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.002450937763262495,0.0001177902721896983,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0016482998732111342,0.00011374467328003906,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0009833561293497994,9.424909967290861e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_CBPP_150km,3340,5.5795939362168756e-05,9.733140969764434e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_FMD_150km,3340,4.770107279877811e-05,8.820015019532842e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_LSD_150km,3340,5.685195246329933e-05,8.113370823497917e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.4938093411076547e-05,2.420607982700371e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_FMD_400km,3340,1.0046137378316722e-05,2.032712670747107e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.426474099932802e-06,1.7894411711978717e-06,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_density_50km,3340,1.4210854715202004e-14,2.0380352013467756e-15,0
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.678488583485364e-16,0
+old run-3,dev r3 f3,reference prior = exclude_own_block,nbr_density_400km,3340,1.7763568394002505e-15,4.613741192154842e-16,0
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn5_CBPP,3340,0.0009013404195490349,9.067018450029495e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn5_FMD,3340,0.0006061676969245366,7.710467972306645e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn5_LSD,3340,0.0006553174018710632,6.71185177360589e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn15_CBPP,3340,0.010021827674977946,3.568452312458505e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn15_FMD,3340,0.00011291359060358608,2.432203983840247e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn15_LSD,3340,0.00013578648867598048,2.222856370923483e-05,2669
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn40_CBPP,3340,0.00787922533696142,5.237662357717117e-05,2672
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn40_FMD,3340,0.014035045451299855,8.474519986818203e-05,2672
+old run-3,dev r3 f3,reference prior = exclude_own_block,knn40_LSD,3340,0.006516001448154368,4.8531214037812125e-05,2672
+old run-3,dev r3 f3,reference prior = exclude_own_block,log_dist_15th_location,3340,7.105427357601002e-15,1.2917145729620834e-15,0
+new,dev r3 f4,FS5 + IDW,kern50_0,3340,2.1094237467877974e-15,2.4605857936672703e-16,0
+new,dev r3 f4,FS5 + IDW,kern50_1,3340,9.992007221626409e-16,2.1172092272982442e-16,0
+new,dev r3 f4,FS5 + IDW,kern50_2,3340,3.2751579226442118e-15,2.8910049670240065e-16,0
+new,dev r3 f4,FS5 + IDW,dens50,3340,1.4654943925052066e-14,1.878860818590462e-15,0
+new,dev r3 f4,FS5 + IDW,kern150_0,3340,8.326672684688674e-16,1.4196893826868395e-16,0
+new,dev r3 f4,FS5 + IDW,kern150_1,3340,4.440892098500626e-16,1.0641074265916293e-16,0
+new,dev r3 f4,FS5 + IDW,kern150_2,3340,6.106226635438361e-16,1.4293290436790938e-16,0
+new,dev r3 f4,FS5 + IDW,dens150,3340,3.552713678800501e-15,7.939091832379413e-16,0
+new,dev r3 f4,FS5 + IDW,kern400_0,3340,6.661338147750939e-16,1.3337634390145033e-16,0
+new,dev r3 f4,FS5 + IDW,kern400_1,3340,4.718447854656915e-16,1.0271224988298604e-16,0
+new,dev r3 f4,FS5 + IDW,kern400_2,3340,6.106226635438361e-16,1.3796349292535066e-16,0
+new,dev r3 f4,FS5 + IDW,dens400,3340,2.6645352591003757e-15,5.113673955339343e-16,0
+new,dev r3 f4,FS5 + IDW,knn5_0,3340,0.0,0.0,0
+new,dev r3 f4,FS5 + IDW,knn5_1,3340,0.0,0.0,0
+new,dev r3 f4,FS5 + IDW,knn5_2,3340,0.0,0.0,0
+new,dev r3 f4,FS5 + IDW,knndist5,3340,1.7763568394002505e-14,2.4476761269849707e-15,0
+new,dev r3 f4,FS5 + IDW,knn15_0,3340,0.005125357408606243,4.603614438867883e-06,3
+new,dev r3 f4,FS5 + IDW,knn15_1,3340,0.05152306906121937,4.627820574361021e-05,3
+new,dev r3 f4,FS5 + IDW,knn15_2,3340,0.1384478720968108,0.00012435437613486002,3
+new,dev r3 f4,FS5 + IDW,knndist15,3340,8.43769498715119e-15,1.3861167702655398e-15,0
+new,dev r3 f4,FS5 + IDW,knn40_0,3340,0.018856743519445773,1.2357823449995303e-05,4
+new,dev r3 f4,FS5 + IDW,knn40_1,3340,0.0022152739285635076,2.590989146526071e-06,4
+new,dev r3 f4,FS5 + IDW,knn40_2,3340,0.028581709544371448,9.834021925196778e-06,4
+new,dev r3 f4,FS5 + IDW,knndist40,3340,4.440892098500626e-15,7.682477408723539e-16,0
+new,dev r3 f4,FS5 + IDW,idw_0,3340,2.9698465908722937e-15,7.597050068205974e-17,0
+new,dev r3 f4,FS5 + IDW,idw_1,3340,3.83026943495679e-15,6.507602175029642e-17,0
+new,dev r3 f4,FS5 + IDW,idw_2,3340,2.831068712794149e-15,7.956044339641653e-17,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_CBPP_50km,3340,2.1094237467877974e-15,2.4282596891329e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_FMD_50km,3340,9.992007221626409e-16,2.1046714354688788e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_LSD_50km,3340,3.2751579226442118e-15,2.8898519472285967e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_CBPP_150km,3340,7.771561172376096e-16,1.4238444089766043e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_FMD_150km,3340,4.440892098500626e-16,1.0580203130771239e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_LSD_150km,3340,6.106226635438361e-16,1.431074154720795e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_CBPP_400km,3340,7.216449660063518e-16,1.3354254495304092e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_FMD_400km,3340,4.996003610813204e-16,1.0224688693853238e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_LSD_400km,3340,6.106226635438361e-16,1.3756461040153325e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_density_50km,3340,1.4654943925052066e-14,1.878860818590462e-15,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_density_150km,3340,3.552713678800501e-15,7.939091832379413e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,nbr_density_400km,3340,2.6645352591003757e-15,5.113673955339343e-16,0
+old run-3,dev r3 f4,reference prior = all_fit,knn5_CBPP,3340,0.0,0.0,0
+old run-3,dev r3 f4,reference prior = all_fit,knn5_FMD,3340,0.0,0.0,0
+old run-3,dev r3 f4,reference prior = all_fit,knn5_LSD,3340,0.0,0.0,0
+old run-3,dev r3 f4,reference prior = all_fit,knn15_CBPP,3340,0.005137319408107292,4.6143587497969695e-06,3
+old run-3,dev r3 f4,reference prior = all_fit,knn15_FMD,3340,0.05152781140401329,4.628246533294606e-05,3
+old run-3,dev r3 f4,reference prior = all_fit,knn15_LSD,3340,0.13845178855910018,0.00012435789391535945,3
+old run-3,dev r3 f4,reference prior = all_fit,knn40_CBPP,3340,0.018856745941329855,1.235783672243817e-05,4
+old run-3,dev r3 f4,reference prior = all_fit,knn40_FMD,3340,0.0022152921776479595,2.5910057150244614e-06,4
+old run-3,dev r3 f4,reference prior = all_fit,knn40_LSD,3340,0.028581710309240727,9.834033391559552e-06,4
+old run-3,dev r3 f4,reference prior = all_fit,log_dist_15th_location,3340,8.43769498715119e-15,1.3861167702655398e-15,0
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_CBPP_50km,3340,0.002012794523500838,0.00013484817856436397,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_FMD_50km,3340,0.0020205233011554302,0.00010792409475854439,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_LSD_50km,3340,0.0065929233672266385,0.0001380948599660198,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_CBPP_150km,3340,6.37965476504021e-05,1.0025797681302801e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_FMD_150km,3340,5.6736227267553674e-05,7.5885734572713074e-06,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_LSD_150km,3340,9.518148424991768e-05,7.858286737583872e-06,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_CBPP_400km,3340,1.3066443820597406e-05,2.564902677884886e-06,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_FMD_400km,3340,1.02909757736247e-05,1.8159156260380468e-06,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_LSD_400km,3340,9.42132340228663e-06,1.8316927519026826e-06,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_density_50km,3340,1.4654943925052066e-14,1.878860818590462e-15,0
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_density_150km,3340,3.552713678800501e-15,7.939091832379413e-16,0
+old run-3,dev r3 f4,reference prior = exclude_own_block,nbr_density_400km,3340,2.6645352591003757e-15,5.113673955339343e-16,0
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn5_CBPP,3340,0.001520478437425643,0.0001431428894052039,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn5_FMD,3340,0.0011975107365577164,0.00010034039153332396,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn5_LSD,3340,0.0006506924516977274,9.465861844968707e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn15_CBPP,3340,0.00518630664415921,4.219849252316982e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn15_FMD,3340,0.051547232426883624,7.302917177381324e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn15_LSD,3340,0.1384678274046663,0.0001523504542239058,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn40_CBPP,3340,0.01885592007886905,2.48206740472745e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn40_FMD,3340,0.0022186500091860295,1.1493900290622756e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,knn40_LSD,3340,0.028581449488813915,1.9477725650604052e-05,2668
+old run-3,dev r3 f4,reference prior = exclude_own_block,log_dist_15th_location,3340,8.43769498715119e-15,1.3861167702655398e-15,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern50_0,2667,1.3877787807814457e-15,2.538849437311868e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern50_1,2667,2.7755575615628914e-15,2.429282819565976e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern50_2,2667,2.886579864025407e-15,3.379673223361819e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,dens50,2667,1.3766765505351941e-14,2.0908347610921594e-15,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern150_0,2667,6.38378239159465e-16,1.444393078250145e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern150_1,2667,4.440892098500626e-16,9.192018058681754e-17,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern150_2,2667,6.661338147750939e-16,1.3839021583904363e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,dens150,2667,3.552713678800501e-15,8.004262586236412e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern400_0,2667,5.551115123125783e-16,1.303898038575983e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern400_1,2667,3.608224830031759e-16,8.568116012128716e-17,0
+new,inner r1 f0 pair 0,FS5 + IDW,kern400_2,2667,4.163336342344337e-16,1.130204541378815e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,dens400,2667,2.6645352591003757e-15,4.822206043216278e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,knn5_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 0,FS5 + IDW,knn5_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 0,FS5 + IDW,knn5_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 0,FS5 + IDW,knndist5,2667,1.1102230246251565e-14,2.000149827041227e-15,0
+new,inner r1 f0 pair 0,FS5 + IDW,knn15_0,2667,0.016943635021080317,3.155904863414775e-05,5
+new,inner r1 f0 pair 0,FS5 + IDW,knn15_1,2667,0.009465357121117096,1.4196261149032015e-05,4
+new,inner r1 f0 pair 0,FS5 + IDW,knn15_2,2667,0.02122050015747365,3.182677188972426e-05,4
+new,inner r1 f0 pair 0,FS5 + IDW,knndist15,2667,7.105427357601002e-15,1.1567633073972198e-15,0
+new,inner r1 f0 pair 0,FS5 + IDW,knn40_0,2667,0.019820387253217775,2.07888516159178e-05,5
+new,inner r1 f0 pair 0,FS5 + IDW,knn40_1,2667,0.005871273165130385,9.571897085534784e-06,5
+new,inner r1 f0 pair 0,FS5 + IDW,knn40_2,2667,0.030145442677698503,1.1673353511251786e-05,5
+new,inner r1 f0 pair 0,FS5 + IDW,knndist40,2667,4.440892098500626e-15,7.776140269965476e-16,0
+new,inner r1 f0 pair 0,FS5 + IDW,idw_0,2667,4.996003610813204e-16,3.9359425188717116e-17,0
+new,inner r1 f0 pair 0,FS5 + IDW,idw_1,2667,7.771561172376096e-16,3.257403512445388e-17,0
+new,inner r1 f0 pair 0,FS5 + IDW,idw_2,2667,8.881784197001252e-16,4.0244023586665547e-17,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern50_0,2667,2.1649348980190553e-15,2.13009342905986e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern50_1,2667,2.9976021664879227e-15,2.6009469439678503e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern50_2,2667,3.164135620181696e-15,2.7785756031558917e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,dens50,2667,1.2878587085651816e-14,2.3232433346694042e-15,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern150_0,2667,6.661338147750939e-16,1.2852174018193072e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern150_1,2667,4.718447854656915e-16,1.1095465670267254e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern150_2,2667,6.106226635438361e-16,1.2242581651606847e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,dens150,2667,3.552713678800501e-15,7.429793979568726e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern400_0,2667,5.551115123125783e-16,1.3299156385156427e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern400_1,2667,4.440892098500626e-16,1.06026923274101e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,kern400_2,2667,4.163336342344337e-16,1.2035741732086553e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,dens400,2667,2.6645352591003757e-15,5.061984244260181e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn5_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn5_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn5_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knndist5,2667,1.0658141036401503e-14,2.0760795907051297e-15,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn15_0,2667,0.03450880815173865,0.00014233104224564125,11
+new,inner r1 f0 pair 1,FS5 + IDW,knn15_1,2667,0.20586971321740719,0.0008491064287182148,11
+new,inner r1 f0 pair 1,FS5 + IDW,knn15_2,2667,0.15760592697648004,0.0006500431933788079,11
+new,inner r1 f0 pair 1,FS5 + IDW,knndist15,2667,5.773159728050814e-15,1.1241268300329107e-15,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn40_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn40_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knn40_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 1,FS5 + IDW,knndist40,2667,4.440892098500626e-15,6.037748312397177e-16,0
+new,inner r1 f0 pair 1,FS5 + IDW,idw_0,2667,5.273559366969494e-16,4.3813638298386846e-17,0
+new,inner r1 f0 pair 1,FS5 + IDW,idw_1,2667,8.326672684688674e-16,4.205484854246586e-17,0
+new,inner r1 f0 pair 1,FS5 + IDW,idw_2,2667,7.771561172376096e-16,4.4240326937397266e-17,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern50_0,2667,1.4432899320127035e-15,2.2669655179424243e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern50_1,2667,2.4980018054066022e-15,2.804027320296864e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern50_2,2667,2.4424906541753444e-15,2.8542868189803013e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,dens50,2667,1.4654943925052066e-14,2.18093613867007e-15,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern150_0,2667,6.106226635438361e-16,1.2022732932116724e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern150_1,2667,4.440892098500626e-16,1.0271488280178233e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern150_2,2667,4.996003610813204e-16,1.3275220193211938e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,dens150,2667,3.552713678800501e-15,7.74450286843885e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern400_0,2667,3.885780586188048e-16,9.892932201056185e-17,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern400_1,2667,3.885780586188048e-16,9.959537256901713e-17,0
+new,inner r1 f0 pair 2,FS5 + IDW,kern400_2,2667,4.718447854656915e-16,1.1373853989621612e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,dens400,2667,1.7763568394002505e-15,4.445887477689041e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn5_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn5_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn5_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knndist5,2667,1.1102230246251565e-14,2.1938040269121017e-15,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn15_0,2667,0.017756333434993943,2.6631171256083905e-05,4
+new,inner r1 f0 pair 2,FS5 + IDW,knn15_1,2667,0.009686083843429172,1.4527309851412331e-05,4
+new,inner r1 f0 pair 2,FS5 + IDW,knn15_2,2667,0.021719768517522525,3.25755808286802e-05,4
+new,inner r1 f0 pair 2,FS5 + IDW,knndist15,2667,6.217248937900877e-15,1.2335256342591915e-15,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn40_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn40_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knn40_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 2,FS5 + IDW,knndist40,2667,3.552713678800501e-15,6.993530863780514e-16,0
+new,inner r1 f0 pair 2,FS5 + IDW,idw_0,2667,3.885780586188048e-16,4.118065718449329e-17,0
+new,inner r1 f0 pair 2,FS5 + IDW,idw_1,2667,8.326672684688674e-16,3.448893048001283e-17,0
+new,inner r1 f0 pair 2,FS5 + IDW,idw_2,2667,7.216449660063518e-16,4.036890806637591e-17,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern50_0,2667,1.3322676295501878e-15,2.117032593890151e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern50_1,2667,2.4424906541753444e-15,2.6949160105499164e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern50_2,2667,3.1086244689504383e-15,2.9528935227516116e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,dens50,2667,1.3766765505351941e-14,2.1160086793750254e-15,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern150_0,2667,6.661338147750939e-16,1.309934121761984e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern150_1,2667,4.440892098500626e-16,1.1238302293935986e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern150_2,2667,4.996003610813204e-16,1.1422767077508173e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,dens150,2667,2.6645352591003757e-15,6.707129123644741e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern400_0,2667,4.440892098500626e-16,1.1506023397315083e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern400_1,2667,3.608224830031759e-16,9.993880488822065e-17,0
+new,inner r1 f0 pair 3,FS5 + IDW,kern400_2,2667,4.440892098500626e-16,1.0235323816262106e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,dens400,2667,1.7763568394002505e-15,4.925443879776848e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,knn5_0,2667,0.0,0.0,0
+new,inner r1 f0 pair 3,FS5 + IDW,knn5_1,2667,0.0,0.0,0
+new,inner r1 f0 pair 3,FS5 + IDW,knn5_2,2667,0.0,0.0,0
+new,inner r1 f0 pair 3,FS5 + IDW,knndist5,2667,1.1102230246251565e-14,2.2395950028059026e-15,0
+new,inner r1 f0 pair 3,FS5 + IDW,knn15_0,2667,0.05315721315721317,0.00011989014710280607,8
+new,inner r1 f0 pair 3,FS5 + IDW,knn15_1,2667,0.03629399930497074,4.612821877111696e-05,8
+new,inner r1 f0 pair 3,FS5 + IDW,knn15_2,2667,0.011350478393447633,1.7954906881635974e-05,8
+new,inner r1 f0 pair 3,FS5 + IDW,knndist15,2667,7.105427357601002e-15,1.1114718694222601e-15,0
+new,inner r1 f0 pair 3,FS5 + IDW,knn40_0,2667,0.008355226042244646,2.819536347214166e-05,9
+new,inner r1 f0 pair 3,FS5 + IDW,knn40_1,2667,0.00746393614412616,2.51876360319218e-05,9
+new,inner r1 f0 pair 3,FS5 + IDW,knn40_2,2667,0.014470719980932495,4.883257586366421e-05,9
+new,inner r1 f0 pair 3,FS5 + IDW,knndist40,2667,5.329070518200751e-15,6.926925807934985e-16,0
+new,inner r1 f0 pair 3,FS5 + IDW,idw_0,2667,4.440892098500626e-16,4.023361654668968e-17,0
+new,inner r1 f0 pair 3,FS5 + IDW,idw_1,2667,7.771561172376096e-16,4.225258230200727e-17,0
+new,inner r1 f0 pair 3,FS5 + IDW,idw_2,2667,8.326672684688674e-16,4.784116276904616e-17,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern50_0,2667,2.1094237467877974e-15,2.46146008629135e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern50_1,2667,2.6645352591003757e-15,2.683650389776044e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern50_2,2667,4.773959005888173e-15,3.062830891296643e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,dens50,2667,1.4210854715202004e-14,2.2148219384983567e-15,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern150_0,2667,5.273559366969494e-16,1.3440171776829382e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern150_1,2667,4.440892098500626e-16,9.437624202112141e-17,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern150_2,2667,5.551115123125783e-16,1.273301341046943e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,dens150,2667,3.9968028886505635e-15,6.493992944939048e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern400_0,2667,4.996003610813204e-16,1.2367726307316611e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern400_1,2667,3.3306690738754696e-16,8.803315115583239e-17,0
+new,inner r1 f0 pair 4,FS5 + IDW,kern400_2,2667,3.885780586188048e-16,1.1862984868487213e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,dens400,2667,1.7763568394002505e-15,4.615730370095139e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,knn5_0,2667,0.04552293545155292,6.827586869374266e-05,4
+new,inner r1 f0 pair 4,FS5 + IDW,knn5_1,2667,0.1448985616144268,0.00021732067733697306,4
+new,inner r1 f0 pair 4,FS5 + IDW,knn5_2,2667,0.03164806068412767,4.7466157756471944e-05,4
+new,inner r1 f0 pair 4,FS5 + IDW,knndist5,2667,1.1102230246251565e-14,2.1072174543129144e-15,0
+new,inner r1 f0 pair 4,FS5 + IDW,knn15_0,2667,0.05314285714285716,9.963040334243937e-05,5
+new,inner r1 f0 pair 4,FS5 + IDW,knn15_1,2667,0.007598086124401916,1.4244630904390543e-05,5
+new,inner r1 f0 pair 4,FS5 + IDW,knn15_2,2667,0.0044520391888812905,8.34653016288206e-06,5
+new,inner r1 f0 pair 4,FS5 + IDW,knndist15,2667,7.105427357601002e-15,1.2934701845201673e-15,0
+new,inner r1 f0 pair 4,FS5 + IDW,knn40_0,2667,0.00788981530941052,8.874932856479775e-06,3
+new,inner r1 f0 pair 4,FS5 + IDW,knn40_1,2667,0.0025949055908367144,2.9189039267004664e-06,3
+new,inner r1 f0 pair 4,FS5 + IDW,knn40_2,2667,0.0019259597945380236,2.1664339646097003e-06,3
+new,inner r1 f0 pair 4,FS5 + IDW,knndist40,2667,5.329070518200751e-15,6.071050840319941e-16,0
+new,inner r1 f0 pair 4,FS5 + IDW,idw_0,2667,4.996003610813204e-16,3.8714188710213556e-17,0
+new,inner r1 f0 pair 4,FS5 + IDW,idw_1,2667,5.273559366969494e-16,3.714272567385811e-17,0
+new,inner r1 f0 pair 4,FS5 + IDW,idw_2,2667,9.43689570931383e-16,5.149403380057438e-17,0
